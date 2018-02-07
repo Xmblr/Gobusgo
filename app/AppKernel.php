@@ -22,6 +22,11 @@ class AppKernel extends Kernel
 
             //Bootstrap
             new Twitter\BootstrapBundle\TwitterBootstrapBundle(),
+
+            //User Bundle
+            new FOS\UserBundle\FOSUserBundle(),
+
+
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {
