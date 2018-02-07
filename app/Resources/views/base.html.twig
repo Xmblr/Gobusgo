@@ -4,7 +4,9 @@
         <meta charset="UTF-8" />
 
         {% block stylesheets %}
-
+            {{ include('@TwitterBootstrap/html5shiv.html.twig') }}
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            {{ twitter_assets('stylesheets') }}
         {% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
@@ -14,18 +16,18 @@
             <h2 style="color: green">Header from base.html.twig</h2>
         {% endblock %}
     </div>
-    <div>
+    <div class="container">
         {% block body %}
 
         {% endblock %}
     </div>
     <div>
         {% block footer %}
-            <h2 style="color: green">Footer from base.html.twig</h2>
+            <footer><p>&copy; New-Line 2018</p></footer>
         {% endblock %}
     </div>
         {% block javascripts %}
-
+            {{ twitter_assets('javascripts') }}
         {% endblock %}
     </body>
 </html>
