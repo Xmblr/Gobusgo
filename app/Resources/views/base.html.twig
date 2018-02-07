@@ -2,12 +2,30 @@
 <html>
     <head>
         <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
+
+        {% block stylesheets %}
+
+        {% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+    <div>
+        {% block header %}
+            <h2 style="color: green">Header from base.html.twig</h2>
+        {% endblock %}
+    </div>
+    <div>
+        {% block body %}
+
+        {% endblock %}
+    </div>
+    <div>
+        {% block footer %}
+            <h2 style="color: green">Footer from base.html.twig</h2>
+        {% endblock %}
+    </div>
+        {% block javascripts %}
+
+        {% endblock %}
     </body>
 </html>

@@ -1,3 +1,4 @@
-app:
-    resource: '@AppBundle/Controller/'
-    type: annotation
+gobusgo_gobusgo:
+    resource: "@GobusgoGobusgoBundle/Resources/config/routing.yml"
+    prefix:   /
+

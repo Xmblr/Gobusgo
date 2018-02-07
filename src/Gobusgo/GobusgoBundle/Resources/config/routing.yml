@@ -1,0 +1,3 @@
+gobusgo_gobusgo_homepage:
+    path:     /
+    defaults: { _controller: GobusgoGobusgoBundle:Page:index }

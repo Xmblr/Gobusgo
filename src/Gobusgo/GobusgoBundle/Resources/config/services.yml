@@ -1,0 +1,4 @@
+services:
+#    gobusgo_gobusgo.example:
+#        class: Gobusgo\GobusgoBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]
