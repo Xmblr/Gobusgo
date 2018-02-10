@@ -2,7 +2,8 @@
 <html>
     <head>
         <meta charset="UTF-8" />
-
+        {{ sonata_seo_title() }}
+        {{ sonata_seo_metadatas() }}
         {% block stylesheets %}
             {{ include('@TwitterBootstrap/html5shiv.html.twig') }}
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -23,7 +24,10 @@
     </div>
     <div>
         {% block footer %}
-            <footer><p>&copy; New-Line 2018</p></footer>
+            <footer>
+                <p>&copy;Gobusgo.by 2018</p>
+                Разработка: <a href="http:\\new-line.by">New-line.by</a>
+            </footer>
         {% endblock %}
     </div>
         {% block javascripts %}

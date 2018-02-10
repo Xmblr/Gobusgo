@@ -7,11 +7,11 @@ imports:
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
-    locale: en
+    locale: ru
 
 framework:
     #esi: ~
-    translator: ~
+    translator: { fallbacks: ["%locale%"] }
     secret: '%secret%'
     router:
         resource: '%kernel.project_dir%/app/config/routing.yml'
@@ -20,6 +20,8 @@ framework:
     csrf_protection: ~
     validation: { enable_annotations: true }
     #serializer: { enable_annotations: true }
+    templating:
+        engines: ['twig']
     default_locale: '%locale%'
     trusted_hosts: ~
     session:
@@ -47,6 +49,8 @@ doctrine:
         user: '%database_user%'
         password: '%database_password%'
         charset: UTF8
+        types:
+            json: Sonata\Doctrine\Types\JsonType
         # if using pdo_sqlite as your database driver:
         #   1. add the path in parameters.yml
         #     e.g. database_path: '%kernel.project_dir%/var/data/data.sqlite'
@@ -58,6 +62,9 @@ doctrine:
         auto_generate_proxy_classes: '%kernel.debug%'
         naming_strategy: doctrine.orm.naming_strategy.underscore
         auto_mapping: true
+        mappings:
+            ApplicationSonataMediaBundle: ~
+            SonataMediaBundle: ~
 
 # Swiftmailer Configuration
 swiftmailer:
@@ -81,3 +88,123 @@ fos_user:
     registration:
         confirmation:
             enabled: true
+
+sonata_block:
+    blocks:
+        # enable the SonataAdminBundle block
+        sonata.admin.block.admin_list:
+            contexts: [admin]
+
+sonata_admin:
+    security:
+        handler: sonata.admin.security.handler.noop
+    dashboard:
+        groups:
+            app.admin.group.admin:
+                label: Администратор
+                roles: [ ROLE_ADMIN, ROLE_SUPER_ADMIN]
+            app.admin.group.user:
+                label: Пользователь
+                roles: [ ROLE_USER ]
+    title:      GoBusGo
+    title_logo: favicon.ico
+    templates:
+        layout:                         "@GobusgoGobusgo/Admin/standard_layout.html.twig"
+        ajax:                           "@GobusgoGobusgo/Admin/ajax_layout.html.twig"
+        list:                           "@GobusgoGobusgo/Admin/CRUD/list.html.twig"
+        show:                           "@GobusgoGobusgo/Admin/CRUD/show.html.twig"
+        show_compare:                   "@GobusgoGobusgo/Admin/CRUD/show_compare.html.twig"
+        edit:                           "@GobusgoGobusgo/Admin/CRUD/edit.html.twig"
+        history:                        "@GobusgoGobusgo/Admin/CRUD/history.html.twig"
+        preview:                        "@GobusgoGobusgo/Admin/CRUD/preview.html.twig"
+        delete:                         "@GobusgoGobusgo/Admin/CRUD/delete.html.twig"
+        batch:                          "@GobusgoGobusgo/Admin/CRUD/list__batch.html.twig"
+        acl:                            "@GobusgoGobusgo/Admin/CRUD/acl.html.twig"
+        action:                         "@GobusgoGobusgo/Admin/CRUD/action.html.twig"
+        select:                         "@GobusgoGobusgo/Admin/CRUD/list__select.html.twig"
+        filter:                         "@GobusgoGobusgo/Admin/Form/filter_admin_fields.html.twig"
+        dashboard:                      "@GobusgoGobusgo/Admin/Core/dashboard.html.twig"
+        search:                         "@GobusgoGobusgo/Admin/Core/search.html.twig"
+        batch_confirmation:             "@GobusgoGobusgo/Admin/CRUD/batch_confirmation.html.twig"
+        inner_list_row:                 "@GobusgoGobusgo/Admin/CRUD/list_inner_row.html.twig"
+        base_list_field:                "@GobusgoGobusgo/Admin/CRUD/base_list_field.html.twig"
+        list_block:                     "@GobusgoGobusgo/Admin/Block/block_admin_list.html.twig"
+        user_block:                     "@GobusgoGobusgo/Admin/Core/user_block.html.twig"
+        add_block:                      "@GobusgoGobusgo/Admin/Core/add_block.html.twig"
+        pager_links:                    "@GobusgoGobusgo/Admin/Pager/links.html.twig"
+        pager_results:                  "@GobusgoGobusgo/Admin/Pager/results.html.twig"
+        tab_menu_template:              "@GobusgoGobusgo/Admin/Core/tab_menu_template.html.twig"
+        history_revision_timestamp:     "@GobusgoGobusgo/Admin/CRUD/history_revision_timestamp.html.twig"
+        short_object_description:       "@GobusgoGobusgo/Admin/Helper/short-object-description.html.twig"
+        search_result_block:            "@GobusgoGobusgo/Admin/Block/block_search_result.html.twig"
+        action_create:                  "@GobusgoGobusgo/Admin/CRUD/dashboard__action_create.html.twig"
+        button_acl:                     "@GobusgoGobusgo/Admin/Button/acl_button.html.twig"
+        button_create:                  "@GobusgoGobusgo/Admin/Button/create_button.html.twig"
+        button_edit:                    "@GobusgoGobusgo/Admin/Button/edit_button.html.twig"
+        button_history:                 "@GobusgoGobusgo/Admin/Button/history_button.html.twig"
+        button_list:                    "@GobusgoGobusgo/Admin/Button/list_button.html.twig"
+        button_show:                    "@GobusgoGobusgo/Admin/Button/show_button.html.twig"
+
+sonata_seo:
+    encoding:         UTF-8
+    page:
+        title:            GObusGO
+        default:          sonata.seo.page.default
+        metas:
+            name:
+                keywords:             foo bar
+                description:          The description
+                robots:               index, follow
+
+            property:
+                # Facebook application settings
+                #'fb:app_id':          XXXXXX
+                #'fb:admins':          admin1, admin2
+
+                # Open Graph information
+                # see http://developers.facebook.com/docs/opengraphprotocol/#types or http://ogp.me/
+                'og:site_name':       GobusGo
+                #'og:description':     A demo of the some rich bundles for your Symfony2 projects
+
+            http-equiv:
+                'Content-Type':         text/html; charset=utf-8
+                #'X-Ua-Compatible':      IE=EmulateIE7
+
+            charset:
+                UTF-8:    ''
+
+        head:
+            'xmlns':              http://www.w3.org/1999/xhtml
+            'xmlns:og':           http://opengraphprotocol.org/schema/
+            #'xmlns:fb':           "http://www.facebook.com/2008/fbml"
+
+sonata_media:
+    # if you don't use default namespace configuration
+    class:
+        media: Application\Sonata\MediaBundle\Entity\Media
+        gallery: Application\Sonata\MediaBundle\Entity\Gallery
+        gallery_has_media: Application\Sonata\MediaBundle\Entity\GalleryHasMedia
+    db_driver: doctrine_orm # or doctrine_mongodb, doctrine_phpcr it is mandatory to choose one here
+    default_context: default # you need to set a context
+    contexts:
+        default:  # the default context is mandatory
+            providers:
+                - sonata.media.provider.dailymotion
+                - sonata.media.provider.youtube
+                - sonata.media.provider.image
+                - sonata.media.provider.file
+                - sonata.media.provider.vimeo
+
+            formats:
+                small: { width: 100 , quality: 70}
+                big:   { width: 500 , quality: 70}
+
+    cdn:
+        server:
+            path: /uploads/media # http://media.sonata-project.org/
+
+    filesystem:
+        local:
+#            directory:  "%kernel.root_dir%/../public/uploads/media" #flex
+            directory:  "%kernel.root_dir%/../web/uploads/media" #non-flex
+            create:     false
