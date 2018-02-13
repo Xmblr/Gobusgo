@@ -3,6 +3,8 @@ imports:
     - { resource: security.yml }
     - { resource: services.yml }
     - { resource: "@GobusgoGobusgoBundle/Resources/config/services.yml" }
+    - { resource: sonata_news.yml }
+    - { resource: sonata_formatter.yml }
 
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
@@ -88,6 +90,9 @@ fos_user:
     registration:
         confirmation:
             enabled: true
+    group:
+        group_class: Gobusgo\GobusgoBundle\Entity\Group
+
 
 sonata_block:
     blocks:
@@ -199,6 +204,16 @@ sonata_media:
                 small: { width: 100 , quality: 70}
                 big:   { width: 500 , quality: 70}
 
+        news:
+            providers:
+                - sonata.media.provider.dailymotion
+                - sonata.media.provider.youtube
+                - sonata.media.provider.image
+
+            formats:
+                small: { width: 150 , quality: 95}
+                big:   { width: 500 , quality: 90}
+
     cdn:
         server:
             path: /uploads/media # http://media.sonata-project.org/
@@ -208,3 +223,13 @@ sonata_media:
 #            directory:  "%kernel.root_dir%/../public/uploads/media" #flex
             directory:  "%kernel.root_dir%/../web/uploads/media" #non-flex
             create:     false
+
+sonata_user:
+    class:
+        user: Application\Sonata\UserBundle\Entity\User
+        group: Application\Sonata\UserBundle\Entity\Group
+#    admin:            # Admin Classes
+#        user:
+#            class:    Application\Sonata\UserBundle\Admin\Model\UserAdmin
+#        group:
+#            class:    Application\Sonata\UserBundle\Admin\Model\GroupAdmin
