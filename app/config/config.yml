@@ -4,7 +4,7 @@ imports:
     - { resource: services.yml }
     - { resource: "@GobusgoGobusgoBundle/Resources/config/services.yml" }
     - { resource: sonata_news.yml }
-    - { resource: sonata_formatter.yml }
+#    - { resource: sonata_formatter.yml }
 
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
@@ -40,6 +40,9 @@ framework:
 twig:
     debug: '%kernel.debug%'
     strict_variables: '%kernel.debug%'
+
+    form_themes:
+        - '@SonataFormatter/Form/formatter.html.twig'
 
 # Doctrine Configuration
 doctrine:
@@ -88,6 +91,8 @@ fos_user:
         address: "%mailer_user%"
         sender_name: "%mailer_user%"
     registration:
+        form:
+            name: app_user_registration
         confirmation:
             enabled: true
     group:
@@ -101,6 +106,21 @@ sonata_block:
             contexts: [admin]
 
 sonata_admin:
+    assets:
+        extra_javascripts:
+            # ...
+            - bundles/ivoryckeditor/ckeditor.js
+            - bundles/sonataformatter/vendor/markitup-markitup/markitup/jquery.markitup.js
+            - bundles/sonataformatter/markitup/sets/markdown/set.js
+            - bundles/sonataformatter/markitup/sets/html/set.js
+            - bundles/sonataformatter/markitup/sets/textile/set.js
+
+        extra_stylesheets:
+            # ...
+            - bundles/sonataformatter/markitup/skins/sonata/style.css
+            - bundles/sonataformatter/markitup/sets/markdown/style.css
+            - bundles/sonataformatter/markitup/sets/html/style.css
+            - bundles/sonataformatter/markitup/sets/textile/style.css
     security:
         handler: sonata.admin.security.handler.noop
     dashboard:
@@ -233,3 +253,96 @@ sonata_user:
 #            class:    Application\Sonata\UserBundle\Admin\Model\UserAdmin
 #        group:
 #            class:    Application\Sonata\UserBundle\Admin\Model\GroupAdmin
+
+
+knp_menu:
+    # use "twig: false" to disable the Twig extension and the TwigRenderer
+    twig:
+        template: KnpMenuBundle::menu.html.twig
+    #  if true, enables the helper for PHP templates
+    templating: false
+    # the renderer to use, list is also available by default
+    default_renderer: twig
+
+sonata_formatter:
+    default_formatter: text
+    formatters:
+        markdown:
+            service: sonata.formatter.text.markdown
+            extensions:
+                - sonata.formatter.twig.control_flow
+                - sonata.formatter.twig.gist
+                - sonata.media.formatter.twig #keep this commented unless you are using media bundle.
+
+
+        text:
+            service: sonata.formatter.text.text
+            extensions:
+                - sonata.formatter.twig.control_flow
+                - sonata.formatter.twig.gist
+                - sonata.media.formatter.twig
+
+
+        rawhtml:
+            service: sonata.formatter.text.raw
+            extensions:
+                - sonata.formatter.twig.control_flow
+                - sonata.formatter.twig.gist
+                - sonata.media.formatter.twig
+
+
+        richhtml:
+            service: sonata.formatter.text.raw
+            extensions:
+                - sonata.formatter.twig.control_flow
+                - sonata.formatter.twig.gist
+                - sonata.media.formatter.twig
+
+
+        twig:
+            service: sonata.formatter.text.twigengine
+            extensions: [] # Twig formatter cannot have extensions
+
+sonata_classification:
+    class:
+        collection:     Application\Sonata\ClassificationBundle\Entity\Collection
+        tag:            Application\Sonata\ClassificationBundle\Entity\Tag
+        category:       Application\Sonata\ClassificationBundle\Entity\Category
+
+sonata_news:
+    title:        Sonata Project
+    link:         https://sonata-project.org
+    description:  Cool bundles on top of Symfony2
+    salt:         'secureToken'
+    permalink_generator: sonata.news.permalink.date # sonata.news.permalink.collection
+    permalink:
+        date:     '%%1$04d/%%2$02d/%%3$02d/%%4$s' # => 2012/02/01/slug
+    comment:
+        notification:
+            emails:   [email@example.org, email2@example.org]
+            from:     no-reply@sonata-project.org
+            template: '@SonataNews/Mail/comment_notification.txt.twig'
+
+    class:
+        post:       Application\Sonata\NewsBundle\Entity\Post
+        comment:    Application\Sonata\NewsBundle\Entity\Comment
+        media:      Application\Sonata\MediaBundle\Entity\Media
+        user:       Application\Sonata\UserBundle\Entity\User
+
+    admin:
+        post:
+            class:       Sonata\NewsBundle\Admin\PostAdmin
+            controller:  SonataAdminBundle:CRUD
+            translation: SonataNewsBundle
+        comment:
+            class:       Sonata\NewsBundle\Admin\CommentAdmin
+            controller:  SonataNewsBundle:CommentAdmin
+            translation: SonataNewsBundle
+#        collection:
+#            class:       Sonata\NewsBundle\Admin\CollectionAdmin
+#            controller:  SonataAdminBundle:CRUD
+#            translation: SonataNewsBundle
+#        tag:
+#            class:       Sonata\NewsBundle\Admin\TagAdmin
+#            controller:  SonataAdminBundle:CRUD
+#            translation: SonataNewsBundle

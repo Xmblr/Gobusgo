@@ -35,6 +35,8 @@ file that was distributed with this source code.
             {% for stylesheet in sonata_admin.adminPool.getOption('stylesheets', []) %}
                 <link rel="stylesheet" href="{{ asset(stylesheet) }}">
             {% endfor %}
+
+
         {% endblock %}
 
         {% block javascripts %}

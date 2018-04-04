@@ -15,8 +15,9 @@ class   UserAdmin extends AbstractAdmin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
+
             ->add('username', 'text')
-            ->add('password', 'text')
+            ->add('email', 'text')
         ;
     }
 
@@ -24,7 +25,7 @@ class   UserAdmin extends AbstractAdmin
     {
         $datagridMapper
             ->add('username')
-            ->add('password')
+            ->add('email')
         ;
     }
 
@@ -32,6 +33,7 @@ class   UserAdmin extends AbstractAdmin
     {
         $listMapper
             ->addIdentifier('username')
+            ->addIdentifier('email')
         ;
     }
 }

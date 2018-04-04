@@ -14,12 +14,30 @@ services:
         # if you need to do this, you can override this setting on individual services
         public: false
 
-    admin.category:
+    admin.users:
         class: Gobusgo\GobusgoBundle\Admin\UserAdmin
         arguments: [~, Gobusgo\GobusgoBundle\Entity\User, ~]
         tags:
             - { name: sonata.admin, manager_type: orm, label: Пользователи, , group: "app.admin.group.admin" }
         public: true
+
+    admin.news:
+        class: Gobusgo\GobusgoBundle\Admin\NewsAdmin
+        arguments: [~, Application\Sonata\NewsBundle\Entity\Post, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Новости, , group: "app.admin.group.admin" }
+        public: true
+
+    admin.order:
+        class: Gobusgo\GobusgoBundle\Admin\OrderAdmin
+        arguments: [~, Gobusgo\GobusgoBundle\Entity\Order,~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: История грузоперевозок, , group: "app.admin.group.admin" }
+        public: true
+
+
+
+#        GobusgoGobusgoBundle
     # makes classes in src/GobusgoBundle available to be used as services
     # this creates a service per class whose id is the fully-qualified class name
 #    GobusgoBundle\:
