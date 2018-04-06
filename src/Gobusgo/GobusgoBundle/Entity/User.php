@@ -42,47 +42,47 @@ class User extends BaseUser
     protected $organization;
 
     /**
-     * @ORM\Column(type="string", length=100)
+     * @ORM\Column(type="string")
      */
     protected $UNP;
 
     /**
-     * @ORM\Column(type="string", length=100)
+     * @ORM\Column(type="string")
      */
     protected $bank;
 
     /**
-     * @ORM\Column(type="string", length=100)
+     * @ORM\Column(type="string")
      */
     protected $addressOfTheBank;
 
     /**
-     * @ORM\Column(type="string", length=100)
+     * @ORM\Column(type="string")
      */
     protected $legalAddress;
 
     /**
-     * @ORM\Column(type="string", length=100)
+     * @ORM\Column(type="string")
      */
     protected $settlementAccount;
 
     /**
-     * @ORM\Column(type="string", length=100)
+     * @ORM\Column(type="string")
      */
     protected $code;
 
     /**
-     * @ORM\Column(type="string", length=100)
+     * @ORM\Column(type="string")
      */
     protected $phone;
 
     /**
-     * @ORM\Column(type="string", length=100)
+     * @ORM\Column(type="string")
      */
     protected $fullName;
 
     /**
-     * @ORM\Column(type="string", length=100)
+     * @ORM\Column(type="string")
      */
     protected $contractNumber;
 
