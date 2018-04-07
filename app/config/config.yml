@@ -9,7 +9,7 @@ imports:
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
-    locale: ru
+    locale: en
 
 framework:
     #esi: ~
@@ -95,6 +95,9 @@ fos_user:
             type: Gobusgo\GobusgoBundle\Form\RegistrationType
         confirmation:
             enabled: true
+    profile:
+        form:
+            type: Gobusgo\GobusgoBundle\Form\ProfileFormType
     group:
         group_class: Gobusgo\GobusgoBundle\Entity\Group
 
@@ -127,10 +130,13 @@ sonata_admin:
         groups:
             app.admin.group.admin:
                 label: Администратор
-                roles: [ ROLE_ADMIN, ROLE_SUPER_ADMIN]
+                roles: [ ROLE_ADMIN, ROLE_SUPER_ADMIN ]
+            app.admin.group.moderator:
+                label: Новости
+                roles: [ ROLE_ADMIN, ROLE_SUPER_ADMIN ]
             app.admin.group.user:
                 label: Пользователь
-                roles: [ ROLE_USER ]
+                roles: [ ROLE_USER, ROLE_ADMIN, ROLE_SUPER_ADMIN ]
     title:      GoBusGo
     title_logo: favicon.ico
     templates:

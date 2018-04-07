@@ -22,24 +22,30 @@ services:
         public: true
 
     admin.news:
-        class: Gobusgo\GobusgoBundle\Admin\NewsAdmin
+        class: Sonata\NewsBundle\Admin\PostAdmin
         arguments: [~, Application\Sonata\NewsBundle\Entity\Post, ~]
         tags:
-            - { name: sonata.admin, manager_type: orm, label: Новости, , group: "app.admin.group.admin" }
+            - { name: sonata.admin, manager_type: orm, label: Новости, , group: "app.admin.group.moderator" }
         public: true
 
-    admin.order:
-        class: Gobusgo\GobusgoBundle\Admin\OrderAdmin
-        arguments: [~, Gobusgo\GobusgoBundle\Entity\Order,~]
+    admin.comment:
+        class: Sonata\NewsBundle\Admin\CommentAdmin
+        arguments: [~, Application\Sonata\NewsBundle\Entity\Comment, ~]
         tags:
-            - { name: sonata.admin, manager_type: orm, label: История грузоперевозок, , group: "app.admin.group.admin" }
+            - { name: sonata.admin, manager_type: orm, label: Комментарии, , group: "app.admin.group.moderator" }
         public: true
+
 
     app.form.registration:
         class: Gobusgo\GobusgoBundle\Form\RegistrationType
         tags:
             - { name: form.type, alias: app_user_registration }
 
+
+    app.form.profile:
+        class: Gobusgo\GobusgoBundle\Form\ProfileFormType
+        tags:
+            - { name: form.type, alias: app_user_profile }
 
 #        GobusgoGobusgoBundle
     # makes classes in src/GobusgoBundle available to be used as services

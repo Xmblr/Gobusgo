@@ -6,6 +6,10 @@ namespace Gobusgo\GobusgoBundle\Entity;
 use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+//use Symfony\Component\Security\Core\User\UserInterface;
+use Sonata\UserBundle\Model\UserInterface;
+//use FOS\UserBundle\Model\UserInterface;
+
 
 
 /**
@@ -86,6 +90,14 @@ class User extends BaseUser
      */
     protected $contractNumber;
 
+    public static function getGenderList()
+    {
+        return [
+            'gender_unknown' => UserInterface::GENDER_UNKNOWN,
+            'gender_female' => UserInterface::GENDER_FEMALE,
+            'gender_male' => UserInterface::GENDER_MALE,
+        ];
+    }
     /**
      * @return mixed
      */
