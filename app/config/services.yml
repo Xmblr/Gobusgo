@@ -14,28 +14,86 @@ services:
         # if you need to do this, you can override this setting on individual services
         public: false
 
+#   --------------------------- Admin controllers ----------------------------------
     admin.users:
         class: Gobusgo\GobusgoBundle\Admin\UserAdmin
         arguments: [~, Gobusgo\GobusgoBundle\Entity\User, ~]
         tags:
-            - { name: sonata.admin, manager_type: orm, label: Пользователи, , group: "app.admin.group.admin" }
+            - { name: sonata.admin, manager_type: orm, label: Пользователи , group: "app.admin.group.admin" }
         public: true
 
     admin.news:
         class: Sonata\NewsBundle\Admin\PostAdmin
         arguments: [~, Application\Sonata\NewsBundle\Entity\Post, ~]
         tags:
-            - { name: sonata.admin, manager_type: orm, label: Новости, , group: "app.admin.group.moderator" }
+            - { name: sonata.admin, manager_type: orm, label: Новости , group: "app.admin.group.moderator" }
         public: true
 
     admin.comment:
         class: Sonata\NewsBundle\Admin\CommentAdmin
         arguments: [~, Application\Sonata\NewsBundle\Entity\Comment, ~]
         tags:
-            - { name: sonata.admin, manager_type: orm, label: Комментарии, , group: "app.admin.group.moderator" }
+            - { name: sonata.admin, manager_type: orm, label: Комментарии , group: "app.admin.group.moderator" }
+        public: true
+
+    admin.city:
+        class: Gobusgo\GobusgoBundle\Admin\CityAdmin
+        arguments: [~, Gobusgo\GobusgoBundle\Entity\City, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Города , group: "app.admin.group.admin" }
+        public: true
+
+    admin.address:
+        class: Gobusgo\GobusgoBundle\Admin\AddressAdmin
+        arguments: [~, Gobusgo\GobusgoBundle\Entity\Address, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Адреса , group: "app.admin.group.admin" }
+        public: true
+
+    admin.user.address:
+        class: Gobusgo\GobusgoBundle\Admin\AddressUserAdmin
+        arguments: [~, Gobusgo\GobusgoBundle\Entity\Address, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Адреса , group: "app.admin.group.user" }
+        public: true
+
+    admin.cargo:
+        class: Gobusgo\GobusgoBundle\Admin\CargoAdmin
+        arguments: [~, Gobusgo\GobusgoBundle\Entity\Cargo, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Груз , group: "app.admin.group.admin" }
+        public: true
+
+    admin.user.cargo:
+        class: Gobusgo\GobusgoBundle\Admin\CargoUserAdmin
+        arguments: [~, Gobusgo\GobusgoBundle\Entity\Cargo, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Груз , group: "app.admin.group.user" }
+        public: true
+
+    admin.order:
+        class: Gobusgo\GobusgoBundle\Admin\OrderAdmin
+        arguments: [~, Gobusgo\GobusgoBundle\Entity\Order, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Заказ , group: "app.admin.group.admin" }
+        public: true
+
+    admin.user.order:
+        class: Gobusgo\GobusgoBundle\Admin\OrderUserAdmin
+        arguments: [~, Gobusgo\GobusgoBundle\Entity\Order, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Заказ , group: "app.admin.group.user" }
         public: true
 
 
+
+#   --------------------------- Admin controllers ----------------------------------
+
+
+
+
+
+#   --------------------------- Form builders ----------------------------------
     app.form.registration:
         class: Gobusgo\GobusgoBundle\Form\RegistrationType
         tags:
@@ -46,6 +104,10 @@ services:
         class: Gobusgo\GobusgoBundle\Form\ProfileFormType
         tags:
             - { name: form.type, alias: app_user_profile }
+
+
+#   --------------------------- Form builders ----------------------------------
+
 
 #        GobusgoGobusgoBundle
     # makes classes in src/GobusgoBundle available to be used as services
