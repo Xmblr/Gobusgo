@@ -16,12 +16,13 @@ class AppKernel extends Kernel
             new Symfony\Bundle\SwiftmailerBundle\SwiftmailerBundle(),
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
+            new Symfony\Bundle\AsseticBundle\AsseticBundle(),
 
             //Custom logic bundle
             new Gobusgo\GobusgoBundle\GobusgoGobusgoBundle(),
 
             //Bootstrap
-            new Twitter\BootstrapBundle\TwitterBootstrapBundle(),
+//            new Twitter\BootstrapBundle\TwitterBootstrapBundle(),
 
             //User Bundle
             new FOS\UserBundle\FOSUserBundle(),
