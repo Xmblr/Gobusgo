@@ -122,4 +122,17 @@ class PageController extends Controller
 
         return $this->render('@GobusgoGobusgo/Page/deliveryMoscowMinsk.html.twig');
     }
+
+    public function contactsAction()
+    {
+        $seoDescription = 'deliveryMoscowMinsk';
+        $seoPage = $this->container->get('sonata.seo.page');
+        $seoPage
+            ->setTitle('GObusGO')
+            ->addMeta('name', 'description', $seoDescription)
+            ->addMeta('property', 'og:description', $seoDescription)
+        ;
+
+        return $this->render('@GobusgoGobusgo/Page/contacts.html.twig');
+    }
 }

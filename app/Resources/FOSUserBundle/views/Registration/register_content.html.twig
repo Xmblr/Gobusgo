@@ -4,6 +4,32 @@
     {#{{ form_widget(form) }}#}
 {{ form_errors(form.username) }}
 {{ form_widget(form.username, {'attr':{'class':'an-form-control light', 'placeholder':'Имя пользователя'}}) }}
+{{ form_errors(form.email) }}
+{{ form_widget(form.email, {'attr':{'class':'an-form-control light', 'placeholder':'E-mail'}}) }}
+{{ form_errors(form.plainPassword.first) }}
+{{ form_widget(form.plainPassword.first, {'attr':{'class':'an-form-control light', 'placeholder':'Пароль'}}) }}
+{{ form_errors(form.plainPassword.second) }}
+{{ form_widget(form.plainPassword.second, {'attr':{'class':'an-form-control light', 'placeholder':'Подтвердите пароль'}}) }}
+{{ form_errors(form.organization) }}
+{{ form_widget(form.organization, {'attr':{'class':'an-form-control light', 'placeholder':'Организация'}}) }}
+{{ form_errors(form.UNP) }}
+{{ form_widget(form.UNP, {'attr':{'class':'an-form-control light', 'placeholder':'УНП'}}) }}
+{{ form_errors(form.bank) }}
+{{ form_widget(form.bank, {'attr':{'class':'an-form-control light', 'placeholder':'Банк'}}) }}
+{{ form_errors(form.addressOfTheBank) }}
+{{ form_widget(form.addressOfTheBank, {'attr':{'class':'an-form-control light', 'placeholder':'Адрес банка'}}) }}
+{{ form_errors(form.legalAddress) }}
+{{ form_widget(form.legalAddress, {'attr':{'class':'an-form-control light', 'placeholder':'Юридический адрес'}}) }}
+{{ form_errors(form.settlementAccount) }}
+{{ form_widget(form.settlementAccount, {'attr':{'class':'an-form-control light', 'placeholder':'Расчетный счет'}}) }}
+{{ form_errors(form.code) }}
+{{ form_widget(form.code, {'attr':{'class':'an-form-control light', 'placeholder':'Код'}}) }}
+{{ form_errors(form.phone) }}
+{{ form_widget(form.phone, {'attr':{'class':'an-form-control light', 'placeholder':'Контактный комер телефона'}}) }}
+{{ form_errors(form.fullName) }}
+{{ form_widget(form.fullName, {'attr':{'class':'an-form-control light', 'placeholder':'Контактное лицо'}}) }}
+{{ form_errors(form.contractNumber) }}
+{{ form_widget(form.contractNumber, {'attr':{'class':'an-form-control light', 'placeholder':'Номер договора'}}) }}
 
 <div>
     <input type="submit" value="{{ 'registration.submit'|trans }}"/>

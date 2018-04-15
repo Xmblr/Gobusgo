@@ -1,3 +1,23 @@
+@font-face {
+    font-family: Zing Sans Rust R Base;
+    src: url(/fonts/ZingSansRustLDemo-Base_0.otf);
+}
+
+@font-face {
+    font-family: vladivostok bold;
+    src: url(/fonts/bold.ttf);
+}
+
+@font-face {
+    font-family: zero 5;
+    src: url(/fonts/zero5.ttf);
+}
+
+@font-face {
+    font-family: Bosk;
+    src: url(/fonts/bosk.otf);
+}
+
 h1 {
     font-family: Trebuchet MS;
     font-size:44px;
@@ -5,7 +25,7 @@ h1 {
     text-align: center;
     margin-bottom:2%;
     color: #566fe0;
-    margin: 0% 0% 3% 0%;
+    margin: 0% 0% 2% 0%;
     line-height: 44px;
 }
 
@@ -48,7 +68,15 @@ h3 {
 }
 
 h4 {
-
+    font-family: Trebuchet MS;
+    font-size: 20px;
+    color: #566fe0;
+    text-transform: uppercase;
+    font-weight: 600;
+    line-height: 22px;
+    text-align: left;
+    text-decoration: underline;
+    margin: 10px 0px;
 }
 
 .advantage-title {
@@ -788,6 +816,7 @@ footer {
 
 .Input {
     position: relative;
+    margin:10px 0px;
 }
 
 .Input-text {
@@ -1036,3 +1065,28 @@ footer {
     transform: translate3d(9px, 10px, 0px) !important;
 }
 
+.road-tablet-title {
+    display: inline-block;
+    margin-top: 0px;
+    font-size: 26px;
+    line-height: 80px;
+    vertical-align: middle;
+}
+
+.text-contacts {
+    margin: 10px 0px 10px 0px;
+    font-size: 16px;
+}
+
+.input-contacts {
+    display: block;
+    margin: 0;
+    width: 100%;
+    font-weight: inherit;
+    font-size: 16px;
+    font-family: Trebuchet MS;
+    padding: 5px 5px;
+    color: #333;
+    text-align: left;
+    border: 3px solid #7d88ff;
+}
