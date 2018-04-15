@@ -1,0 +1,188 @@
+@media (min-width: 1025px) {
+    .hide-sm-up {
+        display: none;
+    }
+}
+
+.top-bar-menu {
+    cursor: pointer;
+    display: inline-block;
+    padding: 8px 15px 8px 0px;
+    color: #8598ff;
+    font-size: 18px;
+    position: relative;
+    -webkit-transition: all 0.4s ease;
+    -o-transition: all 0.4s ease;
+    transition: all 0.4s ease;
+    font-family: 'Zing Sans Rust R Base';
+    font-weight: 600;
+    -o-transform: scale(1, 1.2);
+    -ms-transform: scale(1, 1.2);
+    -moz-transform: scale(1, 1.2);
+    -webkit-transform: (1, 1.2);
+    transform: scale(0.9, 1.2);
+}
+
+.top-bar {
+    margin: 10px 10px;
+}
+
+.top-bar-menu a {
+    color: #8598ff;
+}
+
+.top-bar-menu {
+    line-height: 24px;
+}
+
+.icons-top {
+    height: 34px;
+    margin-right: 8px;
+}
+
+.icons-top-bar {
+    display: inline-block;
+    margin-top: 3px;
+}
+
+.top-bar-right {
+    float: right;
+}
+
+.top-bar-menu-active {
+    cursor: pointer;
+    display: inline-block;
+    padding: 0px 20px;
+    color: #8598ff;
+    font-size: 18px;
+    position: relative;
+    transition: all 0.4s ease;
+    font-family: 'Zing Sans Rust R Base';
+    font-weight: 600;
+    -o-transform: scale(1, 1.2);
+    -ms-transform: scale(1, 1.2);
+    -moz-transform: scale(1, 1.2);
+    -webkit-transform: (1, 1.2);
+    transform: scale(0.9, 1.2);
+    letter-spacing: -0.5px;
+    background-color: #ffeb89;
+    border-radius: 4px;
+}
+
+.header-menu li a {
+    font-family: "Trebuchet MS";
+    font-size: 26px;
+    line-height: 32px;
+    color: #566fe0;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.header-menu li {
+    list-style-type: none;
+    padding: 25px 10px;
+    text-align: center;
+}
+
+.inline-block {
+    display: inline-block;
+}
+
+.logo-header {
+    padding: 15px 10px;
+    float: left;
+    text-align: center;
+}
+
+.logo-text-header {
+    color: #ffe775;
+    font-family: Bosk;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+.time-of-work li {
+    list-style-type: none;
+    text-align: center;
+    padding: 25px 20px 25px 10px;
+}
+
+.time-of-work li a {
+    font-family: "Trebuchet MS";
+    font-size: 15px;
+    line-height: 17px;
+    color: #566fe0;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.menu-table-header {
+    margin: 0px;
+}
+
+.menu-table-header tr td, .menu-table-header {
+    border: none;
+}
+
+.callback-header-second a {
+    font-family: "Trebuchet MS";
+    font-size: 18px;
+    color: #566fe0;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+.callback-header-second {
+    font-family: 'Zing Sans Rust R Base';
+    background-color: #ffeb89;
+    font-weight: 600;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 18px;
+    -o-transform: scale(1, 1.2);
+    -ms-transform: scale(1, 1.2);
+    -moz-transform: scale(1, 1.2);
+    -webkit-transform: scale(1, 1.2);
+    transform: scale(1, 1.2);
+    text-transform: uppercase;
+    transform: scale(1, 1.2);
+    display: inline-block;
+}
+
+.call-back-top {
+    font-family: trebuchet MS;
+    font-size: 18px;
+    text-transform: uppercase;
+    text-decoration: underline;
+    text-align: center;
+    letter-spacing: 1.5px;
+    color: #566fe0;
+}
+
+.mail-top {
+    font-family: vladivostok bold;
+    font-size: 18px;
+    color: #566fe0;
+    line-height: 24px;
+    display: inline-block;
+    margin-right: 20px;
+    vertical-align: middle;
+}
+
+@media (max-width: 1025px) {
+    .header-desktop {
+        display: none;
+    }
+}
+
+@media (min-width: 1400px) {
+    .header-menu li {
+        padding: 25px 20px;
+    }
+    .padding-phones {
+        padding-left: 30px;
+    }
+}

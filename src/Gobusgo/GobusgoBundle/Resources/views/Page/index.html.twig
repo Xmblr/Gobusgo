@@ -1,7 +1,287 @@
 {% extends '@GobusgoGobusgo/layout.html.twig' %}
+{% block header %}
+    <header class="main-menu-area">
+        <div class="container-fluid" style="padding:0px;">
+            <div class="row">
+                <div class="col-md-12 col-lg-12 col-xl-12">
+                    <div class="logo">
 
+                        <a href="index.html">
+                            <img src="images/logo.png" alt="" width="150px;">
+                        </a>
+                    </div>
+                    <div class="accordion-wrapper">
+                        <a href="#" class="mobile-open"><i class="fa fa-bars" style="font-size: 34px;"></i></a>
+                        <!--Mobile Menu start-->
+                        <ul id="mobilemenu" class="accordion">
+
+                            <li class="start-li">
+                                <a class="button-not-active-header" href="# ">Регистрация</a>
+                                <a class="button-active-header" href="#">Вход</a>
+                                <a class="closeme" href="#" style="display: inline-block;"><i
+                                            class="fa fa-times"></i></a></li>
+                            <li class="divider"></li>
+                            <li class="out-link"><a class="" href="index.html">О нас</a></li>
+                            <li class="divider"></li>
+                            <li class="link out-link">
+                                <a class="" href="index.html">Новости</a>
+                            </li>
+                            <li class="divider"></li>
+                            <li class="link out-link">
+                                <a class="" href="index.html">Отзывы</a>
+                            </li>
+                            <li class="divider"></li>
+                            <li class="link out-link">
+                                <a href="about-us.html">Контакты</a>
+                            </li>
+                            <li class="divider"></li>
+
+                            <table class="menu-table" border="1">
+                                <tbody>
+                                <tr>
+                                    <td rowspan="3">
+                                        <p class="big-numbers">333 33 33</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-operator">МТС</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p class="text-operator">Velcome</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p class="text-operator">Life :)</p>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <p class="big-letter">info@gobusgo.by</p>
+                            <div class="callback-header">
+                                <a href=""><i class="fa fa-phone" aria-hidden="true"></i>
+                                    Заказать звонок</a>
+                            </div>
+                            <div class="header-icons">
+                                <img class="icons-top" src="images/whatsup.png"
+                                     style="height:35px; margin-right: 5px;"/>
+                                <img src="images/telegram.png" style="height:35px; margin-right: 5px;"/>
+                                <img src="images/viber.png" style="height:35px; margin-right: 5px;"/>
+                                <img src="images/skype.png" style="height:35px; margin-right: 5px;"/>
+                                <img src="images/russian.png" style="height:28px;"/>
+                            </div>
+
+
+                        </ul>
+                        <!--Mobile Menu end-->
+
+                    </div>
+                </div>
+                <!--Main menu start-->
+
+            </div>
+        </div>
+    </header>
+{% endblock %}
 {% block body %}
-    <h1>Hello!</h1>
-    <h2>It's body from index.html.twig </h2>
-    <a href="{{ path('admin_sonata_news_post_create') }}">Post create</a>
+
+    <div class="container" style="padding:0px;">
+        <div class="row">
+            <h1 style="margin: 0% 0% 5% 0%;">Куда везем груз?</h1>
+            <div class="col-md-4" style="margin-bottom:20px;">
+                <div class="background-round">
+                    <h3 class="reload" style="display:table-cell !important; vertical-align: middle; " OnClick="a();">
+                        Москва</br>Минск</h3>
+                </div>
+            </div>
+            <div class="col-md-4" style="margin-bottom:20px;">
+                <div class="background-round">
+                    <h3 style="display:table-cell !important; vertical-align: middle; ">Минск</h3>
+                </div>
+            </div>
+            <div class="col-md-4" style="margin-bottom:20px;">
+                <div class="background-round">
+                    <h3 style="display:table-cell !important; vertical-align: middle; ">Беларусь</h3>
+                </div>
+            </div>
+            <script language="JavaScript">
+                function sleep(ms) {
+                    return new Promise(resolve => setTimeout(resolve, ms));
+                }
+
+                async function a(e, w, audio) {
+                    audio = new Audio(); // Создаём новый элемент Audio
+                    audio.src = 'audio/car.mp3'; // Указываем путь к звуку "клика"
+                    audio.autoplay = true; // Автоматически запускаем
+                    e = document.getElementById("car");
+                    w = document.getElementById("wheel1");
+                    s = document.getElementById("wheel2");
+
+                    e.style.webkitAnimationName = "shake";
+                    w.style.webkitAnimationName = "shake-w";
+                    s.style.webkitAnimationName = "shake-w";
+
+                    await sleep(1500);
+
+                    e.style.transform = "translate(2000px,0px)";
+                    e.style.transition = "all 5s ease-in-out";
+
+                    w.style.transform = "translate(2000px,0px) rotate(5turn)";
+                    w.style.transition = "all 5s ease-in-out";
+                    s.style.transform = "translate(2000px,0px) rotate(10turn)";
+                    s.style.transition = "all 5s ease-in-out";
+                }
+            </script>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="car-gobusgo">
+                <img src="images/car-body.png" id="car" width="200px;" style="position: absolute; padding-top: 53px;">
+                <div style="position: absolute; padding-top: 120px; width: 28px; margin-left: 54px;">
+                    <img src="images/wheel.png" id="wheel1">
+                </div>
+                <div style="position: absolute; padding-top: 120px; width: 28px; margin-left: 141px;">
+                <img src="images/wheel.png" id="wheel2">
+                </div>
+            </div>
+            <div class="city">
+                <img src="images/city.png" style="margin: 0 auto;">
+            </div>
+        </div>
+    </div>
+
+    <div class="divider-home display-none-mobile"></div>
+    <div class="container">
+        <div class="row">
+            <h2>Почему выбирают именно нас?</h2>
+            <div class="col-md-3" style="margin-bottom:20px;">
+                <div class="advantage-icons">
+                    <img src="images/advantage-1.png" style="width:230px;">
+                </div>
+                <div class="advantage-title" style="margin: 10px;">Доставка любых грузов до 2-х тонн</div>
+            </div>
+            <div class="col-md-3" style="margin-bottom:20px;">
+                <div class="advantage-icons">
+                    <img src="images/advantage-2.png" style="width:230px;">
+                </div>
+                <h4 class="advantage-title" style="margin: 10px;">Доставка от письма до крупногабаритного груза</h4>
+            </div>
+            <div class="col-md-3" style="margin-bottom:20px;">
+                <div class="advantage-icons">
+                    <img src="images/advantage-3.png" style="width:230px;">
+                </div>
+                <h4 class="advantage-title" style="margin: 10px;">Доставка в течении суток</h4>
+            </div>
+            <div class="col-md-3" style="margin-bottom:20px;">
+                <div class="advantage-icons">
+                    <img src="images/advantage-4.png" style="width:230px;">
+                </div>
+                <h4 class="advantage-title" style="margin: 10px;">Каждая 7-ая доставка бесплатно *</h4>
+            </div>
+        </div>
+    </div>
+    <div class="divider-home"></div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 col-md-push-1">
+                <p class="text-center" style="font-size: 20px; line-height: 24px;">В наше время различная деятельность
+                    разных компаний
+                    не обходится без очень тесного сотрудничества с компаниями, которые занимаются грузоперевозками
+                    (транспортно-экспедиционная компания). Для многих компаний качественная, быстрая, своевременная
+                    доставка
+                    различного груза является одним из важнейших факторов, которые влияют на развитие и стабильность
+                    данной
+                    компании. Для частных компаний высокий уровень оказания транспортных услуг является не менее важным,
+                    потому
+                    что это залог уверенности и полного спокойствия во время перевозки имущества. Вследствие этого с
+                    каждым
+                    годом интерес и спрос на различные грузоперевозки растёт и растёт.</p>
+            </div>
+        </div>
+    </div>
+    <div class="divider-home"></div>
+    <div class="container slide-desktop">
+        <div class="row">
+            <h2>Наш автопарк</h2>
+            <div class="col-md-10 col-md-push-1 mobile-slide" style="border: 1px solid #ffe775; ">
+
+                <!-- Slider main container -->
+                <div class="swiper-container">
+                    <!-- Additional required wrapper -->
+                    <div class="swiper-wrapper">
+                        <!-- Slides -->
+                        <div class="swiper-slide">
+                            <div class="col-md-6" style="display: table; margin: 0 auto;">
+                                <div style="display: table-cell; vertical-align: middle; text-align: center; height: 280px; width: 60%;">
+                                    <img src="images/fiatdukato.png" style="width: 60%;">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+
+                                <div class="auto-title">Fiat Ducato</div>
+                                <p class="text-center text-auto">
+                                    Предназначены для грузоперевозок</br>
+                                    малого объема и веса</br>
+                                    (продуктов, мебели, оборудования, оргтехники</br>
+                                    и товаров народного потребления)</br>
+                                    Грузовая нагрузка: 1-3,5 тонн.</br>
+                                    Оббьем: 4-17 метров куб.</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="col-md-6" style="display: table; margin: 0 auto;">
+                                <div style="display: table-cell; vertical-align: middle; text-align: center; height: 280px; width: 60%;">
+                                    <img src="images/fiatdukato.png" style="width: 60%;">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+
+                                <div class="auto-title">Fiat Ducato</div>
+                                <p class="text-center text-auto">
+                                    Предназначены для грузоперевозок</br>
+                                    малого объема и веса</br>
+                                    (продуктов, мебели, оборудования, оргтехники</br>
+                                    и товаров народного потребления)</br>
+                                    Грузовая нагрузка: 1-3,5 тонн.</br>
+                                    Оббьем: 4-17 метров куб.</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="col-md-6" style="display: table; margin: 0 auto;">
+                                <div style="display: table-cell; vertical-align: middle; text-align: center; height: 280px; width: 60%;">
+                                    <img src="images/fiatdukato.png" style="width: 60%;">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+
+                                <div class="auto-title">Fiat Ducato</div>
+                                <p class="text-center text-auto">
+                                    Предназначены для грузоперевозок</br>
+                                    малого объема и веса</br>
+                                    (продуктов, мебели, оборудования, оргтехники</br>
+                                    и товаров народного потребления)</br>
+                                    Грузовая нагрузка: 1-3,5 тонн.</br>
+                                    Оббьем: 4-17 метров куб.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- If we need pagination -->
+                    <div class="swiper-pagination"></div>
+
+                    <!-- If we need navigation buttons -->
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+
 {% endblock %}

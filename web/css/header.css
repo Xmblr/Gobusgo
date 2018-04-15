@@ -1,0 +1,350 @@
+.accordion-wrapper {
+    display:inline-block;
+    float: right;
+    margin: 30px;
+}
+
+/*----------------------------------------*/
+/*  11.  Mobile accordion menu start-
+/*----------------------------------------*/
+
+.accordion li:last-child .link { border-bottom: 0; }
+
+.accordion li i {
+    position: absolute;
+    top: 16px;
+    left: 12px;
+    font-size: 34px;
+    color: #8598ff;
+    line-height: 30px;
+    -webkit-transition: all 0.4s ease;
+    -o-transition: all 0.4s ease;
+    transition: all 0.4s ease;
+}
+.accordion li i.fa-chevron-down {
+    right: 12px;
+    left: auto;
+    font-size: 16px;
+}
+.accordion li.open .link { color: #b63b4d; }
+.accordion li.open i.fa-chevron-down {
+    -webkit-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
+.submenu {
+    display: none;
+    background: #fff;
+    font-size: 14px;
+}
+.submenu li {border-bottom: 1px solid #e0e1e0;}
+.submenu a {
+    display: block;
+    text-decoration: none;
+    color: #d9d9d9;
+    padding: 12px;
+    padding-left: 42px;
+    -webkit-transition: all 0.25s ease;
+    -o-transition: all 0.25s ease;
+    transition: all 0.25s ease;
+}
+.submenu a:hover {background: transparent;}
+.accordion {
+    position: fixed;
+    right: -110%;
+    top: 0px;
+    z-index: 99999999999;
+    background: #fff;
+    -webkit-transition: all 0.25s ease;
+    -o-transition: all 0.25s ease;
+    transition: all 0.25s ease;
+    padding-top: 5px;
+    height: 100%;
+    overflow-y: scroll;
+}
+.accordion.active {
+    right: -20px;
+    -webkit-transition: all 0.25s ease;
+    -o-transition: all 0.25s ease;
+    transition: all 0.25s ease;
+    position: fixed;
+    top: 0;
+    border-left: 1px solid #8598ff;
+    min-width: 350px;
+    box-shadow: 8px 8px 35px 0 rgba(0,0,0,0.4);
+    list-style-type: none;
+    padding-left: 10px;
+}
+
+.accordion.active li .button-not-active-header {
+color: #8598ff;
+}
+
+.mobile-open {
+    position: relative;
+    right: 0;
+    top: 0;
+    font-size: 27px;
+    color: #8598ff;
+    float: right;
+}
+.mob-logo {
+    width: 57%;
+    padding-left: 42px;
+}
+
+.closeme {
+    position: relative;
+    float: right;
+    margin-right: 40px;
+    top: -8px;
+    padding: 3px;
+}
+.closeme i {
+    position: relative !important;
+    left: 0 !important;
+    top: 0 !important;
+}
+.accordion .top-contact-btn {
+    margin-left: 42px;
+    margin-top: 24px;
+    float: left;
+}
+.submenu li h4 {
+    color: #ffa725;
+    margin-left: 40px;
+    padding: 8px 0px;
+    font-size: 17px;
+    font-family: 'Museo-500';
+}
+.accordion .font-orange li a {color: #ffa725;}
+.accordion .font-sky li a {color: #03a9f4;}
+.accordion .font-per li a {color: #8373ce ;}
+.accordion .font-red li a {color: #f44336 ;}
+.accordion .font-orange i  {color: #ffa725;}
+.accordion .font-sky i {color: #03a9f4;}
+.accordion .font-per i {color: #8373ce ;}
+.accordion .font-red i {color: #f44336 ;}
+.accordion .out-link {
+    cursor: pointer;
+    display: block;
+    position: relative;
+    -webkit-transition: all 0.4s ease;
+    -o-transition: all 0.4s ease;
+    transition: all 0.4s ease;
+    -o-transform: scale(1, 1.2);
+    -ms-transform: scale(1, 1.2);
+    -moz-transform: scale(1, 1.2);
+    -webkit-transform:(1, 1.2);
+    transform: scale(1, 1.2);}
+
+.accordion .out-link a {
+    padding: 8px 15px 8px 10%;
+    color: #8598ff;
+    font-size: 18px;
+    font-family: 'Zing Sans Rust R Base';
+    font-weight: 600;
+}
+
+.logo {
+    margin:30px;
+    display:inline-block;
+}
+
+.callback-header a {
+    color: #566fe0;
+}
+
+.button-active-header {
+    display: inline-block;
+    font-family: Zing Sans Rust R Base;
+    letter-spacing: -0.5px;
+    background-color: #ffeb89;
+    color: #8598ff;
+    font-weight: 600;
+    padding: 0px 20px;
+    border-radius: 4px;
+    font-size: 18px;
+    -o-transform: scale(0.9, 1.5);
+    -ms-transform: scale(0.9, 1.5));
+    -moz-transform: scale(0.9, 1.5);
+    -webkit-transform: scale(0.9, 1.5);
+    transform: scale(0.9, 1.5);
+}
+
+.button-active-header:hover {
+    box-shadow: 0 0 0 60px rgba(0, 0, 0, 0) inset, .1em .1em .2em #800;
+}
+
+.button-not-active-header {
+    display: inline-block;
+    font-family: Zing Sans Rust R Base;
+    letter-spacing: 0.3px;
+    font-weight: 600;
+    padding: 0px;
+    font-size: 18px;
+    -o-transform: scale(0.9, 1.5);
+    -ms-transform: scale(0.9, 1.5));
+    -moz-transform: scale(0.9, 1.5);
+    -webkit-transform: scale(0.9, 1.5);
+    transform: scale(0.9, 1.5);
+    margin-left: 10px;
+    color: #8598ff;
+}
+
+@media (min-width: 1200px) {
+    .accordion.active {
+        width: 25%;
+    }
+}
+
+.start-li {
+    margin: 30px 0px 20% 0px;
+}
+
+.divider {
+    height: 1px;
+    margin: 9px 0;
+    overflow: hidden;
+    background-color: #e5e5e5;
+    width: 50%;
+    margin-left: 22px;
+}
+
+.overlay {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 10;
+    display: none;
+    background-color: rgba(0, 0, 0, 0.65);
+    position: fixed;
+    cursor: default;
+}
+
+.big-numbers {
+    font-family: vladivostok bold;
+    font-size: 44px;
+    color: #566fe0;
+    line-height: 36px;
+    margin: 0px;
+}
+
+.menu-table {
+    margin-left: 10%;
+    margin-top: 20%;
+}
+
+.menu-table tr td, .menu-table {
+    border: none;
+}
+
+.table-footer tr td, .table-footer{
+    border: none;
+}
+
+.text-operator {
+    margin: 0px;
+    font-size:8px;
+    line-height:8px;
+    color: #566fe0;
+    margin-left: 5px;
+}
+
+.callback-header {
+    margin-left: 10%;
+    margin-top:20px;
+    font-family: 'Zing Sans Rust R Base';
+    background-color: #ffeb89;
+    font-weight: 600;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 18px;
+    -o-transform: scale(1, 1.2);
+    -ms-transform: scale(1, 1.2);
+    -moz-transform: scale(1, 1.2);
+    -webkit-transform: scale(1, 1.2);
+    transform: scale(1, 1.2);
+    text-transform: uppercase;
+    transform: scale(1, 1.2);
+    display: inline-block;
+}
+
+.header-icons {
+    margin-left: 10%;
+    margin-top:20px;
+    margin-bottom: 20px;
+}
+
+@media (max-width: 468px) {
+    .button-not-active-header {
+        margin-left: 5px;
+        font-size: 16px;
+}
+    .button-active-header {
+        font-size: 16px;
+        padding: 0px 10px;
+    }
+    .hide-sm-up {
+        margin: 20px;
+    }
+    .accordion li i {
+        line-height: 28px;
+    }
+    .start-li {
+        margin: 20px 0px 20% 0px;
+    }
+    .divider {
+        margin-left: 15px;
+    }
+    .accordion .out-link {
+        padding: 2px 10px 1px 15px;
+        font-size: 16px;
+    }
+    .menu-table {
+        margin-top: 20%;
+        margin-left: 15px;
+    }
+    .big-numbers {
+        font-size: 42px;
+    }
+    .callback-header {
+        font-size: 16px;
+        margin-left: 15px;
+        display: inline-block;
+        margin-top: 0px;
+    }
+    .header-icons {
+        margin-left: 15px;
+    }
+    .main-menu-area {
+        margin-bottom: 10px;
+    }
+    .logo {
+        width: 50%;
+        margin: 15px 10px;
+    }
+    .accordion-wrapper {
+        margin: 20px 10px;
+    }
+    .accordion.active {
+        min-width: 300px;
+    }
+}
+
+@media (min-width: 468px) and (max-width: 1024px) {
+    .start-li {
+        margin: 30px 0px 20% 0px;}
+    .menu-table {
+        margin-top: 15%;
+        }
+    .logo {
+        margin: 30px 15px;
+    }
+    .accordion-wrapper {
+        margin: 35px;
+    }
+}
+

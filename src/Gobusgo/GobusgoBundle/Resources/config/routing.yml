@@ -11,7 +11,7 @@ gobusgo_gobusgo_autopark:
     defaults: { _controller: GobusgoGobusgoBundle:Page:autopark }
 
 gobusgo_gobusgo_about:
-    path:     /about
+    path:     /about-us
     defaults: { _controller: GobusgoGobusgoBundle:Page:about }
 
 gobusgo_gobusgo_feedback:
@@ -19,7 +19,7 @@ gobusgo_gobusgo_feedback:
     defaults: { _controller: GobusgoGobusgoBundle:Page:feedback }
 
 gobusgo_gobusgo_deliveryRB:
-    path:     /delivery-RB
+    path:     /gruzoperevozki-po-belarusi
     defaults: { _controller: GobusgoGobusgoBundle:Page:deliveryRB }
 
 gobusgo_gobusgo_deliveryMinsk:

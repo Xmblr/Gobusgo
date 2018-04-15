@@ -1,0 +1,1038 @@
+h1 {
+    font-family: Trebuchet MS;
+    font-size:44px;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom:2%;
+    color: #566fe0;
+    margin: 0% 0% 3% 0%;
+    line-height: 44px;
+}
+
+div {
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+    margin: 0;
+    padding: 0;
+}
+
+.background-round {
+    background: url('/images/round-yellow.png') no-repeat 0px 0px;;
+    height: 25%;
+    background-size: cover;
+    height: 250px;
+    padding: 0px;
+    width: 250px;
+    text-align:center;
+    display:table;
+    margin: 0 auto;
+}
+
+h2, h3, h4, h5, h6 {
+    font-family: Trebuchet MS;
+    color: #566fe0;
+    text-align:center;
+    margin-bottom: 2%;
+}
+
+h2 {
+    font-size: 28px;
+}
+
+h3 {
+    font-family: Zing Sans Rust R Base;
+    font-size:30px;
+    color: #566fe0;
+}
+
+h4 {
+
+}
+
+.advantage-title {
+    font-family: 'Zero 5';
+    font-size:22px;
+    line-height: 24px;
+    color: black;
+    text-align: center;
+    font-weight: 500;
+}
+
+.icons-home {
+    margin-top:20px;
+    text-align:center;
+}
+
+.divider-home {
+    height: 1px;
+    margin: 9px 0;
+    overflow: hidden;
+    background-color: #e5e5e5;
+    width: 50%;
+    margin-left: 25%;
+    margin-top:2%;
+}
+
+p {
+    font-family: "Trebuchet MS";
+    font-size: 14px;
+    margin: 0px;
+}
+
+.auto-photo {
+    border: 1px solid #ffe775;
+}
+
+.text-auto {
+    font-family: 'zero 5';
+    font-size: 18px;
+    color: black;
+    line-height: 20px;
+    font-weight: 400;
+}
+
+.auto-title {
+    font-family: 'zero 5';
+    font-size:24px;
+    line-height: 24px;
+    color: #8598ff;
+    font-weight: 400;
+    margin: 20px 0px;
+    text-align: center;
+}
+
+.advantage-icons {
+    text-align: center;
+}
+
+.footer-text {
+    font-family: 'zero 5';
+    font-size: 18px;
+    color: #8598ff;
+    line-height: 22px;
+    font-weight: 400;
+}
+
+.link-footer {
+    list-style-type: none;
+    margin-bottom: 10px;
+}
+
+.link-text-footer {
+    font-family: Trebuchet MS;
+    font-size: 18px;
+    color: #566fe0;
+    text-transform: uppercase;
+    font-weight: 600;
+    line-height: 20px;
+}
+
+footer {
+    border-top: 4px solid #ffe775;
+    padding: 50px 0px 0px 5px;
+}
+
+.big-letter {
+    font-family: vladivostok bold;
+    font-size:28px;
+    color: #566fe0;
+    line-height: 36px;
+    margin-top: 5px;
+    margin-left: 10%;
+}
+
+.title-footer-border {
+    border-bottom: 1px solid #e5e5e5;
+    list-style-type: none;
+    padding-bottom: 5px;
+    display: inline-block;
+    margin-bottom: 15px;
+}
+
+.title-footer {
+    font-family: Trebuchet MS;
+    font-size: 20px;
+    color: #566fe0;
+    text-transform: uppercase;
+    font-weight: 600;
+    line-height: 22px;
+}
+
+.footer-icons {
+    margin-top:5px;
+}
+
+.footer-caption {
+    font-family: 'zero 5';
+    font-size: 16px;
+    color: #8598ff;
+    line-height: 22px;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+.big-numbers-footer {
+    font-family: vladivostok bold;
+    font-size: 44px;
+    color: #566fe0;
+    line-height: 36px;
+    margin: 0px;
+}
+
+.big-letter-footer {
+    font-family: vladivostok bold;
+    font-size:28px;
+    color: #566fe0;
+    line-height: 36px;
+    margin-top: 5px;
+}
+
+@media (max-width: 468px) {
+    .big-letter {
+        font-size: 24px;
+        margin-left: 15px;
+        margin-bottom: 5px;
+    }
+}
+
+@media (max-width:468px) {
+    h1 {
+        font-size: 34px;
+        margin: 0% 0% 20px 0%;
+    }
+    .car-gobusgo {
+        display:none;
+    }
+    .display-none-mobile {
+        display: none
+    }
+    h2, h3, h4, h5, h6 {
+        margin-bottom: 20px;
+    }
+    h2 {
+        font-size: 26px;
+    }
+    p{
+        font-size: 16px;
+        line-height: 18px;
+    }
+    footer {
+        padding: 20px 0px;
+    }
+    .mobile-slide {
+        margin-bottom: 20px;
+    }
+    .title-footer-border {
+        margin-top: 30px;
+    }
+}
+
+@media (min-width: 468px) and (max-width: 1025px) {
+    .car-gobusgo {
+        display:none;
+    }
+    .display-none-mobile {
+        display: none
+    }
+    .mobile-slide {
+        margin-bottom: 20px;
+    }
+    .footer-table {
+        width: 50%;
+        display: inline-block;
+        float: left;
+        margin-top: 20px;
+    }
+    footer {
+        padding: 20px 0px;
+    }
+    .big-numbers-footer {
+        font-size: 38px;
+        line-height: 38px;
+    }
+    .big-letter-footer {
+        font-family: vladivostok bold;
+        font-size:24px;
+        color: #566fe0;
+        line-height: 24px;
+        margin-top: 5px;
+    }
+}
+
+.slide-desktop {
+    margin-bottom: 3%;   }
+
+@-webkit-keyframes shake {
+    30%
+    {
+        -webkit-transform: translate(1px,1px);
+        transform: translate(1px,1px);
+    }
+    40%
+    {
+        -webkit-transform: translate(-1px,-1px);
+        transform: translate(-1px,-1px);
+    }
+    50%
+    {
+        -webkit-transform: translate(2px,2px);
+        transform: translate(2px,2px);
+    }
+    60%
+    {
+        -webkit-transform: translate(-2px,-2px);
+        transform: translate(-2px,-2px);
+    }
+    70%
+    {
+        -webkit-transform: translate(1px,1px);
+        transform: translate(1px,1px);
+    }
+    80%
+    {
+        -webkit-transform: translate(-1px,-1px);
+        transform: translate(-1px,-1px);
+    }
+    85%
+    {
+        -webkit-transform: translate(2px,2px);
+        transform: translate(2px,2px);
+    }
+    90%
+    {
+        -webkit-transform: translate(-2px,-2px);
+        transform: translate(-2px,-2px);
+    }
+    95%
+    {
+        -webkit-transform: translate(1px,1px);
+        transform: translate(1px,1px);
+    }
+    100%
+    {
+        -webkit-transform: translate(-1px,-1px);
+        transform: translate(-1px,-1px);
+    }
+}
+
+#car {
+    -webkit-animation-duration: .4s;
+    -webkit-animation-iteration-count: 2;
+    -webkit-animation-timing-function: linear;
+}
+
+@-webkit-keyframes shake-w {
+    30%
+    {
+        -webkit-transform: translate(0px, -1px);
+        transform: translate(0px, -1px);
+    }
+    40%
+    {
+        -webkit-transform: translate(0px, 1px);
+        transform: translate(0px, 1px);
+    }
+    50%
+    {
+        -webkit-transform: translate(0px,-2px);
+        transform: translate(0px,-2px);
+
+    }
+    60%
+    {
+        -webkit-transform: translate(0px, 2px);
+        transform: translate(0px, 2px);
+    }
+    70%
+    {
+        -webkit-transform: translate(0px,-1px);
+        transform: translate(0px,-1px);
+    }
+    80%
+    {
+        -webkit-transform: translate(0px,1px);
+        transform: translate(0px,1px);
+    }
+    85%
+    {
+        -webkit-transform: translate(0px,-2px);
+        transform: translate(0px,-2px);
+    }
+    90%
+    {
+        -webkit-transform: translate(0px,2px);
+        transform: translate(0px,2px);
+    }
+    95%
+    {
+
+        -webkit-transform: translate(0px,-1px);
+        transform: translate(0px,-1px);
+    }
+    100%
+    {
+        -webkit-transform: translate(0px,1px);
+        transform: translate(0px,1px);
+    }
+}
+
+#wheel1 {
+    -webkit-animation-duration: .4s;
+    -webkit-animation-iteration-count: 2;
+    -webkit-animation-timing-function: linear;
+}
+#wheel2 {
+    -webkit-animation-duration: .4s;
+    -webkit-animation-iteration-count: 2;
+    -webkit-animation-timing-function: linear;
+}
+
+
+/*#wheel2 {*/
+    /*-webkit-animation-duration: 600ms;*/
+    /*-webkit-animation-iteration-count: infinite;*/
+    /*-webkit-animation-timing-function: ease-in-out;*/
+/*}*/
+
+
+
+.reload:before {
+    content: url('/images/reload1.png');
+    margin-left: -25px;
+    position: absolute;
+    top: 102px;
+}
+
+.reload:after {
+    content: url('/images/reload.png');
+    position: absolute;
+    margin-left: 15px;
+    bottom: 90px;
+}
+
+@media (min-width: 1024px) {
+    .city {
+        margin: 30px 0px;
+    }
+}
+
+.logo-text {
+    color: #ffe775;
+    font-family: Bosk;
+    font-size: 20px;
+    text-transform: uppercase;
+}
+
+.align-j {
+    text-align: justify;
+}
+
+.align-c {
+    text-align: center;
+}
+
+.logo-mobile {
+    width: 30%;
+    margin: 15px 20px;
+    display: inline-block;
+    text-align: center;
+    max-width: 160px;
+}
+
+@media (min-width: 1025px) {
+    .logo-mobile {
+        display: none;
+    }
+}
+
+.radio-cargo {
+    color: #8598ff;
+    text-align: left;
+    cursor: pointer;
+    font-size: 20px;
+    font-family: 'Zing Sans Rust R Base';
+    font-weight: 600;
+    position: absolute;
+    margin-top: 90px;
+    margin-left: 400px;
+}
+
+.radio-cargo label {
+    display: block;
+    line-height: 40px;
+}
+
+@keyframes click-wave {
+    0% {
+        height: 20px;
+        width: 20px;
+        opacity: 0.35;
+        position: relative;
+    }
+    100% {
+        height: 200px;
+        width: 200px;
+        margin-left: -90px;
+        margin-top: -90px;
+        opacity: 0;
+    }
+}
+
+.option-input {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    -o-appearance: none;
+    appearance: none;
+    position: relative;
+    top: 13px;
+    margin-left: 10px;
+    background: #ffe775;
+    bottom: 0;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    transition: all 0.15s ease-out 0s;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    outline: none;
+    position: relative;
+    z-index: 1000;
+}
+.option-input:hover {
+
+}
+.option-input:checked {
+
+}
+.option-input:checked::before {
+    height: 20px;
+    width: 20px;
+    position: absolute;
+    content: '✔';
+    display: inline-block;
+    font-size: 15px;
+    text-align: center;
+    line-height: 20px;
+}
+.option-input:checked::after {
+    -webkit-animation: click-wave 0.65s;
+    -moz-animation: click-wave 0.65s;
+    animation: click-wave 0.65s;
+    background: #aec1fb;
+    content: '';
+    display: block;
+    position: relative;
+    z-index: 100;
+}
+.option-input.radio {
+    border-radius: 50%;
+}
+.option-input.radio::after {
+    border-radius: 50%;
+}
+
+.line-1 {
+    border-left: 4px solid #7d88ff;
+    height: 107px;
+    position: absolute;
+    margin-left: 133px;
+    margin-top: 76px;
+}
+
+.line-2 {
+    border-top: 4px solid #7d88ff;
+    width: 102px;
+    position: absolute;
+    margin-left: 135px;
+    margin-top: 120px;
+}
+
+.line-3 {
+    border-top: 4px solid #7d88ff;
+    width: 102px;
+    position: absolute;
+    margin-left: 135px;
+    margin-top: 179px;
+}
+
+.line-4 {
+    border-left: 4px solid #7d88ff;
+    height: 60px;
+    position: absolute;
+    margin-left: 759px;
+    margin-top: 310px;
+}
+
+.line-5 {
+    border-top: 4px solid #7d88ff;
+    width: 105px;
+    position: absolute;
+    margin-left: 658px;
+    margin-top: 369px;
+}
+
+.line-6 {
+    border-left: 4px solid #7d88ff;
+    height: 95px;
+    position: absolute;
+    margin-left: 119px;
+    margin-top: 558px;
+}
+
+.line-7 {
+    border-top: 4px solid #7d88ff;
+    width: 62px;
+    position: absolute;
+    margin-left: 119px;
+    margin-top: 580px;
+}
+
+.line-8 {
+    border-top: 4px solid #7d88ff;
+    width: 62px;
+    position: absolute;
+    margin-left: 119px;
+    margin-top: 649px;
+}
+
+.line-9 {
+    border-top: 4px solid #7d88ff;
+    width: 62px;
+    position: absolute;
+    margin-left: 681px;
+    margin-top: 824px;
+}
+
+.line-10 {
+    border-left: 4px solid #7d88ff;
+    height: 65px;
+    position: absolute;
+    margin-left: 739px;
+    margin-top: 763px;
+}
+
+.road-text-1 {
+    color: #8598ff;
+    font-size: 24px;
+    font-family: 'Zing Sans Rust R Base';
+    font-weight: 600;
+    position: absolute;
+    margin-top: 24px;
+    margin-left: -40px;
+}
+
+.road-text-2 {
+    color: #8598ff;
+    font-size: 24px;
+    font-family: 'Zing Sans Rust R Base';
+    font-weight: 600;
+    position: absolute;
+    margin-top: 255px;
+    margin-left: 820px;
+}
+
+.road-text-3 {
+    color: #8598ff;
+    font-size: 24px;
+    font-family: 'Zing Sans Rust R Base';
+    font-weight: 600;
+    position: absolute;
+    margin-top: 415px;
+    margin-left: 110px;
+}
+
+.road-text-4 {
+    color: #8598ff;
+    font-size: 24px;
+    font-family: 'Zing Sans Rust R Base';
+    font-weight: 600;
+    position: absolute;
+    margin-top: 705px;
+    margin-left: 805px;
+}
+
+.table-services {
+    text-align: center;
+}
+
+.table-services table {
+    border: 2px solid #818180;
+    margin: auto;
+}
+
+.table-services table tr {
+    border: 2px solid #818180;
+}
+
+.table-services table td {
+    border: 2px solid #818180;
+    font-family: 'zero 5';
+    font-size: 16px;
+    padding: 10px 20px;
+}
+
+@media (max-width: 468px) {
+    .table-services table td, .table-services-minsk table td {
+        display: block;
+        text-align: center;
+        width: 100% !important;
+        height: auto !important;
+    }
+}
+
+.text-title-map {
+    font-family: 'zero 5';
+    font-size: 22px;
+    line-height: 24px;
+    color: #8598ff;
+    font-weight: 400;
+}
+
+.text-map {
+    font-family: 'zero 5';
+    color: black;
+    font-size: 18px;
+    margin: 10px 0px 20px 0px;
+}
+
+
+.table-services-minsk {
+    text-align: center;
+}
+
+.table-services-minsk table {
+    border: 2px solid #818180;
+    margin: auto;
+}
+
+.table-services-minsk table tr {
+    border: 2px solid #818180;
+}
+
+.table-services-minsk table td {
+    border: 2px solid #818180;
+    font-family: 'zero 5';
+    font-size: 18px;
+    padding: 20px 20px;
+}
+
+.login-form {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.login-form form {
+    width: 100%;
+    max-width: 500px;
+    background-color: #aec1fb;
+    border-radius: 12px;
+    padding: 20px;
+}
+
+.login-form input {
+    margin: 20px 0px;
+}
+
+.submit-button {
+    cursor: pointer;
+    display: inline-block;
+    padding: 0px 20px;
+    color: #8598ff;
+    font-size: 18px;
+    position: relative;
+    transition: all 0.4s ease;
+    font-family: 'Zing Sans Rust R Base';
+    font-weight: 600;
+    letter-spacing: -0.5px;
+    background-color: #ffeb89;
+    border-radius: 4px;
+}
+
+.label-remember {
+    text-align: center;
+}
+
+.login-form input {
+    margin: 20px 0px;
+}
+
+.submit-button {
+    cursor: pointer;
+    display: inline-block;
+    padding: 5px 30px;
+    color: #8598ff;
+    font-size: 20px;
+    position: relative;
+    transition: all 0.4s ease;
+    font-family: 'Zing Sans Rust R Base';
+    font-weight: 600;
+    letter-spacing: -0.5px;
+    background-color: #ffeb89;
+    border-radius: 4px;
+}
+
+.label-remember {
+    text-align: center;
+    font-family: 'Zing Sans Rust R Base';
+    font-size: 16px;
+    cursor: pointer;
+    color: black;
+}
+
+
+.Input {
+    position: relative;
+}
+
+.Input-text {
+    display: block;
+    margin: 0;
+    width: 100%;
+    font-weight: inherit;
+    font-size: 20px;
+    font-family: 'Zing Sans Rust R Base';
+    padding: 10px 5px;
+    color: #8598ff;
+    text-align: center;
+    border: 3px solid #7d88ff;
+}
+
+.login-text {
+    margin: 10px 0px;
+    font-size: 16px;
+    color: black;
+}
+
+.Input-1 {
+    position: absolute;
+    margin-top: 345px;
+    margin-left: 662px;
+}
+
+.Input-text-1 {
+    display: inline-block;
+    font-size: 20px;
+    font-family: 'Zing Sans Rust R Base';
+    position: absolute;
+    width: 140px;
+    padding: 10px 5px;
+    color: #8598ff;
+    text-align: center;
+    border: 3px solid #7d88ff;
+}
+
+.Input-2 {
+    position: absolute;
+    margin-top: 554px;
+    margin-left: 362px;
+}
+
+.Input-text-2 {
+    display: inline-block;
+    font-size: 20px;
+    font-family: 'Zing Sans Rust R Base';
+    position: absolute;
+    width: 140px;
+    padding: 10px 5px;
+    color: #8598ff;
+    text-align: center;
+    border: 3px solid #7d88ff;
+}
+
+.Input-3 {
+    position: absolute;
+    margin-top: 624px;
+    margin-left: 362px;
+}
+
+.Input-text-3 {
+    display: inline-block;
+    font-size: 20px;
+    font-family: 'Zing Sans Rust R Base';
+    position: absolute;
+    width: 140px;
+    padding: 10px 5px;
+    color: #8598ff;
+    text-align: center;
+    border: 3px solid #7d88ff;
+}
+
+.Input-4 {
+    position: absolute;
+    margin-top: 799px;
+    margin-left: 692px;
+}
+
+.Input-text-4 {
+    display: inline-block;
+    font-size: 20px;
+    font-family: 'Zing Sans Rust R Base';
+    position: absolute;
+    width: 140px;
+    padding: 10px 5px;
+    color: #8598ff;
+    text-align: center;
+    border: 3px solid #7d88ff;
+}
+
+.Input-5 {
+    position: absolute;
+    margin-top: 209px;
+    margin-left: 412px;
+}
+
+.Input-text-5 {
+    display: inline-block;
+    font-size: 14px;
+    font-family: 'Zing Sans Rust R Base';
+    position: absolute;
+    width: 314px;
+    padding: 4px 5px;
+    color: #8598ff;
+    text-align: center;
+    border: 3px solid #7d88ff;
+}
+
+.Input-6 {
+    position: absolute;
+    margin-top: 252px;
+    margin-left: 412px;
+}
+
+.Input-7 {
+     position: absolute;
+     margin-top: 295px;
+     margin-left: 412px;
+ }
+
+.Input-8 {
+    position: absolute;
+    margin-top: 338px;
+    margin-left: 412px;
+}
+
+
+.Input-9 {
+    position: absolute;
+    margin-top: 381px;
+    margin-left: 412px;
+}
+
+.Input-10 {
+    position: absolute;
+    margin-top: 424px;
+    margin-left: 412px;
+}
+
+.Input-11 {
+    position: absolute;
+    margin-top: 467px;
+    margin-left: 412px;
+}
+
+.Input-12 {
+    position: absolute;
+    margin-top: 510px;
+    margin-left: 412px;
+}
+
+.Input-13 {
+    position: absolute;
+    margin-top: 553px;
+    margin-left: 412px;
+}
+
+.Input-text-13 {
+    display: inline-block;
+    font-size: 14px;
+    font-family: 'Zing Sans Rust R Base';
+    position: absolute;
+    width: 275px;
+    padding: 4px 5px;
+    color: #8598ff;
+    text-align: center;
+    border: 3px solid #7d88ff;
+}
+
+@media (max-width: 1200px) {
+    .road-loptop {
+        display: none;
+    }
+}
+
+@media (min-width: 1200px) {
+    .road-tablet {
+        display: none;
+    }
+}
+
+.road-number {
+    display: inline-block;
+    background: #8598ff;
+    padding: 10px;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    font-size: 30px;
+    line-height: 30px;
+    vertical-align: middle;
+    color: #ffeb89;
+    border: 4px solid #566fe0;
+    font-family: Trebuchet MS;
+    font-weight: 600;
+}
+
+.link-menu {
+    padding: 8px 15px 8px 15px;
+    color: #8598ff;
+    font-size: 14px;
+    font-family: 'Zing Sans Rust R Base';
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.link-menu a {
+    color: #8598ff;
+}
+
+.divider-menu {
+    height: 1px;
+    margin: 3px 0;
+    margin-left: 0px;
+    overflow: hidden;
+    background-color: #e5e5e5;
+    width: 50%;
+}
+
+.dropdown-menu {
+    position: relative;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    display: none;
+    float: left;
+    min-width: 160px;
+    padding: 5px 0;
+    margin: 2px 0 0;
+    font-size: 1rem;
+    color: #373a3c;
+    text-align: left;
+    list-style: none;
+    background-color: #fff;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 0.25rem;
+    margin-top: 0;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    position: relative !important;
+    transform: translate3d(9px, 10px, 0px) !important;
+}
+

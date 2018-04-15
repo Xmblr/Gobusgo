@@ -1,6 +1,133 @@
 {% extends '@GobusgoGobusgo/layout.html.twig' %}
 
 {% block body %}
-    <h1>Hello!</h1>
-    <h2>It's body from deliveryRB.html.twig </h2>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 col-md-push-1">
+                <h1>Грузоперевозки по Беларуси</h1>
+                <p class="text-center" style="font-size: 20px; line-height: 24px;">В наше время различная деятельность
+                    разных компаний
+                    не обходится без очень тесного сотрудничества с компаниями, которые занимаются грузоперевозками
+                    (транспортно-экспедиционная компания). Для многих компаний качественная, быстрая, своевременная
+                    доставка
+                    различного груза является одним из важнейших факторов, которые влияют на развитие и стабильность
+                    данной
+                    компании. Для частных компаний высокий уровень оказания транспортных услуг является не менее важным,
+                    потому
+                    что это залог уверенности и полного спокойствия во время перевозки имущества. Вследствие этого с
+                    каждым
+                    годом интерес и спрос на различные грузоперевозки растёт и растёт.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container" style="text-align: center;">
+        <div class="row">
+            <h2>Расчет стоимости грузоперевозки:</h2>
+            <span class="road-text-1">Клиент</span>
+            <span class="road-text-2">Габариты</span>
+            <span class="road-text-3">Город</span>
+            <span class="road-text-4">Итого</span>
+            <span class="line-1"></span>
+            <span class="line-2"></span>
+            <span class="line-3"></span>
+            <span class="line-4"></span>
+            <span class="line-5"></span>
+            <span class="line-6"></span>
+            <span class="line-7"></span>
+            <span class="line-8"></span>
+            <span class="line-9"></span>
+            <span class="line-10"></span>
+            <div class="Input-1">
+                <i class="fa fa-chevron-left" aria-hidden="true"
+                   style="position: absolute; margin-left: 160px; margin-top: 17px; font-size: 20px; color: #7d88ff;"></i>
+
+                <input class="Input-text-1" type="text" id="weight" name="weight"
+                       required="required" style="position: absolute;" placeholder="Вес, кг"/>
+            </div>
+            <div class="Input-2">
+                <i class="fa fa-chevron-right" aria-hidden="true"
+                   style="position: absolute; margin-left: -19px; margin-top: 18px; font-size: 20px; color: #7d88ff;"></i>
+
+                <input class="Input-text-2" type="text" id="weight" name="weight"
+                       required="required" style="position: absolute;" placeholder="Откуда"/>
+            </div>
+            <div class="Input-3">
+                <i class="fa fa-chevron-right" aria-hidden="true"
+                   style="position: absolute; margin-left: -19px; margin-top: 18px; font-size: 20px; color: #7d88ff;"></i>
+
+                <input class="Input-text-3" type="text" id="weight" name="weight"
+                       required="required" style="position: absolute;" placeholder="Куда"/>
+            </div>
+            <div class="Input-4">
+                <i class="fa fa-chevron-left" aria-hidden="true"
+                   style="position: absolute; margin-left: 152px; margin-top: 17px; font-size: 20px; color: #7d88ff;"></i>
+
+                <input class="Input-text-4" type="text" id="weight" name="weight"
+                       required="required" style="position: absolute;" placeholder="Сумма"/>
+            </div>
+            <div class="radio-cargo">
+                <label>
+                    <i class="fa fa-chevron-right" aria-hidden="true"></i>
+                    Юридическое лицо
+                    <input type="radio" class="option-input radio" name="example" checked/>
+
+                </label>
+                <label>
+                    <i class="fa fa-chevron-right" aria-hidden="true"></i>
+                    Физическое лицо
+                    <input type="radio" class="option-input radio" name="example"/>
+                </label>
+            </div>
+            <img src="/images/road.png" style="width: 800px;">
+
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 col-md-push-1">
+                <p class="text-center" style="font-size: 20px; line-height: 24px;">В наше время различная деятельность
+                    разных компаний
+                    не обходится без очень тесного сотрудничества с компаниями, которые занимаются грузоперевозками
+                    (транспортно-экспедиционная компания). Для многих компаний качественная, быстрая, своевременная
+                    доставка
+                    различного груза является одним из важнейших факторов, которые влияют на развитие и стабильность
+                    данной
+                    компании. Для частных компаний высокий уровень оказания транспортных услуг является не менее важным,
+                    потому
+                    что это залог уверенности и полного спокойствия во время перевозки имущества. Вследствие этого с
+                    каждым
+                    годом интерес и спрос на различные грузоперевозки растёт и растёт.</p>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <h2>Почему выбирают именно нас?</h2>
+            <div class="col-md-3" style="margin-bottom:20px;">
+                <div class="advantage-icons">
+                    <img src="images/advantage-1.png" style="width:230px;">
+                </div>
+                <div class="advantage-title" style="margin: 10px;">Доставка любых грузов до 2-х тонн</div>
+            </div>
+            <div class="col-md-3" style="margin-bottom:20px;">
+                <div class="advantage-icons">
+                    <img src="images/advantage-2.png" style="width:230px;">
+                </div>
+                <h4 class="advantage-title" style="margin: 10px;">Доставка от письма до крупногабаритного груза</h4>
+            </div>
+            <div class="col-md-3" style="margin-bottom:20px;">
+                <div class="advantage-icons">
+                    <img src="images/advantage-3.png" style="width:230px;">
+                </div>
+                <h4 class="advantage-title" style="margin: 10px;">Доставка в течении суток</h4>
+            </div>
+            <div class="col-md-3" style="margin-bottom:20px;">
+                <div class="advantage-icons">
+                    <img src="images/advantage-4.png" style="width:230px;">
+                </div>
+                <h4 class="advantage-title" style="margin: 10px;">Каждая 7-ая доставка бесплатно *</h4>
+            </div>
+        </div>
+    </div>
 {% endblock %}

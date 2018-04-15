@@ -1,6 +1,87 @@
 {% extends '@GobusgoGobusgo/layout.html.twig' %}
 
+{% block header %}
+    {{ parent() }}
+{% endblock %}
+
 {% block body %}
-    <h1>Hello!</h1>
-    <h2>It's body from deliveryMinsk.html.twig </h2>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 col-md-push-1">
+                <h1>Грузоперевозки по Минску <i class="fa fa-arrows-h" aria-hidden="true"></i>
+                    Минск?</h1>
+                <p class="text-center" style="font-size: 20px; line-height: 24px;">В наше время различная деятельность
+                    разных компаний
+                    не обходится без очень тесного сотрудничества с компаниями, которые занимаются грузоперевозками
+                    (транспортно-экспедиционная компания). Для многих компаний качественная, быстрая, своевременная
+                    доставка
+                    различного груза является одним из важнейших факторов, которые влияют на развитие и стабильность
+                    данной
+                    компании. Для частных компаний высокий уровень оказания транспортных услуг является не менее важным,
+                    потому
+                    что это залог уверенности и полного спокойствия во время перевозки имущества. Вследствие этого с
+                    каждым
+                    годом интерес и спрос на различные грузоперевозки растёт и растёт.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <h2>Стоимости грузоперевозок по Минску:</h2>
+            <div class="table-services-minsk">
+                <table>
+                    <tr>
+                        <td>Тариф</td>
+                        <td>Срок доставки<br></td>
+                        <td>Стоимость (для физ. лиц)</td>
+                        <td>Стоимость (для юр. лиц)<br></td>
+                    </tr>
+                    <tr>
+                        <td>СТАНДАРТ</td>
+                        <td>На завтра с 9.00 до 21.00</td>
+                        <td>8р</td>
+                        <td>8р</td>
+                    </tr>
+                    <tr>
+                        <td>ЭКСПРЕСС</td>
+                        <td>Сегодня в течении 2-3 часов</td>
+                        <td>15р</td>
+                        <td>15р</td>
+                    </tr>
+                    <tr>
+                        <td>Доставка на наш склад лековым автомобилем</td>
+                        <td>В течении дня</td>
+                        <td colspan="2">7р (от 5 одновременных заказов бесплатно)</td>
+                    </tr>
+                    <tr>
+                        <td>Доставка на наш склад грузовым автомобилем<br></td>
+                        <td>В течении дня</td>
+                        <td>14р</td>
+                        <td>14р</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 col-md-push-1">
+            <h2>Зоны обслуживания:</h2>
+            <div class="col-md-5" style="padding: 0px;">
+
+                <div class="text-title-map"><i class="fa fa-map-marker" aria-hidden="true"></i> Наш адрес в Минске:
+                </div>
+                    <div class="text-map">Склад: Пр. Дзержинского</br>Офис: Пр. Дзержинского</div>
+                    <div class="text-map">Время работы: 9.00 - 21.00</br>Телефон: +375(17)333-33-33</div>
+
+            </div>
+            <div class="col-md-7" style="padding: 0px;">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d150474.39557313913!2d27.40249134812782!3d53.89331684651622!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46dbcfd35b1e6ad3%3A0xb61b853ddb570d9!2z0JzQuNC90YHQug!5e0!3m2!1sru!2sby!4v1523641166856"
+                        width="100%" height="350" frameborder="0" style="border:0" allowfullscreen></iframe>
+            </div></div>
+        </div>
+    </div>
+
 {% endblock %}
