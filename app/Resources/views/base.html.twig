@@ -8,14 +8,14 @@
 
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <link rel="stylesheet" href="{{ asset('css/bootstrap-1.css') }}">
-        <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+        <link type="text/css" rel="stylesheet" href="{{ asset('css/bootstrap-1.css') }}">
+        <link type="text/css" rel="stylesheet" href="{{ asset('css/style.css') }}">
 
-        <link rel="stylesheet" href="{{ asset('css/font-awesome/css/font-awesome.css') }}">
-        <link rel="stylesheet" href="{{ asset('css/header.css') }}">
-        <link rel="stylesheet" href="{{ asset('css/responsive.css') }}">
-        <link rel="stylesheet" href="{{ asset('css/swiper.min.css') }}">
-        <link rel="stylesheet" href="{{ asset('css/header-second.css') }}">
+        <link type="text/css" rel="stylesheet" href="{{ asset('css/font-awesome/css/font-awesome.css') }}">
+        <link type="text/css" rel="stylesheet" href="{{ asset('css/header.css') }}">
+        <link type="text/css" rel="stylesheet" href="{{ asset('css/responsive.css') }}">
+        <link type="text/css" rel="stylesheet" href="{{ asset('css/swiper.min.css') }}">
+        <link type="text/css" rel="stylesheet" href="{{ asset('css/header-second.css') }}">
 
         {% stylesheets '@bootstrap_css' %}
             <link rel="stylesheet" type="text/css" media="screen" href="{{ asset_url }}"/>
@@ -40,7 +40,7 @@
                                     <a href="{{ path('gobusgo_gobusgo_about') }}">О нас</a>
                                 </li>
                                 <li class="top-bar-menu">
-                                    <a class="" href="index.html">Новости</a>
+                                    <a class="" href="">Новости</a>
                                 </li>
                                 <li class="top-bar-menu">
                                     <a class="" href="index.html">Отзывы</a>
@@ -54,10 +54,10 @@
                             <div class="top-bar">
                                 <span class="mail-top">info@gobusgo.by</span>
                                 <div class="icons-top-bar">
-                                    <img class="icons-top" src="images/whatsup.png"/>
-                                    <img class="icons-top" src="images/telegram.png"/>
-                                    <img class="icons-top" src="images/viber.png"/>
-                                    <img class="icons-top" src="images/skype.png"/>
+                                    <img class="icons-top" src="{{ asset('images/whatsup.png') }}"/>
+                                    <img class="icons-top" src="{{ asset('images/telegram.png') }}"/>
+                                    <img class="icons-top" src="{{ asset('images/viber.png') }}"/>
+                                    <img class="icons-top" src="{{ asset('images/skype.png') }}"/>
                                 </div>
                                 <div class="top-bar-right">
 
@@ -74,7 +74,7 @@
                                     {% endif %}
 
 
-                                    <img src="images/russian.png"
+                                    <img src="{{ asset('images/russian.png') }}"
                                          style="height:32px; padding-bottom: 5px; margin-right: 5px"/>
                                 </div>
                             </div>
@@ -86,7 +86,7 @@
                             <div class="logo-header inline-block">
 
                                 <a href="index.html">
-                                    <img src="images/logo-1.png" alt="" width="120px;">
+                                    <img src="{{ asset('images/logo-1.png') }}" alt="" width="120px;">
                                     <p class="logo-text-header">Грузоперевозки</p>
                                 </a>
                             </div>
@@ -145,7 +145,7 @@
                     <div class="logo-mobile ">
 
                         <a href="index.html">
-                            <img src="images/logo-1.png" >
+                            <img src="{{ asset('images/logo-1.png') }}" >
                             <p class="logo-text-header">Грузоперевозки</p>
                         </a>
                     </div>
@@ -227,11 +227,11 @@
                                     Заказать звонок</a>
                             </div>
                             <div class="header-icons">
-                                <img src="images/whatsup.png" style="height:35px; margin-right: 5px;"/>
-                                <img src="images/telegram.png" style="height:35px; margin-right: 5px;"/>
-                                <img src="images/viber.png" style="height:35px; margin-right: 5px;"/>
-                                <img src="images/skype.png" style="height:35px; margin-right: 5px;"/>
-                                <img src="images/russian.png" style="height:28px;"/>
+                                <img src="{{ asset('images/whatsup.png') }}" style="height:35px; margin-right: 5px;"/>
+                                <img src="{{ asset('images/telegram.png') }}" style="height:35px; margin-right: 5px;"/>
+                                <img src="{{ asset('images/viber.png') }}" style="height:35px; margin-right: 5px;"/>
+                                <img src="{{ asset('images/skype.png') }}" style="height:35px; margin-right: 5px;"/>
+                                <img src="{{ asset('images/russian.png') }}" style="height:28px;"/>
                             </div>
 
 
@@ -280,7 +280,7 @@
                     <div class="row">
                         <div class="col-md-3 footer-table" style="text-align: left;">
 <div style="text-align: center; width: 180px;">
-                            <img src="images/logo-1.png" style="width: 180px;">
+                            <img src="{{ asset('images/logo-1.png') }}" style="width: 180px;">
                             <p class="logo-text">Грузоперевозки</p>
 </div>
                         </div>
@@ -327,11 +327,11 @@
                             </table>
                             <p class="big-letter-footer">info@gobusgo.by</p>
                             <div class="footer-icons">
-                                <img src="images/whatsup.png" style="height:35px; margin-right: 5px;"/>
-                                <img src="images/telegram.png" style="height:35px; margin-right: 5px;"/>
-                                <img src="images/viber.png" style="height:35px; margin-right: 5px;"/>
-                                <img src="images/skype.png" style="height:35px; margin-right: 5px;"/>
-                                <img src="images/russian.png" style="height:28px;"/>
+                                <img src="{{ asset('images/whatsup.png') }}" style="height:35px; margin-right: 5px;"/>
+                                <img src="{{ asset('images/telegram.png') }}" style="height:35px; margin-right: 5px;"/>
+                                <img src="{{ asset('images/viber.png') }}" style="height:35px; margin-right: 5px;"/>
+                                <img src="{{ asset('images/skype.png') }}" style="height:35px; margin-right: 5px;"/>
+                                <img src="{{ asset('images/russian.png') }}" style="height:28px;"/>
                             </div>
                         </div>
                         <div class="col-md-3 footer-table">
