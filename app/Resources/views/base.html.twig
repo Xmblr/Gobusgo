@@ -7,7 +7,9 @@
     {% block stylesheets %}
 
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+        {% stylesheets '@bootstrap_css' %}
+            <link rel="stylesheet" type="text/css" media="screen" href="{{ asset_url }}"/>
+        {% endstylesheets %}
         <link type="text/css" rel="stylesheet" href="{{ asset('css/bootstrap-1.css') }}">
         <link type="text/css" rel="stylesheet" href="{{ asset('css/style.css') }}">
 
@@ -16,191 +18,110 @@
         <link type="text/css" rel="stylesheet" href="{{ asset('css/responsive.css') }}">
         <link type="text/css" rel="stylesheet" href="{{ asset('css/swiper.min.css') }}">
         <link type="text/css" rel="stylesheet" href="{{ asset('css/header-second.css') }}">
+        <link type="text/css" rel="stylesheet" href="{{ asset('css/popup.css') }}">
 
-        {% stylesheets '@bootstrap_css' %}
-            <link rel="stylesheet" type="text/css" media="screen" href="{{ asset_url }}"/>
-        {% endstylesheets %}
 
     {% endblock %}
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
 </head>
 <body>
 
-    {% block header %}
 
 
-        <header class="main-menu-area">
-            <div class="container-fluid" style="padding: 0px;">
-                <div class="row">
-                    <div class="col-md-12 col-lg-12 col-xl-12 header-desktop"
-                         style=" border-bottom: 2px solid #ffe775;">
-                        <div class="col-md-5">
-                            <div class="top-bar">
-                                <li class="top-bar-menu">
-                                    <a href="{{ path('gobusgo_gobusgo_about') }}">О нас</a>
-                                </li>
-                                <li class="top-bar-menu">
-                                    <a class="" href="">Новости</a>
-                                </li>
-                                <li class="top-bar-menu">
-                                    <a class="" href="index.html">Отзывы</a>
-                                </li>
-                                <li class="top-bar-menu">
-                                    <a href="about-us.html">Контакты</a>
-                                </li>
-                            </div>
-                        </div>
-                        <div class="col-md-7">
-                            <div class="top-bar">
-                                <span class="mail-top">info@gobusgo.by</span>
-                                <div class="icons-top-bar">
-                                    <img class="icons-top" src="{{ asset('images/whatsup.png') }}"/>
-                                    <img class="icons-top" src="{{ asset('images/telegram.png') }}"/>
-                                    <img class="icons-top" src="{{ asset('images/viber.png') }}"/>
-                                    <img class="icons-top" src="{{ asset('images/skype.png') }}"/>
-                                </div>
-                                <div class="top-bar-right">
+{% block header %}
 
-
-                                    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-                                        <a class="top-bar-menu-active" href="{{ path('fos_user_profile_show') }}"> {{ app.user.organization }} </a> |
-                                        <a class="top-bar-menu" href="{{ path('fos_user_security_logout') }}">
-                                            {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
-                                        </a>
-                                    {% else %}
-                                        <a class="top-bar-menu-active" href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
-                                        <a class="top-bar-menu" href="{{ path('fos_user_registration_register') }}">{{ 'layout.register'|trans({}, 'FOSUserBundle') }}</a>
-
-                                    {% endif %}
-
-
-                                    <img src="{{ asset('images/russian.png') }}"
-                                         style="height:32px; padding-bottom: 5px; margin-right: 5px"/>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-12 col-lg-12 col-xl-12 header-desktop" style="text-align: center;">
-                        <div class="col-md-7 align-c">
-                            <div class="logo-header inline-block">
-
-                                <a href="index.html">
-                                    <img src="{{ asset('images/logo-1.png') }}" alt="" width="120px;">
-                                    <p class="logo-text-header">Грузоперевозки</p>
-                                </a>
-                            </div>
-
-                            <div class="header-menu inline-block">
-                                <li class="inline-block">
-                                    <a href="{{ path('gobusgo_gobusgo_deliveryMinskMoscow') }}">Минск</br>-Москва</a>
-                                </li>
-                                <li class="inline-block">
-                                    <a href="{{ path('gobusgo_gobusgo_deliveryMinsk') }}">Доставка </br>по Минску</a>
-                                </li>
-                                <li class="inline-block">
-                                    <a href="{{ path('gobusgo_gobusgo_deliveryRB') }}">Доставка</br> по Беларуси</a>
-                                </li>
-                            </div>
-
-
-</div>
-                        <div class="col-md-5 align-j">
-                            <div class="time-of-work inline-block">
-                                <li class="time-of-work">
-                                    <a href="">Время работы:</br> Пн-Пт - с 9.00 до 18.00</br>Сб-Вс - с 9.00 до
-                                        16.00</a>
-                                </li>
-                            </div>
-                            <div class="inline-block padding-phones">
-                                <table class="menu-table-header" border="1">
-                                    <tbody>
-                                    <tr colspan="2">
-                                        <td style="text-align: center;"><a href="" class="call-back-top">
-                                                Заказать звонок</a></td>
-                                    </tr>
-                                    <tr>
-                                        <td rowspan="3">
-                                            <p class="big-numbers">333 33 33</p>
-                                        </td>
-                                        <td>
-                                            <p class="text-operator">МТС</p>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <p class="text-operator">Velcome</p>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <p class="text-operator">Life :)</p>
-                                        </td>
-                                    </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="logo-mobile ">
-
-                        <a href="index.html">
-                            <img src="{{ asset('images/logo-1.png') }}" >
-                            <p class="logo-text-header">Грузоперевозки</p>
-                        </a>
-                    </div>
-
-                    <div class="accordion-wrapper hide-sm-up">
-                        <a href="#" class="mobile-open"><i class="fa fa-bars" style="font-size: 34px;"></i></a>
-                        <!--Mobile Menu start-->
-                        <ul id="mobilemenu" class="accordion">
-
-                            <li class="start-li">
-                                <a class="button-not-active-header" href="# ">Регистрация</a>
-                                <a class="button-active-header" href="#">Вход</a>
-                                <a class="closeme" href="#" style="display: inline-block;"><i
-                                            class="fa fa-times"></i></a></li>
-                            <li class="divider-menu"></li>
-                            <div class="dropdown">
-                                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Выпадающая ссылка
-                                </a>
-
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                    <a class="dropdown-item" href="#">Action</a>
-                                    <a class="dropdown-item" href="#">Another action</a>
-                                    <a class="dropdown-item" href="#">Something else here</a>
-                                </div>
-                            </div>
-                            {#<li class="link-menu">#}
-                                {#<a class="" href="index.html">Минск - Москва</a>#}
-                            {#</li>#}
-                            {#<li class="divider-menu"></li>#}
-                            {#<li class="link-menu">#}
-                                {#<a class="" href="index.html">По Беларуси</a>#}
-                            {#</li>#}
-                            {#<li class="divider-menu"></li>#}
-                            {#<li class="link-menu">#}
-                                {#<a href="about-us.html">По Минску</a>#}
-                            {#</li>#}
-                            <li class="divider-menu"></li>
-                            <li class="link-menu"><a class="" href="index.html">О нас</a></li>
-                            <li class="divider-menu"></li>
-                            <li class="link-menu">
+    <header class="main-menu-area">
+        <div class="container-fluid" style="padding: 0px;">
+            <div class="row">
+                <div class="col-md-12 col-lg-12 col-xl-12 header-desktop"
+                     style=" border-bottom: 2px solid #ffe775;">
+                    <div class="col-md-5">
+                        <div class="top-bar">
+                            <li class="top-bar-menu">
+                                <a href="{{ path('gobusgo_gobusgo_about') }}">О нас</a>
+                            </li>
+                            <li class="top-bar-menu">
                                 <a class="" href="">Новости</a>
                             </li>
-                            <li class="divider-menu"></li>
-                            <li class="link-menu">
+                            <li class="top-bar-menu">
                                 <a class="" href="index.html">Отзывы</a>
                             </li>
-                            <li class="divider-menu"></li>
-                            <li class="link-menu">
-                                <a href="about-us.html">Контакты</a>
+                            <li class="top-bar-menu">
+                                <a href="{{ path('gobusgo_gobusgo_contacts') }}">Контакты</a>
                             </li>
-                            <li class="divider-menu"></li>
+                        </div>
+                    </div>
+                    <div class="col-md-7">
+                        <div class="top-bar">
+                            <span class="mail-top">info@gobusgo.by</span>
+                            <div class="icons-top-bar">
+                                <img class="icons-top" src="{{ asset('images/whatsup.png') }}"/>
+                                <img class="icons-top" src="{{ asset('images/telegram.png') }}"/>
+                                <img class="icons-top" src="{{ asset('images/viber.png') }}"/>
+                                <img class="icons-top" src="{{ asset('images/skype.png') }}"/>
+                            </div>
+                            <div class="top-bar-right">
 
-                            <table class="menu-table" border="1">
+
+                                {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                                    <a class="top-bar-menu-active"
+                                       href="{{ path('fos_user_profile_show') }}"> {{ app.user.organization }} </a> |
+                                    <a class="top-bar-menu" href="{{ path('fos_user_security_logout') }}">
+                                        {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
+                                    </a>
+                                {% else %}
+                                    <a class="top-bar-menu-active"
+                                       href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
+                                    <a class="top-bar-menu"
+                                       href="{{ path('fos_user_registration_register') }}">{{ 'layout.register'|trans({}, 'FOSUserBundle') }}</a>
+
+                                {% endif %}
+
+
+                                <img src="{{ asset('images/russian.png') }}"
+                                     style="height:32px; padding-bottom: 5px; margin-right: 5px"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-12 col-lg-12 col-xl-12 header-desktop" style="text-align: center;">
+                    <div class="col-md-7 align-c">
+                        <div class="logo-header inline-block">
+
+                            <a href="{{ path('gobusgo_gobusgo_homepage') }}">
+                                <img src="{{ asset('images/logo-1.png') }}" alt="" width="120px;">
+                            </a>
+                        </div>
+
+                        <div class="header-menu inline-block">
+                            <li class="inline-block">
+                                <a href="{{ path('gobusgo_gobusgo_deliveryMoscowMinsk') }}">Минск</br>Москва</a>
+                            </li>
+                            <li class="inline-block">
+                                <a href="{{ path('gobusgo_gobusgo_deliveryMinsk') }}">Доставка </br>по Минску</a>
+                            </li>
+                            <li class="inline-block">
+                                <a href="{{ path('gobusgo_gobusgo_deliveryRB') }}">Доставка<br> по Беларуси</a>
+                            </li>
+                        </div>
+
+
+                    </div>
+                    <div class="col-md-5 align-j">
+                        <div class="time-of-work inline-block">
+                            <li class="time-of-work">
+                                <a href=""><span style="line-height: 36px;">Время работы:</span><br> Пн-Пт - с 9.00 до 18.00<br>Сб-Вс - с 9.00 до
+                                    16.00</a>
+                            </li>
+                        </div>
+                        <div class="inline-block padding-phones">
+                            <table class="menu-table-header" border="1">
                                 <tbody>
+                                <tr colspan="2">
+                                    <td style="text-align: center;"><a href="#win3" class="call-back-top">
+                                            Заказать звонок</a></td>
+                                </tr>
                                 <tr>
                                     <td rowspan="3">
                                         <p class="big-numbers">333 33 33</p>
@@ -221,31 +142,141 @@
                                 </tr>
                                 </tbody>
                             </table>
-                            <p class="big-letter">info@gobusgo.by</p>
-                            <div class="callback-header">
-                                <a href=""><i class="fa fa-phone" aria-hidden="true"></i>
-                                    Заказать звонок</a>
-                            </div>
-                            <div class="header-icons">
-                                <img src="{{ asset('images/whatsup.png') }}" style="height:35px; margin-right: 5px;"/>
-                                <img src="{{ asset('images/telegram.png') }}" style="height:35px; margin-right: 5px;"/>
-                                <img src="{{ asset('images/viber.png') }}" style="height:35px; margin-right: 5px;"/>
-                                <img src="{{ asset('images/skype.png') }}" style="height:35px; margin-right: 5px;"/>
-                                <img src="{{ asset('images/russian.png') }}" style="height:28px;"/>
-                            </div>
-
-
-                        </ul>
-                        <!--Mobile Menu end-->
-
+                        </div>
                     </div>
-                    <!--Main menu start-->
                 </div>
+                <div class="logo-mobile ">
+
+                    <a href="{{ path('gobusgo_gobusgo_homepage') }}">
+                        <img src="{{ asset('images/logo-1.png') }}">
+                    </a>
+                </div>
+
+                <div class="accordion-wrapper hide-sm-up">
+                    <a href="#" class="mobile-open"><i class="fa fa-bars" style="font-size: 34px;"></i></a>
+                    <!--Mobile Menu start-->
+                    <ul id="mobilemenu" class="accordion">
+
+                        <li class="start-li">
+
+
+
+                            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                                <a class="button-active-header"
+                                   href="{{ path('fos_user_profile_show') }}"> {{ app.user.organization }} </a> |
+                                <a class="button-not-active-header" href="{{ path('fos_user_security_logout') }}">
+                                    {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
+                                </a>
+                            {% else %}
+                                <a class="button-not-active-header"
+                                   href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
+                                <a class="button-active-header"
+                                   href="{{ path('fos_user_registration_register') }}">{{ 'layout.register'|trans({}, 'FOSUserBundle') }}</a>
+
+                            {% endif %}
+
+                            <a class="closeme" href="#" style="display: inline-block;"><i
+                                        class="fa fa-times"></i></a></li>
+                        <li class="divider-menu"></li>
+                        <div class="dropdown">
+                            <a class="link-menu" style="display:block;" href="#" role="button" id="dropdownMenuLink"
+                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Грузоперевозки <i class="fa fa-angle-down" aria-hidden="true"></i>
+
+                            </a>
+
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                <li class="divider-menu"></li>
+                                <li class="link-menu">
+                                <a style="display:block;"
+                                   href="{{ path('gobusgo_gobusgo_deliveryMoscowMinsk') }}">Минск - Москва</a>
+                                </li>
+                                <li class="divider-menu"></li>
+                                <li class="link-menu">
+                                    <a style="display:block;"
+                                       href="{{ path('gobusgo_gobusgo_deliveryMinsk') }}">По Минску</a>
+                                </li>
+                                <li class="divider-menu"></li>
+                                <li class="link-menu">
+                                <a style="display:block;"
+                                   href="{{ path('gobusgo_gobusgo_deliveryRB') }}">По Беларуси</a>
+                                </li>
+                            </div>
+                        </div>
+                        {#<li class="link-menu">#}
+                        {#<a class="" href="index.html">Минск - Москва</a>#}
+                        {#</li>#}
+                        {#<li class="divider-menu"></li>#}
+                        {#<li class="link-menu">#}
+                        {#<a class="" href="index.html">По Беларуси</a>#}
+                        {#</li>#}
+                        {#<li class="divider-menu"></li>#}
+                        {#<li class="link-menu">#}
+                        {#<a href="about-us.html">По Минску</a>#}
+                        {#</li>#}
+                        <li class="divider-menu"></li>
+                        <li class="link-menu"><a href="{{ path('gobusgo_gobusgo_about') }}">О нас</a></li>
+                        <li class="divider-menu"></li>
+                        <li class="link-menu">
+                            <a class="" href="">Новости</a>
+                        </li>
+                        <li class="divider-menu"></li>
+                        <li class="link-menu">
+                            <a class="" href="index.html">Отзывы</a>
+                        </li>
+                        <li class="divider-menu"></li>
+                        <li class="link-menu">
+                            <a href="{{ path('gobusgo_gobusgo_about') }}">Контакты</a>
+                        </li>
+                        <li class="divider-menu"></li>
+
+                        <table class="menu-table" border="1">
+                            <tbody>
+                            <tr>
+                                <td rowspan="3">
+                                    <p class="big-numbers">333 33 33</p>
+                                </td>
+                                <td>
+                                    <p class="text-operator">МТС</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p class="text-operator">Velcome</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p class="text-operator">Life :)</p>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <p class="big-letter">info@gobusgo.by</p>
+                        <div class="callback-header">
+                            <a href=""><i class="fa fa-phone" aria-hidden="true"></i>
+                                Заказать звонок</a>
+                        </div>
+                        <div class="header-icons">
+                            <img src="{{ asset('images/whatsup.png') }}" style="height:35px; margin-right: 5px;"/>
+                            <img src="{{ asset('images/telegram.png') }}" style="height:35px; margin-right: 5px;"/>
+                            <img src="{{ asset('images/viber.png') }}" style="height:35px; margin-right: 5px;"/>
+                            <img src="{{ asset('images/skype.png') }}" style="height:35px; margin-right: 5px;"/>
+                            <img src="{{ asset('images/russian.png') }}" style="height:28px;"/>
+                        </div>
+
+
+                    </ul>
+                    <!--Mobile Menu end-->
+
+                </div>
+                <!--Main menu start-->
             </div>
+        </div>
 
 
-        </header>
-        <!--<div>
+    </header>
+    <!--<div>
             {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
                 <a href="{{ path('fos_user_profile_show') }}"> {{ 'layout.logged_in_as'|trans({'%username%': app.user.organization}, 'FOSUserBundle') }} </a> |
                 <a href="{{ path('fos_user_security_logout') }}">
@@ -267,113 +298,127 @@
         {% endfor %}
 
         -->
-    {% endblock %}
+{% endblock %}
+{% block callback %}
 
+{% endblock %}
 
-    {% block body %}
+{% block body %}
 
-    {% endblock %}
+{% endblock %}
 
-        {% block footer %}
-            <footer>
-                <div class="container-fluid" style="">
-                    <div class="row">
-                        <div class="col-md-3 footer-table" style="text-align: left;">
-<div style="text-align: center; width: 180px;">
+{% block footer %}
+    <footer>
+        <div class="container-fluid" style="">
+            <div class="row">
+                <div class="col-md-3 footer-table" style="text-align: left;">
+                    <div style="text-align: center; width: 180px;">
+                        <a href="{{ path('gobusgo_gobusgo_homepage') }}">
                             <img src="{{ asset('images/logo-1.png') }}" style="width: 180px;">
-                            <p class="logo-text">Грузоперевозки</p>
-</div>
-                        </div>
-                        <div class="col-md-3 footer-table">
-                            <li class="title-footer-border">
-                                <p class="title-footer">Доставка грузов:</p>
-                            </li>
-                            <li class="link-footer">
-                                <a class="link-text-footer" href="index.html">Москва-Минск</a>
-                            </li>
-                            <li class="link-footer">
-                                <a class="link-text-footer" href="index.html">по Беларуси</a>
-                            </li>
-                            <li class="link-footer">
-                                <a class="link-text-footer" href="index.html">по Минску</a>
-                            </li>
-
-                        </div>
-                        <div class="col-md-3 footer-table">
-                            <li class="title-footer-border">
-                                <p class="title-footer">Контакты:</p>
-                            </li>
-                            <table class="table-footer" border="1">
-                                <tbody>
-                                <tr>
-                                    <td rowspan="3">
-                                        <p class="big-numbers-footer">333 33 33</p>
-                                    </td>
-                                    <td>
-                                        <p class="text-operator">МТС</p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <p class="text-operator">Velcome</p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <p class="text-operator">Life :)</p>
-                                    </td>
-                                </tr>
-                                </tbody>
-                            </table>
-                            <p class="big-letter-footer">info@gobusgo.by</p>
-                            <div class="footer-icons">
-                                <img src="{{ asset('images/whatsup.png') }}" style="height:35px; margin-right: 5px;"/>
-                                <img src="{{ asset('images/telegram.png') }}" style="height:35px; margin-right: 5px;"/>
-                                <img src="{{ asset('images/viber.png') }}" style="height:35px; margin-right: 5px;"/>
-                                <img src="{{ asset('images/skype.png') }}" style="height:35px; margin-right: 5px;"/>
-                                <img src="{{ asset('images/russian.png') }}" style="height:28px;"/>
-                            </div>
-                        </div>
-                        <div class="col-md-3 footer-table">
-                            <li class="title-footer-border">
-                                <p class="title-footer">Юридические данные:</p>
-                            </li>
-                            <p class="footer-text">ИП Иванов И.И.</br>
-                                г. Минск, пр. Независимости 110, офис 10</br>
-                                УНП 123456789</br>
-                                Свидетельство о государственной регистрации выдано Минским горисполкомом
-
-                            </p>
-                        </div>
-
                     </div>
                 </div>
-                <div class="container-fluid" style="margin-top: 10px;">
-                    <div class="row">
+                <div class="col-md-3 footer-table">
+                    <li class="title-footer-border">
+                        <p class="title-footer">Доставка грузов:</p>
+                    </li>
+                    <li class="link-footer">
+                        <a class="link-text-footer" href="{{ path('gobusgo_gobusgo_deliveryMoscowMinsk') }}">Москва-Минск</a>
+                    </li>
+                    <li class="link-footer">
+                        <a class="link-text-footer" href="{{ path('gobusgo_gobusgo_deliveryRB') }}">по Беларуси</a>
+                    </li>
+                    <li class="link-footer">
+                        <a class="link-text-footer" href="{{ path('gobusgo_gobusgo_deliveryMinsk') }}">по Минску</a>
+                    </li>
 
-                            <div class="col-md-6">
-                                <p class="footer-caption" style="float:left;">&copy;Gobusgo.by 2018</p>
-                            </div>
-                            <div class="col-md-6">
-                                <p class="footer-caption" style="float:right;">Разработка: <a href="http:\\new-line.by">New-line.by</a>
-                                </p>
-                            </div>
+                </div>
+                <div class="col-md-3 footer-table">
+                    <li class="title-footer-border">
+                        <p class="title-footer">Контакты:</p>
+                    </li>
+                    <table class="table-footer" border="1">
+                        <tbody>
+                        <tr>
+                            <td rowspan="3">
+                                <p class="big-numbers-footer">333 33 33</p>
+                            </td>
+                            <td>
+                                <p class="text-operator">МТС</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p class="text-operator">Velcome</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p class="text-operator">Life :)</p>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <p class="big-letter-footer">info@gobusgo.by</p>
+                    <div class="footer-icons">
+                        <img src="{{ asset('images/whatsup.png') }}" style="height:35px; margin-right: 5px;"/>
+                        <img src="{{ asset('images/telegram.png') }}" style="height:35px; margin-right: 5px;"/>
+                        <img src="{{ asset('images/viber.png') }}" style="height:35px; margin-right: 5px;"/>
+                        <img src="{{ asset('images/skype.png') }}" style="height:35px; margin-right: 5px;"/>
+                        <img src="{{ asset('images/russian.png') }}" style="height:28px;"/>
                     </div>
                 </div>
+                <div class="col-md-3 footer-table">
+                    <li class="title-footer-border">
+                        <p class="title-footer">Юридические данные:</p>
+                    </li>
+                    <p class="footer-text">ИП Иванов И.И.</br>
+                        г. Минск, пр. Независимости 110, офис 10</br>
+                        УНП 123456789</br>
+                        Свидетельство о государственной регистрации выдано Минским горисполкомом
+
+                    </p>
+                </div>
+
+            </div>
+        </div>
+        <div class="container-fluid" style="margin-top: 10px;">
+            <div class="row">
+
+                <div class="col-md-6">
+                    <p class="footer-caption" style="float:left;">&copy;Gobusgo.by 2018</p>
+                </div>
+                <div class="col-md-6">
+                    <p class="footer-caption" style="float:right;">Разработка: <a
+                                href="http:\\new-line.by">New-line.by</a>
+                    </p>
+                </div>
+            </div>
+        </div>
 
 
-            </footer>
-        {% endblock %}
+    </footer>
+{% endblock %}
 
-    {% block javascripts %}
+{% block javascripts %}
 
-        {% javascripts '@jquery' '@bootstrap_js' %}
-            <script type="text/javascript" src="{{ asset_url }}"></script>
-        {% endjavascripts %}
-        <script type="text/javascript" src="{{ asset('js/popper.min.js') }}"></script>
-        <script type="text/javascript" src="{{ asset('js/mobilemenu.js') }}"></script>
-        <script type="text/javascript" src="{{ asset('js/swiper.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/popper.min.js') }}"></script>
+    {% javascripts '@jquery' '@bootstrap_js' %}
+    <script type="text/javascript" src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+    <script type="text/javascript" src="{{ asset('js/scripts.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/swiper.min.js') }}"></script>
+    <script>
+        var swiper = new Swiper('.swiper-container', {
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            pagination: {
+                el: '.swiper-pagination',
+            },
+        });
+    </script>
 
-    {% endblock %}
+{% endblock %}
 </body>
 </html>

@@ -67,6 +67,7 @@
     letter-spacing: -0.5px;
     background-color: #ffeb89;
     border-radius: 4px;
+    line-height: 24px;
 }
 
 .header-menu li a {
@@ -105,7 +106,7 @@
 .time-of-work li {
     list-style-type: none;
     text-align: center;
-    padding: 25px 20px 25px 10px;
+    padding: 10px 20px 25px 10px;
 }
 
 .time-of-work li a {
@@ -160,6 +161,7 @@
     text-align: center;
     letter-spacing: 1.5px;
     color: #566fe0;
+    line-height: 36px;
 }
 
 .mail-top {

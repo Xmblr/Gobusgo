@@ -30,10 +30,6 @@ gobusgo_gobusgo_deliveryMinsk:
     path:     /delivery-Minsk
     defaults: { _controller: GobusgoGobusgoBundle:Page:deliveryMinsk }
 
-gobusgo_gobusgo_deliveryMinskMoscow:
-    path:     /delivery-Minsk-Moscow
-    defaults: { _controller: GobusgoGobusgoBundle:Page:deliveryMinskMoscow }
-
 gobusgo_gobusgo_deliveryMoscowMinsk:
     path:     /delivery-Moscow-Minsk
     defaults: { _controller: GobusgoGobusgoBundle:Page:deliveryMoscowMinsk }

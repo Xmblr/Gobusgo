@@ -101,6 +101,19 @@ color: #8598ff;
     top: -8px;
     padding: 3px;
 }
+
+.overlay {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 10;
+    display: none;
+    background-color: rgba(0, 0, 0, 0.65);
+    position: fixed;
+    cursor: default;
+}
+
 .closeme i {
     position: relative !important;
     left: 0 !important;
@@ -203,7 +216,7 @@ color: #8598ff;
     margin: 30px 0px 20% 0px;
 }
 
-.divider {
+.divider-header {
     height: 1px;
     margin: 9px 0;
     overflow: hidden;

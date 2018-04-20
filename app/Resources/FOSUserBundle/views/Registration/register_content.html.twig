@@ -1,37 +1,92 @@
 {% trans_default_domain 'FOSUserBundle' %}
+<div class="container">
+    <div class="row text-center">
+        <h1>Добро пожаловать</h1>
+        <p class="login-text">Уже зарегистрированы?? <a style="color: #566fe0;"
+                                                        href="{{ path('fos_user_security_login') }}">Авторизуйтесь!</a>
+        </p>
+        <div class="registration-form">
+            {{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
+            {#{{ form_widget(form) }}#}
 
-{{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
-    {#{{ form_widget(form) }}#}
-{{ form_errors(form.username) }}
-{{ form_widget(form.username, {'attr':{'class':'an-form-control light', 'placeholder':'Имя пользователя'}}) }}
-{{ form_errors(form.email) }}
-{{ form_widget(form.email, {'attr':{'class':'an-form-control light', 'placeholder':'E-mail'}}) }}
-{{ form_errors(form.plainPassword.first) }}
-{{ form_widget(form.plainPassword.first, {'attr':{'class':'an-form-control light', 'placeholder':'Пароль'}}) }}
-{{ form_errors(form.plainPassword.second) }}
-{{ form_widget(form.plainPassword.second, {'attr':{'class':'an-form-control light', 'placeholder':'Подтвердите пароль'}}) }}
-{{ form_errors(form.organization) }}
-{{ form_widget(form.organization, {'attr':{'class':'an-form-control light', 'placeholder':'Организация'}}) }}
-{{ form_errors(form.UNP) }}
-{{ form_widget(form.UNP, {'attr':{'class':'an-form-control light', 'placeholder':'УНП'}}) }}
-{{ form_errors(form.bank) }}
-{{ form_widget(form.bank, {'attr':{'class':'an-form-control light', 'placeholder':'Банк'}}) }}
-{{ form_errors(form.addressOfTheBank) }}
-{{ form_widget(form.addressOfTheBank, {'attr':{'class':'an-form-control light', 'placeholder':'Адрес банка'}}) }}
-{{ form_errors(form.legalAddress) }}
-{{ form_widget(form.legalAddress, {'attr':{'class':'an-form-control light', 'placeholder':'Юридический адрес'}}) }}
-{{ form_errors(form.settlementAccount) }}
-{{ form_widget(form.settlementAccount, {'attr':{'class':'an-form-control light', 'placeholder':'Расчетный счет'}}) }}
-{{ form_errors(form.code) }}
-{{ form_widget(form.code, {'attr':{'class':'an-form-control light', 'placeholder':'Код'}}) }}
-{{ form_errors(form.phone) }}
-{{ form_widget(form.phone, {'attr':{'class':'an-form-control light', 'placeholder':'Контактный комер телефона'}}) }}
-{{ form_errors(form.fullName) }}
-{{ form_widget(form.fullName, {'attr':{'class':'an-form-control light', 'placeholder':'Контактное лицо'}}) }}
-{{ form_errors(form.contractNumber) }}
-{{ form_widget(form.contractNumber, {'attr':{'class':'an-form-control light', 'placeholder':'Номер договора'}}) }}
+            <div class="col-md-6">
+                <h4>Юридические данные:</h4>
+                <div class="Input">
+                    {{ form_errors(form.organization) }}
+                    {{ form_widget(form.organization, {'attr':{'class':'input-registration', 'placeholder':'Организация'}}) }}
+                </div>
+                <div class="Input">
+                    {{ form_errors(form.UNP) }}
+                    {{ form_widget(form.UNP, {'attr':{'class':'input-registration', 'placeholder':'УНП'}}) }}
+                </div>
+                <div class="Input">
+                    {{ form_errors(form.bank) }}
+                    {{ form_widget(form.bank, {'attr':{'class':'input-registration', 'placeholder':'Банк'}}) }}
+                </div>
+                <div class="Input">
+                    {{ form_errors(form.addressOfTheBank) }}
+                    {{ form_widget(form.addressOfTheBank, {'attr':{'class':'input-registration', 'placeholder':'Адрес банка'}}) }}
+                </div>
+                <div class="Input">
+                    {{ form_errors(form.legalAddress) }}
+                    {{ form_widget(form.legalAddress, {'attr':{'class':'input-registration', 'placeholder':'Юридический адрес'}}) }}
+                </div>
+                <div class="Input">
+                    {{ form_errors(form.settlementAccount) }}
+                    {{ form_widget(form.settlementAccount, {'attr':{'class':'input-registration', 'placeholder':'Расчетный счет'}}) }}
+                </div>
+                <div class="Input">
+                    {{ form_errors(form.code) }}
+                    {{ form_widget(form.code, {'attr':{'class':'input-registration', 'placeholder':'Код'}}) }}
 
-<div>
-    <input type="submit" value="{{ 'registration.submit'|trans }}"/>
+                </div>
+                <div class="Input">
+                    {{ form_errors(form.contractNumber) }}
+                    {{ form_widget(form.contractNumber, {'attr':{'class':'input-registration', 'placeholder':'Номер договора'}}) }}
+                </div>
+
+            </div>
+
+            <div class="col-md-6">
+                <h4>Данные для авторизации:</h4>
+                <div class="Input">
+                    {{ form_errors(form.username) }}
+                    {{ form_widget(form.username, {'attr':{'class':'input-registration', 'placeholder':'Имя пользователя'}}) }}
+                </div>
+                <div class="Input">
+                    {{ form_errors(form.email) }}
+                    {{ form_widget(form.email, {'attr':{'class':'input-registration', 'placeholder':'E-mail'}}) }}
+                </div>
+                <div class="Input">
+                    {{ form_errors(form.plainPassword.first) }}
+                    {{ form_widget(form.plainPassword.first, {'attr':{'class':'input-registration', 'placeholder':'Пароль'}}) }}
+                </div>
+                <div class="Input">
+                    {{ form_errors(form.plainPassword.second) }}
+                    {{ form_widget(form.plainPassword.second, {'attr':{'class':'input-registration', 'placeholder':'Подтвердите пароль'}}) }}
+                </div>
+                <div class="Input">
+                    {{ form_errors(form.fullName) }}
+                    {{ form_widget(form.fullName, {'attr':{'class':'input-registration', 'placeholder':'Контактное лицо'}}) }}
+                </div>
+                <div class="Input">
+                    {{ form_errors(form.phone) }}
+                    {{ form_widget(form.phone, {'attr':{'class':'input-registration', 'placeholder':'Контактный номер телефона'}}) }}
+                </div>
+
+            </div>
+            <div class="col-md-12 text-center">
+            <div style="margin-top: 10px;">
+                <input type="submit" class="submit-button" value="{{ 'registration.submit'|trans }}"/>
+            </div>
+
+            </div>
+
+
+
+
+
+            {{ form_end(form) }}
+        </div>
+    </div>
 </div>
-{{ form_end(form) }}

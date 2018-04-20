@@ -1,12 +1,12 @@
 {% extends '@GobusgoGobusgo/layout.html.twig' %}
 {% block header %}
-    <header class="main-menu-area">
+    <header class="main-menu-area height-vh">
         <div class="container-fluid" style="padding:0px;">
             <div class="row">
                 <div class="col-md-12 col-lg-12 col-xl-12">
                     <div class="logo">
 
-                        <a href="index.html">
+                        <a href="{{ path('gobusgo_gobusgo_homepage') }}">
                             <img src="images/logo.png" alt="" width="150px;">
                         </a>
                     </div>
@@ -15,26 +15,37 @@
                         <!--Mobile Menu start-->
                         <ul id="mobilemenu" class="accordion">
 
+
                             <li class="start-li">
-                                <a class="button-not-active-header" href="# ">Регистрация</a>
-                                <a class="button-active-header" href="#">Вход</a>
+                                {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                                <a class="button-active-header" href="{{ path('fos_user_profile_show') }}"> {{ app.user.organization }} </a>
+                                <a class="button-not-active-header" href="{{ path('fos_user_security_logout') }}">
+                                    {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
+                                </a>
+                                {% else %}
+                                <a class="button-not-active-header" href="{{ path('fos_user_registration_register') }}">{{ 'layout.register'|trans({}, 'FOSUserBundle') }}</a>
+                                <a class="button-active-header" href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
+                                {% endif %}
+
                                 <a class="closeme" href="#" style="display: inline-block;"><i
                                             class="fa fa-times"></i></a></li>
-                            <li class="divider"></li>
-                            <li class="out-link"><a class="" href="index.html">О нас</a></li>
-                            <li class="divider"></li>
+                            <li class="divider-header"></li>
+                            <li class="out-link">
+                            <a href="{{ path('gobusgo_gobusgo_about') }}">О нас</a></li>
+                            <li class="divider-header"></li>
                             <li class="link out-link">
                                 <a class="" href="index.html">Новости</a>
                             </li>
-                            <li class="divider"></li>
+                            <li class="divider-header"></li>
                             <li class="link out-link">
                                 <a class="" href="index.html">Отзывы</a>
                             </li>
-                            <li class="divider"></li>
+                            <li class="divider-header"></li>
                             <li class="link out-link">
-                                <a href="about-us.html">Контакты</a>
+                                <a href="{{ path('gobusgo_gobusgo_contacts') }}">Контакты</a>
+                            <li class="divider-header"></li>
                             </li>
-                            <li class="divider"></li>
+
 
                             <table class="menu-table" border="1">
                                 <tbody>
@@ -82,76 +93,90 @@
 
             </div>
         </div>
+
+
+        <div class="container" style="padding:0px;">
+            <div class="row">
+                <h1 style="margin: 0% 0% 5% 0%;">Куда везем груз?</h1>
+                <div class="col-md-4" style="margin-bottom:20px;">
+                    <div class="background-round">
+                        <h3 class="reload" style="display:table-cell !important; vertical-align: middle; "
+                            OnClick="a();">
+                            Москва</br>Минск</h3>
+                    </div>
+                </div>
+                <div class="col-md-4" style="margin-bottom:20px;">
+                    <div class="background-round">
+                        <h3 style="display:table-cell !important; vertical-align: middle; ">Минск</h3>
+                    </div>
+                </div>
+                <div class="col-md-4" style="margin-bottom:20px;">
+                    <div class="background-round">
+                        <h3 style="display:table-cell !important; vertical-align: middle; ">Беларусь</h3>
+                    </div>
+                </div>
+                <script language="JavaScript">
+
+
+                        function sleep(ms) {
+                            return new Promise(resolve => setTimeout(resolve, ms));
+                        }
+
+                        async function a(e, w, audio) {
+                            audio = new Audio(); // Создаём новый элемент Audio
+                            audio.src = 'audio/car.mp3'; // Указываем путь к звуку "клика"
+                            audio.autoplay = true; // Автоматически запускаем
+                            e = document.getElementById("car");
+                            w = document.getElementById("wheel1");
+                            s = document.getElementById("wheel2");
+
+                            e.style.webkitAnimationName = "shake";
+                            w.style.webkitAnimationName = "shake-w";
+                            s.style.webkitAnimationName = "shake-w";
+
+                            await sleep(1500);
+
+                            e.style.transform = "translate(2000px,0px)";
+                            e.style.transition = "all 5s ease-in-out";
+
+                            w.style.transform = "translate(2000px,0px) rotate(5turn)";
+                            w.style.transition = "all 5s ease-in-out";
+                            s.style.transform = "translate(2000px,0px) rotate(10turn)";
+                            s.style.transition = "all 5s ease-in-out";
+                        }
+                </script>
+            </div>
+        </div>
+        <div class="container-fluid" style="position:relative; overflow: hidden;">
+            <div class="row">
+                <div class="car-gobusgo">
+                    <img src="{{ asset('images/car-body.png') }}" id="car" width="200px;"
+                         style="position: absolute; margin-top: 55px;margin-left: 119px;">
+                    <div style="position: absolute; padding-top: 122px; width: 28px; margin-left: 174px;">
+                        <img src="{{ asset('images/wheel.png') }}" id="wheel1">
+                    </div>
+                    <div style="position: absolute; padding-top: 122px; width: 28px; margin-left: 261px;">
+                        <img src="{{ asset('images/wheel.png') }}" id="wheel2">
+                    </div>
+                </div>
+                <div class="city">
+                    <img src="{{ asset('images/city.png') }}" style="margin: 0 auto; width: 80%;">
+                </div>
+                <div class="clouds" >
+                    <img class="cloud" src="{{ asset('images/cloud1.png') }}" style="position: absolute; margin-left: 20px; margin-top: -260px; width: 80px;">
+                    <img class="cloud1" src="{{ asset('images/cloud1.png') }}" style="position: absolute; margin-left: 20px; margin-top: -255px; width: 80px;">
+                    <img class="cloud4" src="{{ asset('images/cloud2.png') }}" style="position: absolute; margin-left: 20px; margin-top: -255px; width: 80px;">
+                    <img class="cloud5" src="{{ asset('images/cloud2.png') }}" style="position: absolute; margin-left: 20px; margin-top: -255px; width: 80px;">
+                    <img class="cloud2" src="{{ asset('images/cloud1.png') }}" style="position: absolute; margin-left: 20px; margin-top: -243px; width: 80px;">
+                    <img class="cloud3" src="{{ asset('images/cloud1.png') }}" style="position: absolute; margin-left: 20px; margin-top: -249px; width: 80px;">
+                    <img class="cloud6" src="{{ asset('images/cloud2.png') }}" style="position: absolute; margin-left: 20px; margin-top: -245px; width: 80px;">
+                </div>
+            </div>
+        </div>
+
     </header>
 {% endblock %}
 {% block body %}
-
-    <div class="container" style="padding:0px;">
-        <div class="row">
-            <h1 style="margin: 0% 0% 5% 0%;">Куда везем груз?</h1>
-            <div class="col-md-4" style="margin-bottom:20px;">
-                <div class="background-round">
-                    <h3 class="reload" style="display:table-cell !important; vertical-align: middle; " OnClick="a();">
-                        Москва</br>Минск</h3>
-                </div>
-            </div>
-            <div class="col-md-4" style="margin-bottom:20px;">
-                <div class="background-round">
-                    <h3 style="display:table-cell !important; vertical-align: middle; ">Минск</h3>
-                </div>
-            </div>
-            <div class="col-md-4" style="margin-bottom:20px;">
-                <div class="background-round">
-                    <h3 style="display:table-cell !important; vertical-align: middle; ">Беларусь</h3>
-                </div>
-            </div>
-            <script language="JavaScript">
-                function sleep(ms) {
-                    return new Promise(resolve => setTimeout(resolve, ms));
-                }
-
-                async function a(e, w, audio) {
-                    audio = new Audio(); // Создаём новый элемент Audio
-                    audio.src = 'audio/car.mp3'; // Указываем путь к звуку "клика"
-                    audio.autoplay = true; // Автоматически запускаем
-                    e = document.getElementById("car");
-                    w = document.getElementById("wheel1");
-                    s = document.getElementById("wheel2");
-
-                    e.style.webkitAnimationName = "shake";
-                    w.style.webkitAnimationName = "shake-w";
-                    s.style.webkitAnimationName = "shake-w";
-
-                    await sleep(1500);
-
-                    e.style.transform = "translate(2000px,0px)";
-                    e.style.transition = "all 5s ease-in-out";
-
-                    w.style.transform = "translate(2000px,0px) rotate(5turn)";
-                    w.style.transition = "all 5s ease-in-out";
-                    s.style.transform = "translate(2000px,0px) rotate(10turn)";
-                    s.style.transition = "all 5s ease-in-out";
-                }
-            </script>
-        </div>
-    </div>
-    <div class="container">
-        <div class="row">
-            <div class="car-gobusgo">
-                <img src="images/car-body.png" id="car" width="200px;" style="position: absolute; padding-top: 53px;">
-                <div style="position: absolute; padding-top: 120px; width: 28px; margin-left: 54px;">
-                    <img src="images/wheel.png" id="wheel1">
-                </div>
-                <div style="position: absolute; padding-top: 120px; width: 28px; margin-left: 141px;">
-                <img src="images/wheel.png" id="wheel2">
-                </div>
-            </div>
-            <div class="city">
-                <img src="images/city.png" style="margin: 0 auto;">
-            </div>
-        </div>
-    </div>
-
     <div class="divider-home display-none-mobile"></div>
     <div class="container">
         <div class="row">
@@ -166,19 +191,19 @@
                 <div class="advantage-icons">
                     <img src="images/advantage-2.png" style="width:230px;">
                 </div>
-                <h4 class="advantage-title" style="margin: 10px;">Доставка от письма до крупногабаритного груза</h4>
+                <div class="advantage-title" style="margin: 10px;">Доставка от письма до крупногабаритного груза</div>
             </div>
             <div class="col-md-3" style="margin-bottom:20px;">
                 <div class="advantage-icons">
                     <img src="images/advantage-3.png" style="width:230px;">
                 </div>
-                <h4 class="advantage-title" style="margin: 10px;">Доставка в течении суток</h4>
+                <div class="advantage-title" style="margin: 10px;">Доставка в течении суток</div>
             </div>
             <div class="col-md-3" style="margin-bottom:20px;">
                 <div class="advantage-icons">
                     <img src="images/advantage-4.png" style="width:230px;">
                 </div>
-                <h4 class="advantage-title" style="margin: 10px;">Каждая 7-ая доставка бесплатно *</h4>
+                <div class="advantage-title" style="margin: 10px;">Каждая 7-ая доставка бесплатно *</div>
             </div>
         </div>
     </div>
@@ -278,6 +303,7 @@
 
                 </div>
             </div>
+            <!-- Swiper JS -->
 
         </div>
     </div>

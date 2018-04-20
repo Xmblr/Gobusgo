@@ -79,7 +79,8 @@ class OrderUserAdmin extends AbstractAdmin
             ->add('quantityOfCargo')
             ->add('shippingAddress', ModelType::class, [
                 'class'=>Address::class,
-                'property'=>'fullName'
+                'property'=>'fullName',
+                'choices' => $address_available_choices
             ],array(
                 'admin_code' => 'admin.user.address'
             ))

@@ -21,7 +21,7 @@
         </div>
     </div>
 
-    <div class="container" style="text-align: center;">
+    <div class="container road-loptop" style="text-align: center;">
         <div class="row">
             <h2>Расчет стоимости грузоперевозки:</h2>
             <span class="road-text-1">Клиент</span>
@@ -32,31 +32,46 @@
             <span class="line-2"></span>
             <span class="line-3"></span>
             <span class="line-4"></span>
-            <span class="line-5"></span>
+            <span class="line-55"></span>
             <span class="line-6"></span>
             <span class="line-7"></span>
             <span class="line-8"></span>
             <span class="line-9"></span>
             <span class="line-10"></span>
-            <div class="Input-1">
+            <div class="Input-1-1">
                 <i class="fa fa-chevron-left" aria-hidden="true"
-                   style="position: absolute; margin-left: 160px; margin-top: 17px; font-size: 20px; color: #7d88ff;"></i>
+                   style="position: absolute; margin-left: 170px; margin-top: 52px; font-size: 20px; color: #7d88ff;"></i>
 
                 <input class="Input-text-1" type="text" id="weight" name="weight"
                        required="required" style="position: absolute;" placeholder="Вес, кг"/>
+            </div>
+            <div class="Input-1-2">
+
+                <input class="Input-text-1" type="text" id="height" name="height"
+                       required="required" style="position: absolute;" placeholder="Высота"/>
+            </div>
+            <div class="Input-1-3">
+
+                <input class="Input-text-1" type="text" id="lenght" name="lenght"
+                       required="required" style="position: absolute;" placeholder="Длинна"/>
+            </div>
+            <div class="Input-1-4">
+
+                <input class="Input-text-1" type="text" id="width" name="width"
+                       required="required" style="position: absolute;" placeholder="Высота"/>
             </div>
             <div class="Input-2">
                 <i class="fa fa-chevron-right" aria-hidden="true"
                    style="position: absolute; margin-left: -19px; margin-top: 18px; font-size: 20px; color: #7d88ff;"></i>
 
-                <input class="Input-text-2" type="text" id="weight" name="weight"
+                <input class="Input-text-2" type="text" id="weight" name="from"
                        required="required" style="position: absolute;" placeholder="Откуда"/>
             </div>
             <div class="Input-3">
                 <i class="fa fa-chevron-right" aria-hidden="true"
                    style="position: absolute; margin-left: -19px; margin-top: 18px; font-size: 20px; color: #7d88ff;"></i>
 
-                <input class="Input-text-3" type="text" id="weight" name="weight"
+                <input class="Input-text-3" type="text" id="weight" name="to"
                        required="required" style="position: absolute;" placeholder="Куда"/>
             </div>
             <div class="Input-4">
@@ -80,9 +95,264 @@
                 </label>
             </div>
             <img src="/images/road.png" style="width: 800px;">
+            <h2>Оформление заявки</h2>
+
+            <div class="Input-5">
+                <input class="Input-text-5" type="text" id="weight" name="weight"
+                       required="required" style="position: absolute;" placeholder="Название организации"/>
+            </div>
+            <div class="Input-6">
+                <input class="Input-text-5" type="text" id="weight" name="weight"
+                       required="required" style="position: absolute;" placeholder="УНП"/>
+            </div>
+            <div class="Input-7">
+                <input class="Input-text-5" type="text" id="weight" name="weight"
+                       required="required" style="position: absolute;" placeholder="Банк"/>
+            </div>
+            <div class="Input-8">
+                <input class="Input-text-5" type="text" id="weight" name="weight"
+                       required="required" style="position: absolute;" placeholder="Адрес банка"/>
+            </div>
+            <div class="Input-9">
+                <input class="Input-text-5" type="text" id="weight" name="weight"
+                       required="required" style="position: absolute;" placeholder="Юридический адрес"/>
+            </div>
+            <div class="Input-10">
+                <input class="Input-text-5" type="text" id="weight" name="weight"
+                       required="required" style="position: absolute;" placeholder="Расчетный счет"/>
+            </div>
+            <div class="Input-11">
+                <input class="Input-text-5" type="text" id="weight" name="weight"
+                       required="required" style="position: absolute;" placeholder="Код"/>
+            </div>
+            <div class="Input-12">
+                <input class="Input-text-5" type="text" id="weight" name="weight"
+                       required="required" style="position: absolute;" placeholder="Контактное лицо"/>
+            </div>
+            <div class="Input-13">
+                <input class="Input-text-13" type="text" id="weight" name="weight"
+                       required="required" style="position: absolute;" placeholder="Номер телефона для связи"/>
+            </div>
+            <img src="/images/tablet.png" width="800px;">
+            <div class="text-center" style="margin-bottom: 30px; margin-top: -40px;">
+                <input id="_submit" name="_submit" class="submit-button" value="Оформить заявку" type="submit">
+            </div>
 
         </div>
     </div>
+
+    <div class="container-fluid road-tablet">
+        <div class="row">
+
+            <div class="col-md-3 col-sm-3 col-xs-3">
+                <div style="height: 124px;">
+                    <h3 class="road-tablet-title">Клиент</h3>
+                </div>
+
+                <div style="height: 124px;">
+                    <h3 class="road-tablet-title">Габариты</h3>
+                </div>
+                <div style="height: 124px;">
+                    <h3 class="road-tablet-title">Город</h3>
+                </div>
+                <div style="height: 124px;">
+                    <h3 class="road-tablet-title">ИТОГО</h3>
+                </div>
+                <div style="height: 124px;">
+                    <h3 class="road-tablet-title">Заявка</h3>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-2 col-xs-2" style="text-align:center;">
+                <img src="/images/road-tablet.png" width="60px">
+            </div>
+            <div class="col-md-7 col-sm-7 col-xs-7">
+                <div style="height: 124px;">
+                    <div class="radio-cargo-tablet">
+                        <label style="display: block; font-size: 18px; line-height: 20px;">
+
+                            <input type="radio" class="option-input radio" name="example" style="margin-top: 5px;" checked/>
+                            Юридическое лицо
+                        </label>
+                        <label style="display: block; font-size: 18px; ">
+
+                            <input type="radio" class="option-input radio" style="margin-top: 5px;" name="example"/>
+                            Физическое лицо
+                        </label>
+                    </div>
+                </div>
+                <div style="height: 124px; padding-top: 10px;">
+                    <div class="col-xs-6" style="padding: 0px;">
+                    <input class="input-tablet" type="text" id="weight" name="weight"
+                           required="required" placeholder="Вес, кг" style="margin-bottom: 10px; margin-right: 10px;"/>
+                        <input class="input-tablet" type="text" id="width" name="width"
+                               required="required" style="margin-bottom: 10px; margin-right: 10px;" placeholder="Ширина"/>
+                    </div>
+                    <div class="col-xs-6" style="padding: 0px;">
+                        <input class="input-tablet" type="text" id="height" name="height"
+                               required="required" style="margin-bottom: 10px; margin-right: 10px;" placeholder="Высота"/>
+
+                        <input class="input-tablet" type="text" id="lenght" name="lenght"
+                               required="required" style="margin-bottom: 10px; margin-right: 10px;" placeholder="Длинна"/>
+                </div> </div>
+
+
+                <div style="height: 124px; padding-top: 10px;">
+                    <div style="padding-bottom: 10px;">
+                        <input class="input-tablet" type="text" name="from" id="from"
+                               required="required" placeholder="Откуда" style="display: block;"/>
+                    </div>
+                    <div style="padding-bottom: 10px;">
+                        <input class="input-tablet" type="text"
+                               required="required" placeholder="Куда" name="to" id="to" style="display: block;"/>
+                    </div>
+                </div>
+                <div style="height: 124px; padding-top: 10px;">
+                    <input class="input-tablet" type="text" name="price" id="price"
+                           required="required" placeholder="Сумма" style="display: block;"/>
+                </div>
+
+                <div style="padding-top: 8px;">
+                    {#<div style="padding-bottom: 10px;">#}
+                        {#<input class="input-tablet-form" type="text" id="weight" name="weight"#}
+                               {#required="required" placeholder="Название организации"/>#}
+                    {#</div>#}
+                    {#<div style="padding-bottom: 10px;">#}
+                        {#<input class="input-tablet-form" type="text" id="weight" name="weight"#}
+                               {#required="required" placeholder="УНП"/>#}
+                    {#</div>#}
+                    {#<div style="padding-bottom: 10px;">#}
+                        {#<input class="input-tablet-form" type="text" id="weight" name="weight"#}
+                               {#required="required" placeholder="Банк"/>#}
+                    {#</div>#}
+                    {#<div style="padding-bottom: 10px;">#}
+                        {#<input class="input-tablet-form" type="text" id="weight" name="weight"#}
+                               {#required="required" placeholder="Адрес банка"/>#}
+                    {#</div>#}
+                    {#<div style="padding-bottom: 10px;">#}
+                        {#<input class="input-tablet-form" type="text" id="weight" name="weight"#}
+                               {#required="required" placeholder="Юридический адрес"/>#}
+                    {#</div>#}
+                    {#<div style="padding-bottom: 10px;">#}
+                        {#<input class="input-tablet-form" type="text" id="weight" name="weight"#}
+                               {#required="required" placeholder="Расчетный счет"/>#}
+                    {#</div>#}
+                    {#<div style="padding-bottom: 10px;">#}
+                        {#<input class="input-tablet-form" type="text" id="weight" name="weight"#}
+                               {#required="required" placeholder="Код"/>#}
+                    {#</div>#}
+                    {#<div style="padding-bottom: 10px;">#}
+                        {#<input class="input-tablet-form" type="text" id="weight" name="weight"#}
+                               {#required="required" placeholder="Контактное лицо"/>#}
+                    {#</div>#}
+                    {#<div style="padding-bottom: 10px;">#}
+                        {#<input class="input-tablet-form" type="text" id="weight" name="weight"#}
+                               {#required="required" placeholder="Номер телефона для связи"/>#}
+                    {#</div>#}
+                    <input class="submit-button" value="Отправить заявку" type="submit">
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="container-fluid road-mobile">
+        <div class="row">
+            <div class="col-xs-3">
+                <img src="/images/road-tablet.png" width="60px">
+            </div>
+            <div class="col-xs-9">
+                <div style="height: 124px;">
+                    <h3 class="road-mobile-title">Клиент</h3>
+                    <div class="radio-cargo-mobile">
+                        <label style="display: block; font-size: 14px; margin-bottom: 0px;">
+                            <input type="radio" style="margin-top: 0px;" class="option-input radio" name="example" checked/>
+                            Юридическое лицо
+                        </label>
+                        <label style="display: block; font-size: 14px;">
+                            <input type="radio" style="margin-top: 0px;" class="option-input radio" name="example"/>
+                            Физическое лицо
+                        </label>
+                    </div>
+                </div>
+                <div style="height: 124px;">
+                    <h3 class="road-mobile-title">Габариты</h3>
+                    <div class="col-xs-6" style="padding: 0px 5px 0px 0px;">
+                        <input class="input-tablet" type="text" id="weight" name="weight"
+                               required="required" placeholder="Вес, кг" style="margin-bottom: 10px; margin-right: 10px;"/>
+                        <input class="input-tablet" type="text" id="width" name="width"
+                               required="required" style="margin-bottom: 10px; margin-right: 10px;" placeholder="Ширина"/>
+                    </div>
+                    <div class="col-xs-6" style="padding: 0px;">
+                        <input class="input-tablet" type="text" id="height" name="height"
+                               required="required" style="margin-bottom: 10px; margin-right: 10px;" placeholder="Высота"/>
+
+                        <input class="input-tablet" type="text" id="lenght" name="lenght"
+                               required="required" style="margin-bottom: 10px; margin-right: 10px;" placeholder="Длинна"/>
+                    </div> </div>
+
+                <div style="height: 124px;">
+                    <h3 class="road-mobile-title" style="margin-bottom: 5px;">Город</h3>
+                    <div style="padding-bottom: 5px;">
+                        <input class="input-tablet" type="text" name="from" id="from"
+                               required="required" placeholder="Откуда"/>
+                    </div>
+                    <div style="padding-bottom: 5px;">
+                        <input class="input-tablet" type="text"
+                               required="required" placeholder="Куда" name="to" id="to"/>
+                    </div>
+                </div>
+                <div style="height: 124px;">
+                    <h3 class="road-mobile-title" style="margin-bottom: 5px;">ИТОГО</h3>
+                    <input class="input-tablet" type="text" name="price" id="price"
+                           required="required" placeholder="Сумма"/>
+                </div>
+
+                <div>
+                    <h3 class="road-mobile-title" style="margin-bottom: 10px;">Оформление:</h3>
+                    {#<div style="padding-bottom: 10px;">#}
+                        {#<input class="input-mobile-form" type="text" id="weight" name="weight"#}
+                               {#required="required" placeholder="Название организации"/>#}
+                    {#</div>#}
+                    {#<div style="padding-bottom: 10px;">#}
+                        {#<input class="input-mobile-form" type="text" id="weight" name="weight"#}
+                               {#required="required" placeholder="УНП"/>#}
+                    {#</div>#}
+                    {#<div style="padding-bottom: 10px;">#}
+                        {#<input class="input-mobile-form" type="text" id="weight" name="weight"#}
+                               {#required="required" placeholder="Банк"/>#}
+                    {#</div>#}
+                    {#<div style="padding-bottom: 10px;">#}
+                        {#<input class="input-mobile-form" type="text" id="weight" name="weight"#}
+                               {#required="required" placeholder="Адрес банка"/>#}
+                    {#</div>#}
+                    {#<div style="padding-bottom: 10px;">#}
+                        {#<input class="input-mobile-form" type="text" id="weight" name="weight"#}
+                               {#required="required" placeholder="Юридический адрес"/>#}
+                    {#</div>#}
+                    {#<div style="padding-bottom: 10px;">#}
+                        {#<input class="input-mobile-form" type="text" id="weight" name="weight"#}
+                               {#required="required" placeholder="Расчетный счет"/>#}
+                    {#</div>#}
+                    {#<div style="padding-bottom: 10px;">#}
+                        {#<input class="input-mobile-form" type="text" id="weight" name="weight"#}
+                               {#required="required" placeholder="Код"/>#}
+                    {#</div>#}
+                    {#<div style="padding-bottom: 10px;">#}
+                        {#<input class="input-mobile-form" type="text" id="weight" name="weight"#}
+                               {#required="required" placeholder="Контактное лицо"/>#}
+                    {#</div>#}
+                    {#<div style="padding-bottom: 10px;">#}
+                        {#<input class="input-mobile-form" type="text" id="weight" name="weight"#}
+                               {#required="required" placeholder="Номер телефона для связи"/>#}
+                    {#</div>#}
+                    <input class="submit-button" value="Отправить заявку" type="submit">
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="container">
         <div class="row">
             <div class="col-md-10 col-md-push-1">
@@ -114,19 +384,19 @@
                 <div class="advantage-icons">
                     <img src="images/advantage-2.png" style="width:230px;">
                 </div>
-                <h4 class="advantage-title" style="margin: 10px;">Доставка от письма до крупногабаритного груза</h4>
+                <div class="advantage-title" style="margin: 10px;">Доставка от письма до крупногабаритного груза</div>
             </div>
             <div class="col-md-3" style="margin-bottom:20px;">
                 <div class="advantage-icons">
                     <img src="images/advantage-3.png" style="width:230px;">
                 </div>
-                <h4 class="advantage-title" style="margin: 10px;">Доставка в течении суток</h4>
+                <div class="advantage-title" style="margin: 10px;">Доставка в течении суток</div>
             </div>
             <div class="col-md-3" style="margin-bottom:20px;">
                 <div class="advantage-icons">
                     <img src="images/advantage-4.png" style="width:230px;">
                 </div>
-                <h4 class="advantage-title" style="margin: 10px;">Каждая 7-ая доставка бесплатно *</h4>
+                <div class="advantage-title" style="margin: 10px;">Каждая 7-ая доставка бесплатно *</div>
             </div>
         </div>
     </div>
