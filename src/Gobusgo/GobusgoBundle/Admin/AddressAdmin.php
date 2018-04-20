@@ -19,7 +19,7 @@ class AddressAdmin extends AbstractAdmin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('fullName', 'text')
+            ->add('name', 'text')
             ->add('organization')
             ->add('city', ModelType::class, [
                 'class' => City::class,
@@ -35,7 +35,7 @@ class AddressAdmin extends AbstractAdmin
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
-            ->add('fullName')
+            ->add('name')
             ->add('organization')
             ->add('city.name')
             ->add('street')
@@ -46,7 +46,7 @@ class AddressAdmin extends AbstractAdmin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-            ->addIdentifier('fullName')
+            ->addIdentifier('name')
             ->addIdentifier('organization')
             ->addIdentifier('city.name')
             ->addIdentifier('street')

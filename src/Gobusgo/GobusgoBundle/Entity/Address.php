@@ -24,9 +24,9 @@ class Address
     /**
      * @var string
      *
-     * @ORM\Column(name="full_name", type="string", length=255)
+     * @ORM\Column(name="name", type="string", length=255)
      */
-    private $fullName;
+    private $name;
 
     /**
      * @var string
@@ -81,27 +81,27 @@ class Address
     }
 
     /**
-     * Set fullName.
+     * Set name.
      *
-     * @param string $fullName
+     * @param string $name
      *
      * @return Address
      */
-    public function setFullName($fullName)
+    public function setName($name)
     {
-        $this->fullName = $fullName;
+        $this->name = $name;
 
         return $this;
     }
 
     /**
-     * Get fullName.
+     * Get name.
      *
      * @return string
      */
-    public function getFullName()
+    public function getName()
     {
-        return $this->fullName;
+        return $this->name;
     }
 
     /**

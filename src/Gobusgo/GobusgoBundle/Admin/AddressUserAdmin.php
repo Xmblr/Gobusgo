@@ -13,7 +13,7 @@ use Sonata\AdminBundle\Form\Type\ModelType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Finder\Exception\AccessDeniedException;
 
-class AddressUserAdmin extends Admin
+class AddressUserAdmin extends AbstractAdmin
 {
     protected $baseRouteName = 'address_user';
     protected $baseRoutePattern = 'address_user';
@@ -24,7 +24,7 @@ class AddressUserAdmin extends Admin
         return $userId;
     }
 
-    public function createQuery($context = 'list')
+    public function createQuery($context = array('list', 'select'))
     {
         $query = parent::createQuery($context);
         $query->andWhere(
@@ -50,7 +50,7 @@ class AddressUserAdmin extends Admin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('fullName', 'text')
+            ->add('name', 'text')
             ->add('organization')
             ->add('city', EntityType::class, [
                 'class' => City::class,
@@ -62,7 +62,7 @@ class AddressUserAdmin extends Admin
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
-            ->add('fullName')
+            ->add('name')
             ->add('organization')
             ->add('city.name')
             ->add('street')
@@ -72,10 +72,10 @@ class AddressUserAdmin extends Admin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-            ->addIdentifier('fullName')
-            ->add('organization')
-            ->add('city.name')
-            ->add('street')
+            ->addIdentifier('name')
+            ->addIdentifier('organization')
+            ->addIdentifier('city.name')
+            ->addIdentifier('street')
         ;
     }
 }

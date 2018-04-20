@@ -238,4 +238,10 @@ class Cargo
     {
         return $this->CN;
     }
+
+    public function __toString()
+    {
+        return $this->name;
+    }
+
 }

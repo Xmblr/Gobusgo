@@ -16,7 +16,6 @@ class CargoUserAdmin extends AbstractAdmin
     protected $baseRouteName = 'cargo_user';
     protected $baseRoutePattern = 'cargo_user';
 
-
     public function getUserId ()
     {
         $userId = $this->getConfigurationPool()->getContainer()->get('security.token_storage')->getToken()->getUser();

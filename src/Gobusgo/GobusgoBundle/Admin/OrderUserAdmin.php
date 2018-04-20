@@ -10,7 +10,8 @@ use Sonata\AdminBundle\Admin\AbstractAdmin;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
-use Sonata\AdminBundle\Form\Type\ModelType;
+use Sonata\AdminBundle\Form\Type\ModelListType;
+use Sonata\CoreBundle\Form\Type\CollectionType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\Validator\Constraints\DateTime;
@@ -67,62 +68,61 @@ class OrderUserAdmin extends AbstractAdmin
 
 
         $formMapper
-
-            ->add('cargoId', ModelType::class, [
+            ->add('cargoId', ModelListType::class, [
                 'class'=>Cargo::class,
-                'property'=>'name',
-                'choices' => $cargo_available_choices
+//                'property'=>'name',
+//                'choices' => $cargo_available_choices
             ],array(
                 'admin_code' => 'admin.user.cargo'
             ))
             ->add('price')
             ->add('quantityOfCargo')
-            ->add('shippingAddress', ModelType::class, [
+            ->add('shippingAddress', ModelListType::class, [
+//                'class'=>Cargo::class,
+//                'mapped'=>'name',
+//                'choices' =>  $address_available_choices
+            ],array(
+                'admin_code' => 'admin.user.cargo'
+            ))
+            ->add('deliveryAddress', ModelListType::class, [
                 'class'=>Address::class,
-                'property'=>'fullName',
-                'choices' => $address_available_choices
+//                'property'=>'fullName',
+//                'choices' => $address_available_choices
             ],array(
                 'admin_code' => 'admin.user.address'
             ))
-            ->add('deliveryAddress', ModelType::class, [
+            ->add('additionalAddress1', ModelListType::class, [
                 'class'=>Address::class,
-                'property'=>'fullName',
-                'choices' => $address_available_choices
+//                'property'=>'fullName',
+//                'choices' => $address_available_choices
             ],array(
                 'admin_code' => 'admin.user.address'
             ))
-            ->add('additionalAddress1', ModelType::class, [
+            ->add('additionalAddress2', ModelListType::class, [
                 'class'=>Address::class,
-                'property'=>'fullName',
-                'choices' => $address_available_choices
+//                'property'=>'fullName',
+//                'choices' => $address_available_choices
             ],array(
                 'admin_code' => 'admin.user.address'
             ))
-            ->add('additionalAddress2', ModelType::class, [
+            ->add('additionalAddress3', ModelListType::class, [
                 'class'=>Address::class,
-                'property'=>'fullName',
-                'choices' => $address_available_choices
+//                'property'=>'fullName',
+//                'choices' => $address_available_choices
             ],array(
                 'admin_code' => 'admin.user.address'
             ))
-            ->add('additionalAddress3', ModelType::class, [
+            ->add('additionalAddress4', ModelListType::class, [
                 'class'=>Address::class,
-                'property'=>'fullName',
-                'choices' => $address_available_choices
+//                'property'=>'fullName',
+//                'choices' => $address_available_choices
             ],array(
                 'admin_code' => 'admin.user.address'
             ))
-            ->add('additionalAddress4', ModelType::class, [
+            ->add('additionalAddress5', ModelListType::class, [
                 'class'=>Address::class,
-                'property'=>'fullName',
-                'choices' => $address_available_choices
-            ],array(
-                'admin_code' => 'admin.user.address'
-            ))
-            ->add('additionalAddress5', ModelType::class, [
-                'class'=>Address::class,
-                'property'=>'fullName',
-                'choices' => $address_available_choices
+//                'property'=>'fullName',
+//                'choices' => $address_available_choices
             ],array(
                 'admin_code' => 'admin.user.address'
             ))

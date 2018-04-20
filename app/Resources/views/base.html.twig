@@ -7,6 +7,11 @@
     {% block stylesheets %}
 
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        {% stylesheets '@bootstrap_css' %}
+            <link rel="stylesheet" type="text/css" media="screen" href="{{ asset_url }}"/>
+        {% endstylesheets %}
+
         {% stylesheets '@bootstrap_css' %}
             <link rel="stylesheet" type="text/css" media="screen" href="{{ asset_url }}"/>
         {% endstylesheets %}
@@ -19,6 +24,7 @@
         <link type="text/css" rel="stylesheet" href="{{ asset('css/swiper.min.css') }}">
         <link type="text/css" rel="stylesheet" href="{{ asset('css/header-second.css') }}">
         <link type="text/css" rel="stylesheet" href="{{ asset('css/popup.css') }}">
+
 
 
     {% endblock %}
@@ -63,17 +69,14 @@
                             <div class="top-bar-right">
 
 
-                                {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-                                    <a class="top-bar-menu-active"
-                                       href="{{ path('fos_user_profile_show') }}"> {{ app.user.organization }} </a> |
-                                    <a class="top-bar-menu" href="{{ path('fos_user_security_logout') }}">
-                                        {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
-                                    </a>
-                                {% else %}
-                                    <a class="top-bar-menu-active"
-                                       href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
-                                    <a class="top-bar-menu"
-                                       href="{{ path('fos_user_registration_register') }}">{{ 'layout.register'|trans({}, 'FOSUserBundle') }}</a>
+                                    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                                        <a class="top-bar-menu-active" href="{{ path('sonata_admin_dashboard') }}"> {{ app.user.organization }} </a> |
+                                        <a class="top-bar-menu" href="{{ path('fos_user_security_logout') }}">
+                                            {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
+                                        </a>
+                                    {% else %}
+                                        <a class="top-bar-menu-active" href="{{ path('sonata_admin_dashboard') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
+                                        <a class="top-bar-menu" href="{{ path('fos_user_registration_register') }}">{{ 'layout.register'|trans({}, 'FOSUserBundle') }}</a>
 
                                 {% endif %}
 
