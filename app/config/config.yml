@@ -3,13 +3,16 @@ imports:
     - { resource: security.yml }
     - { resource: services.yml }
     - { resource: "@GobusgoGobusgoBundle/Resources/config/services.yml" }
+    - { resource: "@GobusgoGobusgoBundle/Resources/config/config.yml" }
     - { resource: sonata_news.yml }
+
 #    - { resource: sonata_formatter.yml }
 
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: ru
+
 
 framework:
     #esi: ~
@@ -391,3 +394,27 @@ sonata_news:
 #            class:       Sonata\NewsBundle\Admin\TagAdmin
 #            controller:  SonataAdminBundle:CRUD
 #            translation: SonataNewsBundle
+
+ivory_ck_editor:
+    default_config: news
+    configs:
+        news:
+            # default toolbar plus Format button
+            toolbar:
+            - [Bold, Italic, Underline, -, Cut, Copy, Paste, PasteText, PasteFromWord, -, Undo, Redo, -, NumberedList, BulletedList, -, Outdent, Indent, -, Blockquote, -, Image, Link, Unlink, Table]
+            - [Format, Maximize, Source]
+
+            filebrowserBrowseRoute: admin_sonata_media_media_ckeditor_browser
+            filebrowserImageBrowseRoute: admin_sonata_media_media_ckeditor_browser
+            # Display images by default when clicking the image dialog browse button
+            filebrowserImageBrowseRouteParameters:
+                provider: sonata.media.provider.image
+            filebrowserUploadRoute: admin_sonata_media_media_ckeditor_upload
+            filebrowserUploadRouteParameters:
+                provider: sonata.media.provider.file
+            # Upload file as image when sending a file from the image dialog
+            filebrowserImageUploadRoute: admin_sonata_media_media_ckeditor_upload
+            filebrowserImageUploadRouteParameters:
+                provider: sonata.media.provider.image
+                context: my-context # Optional, to upload in a custom context
+                format: my-big # Optional, media format or original size returned to editor

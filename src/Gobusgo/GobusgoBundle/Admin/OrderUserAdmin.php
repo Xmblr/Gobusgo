@@ -3,9 +3,11 @@
 namespace Gobusgo\GobusgoBundle\Admin;
 
 use Doctrine\DBAL\Types\DateTimeType;
+use Doctrine\ORM\EntityRepository;
 use Gobusgo\GobusgoBundle\Entity\Address;
 use Gobusgo\GobusgoBundle\Entity\Cargo;
 use Gobusgo\GobusgoBundle\Entity\User;
+use Gobusgo\GobusgoBundle\Form\CargoType;
 use Sonata\AdminBundle\Admin\AbstractAdmin;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
@@ -68,6 +70,16 @@ class OrderUserAdmin extends AbstractAdmin
 
 
         $formMapper
+
+//            ->add('cargoId', CargoType::class, array(
+//                'class'=>Cargo::class,
+//                'compound'=>true,
+////                'allow_add' => true,
+//                'by_reference' => false,
+////                'allow_delete' => true
+//            ),array(
+//                'admin_code' => 'admin.user.cargo'
+//            ))
             ->add('cargoId', ModelListType::class, [
                 'class'=>Cargo::class,
 //                'property'=>'name',
@@ -78,7 +90,7 @@ class OrderUserAdmin extends AbstractAdmin
             ->add('price')
             ->add('quantityOfCargo')
             ->add('shippingAddress', ModelListType::class, [
-//                'class'=>Cargo::class,
+                'class'=>Address::class,
 //                'mapped'=>'name',
 //                'choices' =>  $address_available_choices
             ],array(
@@ -139,13 +151,13 @@ class OrderUserAdmin extends AbstractAdmin
             ->add('cargoId.name')
             ->add('price')
             ->add('quantityOfCargo')
-            ->add('shippingAddress.fullName')
-            ->add('deliveryAddress.fullName')
-            ->add('additionalAddress1.fullName')
-            ->add('additionalAddress2.fullName')
-            ->add('additionalAddress3.fullName')
-            ->add('additionalAddress4.fullName')
-            ->add('additionalAddress5.fullName')
+            ->add('shippingAddress.name')
+            ->add('deliveryAddress.name')
+            ->add('additionalAddress1.name')
+            ->add('additionalAddress2.name')
+            ->add('additionalAddress3.name')
+            ->add('additionalAddress4.name')
+            ->add('additionalAddress5.name')
         ;
     }
 
@@ -158,13 +170,13 @@ class OrderUserAdmin extends AbstractAdmin
             ->addIdentifier('cargoId.name')
             ->addIdentifier('price')
             ->addIdentifier('quantityOfCargo')
-            ->addIdentifier('shippingAddress.fullName')
-            ->addIdentifier('deliveryAddress.fullName')
-            ->addIdentifier('additionalAddress1.fullName')
-            ->addIdentifier('additionalAddress2.fullName')
-            ->addIdentifier('additionalAddress3.fullName')
-            ->addIdentifier('additionalAddress4.fullName')
-            ->addIdentifier('additionalAddress5.fullName')
+            ->addIdentifier('shippingAddress.name')
+            ->addIdentifier('deliveryAddress.name')
+            ->addIdentifier('additionalAddress1.name')
+            ->addIdentifier('additionalAddress2.name')
+            ->addIdentifier('additionalAddress3.name')
+            ->addIdentifier('additionalAddress4.name')
+            ->addIdentifier('additionalAddress5.name')
         ;
     }
 }

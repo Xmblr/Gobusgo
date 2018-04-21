@@ -126,18 +126,18 @@ class PageController extends Controller
         return $this->render('@GobusgoGobusgo/Page/deliveryMinsk.html.twig');
     }
 
-    public function deliveryMinskMoscowAction()
-    {
-        $seoDescription = 'deliveryMinskMoscow';
-        $seoPage = $this->container->get('sonata.seo.page');
-        $seoPage
-            ->setTitle('GObusGO')
-            ->addMeta('name', 'description', $seoDescription)
-            ->addMeta('property', 'og:description', $seoDescription)
-        ;
-
-        return $this->render('@GobusgoGobusgo/Page/deliveryMinskMoscow.html.twig');
-    }
+//    public function deliveryMinskMoscowAction()
+//    {
+//        $seoDescription = 'deliveryMinskMoscow';
+//        $seoPage = $this->container->get('sonata.seo.page');
+//        $seoPage
+//            ->setTitle('GObusGO')
+//            ->addMeta('name', 'description', $seoDescription)
+//            ->addMeta('property', 'og:description', $seoDescription)
+//        ;
+//
+//        return $this->render('@GobusgoGobusgo/Page/deliveryMinskMoscow.html.twig');
+//    }
 
     public function deliveryMoscowMinskAction()
     {
@@ -195,8 +195,8 @@ class PageController extends Controller
         // Create a message
         $message = Swift_Message::newInstance('Форма обратной связи')
             ->setFrom(array('seo-newline@mail.ru' => 'Обратный звонок'))
-            ->setTo($this->container->getParameter('blogger_blog.emails.contact_email'))
-            ->setBody($this->renderView('BloggerBlogBundle:Page:contactEmail.txt.twig', array('enquiry' => $enquiry)));
+            ->setTo($this->container->getParameter('gobusgo.emails.contact_email'))
+            ->setBody($this->renderView('@GobusgoGobusgo/Page/callEmail.txt.twig', array('enquiry' => $enquiry)));
         ;
 
         // Send the message
@@ -210,7 +210,7 @@ class PageController extends Controller
         // Create a message
         $message = Swift_Message::newInstance('Форма обратного звонка')
             ->setFrom(array('seo-newline@mail.ru' => 'Обратный звонок'))
-            ->setTo($this->container->getParameter('blogger_blog.emails.contact_email'))
+            ->setTo($this->container->getParameter('gobusgo.emails.contact_email'))
             ->setBody($this->renderView('@GobusgoGobusgo/Page/callEmail.txt.twig', array('call' => $call)));
         ;
 

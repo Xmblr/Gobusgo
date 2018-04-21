@@ -61,7 +61,7 @@
                             <a href="{{ path('gobusgo_gobusgo_about') }}">О нас</a></li>
                             <li class="divider-header"></li>
                             <li class="link out-link">
-                                <a class="" href="index.html">Новости</a>
+                                <a class="" href="{{ path('sonata_news_home') }}">Новости</a>
                             </li>
                             <li class="divider-header"></li>
                             <li class="link out-link">
@@ -129,18 +129,20 @@
                 <div class="col-md-4" style="margin-bottom:20px;">
                     <div class="background-round">
                         <h3 class="reload" style="display:table-cell !important; vertical-align: middle; "
-                            OnClick="a();">
+                            OnClick="a('{{ path('gobusgo_gobusgo_deliveryMoscowMinsk') }}');">
                             Москва</br>Минск</h3>
                     </div>
                 </div>
                 <div class="col-md-4" style="margin-bottom:20px;">
                     <div class="background-round">
-                        <h3 style="display:table-cell !important; vertical-align: middle; ">Минск</h3>
+                        <h3 style="display:table-cell !important; vertical-align: middle; "
+                            OnClick="a('{{ path('gobusgo_gobusgo_deliveryMinsk') }}');">Минск</h3>
                     </div>
                 </div>
                 <div class="col-md-4" style="margin-bottom:20px;">
                     <div class="background-round">
-                        <h3 style="display:table-cell !important; vertical-align: middle; ">Беларусь</h3>
+                        <h3 style="display:table-cell !important; vertical-align: middle; "
+                            OnClick="a('{{ path('gobusgo_gobusgo_deliveryRB') }}');">Беларусь</h3>
                     </div>
                 </div>
                 <script language="JavaScript">
@@ -150,7 +152,7 @@
                             return new Promise(resolve => setTimeout(resolve, ms));
                         }
 
-                        async function a(e, w, audio) {
+                        async function a(url, e, w, audio) {
                             audio = new Audio(); // Создаём новый элемент Audio
                             audio.src = 'audio/car.mp3'; // Указываем путь к звуку "клика"
                             audio.autoplay = true; // Автоматически запускаем
@@ -171,6 +173,10 @@
                             w.style.transition = "all 5s ease-in-out";
                             s.style.transform = "translate(2000px,0px) rotate(10turn)";
                             s.style.transition = "all 5s ease-in-out";
+
+                            await sleep(5000);
+
+                            window.location.replace(url);
                         }
                 </script>
             </div>
