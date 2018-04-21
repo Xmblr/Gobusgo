@@ -32,9 +32,9 @@ file that was distributed with this source code.
     {% endblock %}
 
     {% block stylesheets %}
-        {#{% for stylesheet in sonata_admin.adminPool.getOption('stylesheets', []) %}#}
-        {#<link rel="stylesheet" href="{{ asset(stylesheet) }}">#}
-        {#{% endfor %}#}
+        {% for stylesheet in sonata_admin.adminPool.getOption('stylesheets', []) %}
+        <link rel="stylesheet" href="{{ asset(stylesheet) }}">
+        {% endfor %}
         <link type="text/css" rel="stylesheet" href="{{ asset('css/admin.css') }}">
         <link type="text/css" rel="stylesheet" href="{{ asset('css/admin-skin.css') }}">
         <link type="text/css" rel="stylesheet" href="{{ asset('css/style.css') }}">

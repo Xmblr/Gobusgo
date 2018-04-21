@@ -1,5 +1,32 @@
 {% extends '@GobusgoGobusgo/layout.html.twig' %}
 {% block header %}
+
+    {% block callback %}
+        <a href="#x" class="overlay" id="win3">
+        </a>
+        <div class="popup" style="max-width:500px; text-align:center;">
+            <div class="section bg-gray-light container-fluid" style="padding-top: 10px; padding-bottom: 10px; padding:0%;">
+                <h2>Заказ обратного звонка</h2>
+                <div class="container-fluid">
+
+                    {{ form_start(callform, { 'action': path('gobusgo_gobusgo_confirm'), 'method': 'POST' }) }}
+                    {{ form_errors(callform) }}
+
+                    <div class="form-group">
+                        {{ form_widget(callform.name, {'attr':{'class':'form-control','placeholder':'Как вас зовут?'}}) }}
+                    </div>
+                    <div class="form-group">
+                        {{ form_widget(callform.phone, {'attr':{'class':'form-control','placeholder':'Номер телефона'}}) }}
+                    </div>
+                    <input type="submit" class="submitBnt btn btn-custom" value="Отправить" style="color:black;">
+                    {{ form_end(callform) }}
+                </div>
+            </div>
+
+            <a class="close" title="Закрыть" href="#close"></a>
+        </div>
+    {% endblock %}
+
     <header class="main-menu-area height-vh">
         <div class="container-fluid" style="padding:0px;">
             <div class="row">
@@ -71,7 +98,7 @@
                             </table>
                             <p class="big-letter">info@gobusgo.by</p>
                             <div class="callback-header">
-                                <a href=""><i class="fa fa-phone" aria-hidden="true"></i>
+                                <a href="#win3"><i class="fa fa-phone" aria-hidden="true"></i>
                                     Заказать звонок</a>
                             </div>
                             <div class="header-icons">
@@ -86,8 +113,9 @@
 
                         </ul>
                         <!--Mobile Menu end-->
-
+                        <div class="backdrop"></div>
                     </div>
+
                 </div>
                 <!--Main menu start-->
 
@@ -170,6 +198,8 @@
                     <img class="cloud2" src="{{ asset('images/cloud1.png') }}" style="position: absolute; margin-left: 20px; margin-top: -243px; width: 80px;">
                     <img class="cloud3" src="{{ asset('images/cloud1.png') }}" style="position: absolute; margin-left: 20px; margin-top: -249px; width: 80px;">
                     <img class="cloud6" src="{{ asset('images/cloud2.png') }}" style="position: absolute; margin-left: 20px; margin-top: -245px; width: 80px;">
+                    <img class="cloud7" src="{{ asset('images/cloud2.png') }}" style="position: absolute; margin-left: 20px; margin-top: -245px; width: 80px;">
+
                 </div>
             </div>
         </div>
@@ -264,7 +294,7 @@
                             </div>
                             <div class="col-md-6">
 
-                                <div class="auto-title">Fiat Ducato</div>
+                                <div class="auto-title">Volkswagen</div>
                                 <p class="text-center text-auto">
                                     Предназначены для грузоперевозок</br>
                                     малого объема и веса</br>
@@ -282,7 +312,7 @@
                             </div>
                             <div class="col-md-6">
 
-                                <div class="auto-title">Fiat Ducato</div>
+                                <div class="auto-title">Renault</div>
                                 <p class="text-center text-auto">
                                     Предназначены для грузоперевозок</br>
                                     малого объема и веса</br>
@@ -294,8 +324,6 @@
                         </div>
                     </div>
                     <!-- If we need pagination -->
-                    <div class="swiper-pagination"></div>
-
                     <!-- If we need navigation buttons -->
                     <div class="swiper-button-prev"></div>
                     <div class="swiper-button-next"></div>
@@ -304,6 +332,18 @@
                 </div>
             </div>
             <!-- Swiper JS -->
+            <script type="text/javascript" src="{{ asset('js/swiper.min.js') }}"></script>
+            <script>
+                var swiper = new Swiper('.swiper-container', {
+                    navigation: {
+                        nextEl: '.swiper-button-next',
+                        prevEl: '.swiper-button-prev',
+                    },
+                    pagination: {
+                        el: '.swiper-pagination',
+                    },
+                });
+            </script>
 
         </div>
     </div>

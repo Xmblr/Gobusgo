@@ -54,7 +54,7 @@
     position: fixed;
     right: -110%;
     top: 0px;
-    z-index: 99999999999;
+    z-index: 2;
     background: #fff;
     -webkit-transition: all 0.25s ease;
     -o-transition: all 0.25s ease;

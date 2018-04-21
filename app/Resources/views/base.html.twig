@@ -271,7 +271,7 @@
 
                     </ul>
                     <!--Mobile Menu end-->
-
+                    <div class="backdrop"></div>
                 </div>
                 <!--Main menu start-->
             </div>
@@ -409,18 +409,7 @@
     <script type="text/javascript" src="{{ asset_url }}"></script>
     {% endjavascripts %}
     <script type="text/javascript" src="{{ asset('js/scripts.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('js/swiper.min.js') }}"></script>
-    <script>
-        var swiper = new Swiper('.swiper-container', {
-            navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
-            },
-            pagination: {
-                el: '.swiper-pagination',
-            },
-        });
-    </script>
+
 
 {% endblock %}
 </body>

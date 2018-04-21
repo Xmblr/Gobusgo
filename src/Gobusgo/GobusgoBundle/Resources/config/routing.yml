@@ -37,3 +37,7 @@ gobusgo_gobusgo_deliveryMoscowMinsk:
 gobusgo_gobusgo_contacts:
     path:     /contacts
     defaults: { _controller: GobusgoGobusgoBundle:Page:contacts }
+
+gobusgo_gobusgo_confirm:
+    path:     /confirm
+    defaults: { _controller: GobusgoGobusgoBundle:Page:confirm }
