@@ -71,10 +71,14 @@ class PageController extends Controller
             ->addMeta('property', 'og:description', $seoDescription)
         ;
 
-        return $this->render('@GobusgoGobusgo/Page/autopark.html.twig');
+        $callform = $this->Call($request);
+
+        return $this->render('@GobusgoGobusgo/Page/autopark.html.twig', array(
+            'callform' =>$callform->createView()
+        ));
     }
 
-    public function aboutAction()
+    public function aboutAction(Request $request)
     {
         $seoDescription = 'about';
         $seoPage = $this->container->get('sonata.seo.page');
@@ -83,8 +87,11 @@ class PageController extends Controller
             ->addMeta('name', 'description', $seoDescription)
             ->addMeta('property', 'og:description', $seoDescription)
         ;
+        $callform = $this->Call($request);
 
-        return $this->render('@GobusgoGobusgo/Page/about.html.twig');
+        return $this->render('@GobusgoGobusgo/Page/about.html.twig', array(
+            'callform' =>$callform->createView()
+        ));
     }
 
     public function feedbackAction()
@@ -97,10 +104,14 @@ class PageController extends Controller
             ->addMeta('property', 'og:description', $seoDescription)
         ;
 
-        return $this->render('@GobusgoGobusgo/Page/feedback.html.twig');
+        $callform = $this->Call($request);
+
+        return $this->render('@GobusgoGobusgo/Page/feedback.html.twig', array(
+            'callform' =>$callform->createView()
+        ));
     }
 
-    public function deliveryRBAction()
+    public function deliveryRBAction(Request $request)
     {
         $seoDescription = 'deliveryRB';
         $seoPage = $this->container->get('sonata.seo.page');
@@ -110,10 +121,14 @@ class PageController extends Controller
             ->addMeta('property', 'og:description', $seoDescription)
         ;
 
-        return $this->render('@GobusgoGobusgo/Page/deliveryRB.html.twig');
+        $callform = $this->Call($request);
+
+        return $this->render('@GobusgoGobusgo/Page/deliveryRB.html.twig', array(
+            'callform' =>$callform->createView()
+        ));
     }
 
-    public function deliveryMinskAction()
+    public function deliveryMinskAction(Request $request)
     {
         $seoDescription = 'deliveryMinsk';
         $seoPage = $this->container->get('sonata.seo.page');
@@ -123,7 +138,11 @@ class PageController extends Controller
             ->addMeta('property', 'og:description', $seoDescription)
         ;
 
-        return $this->render('@GobusgoGobusgo/Page/deliveryMinsk.html.twig');
+        $callform = $this->Call($request);
+
+        return $this->render('@GobusgoGobusgo/Page/deliveryMinsk.html.twig', array(
+            'callform' =>$callform->createView()
+        ));
     }
 
 //    public function deliveryMinskMoscowAction()
@@ -139,20 +158,24 @@ class PageController extends Controller
 //        return $this->render('@GobusgoGobusgo/Page/deliveryMinskMoscow.html.twig');
 //    }
 
-    public function deliveryMoscowMinskAction()
+    public function deliveryMoscowMinskAction(Request $request)
     {
         $seoDescription = 'deliveryMoscowMinsk';
         $seoPage = $this->container->get('sonata.seo.page');
         $seoPage
-            ->setTitle('GObusGO')
+            ->setTitle('GObusGO-Moskva')
             ->addMeta('name', 'description', $seoDescription)
             ->addMeta('property', 'og:description', $seoDescription)
         ;
 
-        return $this->render('@GobusgoGobusgo/Page/deliveryMoscowMinsk.html.twig');
+        $callform = $this->Call($request);
+
+        return $this->render('@GobusgoGobusgo/Page/deliveryMoscowMinsk.html.twig', array(
+            'callform' =>$callform->createView()
+        ));
     }
 
-    public function contactsAction()
+    public function contactsAction(Request $request)
     {
         $seoDescription = 'deliveryMoscowMinsk';
         $seoPage = $this->container->get('sonata.seo.page');
@@ -162,7 +185,11 @@ class PageController extends Controller
             ->addMeta('property', 'og:description', $seoDescription)
         ;
 
-        return $this->render('@GobusgoGobusgo/Page/contacts.html.twig');
+        $callform = $this->Call($request);
+
+        return $this->render('@GobusgoGobusgo/Page/contacts.html.twig', array(
+            'callform' =>$callform->createView()
+        ));
     }
 
     public function Call($request)

@@ -28,6 +28,7 @@
             <span class="road-text-2">Габариты</span>
             <span class="road-text-3">Город</span>
             <span class="road-text-4">Итого</span>
+            <img class="reload-img" src="{{ asset('images/reload.png') }}">
             <span class="line-1"></span>
             <span class="line-2"></span>
             <span class="line-3"></span>
@@ -38,6 +39,7 @@
             <span class="line-8"></span>
             <span class="line-9"></span>
             <span class="line-10"></span>
+
             <div class="Input-1">
                 <i class="fa fa-chevron-left" aria-hidden="true"
                    style="position: absolute; margin-left: 160px; margin-top: 17px; font-size: 20px; color: #7d88ff;"></i>
@@ -50,14 +52,14 @@
                    style="position: absolute; margin-left: -19px; margin-top: 18px; font-size: 20px; color: #7d88ff;"></i>
 
                 <input class="Input-text-2" type="text" id="weight" name="from"
-                       required="required" style="position: absolute;" placeholder="Откуда"/>
+                       required="required" style="position: absolute;" value="Москва"/>
             </div>
             <div class="Input-3">
                 <i class="fa fa-chevron-right" aria-hidden="true"
                    style="position: absolute; margin-left: -19px; margin-top: 18px; font-size: 20px; color: #7d88ff;"></i>
 
                 <input class="Input-text-3" type="text" id="weight" name="to"
-                       required="required" style="position: absolute;" placeholder="Куда"/>
+                       required="required" style="position: absolute;" value="Минск"/>
             </div>
             <div class="Input-4">
                 <i class="fa fa-chevron-left" aria-hidden="true"
@@ -174,11 +176,11 @@
                 <div style="height: 124px; padding-top: 10px;">
                     <div style="padding-bottom: 10px;">
                         <input class="input-tablet" type="text" name="from" id="from"
-                               required="required" placeholder="Откуда"/>
+                               required="required" value="Москва"/>
                     </div>
                     <div style="padding-bottom: 10px;">
                         <input class="input-tablet" type="text"
-                               required="required" placeholder="Куда" name="to" id="to"/>
+                               required="required" value="Минск" name="to" id="to"/>
                     </div>
                 </div>
                 <div style="height: 124px; padding-top: 10px;">

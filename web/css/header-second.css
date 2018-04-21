@@ -82,7 +82,7 @@
 
 .header-menu li {
     list-style-type: none;
-    padding: 25px 10px;
+    padding: 25px 10px 0px 10px;
     text-align: center;
 }
 
@@ -182,7 +182,7 @@
 
 @media (min-width: 1400px) {
     .header-menu li {
-        padding: 25px 20px;
+        padding: 25px 20px 0px 20px;
     }
     .padding-phones {
         padding-left: 30px;

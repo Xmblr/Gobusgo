@@ -546,6 +546,15 @@ footer {
     }
 }
 
+@media (min-width: 1200px) {
+    .city-img { width: 1200px;
+    }
+}
+
+    .city {
+    text-align: center;
+}
+
 .logo-text {
     color: #ffe775;
     font-family: Bosk;
@@ -1328,3 +1337,28 @@ footer {
     left: 0;
     opacity: 1;
 }
+
+.reload-img {
+    position: absolute;
+    margin-top: 594px;
+    margin-left: 342px;
+}
+
+.reload-header {
+    display:inline-block;
+    margin-bottom: 40px;
+}
+
+.additional-city {
+    position: absolute;
+    margin-top: 564px;
+    margin-left: 512px;
+    color: #8598ff;
+    text-align: left;
+    cursor: pointer;
+    font-size: 18px;
+    font-family: 'Zing Sans Rust R Base';
+    font-weight: 600;
+    line-height:40px;
+}
+
