@@ -28,7 +28,24 @@
             <span class="road-text-2">Габариты</span>
             <span class="road-text-3">Город</span>
             <span class="road-text-4">Итого</span>
-            <img class="reload-img" src="{{ asset('images/reload.png') }}">
+            <img class="reload-img" src="{{ asset('images/reload.png') }}" onclick="a();">
+            <script language="JavaScript">
+                function a(one, two) {
+                    one = document.getElementById("one");
+                    two = document.getElementById("two");
+
+                    if (one.value === 'Москва')
+                    {
+                        one.value = 'Минск';
+                        two.value = 'Москва'
+                    }
+                    else
+                    {
+                        two.value = 'Минск';
+                        one.value = 'Москва'
+                    }
+                }
+            </script>
             <span class="line-1"></span>
             <span class="line-2"></span>
             <span class="line-3"></span>
@@ -51,14 +68,14 @@
                 <i class="fa fa-chevron-right" aria-hidden="true"
                    style="position: absolute; margin-left: -19px; margin-top: 18px; font-size: 20px; color: #7d88ff;"></i>
 
-                <input class="Input-text-2" type="text" id="weight" name="from"
+                <input class="Input-text-2" type="text" id="one" name="from"
                        required="required" style="position: absolute;" value="Москва"/>
             </div>
             <div class="Input-3">
                 <i class="fa fa-chevron-right" aria-hidden="true"
                    style="position: absolute; margin-left: -19px; margin-top: 18px; font-size: 20px; color: #7d88ff;"></i>
 
-                <input class="Input-text-3" type="text" id="weight" name="to"
+                <input class="Input-text-3" type="text" id="two" name="to"
                        required="required" style="position: absolute;" value="Минск"/>
             </div>
             <div class="Input-4">
