@@ -11,7 +11,7 @@ use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Validator\Constraints\Email;
 use Symfony\Component\Validator\Constraints\NotBlank;
 
-class ContactType extends AbstractType
+class RequestType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
@@ -25,6 +25,12 @@ class ContactType extends AbstractType
             ->add('code')
             ->add('fullName')
             ->add('phone')
+            ->add('weight')
+            ->add('height')
+            ->add('lenght')
+            ->add('width')
+            ->add('cities')
+            ->add('sum')
 //            ->add('name', TextType::class, array('attr' => array('placeholder' => 'Your name'),
 //                'constraints' => array(
 //                    new NotBlank(array("message" => "Please provide your name")),

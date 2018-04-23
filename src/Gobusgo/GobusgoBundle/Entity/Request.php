@@ -22,6 +22,114 @@ class Request
 
     protected $phone;
 
+    protected $weight;
+
+    protected $height;
+
+    protected $lenght;
+
+    protected $width;
+
+    protected $cities;
+
+    protected $sum;
+
+    /**
+     * @return mixed
+     */
+    public function getWeight()
+    {
+        return $this->weight;
+    }
+
+    /**
+     * @param mixed $weight
+     */
+    public function setWeight($weight)
+    {
+        $this->weight = $weight;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getHeight()
+    {
+        return $this->height;
+    }
+
+    /**
+     * @param mixed $height
+     */
+    public function setHeight($height)
+    {
+        $this->height = $height;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getLenght()
+    {
+        return $this->lenght;
+    }
+
+    /**
+     * @param mixed $lenght
+     */
+    public function setLenght($lenght)
+    {
+        $this->lenght = $lenght;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getWidth()
+    {
+        return $this->width;
+    }
+
+    /**
+     * @param mixed $width
+     */
+    public function setWidth($width)
+    {
+        $this->width = $width;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCities()
+    {
+        return $this->cities;
+    }
+
+    /**
+     * @param mixed $cities
+     */
+    public function setCities($cities)
+    {
+        $this->cities = $cities;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getSum()
+    {
+        return $this->sum;
+    }
+
+    /**
+     * @param mixed $sum
+     */
+    public function setSum($sum)
+    {
+        $this->sum = $sum;
+    }
+
     /**
      * @return mixed
      */

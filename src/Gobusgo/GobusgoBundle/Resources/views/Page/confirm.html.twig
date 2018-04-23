@@ -9,17 +9,32 @@
             {% for type, messages in app.session.flashBag.all %}
                 {% for message in messages %}
                     <div class="{{ type }}">
-                        Форма юр. лица была отправлена в {{ "now" | date("Y-m-d H:i") }}.
+                        {% if message.organization is defined  %}
+                            Форма юр. лица была отправлена в {{ "now" | date("Y-m-d H:i") }}.
 
-                        Организация: {{ message.organization }}
-                        УНП: {{ message.UNP }}
-                        Банк: {{ message.bank }}
-                        Адрес банка: {{ message.addressOfTheBank }}
-                        Юридический адрес: {{ message.legalAddress }}
-                        Расчётный счёт: {{ message.settlementAccount }}
-                        Код: {{ message.code }}
-                        Контактное лицо: {{ message.fullName }}
-                        Телефон для связи: {{ message.phone }}
+                            Организация: {{ message.organization }}
+                            УНП: {{ message.UNP }}
+                            Банк: {{ message.bank }}
+                            Адрес банка: {{ message.addressOfTheBank }}
+                            Юридический адрес: {{ message.legalAddress }}
+                            Расчётный счёт: {{ message.settlementAccount }}
+                            Код: {{ message.code }}
+                            Контактное лицо: {{ message.fullName }}
+                            Телефон для связи: {{ message.phone }}
+
+                            Вес: {{ message.weight }};
+                            Высота: {{ message.height }};
+                            Длина: {{ message.lenght }};
+                            Ширина: {{ message.width }};
+                            Города: {{ message.cities }};
+                            Сумма: {{ message.sum }};
+                        {% else %}
+                            {{ message.name }}
+                            {{ message.phone }}
+                        {%  endif %}
+
+
+
                     </div>
                 {% endfor %}
             {% endfor %}

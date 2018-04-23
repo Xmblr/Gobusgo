@@ -121,10 +121,37 @@ class PageController extends Controller
             ->addMeta('property', 'og:description', $seoDescription)
         ;
 
+        $legalCallform = $this->createForm('Gobusgo\GobusgoBundle\Form\RequestType',null,array(
+            'action' => $this->generateUrl('gobusgo_gobusgo_deliveryRB'),
+            'method' => 'POST'
+        ));
+        $legalCallform->get('cities')->setData('test');
+        if ($request->isMethod('POST')) {
+            $legalCallform->handleRequest($request);
+
+            if($legalCallform->isValid()){
+                // Send mail
+                $data = $legalCallform->getData();
+                $this->Mailer($data);
+                $this->addFlash(
+                    'notice',
+                    $data
+                );
+                return $this->redirectToRoute('gobusgo_gobusgo_confirm');
+
+            }
+        }
+
+        $em = $this->getDoctrine()->getManager();
+        $cities = $em->getRepository('GobusgoGobusgoBundle:City')->getCity();
+
         $callform = $this->Call($request);
 
         return $this->render('@GobusgoGobusgo/Page/deliveryRB.html.twig', array(
-            'callform' =>$callform->createView()
+            'callform' =>$callform->createView(),
+            'secondCallform' =>$callform->createView(),
+            'legalCallform' =>$legalCallform->createView(),
+            'cities'=>$cities
         ));
     }
 
@@ -147,11 +174,22 @@ class PageController extends Controller
 
     public function deliveryMoscowMinskAction(Request $request)
     {
-        $legalCallform = $this->createForm('Gobusgo\GobusgoBundle\Form\ContactType',null,array(
+        $seoDescription = 'deliveryMoscowMinsk';
+        $seoPage = $this->container->get('sonata.seo.page');
+        $seoPage
+            ->setTitle('GObusGO')
+            ->addMeta('name', 'description', $seoDescription)
+            ->addMeta('property', 'og:description', $seoDescription)
+        ;
+
+        $legalCallform = $this->createForm('Gobusgo\GobusgoBundle\Form\RequestType',null,array(
             'action' => $this->generateUrl('gobusgo_gobusgo_deliveryMoscowMinsk'),
             'method' => 'POST'
         ));
-
+        $legalCallform->get('height')->setData('Не задано');
+        $legalCallform->get('lenght')->setData('Не задано');
+        $legalCallform->get('width')->setData('Не задано');
+        $legalCallform->get('cities')->setData('Москва-Минск');
         if ($request->isMethod('POST')) {
             $legalCallform->handleRequest($request);
 
@@ -210,7 +248,7 @@ class PageController extends Controller
 
                 $request->getSession()
                     ->getFlashBag()
-                    ->add('success', 'Ваше сообщение успешно отправлено.');
+                    ->add('success', $call);
             }
         }
 

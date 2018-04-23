@@ -10,4 +10,14 @@ namespace Gobusgo\GobusgoBundle\Repository;
  */
 class CityRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function getCity()
+    {
+        $qb = $this->createQueryBuilder('c')
+            ->select('c')
+            ->addOrderBy('c.id', 'ASC');
+
+
+        return $qb->getQuery()
+            ->getResult();
+    }
 }

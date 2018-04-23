@@ -40,33 +40,39 @@
             <span class="line-9"></span>
             <span class="line-10"></span>
 
+
+            {{ form_start(legalCallform) }}
+
+
             <div class="Input-1">
                 <i class="fa fa-chevron-left" aria-hidden="true"
                    style="position: absolute; margin-left: 160px; margin-top: 17px; font-size: 20px; color: #7d88ff;"></i>
-
-                <input class="Input-text-1" type="text" id="weight" name="weight"
-                       required="required" style="position: absolute;" placeholder="Вес, кг" onchange="sum()"/>
+                {{ form_errors(legalCallform.weight) }}
+                {{ form_widget(legalCallform.weight, {'attr':{'class':'Input-text-1', 'position': 'absolute','placeholder':'Вес\, кг', 'onchange':'sum()'}}) }}
             </div>
-            <div class="Input-2">
-                <i class="fa fa-chevron-right" aria-hidden="true"
-                   style="position: absolute; margin-left: -19px; margin-top: 18px; font-size: 20px; color: #7d88ff;"></i>
+            <div>
+                <div class="Input-2">
+                    <i class="fa fa-chevron-right" aria-hidden="true"
+                       style="position: absolute; margin-left: -19px; margin-top: 18px; font-size: 20px; color: #7d88ff;"></i>
 
-                <input class="Input-text-2" type="text" id="one" name="from"
-                       required="required" style="position: absolute;" value="Москва"/>
-            </div>
-            <div class="Input-3">
-                <i class="fa fa-chevron-right" aria-hidden="true"
-                   style="position: absolute; margin-left: -19px; margin-top: 18px; font-size: 20px; color: #7d88ff;"></i>
+                    <input class="Input-text-2" type="text" id="one" name="from"
+                          readonly style="position: absolute;" value="Москва" contenteditable="false" onchange="city()" id="city1"/>
+                </div>
+                <div class="Input-3">
+                    <i class="fa fa-chevron-right" aria-hidden="true"
+                       style="position: absolute; margin-left: -19px; margin-top: 18px; font-size: 20px; color: #7d88ff;"></i>
 
-                <input class="Input-text-3" type="text" id="two" name="to"
-                       required="required" style="position: absolute;" value="Минск"/>
+                    <input class="Input-text-3" type="text" id="two" name="to"
+                           readonly style="position: absolute;" value="Минск" contenteditable="false" onchange="city()" id="city2"/>
+                </div>
             </div>
+
             <div class="Input-4">
                 <i class="fa fa-chevron-left" aria-hidden="true"
                    style="position: absolute; margin-left: 152px; margin-top: 17px; font-size: 20px; color: #7d88ff;"></i>
+                {{ form_errors(legalCallform.sum) }}
+                {{ form_widget(legalCallform.sum, {'attr':{'class':'Input-text-4', 'position': 'absolute','placeholder':'Сумма', 'onchange':'sum()','readonly':'true'}}) }}
 
-                <input class="Input-text-4" type="text" name="weight"
-                       required="required" style="position: absolute;" placeholder="Сумма" id="sum"/>
             </div>
             <div class="radio-cargo">
                 <label>
@@ -84,11 +90,8 @@
             <img src="{{ asset('images/road.png') }}" style="width: 800px;">
             <h2>Оформление заявки</h2>
 
-            {#TODO: сделать форму для юр лица#}
 
-            <div style="visibility: hidden;" id="legal_form">
-
-                {{ form_start(legalCallform) }}
+            <div style="" id="legal_form">
 
 
                 <div class="Input-5">
@@ -129,6 +132,11 @@
                 </div>
 
                 <div style="display:none">
+                    {{ form_widget(legalCallform.height) }}
+                    {{ form_widget(legalCallform.lenght) }}
+                    {{ form_widget(legalCallform.width) }}
+                    {{ form_widget(legalCallform.cities) }}
+
                     {{ form_rest(legalCallform) }}
                 </div>
 
@@ -139,7 +147,6 @@
 
             </div>
 
-            {# TODO: сделать форму для физ лица#}
 
             <div style="visibility: hidden" id="individual_form">
                 {{ form_start(secondCallform, { 'action': path('gobusgo_gobusgo_confirm'), 'method': 'POST' }) }}
@@ -520,14 +527,13 @@
         function reload(one, two) {
             one = document.getElementById("one");
             two = document.getElementById("two");
-
             if (one.value === 'Москва') {
                 one.value = 'Минск';
-                two.value = 'Москва'
+                two.value = 'Москва';
             }
             else {
+                one.value = 'Москва';
                 two.value = 'Минск';
-                one.value = 'Москва'
             }
         }
 
@@ -546,14 +552,21 @@
                 form2 = document.getElementById('legal_form')
                 form2.style.visibility = 'hidden';
             }
-            weight = document.getElementById('weight');
-            sum = document.getElementById('sum');
+            weight = document.getElementById('request_weight');
+            sum = document.getElementById('request_sum');
             if (parseInt(weight.value) != NaN) {
                 sum.value = 5 * type + parseInt(weight.value);
             }
             else {
                 sum.value = 5 * type;
             }
+        }
+        function city(city1, city2)
+        {
+            city1 = document.getElementById('city1').value;
+            city2 = document.getElementById('city2').value;
+            document.getElementById('request_cities').value = city1+'-'+city2 ;
+
         }
     </script>
 {% endblock %}
