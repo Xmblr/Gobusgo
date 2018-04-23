@@ -94,7 +94,7 @@ class OrderUserAdmin extends AbstractAdmin
 //                'mapped'=>'name',
 //                'choices' =>  $address_available_choices
             ],array(
-                'admin_code' => 'admin.user.cargo'
+                'admin_code' => 'admin.user.address'
             ))
             ->add('deliveryAddress', ModelListType::class, [
                 'class'=>Address::class,
