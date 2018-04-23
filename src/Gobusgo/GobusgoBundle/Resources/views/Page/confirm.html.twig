@@ -6,25 +6,28 @@
     <div class="row" style="background-color: #f5f5f7; padding-bottom: 3%;">
         <div class="container-fluid" style="margin-top: 3%;">
 
-            {% if app.session.flashBag.has('success') %}
-                <div class="alert alert-success">
-                    {% for msg in app.session.flashBag.get('success') %}
-                        {{ msg }}
-                    {% endfor %}
-                    Сейчас Вас перенаправят на предыдущую страницу.
-                </div>
-            {% endif %}
+            {% for type, messages in app.session.flashBag.all %}
+                {% for message in messages %}
+                    <div class="{{ type }}">
+                        Форма юр. лица была отправлена в {{ "now" | date("Y-m-d H:i") }}.
+
+                        Организация: {{ message.organization }}
+                        УНП: {{ message.UNP }}
+                        Банк: {{ message.bank }}
+                        Адрес банка: {{ message.addressOfTheBank }}
+                        Юридический адрес: {{ message.legalAddress }}
+                        Расчётный счёт: {{ message.settlementAccount }}
+                        Код: {{ message.code }}
+                        Контактное лицо: {{ message.fullName }}
+                        Телефон для связи: {{ message.phone }}
+                    </div>
+                {% endfor %}
+            {% endfor %}
+
+
+
 
         </div>
     </div>
-
-    <script>
-
-        var oldURL = document.referrer;
-        setTimeout( 'location=oldURL;', 5000 );
-
-    </script>
-
-
 
 {% endblock %}

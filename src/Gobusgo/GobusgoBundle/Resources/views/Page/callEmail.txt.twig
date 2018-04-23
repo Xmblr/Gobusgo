@@ -1,4 +1,20 @@
-Запрос на обратный звонок был отправлен в {{ "now" | date("Y-m-d H:i") }}.
+{% if call is defined %}
+    Запрос на обратный звонок был отправлен в {{ "now" | date("Y-m-d H:i") }}.
 
-Имя: {{ call.name }}
-Телефон для связи: {{ call.phone }}
+    Имя: {{ call.name }}
+    Телефон для связи: {{ call.phone }}
+{% endif %}
+
+{% if mail is defined %}
+    Форма юр. лица была отправлена в {{ "now" | date("Y-m-d H:i") }}.
+
+    Организация: {{ mail.organization }}
+    УНП: {{ mail.UNP }}
+    Банк: {{ mail.bank }}
+    Адрес банка: {{ mail.addressOfTheBank }}
+    Юридический адрес: {{ mail.legalAddress }}
+    Расчётный счёт: {{ mail.settlementAccount }}
+    Код: {{ mail.code }}
+    Контактное лицо: {{ mail.fullName }}
+    Телефон для связи: {{ mail.phone }}
+{% endif %}

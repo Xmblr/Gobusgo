@@ -22,10 +22,6 @@ gobusgo_gobusgo_deliveryRB:
     path:     /gruzoperevozki-po-belarusi
     defaults: { _controller: GobusgoGobusgoBundle:Page:deliveryRB }
 
-gobusgo_gobusgo_deliveryRB:
-    path:     /gruzoperevozki-po-belarusi
-    defaults: { _controller: GobusgoGobusgoBundle:Page:deliveryRB }
-
 gobusgo_gobusgo_deliveryMinsk:
     path:     /delivery-Minsk
     defaults: { _controller: GobusgoGobusgoBundle:Page:deliveryMinsk }
@@ -33,6 +29,8 @@ gobusgo_gobusgo_deliveryMinsk:
 gobusgo_gobusgo_deliveryMoscowMinsk:
     path:     /delivery-Moscow-Minsk
     defaults: { _controller: GobusgoGobusgoBundle:Page:deliveryMoscowMinsk }
+    requirements:
+        methods:  GET|POST
 
 gobusgo_gobusgo_contacts:
     path:     /contacts

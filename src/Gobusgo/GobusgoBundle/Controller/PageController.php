@@ -61,7 +61,7 @@ class PageController extends Controller
         return $this->render('@GobusgoGobusgo/Page/catalog.html.twig');
     }
 
-    public function autoparkAction()
+    public function autoparkAction(Request $request)
     {
         $seoDescription = 'autopark';
         $seoPage = $this->container->get('sonata.seo.page');
@@ -94,7 +94,7 @@ class PageController extends Controller
         ));
     }
 
-    public function feedbackAction()
+    public function feedbackAction(Request $request)
     {
         $seoDescription = 'feedback';
         $seoPage = $this->container->get('sonata.seo.page');
@@ -145,35 +145,38 @@ class PageController extends Controller
         ));
     }
 
-//    public function deliveryMinskMoscowAction()
-//    {
-//        $seoDescription = 'deliveryMinskMoscow';
-//        $seoPage = $this->container->get('sonata.seo.page');
-//        $seoPage
-//            ->setTitle('GObusGO')
-//            ->addMeta('name', 'description', $seoDescription)
-//            ->addMeta('property', 'og:description', $seoDescription)
-//        ;
-//
-//        return $this->render('@GobusgoGobusgo/Page/deliveryMinskMoscow.html.twig');
-//    }
-
     public function deliveryMoscowMinskAction(Request $request)
     {
-        $seoDescription = 'deliveryMoscowMinsk';
-        $seoPage = $this->container->get('sonata.seo.page');
-        $seoPage
-            ->setTitle('GObusGO-Moskva')
-            ->addMeta('name', 'description', $seoDescription)
-            ->addMeta('property', 'og:description', $seoDescription)
-        ;
+        $legalCallform = $this->createForm('Gobusgo\GobusgoBundle\Form\ContactType',null,array(
+            'action' => $this->generateUrl('gobusgo_gobusgo_deliveryMoscowMinsk'),
+            'method' => 'POST'
+        ));
+
+        if ($request->isMethod('POST')) {
+            $legalCallform->handleRequest($request);
+
+            if($legalCallform->isValid()){
+                // Send mail
+                $data = $legalCallform->getData();
+                $this->Mailer($data);
+                $this->addFlash(
+                    'notice',
+                    $data
+                );
+                return $this->redirectToRoute('gobusgo_gobusgo_confirm');
+
+            }
+        }
 
         $callform = $this->Call($request);
 
         return $this->render('@GobusgoGobusgo/Page/deliveryMoscowMinsk.html.twig', array(
-            'callform' =>$callform->createView()
+            'callform' =>$callform->createView(),
+            'secondCallform' =>$callform->createView(),
+            'legalCallform' =>$legalCallform->createView()
         ));
     }
+
 
     public function contactsAction(Request $request)
     {
@@ -215,7 +218,7 @@ class PageController extends Controller
 
     }
 
-    public function Mailer($enquiry)
+    public function Mailer($mail)
     {
         $mailer = $this->Transport();
 
@@ -223,7 +226,7 @@ class PageController extends Controller
         $message = Swift_Message::newInstance('Форма обратной связи')
             ->setFrom(array('seo-newline@mail.ru' => 'Обратный звонок'))
             ->setTo($this->container->getParameter('gobusgo.emails.contact_email'))
-            ->setBody($this->renderView('@GobusgoGobusgo/Page/callEmail.txt.twig', array('enquiry' => $enquiry)));
+            ->setBody($this->renderView('@GobusgoGobusgo/Page/callEmail.txt.twig', array('mail' => $mail)));
         ;
 
         // Send the message
@@ -248,9 +251,13 @@ class PageController extends Controller
     public function Transport()
     {
         // Create the Transport
-        $transport = Swift_SmtpTransport::newInstance('smtp.mail.ru', 465, 'ssl')
-            ->setUsername('seo-newline@mail.ru')
-            ->setPassword('19086837dima')
+        $transport = Swift_SmtpTransport::newInstance(
+            $this->container->getParameter('mailer_host'),
+            $this->container->getParameter('mailer_port'),
+            $this->container->getParameter('mailer_encryption')
+        )
+            ->setUsername($this->container->getParameter('mailer_user'))
+            ->setPassword($this->container->getParameter('mailer_password'))
         ;
 
         // Create the Mailer using your created Transport

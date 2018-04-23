@@ -33,7 +33,6 @@
 <body>
 
 
-
 {% block header %}
 
     <header class="main-menu-area">
@@ -69,14 +68,17 @@
                             <div class="top-bar-right">
 
 
-                                    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-                                        <a class="top-bar-menu-active" href="{{ path('sonata_admin_dashboard') }}"> {{ app.user.organization }} </a> |
-                                        <a class="top-bar-menu" href="{{ path('fos_user_security_logout') }}">
-                                            {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
-                                        </a>
-                                    {% else %}
-                                        <a class="top-bar-menu-active" href="{{ path('sonata_admin_dashboard') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
-                                        <a class="top-bar-menu" href="{{ path('fos_user_registration_register') }}">{{ 'layout.register'|trans({}, 'FOSUserBundle') }}</a>
+                                {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                                    <a class="top-bar-menu-active"
+                                       href="{{ path('sonata_admin_dashboard') }}"> {{ app.user.organization }} </a> |
+                                    <a class="top-bar-menu" href="{{ path('fos_user_security_logout') }}">
+                                        {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
+                                    </a>
+                                {% else %}
+                                    <a class="top-bar-menu-active"
+                                       href="{{ path('sonata_admin_dashboard') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
+                                    <a class="top-bar-menu"
+                                       href="{{ path('fos_user_registration_register') }}">{{ 'layout.register'|trans({}, 'FOSUserBundle') }}</a>
 
                                 {% endif %}
 
@@ -100,7 +102,8 @@
                         <div class="header-menu inline-block">
                             <li class="inline-block">
                                 <img class="reload-header" src="{{ asset('images/reload1.png') }}">
-                                <a style="display: inline-block;" href="{{ path('gobusgo_gobusgo_deliveryMoscowMinsk') }}">Москва</br>Минск</a>
+                                <a style="display: inline-block;"
+                                   href="{{ path('gobusgo_gobusgo_deliveryMoscowMinsk') }}">Москва</br>Минск</a>
                                 <img class="reload-header" src="{{ asset('images/reload.png') }}">
                             </li>
                             <li class="inline-block">
@@ -116,7 +119,8 @@
                     <div class="col-md-5 align-j">
                         <div class="time-of-work inline-block">
                             <li class="time-of-work">
-                                <a href=""><span style="line-height: 36px;">Время работы:</span><br> Пн-Пт - с 9.00 до 18.00<br>Сб-Вс - с 9.00 до
+                                <a href=""><span style="line-height: 36px;">Время работы:</span><br> Пн-Пт - с 9.00 до
+                                    18.00<br>Сб-Вс - с 9.00 до
                                     16.00</a>
                             </li>
                         </div>
@@ -165,7 +169,6 @@
                         <li class="start-li">
 
 
-
                             {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
                                 <a class="button-active-header"
                                    href="{{ path('fos_user_profile_show') }}"> {{ app.user.organization }} </a> |
@@ -193,8 +196,8 @@
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                                 <li class="divider-menu"></li>
                                 <li class="link-menu">
-                                <a style="display:block;"
-                                   href="{{ path('gobusgo_gobusgo_deliveryMoscowMinsk') }}">Минск - Москва</a>
+                                    <a style="display:block;"
+                                       href="{{ path('gobusgo_gobusgo_deliveryMoscowMinsk') }}">Минск - Москва</a>
                                 </li>
                                 <li class="divider-menu"></li>
                                 <li class="link-menu">
@@ -203,8 +206,8 @@
                                 </li>
                                 <li class="divider-menu"></li>
                                 <li class="link-menu">
-                                <a style="display:block;"
-                                   href="{{ path('gobusgo_gobusgo_deliveryRB') }}">По Беларуси</a>
+                                    <a style="display:block;"
+                                       href="{{ path('gobusgo_gobusgo_deliveryRB') }}">По Беларуси</a>
                                 </li>
                             </div>
                         </div>
@@ -281,28 +284,28 @@
 
 
     </header>
-    <!--<div>
-            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-                <a href="{{ path('fos_user_profile_show') }}"> {{ 'layout.logged_in_as'|trans({'%username%': app.user.organization}, 'FOSUserBundle') }} </a> |
-                <a href="{{ path('fos_user_security_logout') }}">
-                    {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
-                </a>
-            {% else %}
-                <a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
-                OR
-                <a href="{{ path('fos_user_registration_register') }}">{{ 'layout.register'|trans({}, 'FOSUserBundle') }}</a>
-            {% endif %}
-        </div>
-        {{ knp_menu_render('GobusgoGobusgoBundle:Builder:mainMenu', {'template': 'GobusgoGobusgoBundle:Menu:knp_menu.html.twig'}) }}
-        {% for type, messages in app.session.flashBag.all %}
-            {% for message in messages %}
-                <div class="{{ type }}">
-                    {{ message|trans({}, 'FOSUserBundle') }}
-                </div>
-            {% endfor %}
-        {% endfor %}
+    {#<div>#}
+        {#{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}#}
+            {#<a href="{{ path('fos_user_profile_show') }}"> {{ 'layout.logged_in_as'|trans({'%username%': app.user.organization}, 'FOSUserBundle') }} </a> |#}
+            {#<a href="{{ path('fos_user_security_logout') }}">#}
+                {#{{ 'layout.logout'|trans({}, 'FOSUserBundle') }}#}
+            {#</a>#}
+        {#{% else %}#}
+            {#<a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>#}
+            {#OR#}
+            {#<a href="{{ path('fos_user_registration_register') }}">{{ 'layout.register'|trans({}, 'FOSUserBundle') }}</a>#}
+        {#{% endif %}#}
+    {#</div>#}
+    {#{{ knp_menu_render('GobusgoGobusgoBundle:Builder:mainMenu', {'template': 'GobusgoGobusgoBundle:Menu:knp_menu.html.twig'}) }}#}
+    {#{% for type, messages in app.session.flashBag.all %}#}
+        {#{% for message in messages %}#}
+            {#<div class="{{ type }}">#}
+                {#{{ message|trans({}, 'FOSUserBundle') }}#}
+            {#</div>#}
+        {#{% endfor %}#}
+    {#{% endfor %}#}
 
-        -->
+
 {% endblock %}
 {% block callback %}
 

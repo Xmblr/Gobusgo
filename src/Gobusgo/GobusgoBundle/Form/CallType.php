@@ -24,14 +24,4 @@ class CallType extends AbstractType
         $builder->add('name', TextType::class);
         $builder->add('phone', NumberType::class);
     }
-
-//    public function configureOptions(OptionsResolver $resolver)
-//    {
-//
-//    }
-
-//    public function getBlockPrefix()
-//    {
-//        return 'contact';
-//    }
 }
