@@ -3753,16 +3753,16 @@
         },
         {
             "name": "sonata-project/doctrine-orm-admin-bundle",
-            "version": "3.5.1",
+            "version": "3.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/SonataDoctrineORMAdminBundle.git",
-                "reference": "f98eb6c3c7c0e1573a3216579e99e77961ed7996"
+                "reference": "ce108f8de5b681568d56ce8bf91cc1475df53a1a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataDoctrineORMAdminBundle/zipball/f98eb6c3c7c0e1573a3216579e99e77961ed7996",
-                "reference": "f98eb6c3c7c0e1573a3216579e99e77961ed7996",
+                "url": "https://api.github.com/repos/sonata-project/SonataDoctrineORMAdminBundle/zipball/ce108f8de5b681568d56ce8bf91cc1475df53a1a",
+                "reference": "ce108f8de5b681568d56ce8bf91cc1475df53a1a",
                 "shasum": ""
             },
             "require": {
@@ -3833,7 +3833,7 @@
                 "generator",
                 "sonata"
             ],
-            "time": "2018-04-10T08:11:48+00:00"
+            "time": "2018-04-23T09:21:48+00:00"
         },
         {
             "name": "sonata-project/easy-extends-bundle",

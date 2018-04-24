@@ -50,7 +50,7 @@ class AddressUserAdmin extends AbstractAdmin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('name', 'text')
+            ->add('name', null,array('label'=>'Имя'))
             ->add('organization')
             ->add('city', EntityType::class, [
                 'class' => City::class,

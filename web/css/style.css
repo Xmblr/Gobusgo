@@ -48,6 +48,7 @@ div {
     text-align:center;
     display:table;
     margin: 0 auto;
+    cursor: pointer;
 }
 
 h2, h3, h4, h5, h6 {
@@ -293,6 +294,8 @@ footer {
 .slide-desktop {
     margin-bottom: 3%;   }
 
+/* Home animation */
+
 @-webkit-keyframes shake {
     30%
     {
@@ -343,6 +346,12 @@ footer {
     {
         -webkit-transform: translate(-1px,-1px);
         transform: translate(-1px,-1px);
+    }
+}
+
+@media (min-width: 1024px) and (max-width: 1250px) {
+    .car-gobusgo {
+        display:none;
     }
 }
 
@@ -419,18 +428,25 @@ footer {
 }
 
 .cloud {
-    left: 0px;
-    -webkit-transform: scale(0.6);
-    -moz-transform: scale(0.6);
-    transform: scale(0.6);
-    opacity: 0.6; /*opacity proportional to the size*/
+    width: 80px;
+    position: absolute;
+    margin-left: 20px;
+}
 
-    /*Speed will also be proportional to the size and opacity*/
-    /*More the speed. Less the time in 's' = seconds*/
+.cloud1 {
+    left: 400px;
+    -webkit-transform: scale(0.75);
+    -moz-transform: scale(0.75);
+    transform: scale(0.75);
+    opacity: 0.75; /*opacity proportional to the size*/
+    margin-top: -255px;
+
+
     -webkit-animation: moveclouds 40s linear infinite;
     -moz-animation: moveclouds 40s linear infinite;
     -o-animation: moveclouds 40s linear infinite;
 }
+
 
 .cloud2 {
     left: 300px;
@@ -438,18 +454,21 @@ footer {
     -moz-transform: scale(0.8);
     transform: scale(0.8);
     opacity: 0.8; /*opacity proportional to the size*/
+    margin-top: -243px;
 
     -webkit-animation: moveclouds 40s linear infinite;
     -moz-animation: moveclouds 40s linear infinite;
     -o-animation: moveclouds 40s linear infinite;
 }
 
-.cloud1 {
-    left: 400px;
-      -webkit-transform: scale(0.75);
-    -moz-transform: scale(0.75);
-    transform: scale(0.75);
-    opacity: 0.75; /*opacity proportional to the size*/
+
+.cloud3 {
+    left: 1600px;
+    -webkit-transform: scale(0.9);
+    -moz-transform: scale(0.9);
+    transform: scale(0.9);
+    opacity: 0.9; /*opacity proportional to the size*/
+    margin-top: -249px;
 
     -webkit-animation: moveclouds 40s linear infinite;
     -moz-animation: moveclouds 40s linear infinite;
@@ -461,6 +480,7 @@ footer {
     -webkit-transform: scale(0.72);
     -moz-transform: scale(0.72);
     transform: scale(0.72); /*opacity proportional to the size*/
+    margin-top: -255px;
 
     -webkit-animation: moveclouds 40s linear infinite;
     -moz-animation: moveclouds 40s linear infinite;
@@ -472,6 +492,7 @@ footer {
     -webkit-transform: scale(0.81);
     -moz-transform: scale(0.81);
     transform: scale(0.81); /*opacity proportional to the size*/
+    margin-top: -255px;
 
     -webkit-animation: moveclouds 32s linear infinite;
     -moz-animation: moveclouds 32s linear infinite;
@@ -483,6 +504,7 @@ footer {
     -webkit-transform: scale(0.85);
     -moz-transform: scale(0.85);
     transform: scale(0.85); /*5opacity proportional to the size*/
+    margin-top: -245px;
 
     -webkit-animation: moveclouds 37s linear infinite;
     -moz-animation: moveclouds 37s linear infinite;
@@ -494,22 +516,30 @@ footer {
     -webkit-transform: scale(0.80);
     -moz-transform: scale(0.80);
     transform: scale(0.80); /*5opacity proportional to the size*/
+    margin-top: -245px;
 
     -webkit-animation: moveclouds 50s linear infinite;
     -moz-animation: moveclouds 50s linear infinite;
     -o-animation: moveclouds 37s linear infinite;
 }
 
-.cloud3 {
-    left: 1600px;
-    -webkit-transform: scale(0.9);
-    -moz-transform: scale(0.9);
-    transform: scale(0.9);
-    opacity: 0.9; /*opacity proportional to the size*/
+
+.cloud8 {
+    -webkit-transform: scale(0.6);
+    -moz-transform: scale(0.6);
+    transform: scale(0.6);
+    opacity: 0.6; /*opacity proportional to the size*/
+    margin-top: -260px;
 
     -webkit-animation: moveclouds 40s linear infinite;
     -moz-animation: moveclouds 40s linear infinite;
     -o-animation: moveclouds 40s linear infinite;
+}
+
+@media (max-width: 1250px) {
+    .clouds {
+        display: none;
+    }
 }
 
 @-webkit-keyframes moveclouds {
@@ -523,6 +553,39 @@ footer {
 @-o-keyframes moveclouds {
     0% {margin-left: 1500px;}
     100% {margin-left: -1500px;}
+}
+
+.overflow-animation {
+    position:relative;
+    overflow: hidden;
+}
+
+#car {
+    position: absolute;
+    margin-top: 79px;
+    margin-left: 119px;
+    width: 200px;
+}
+
+.wheel-1 {
+    position: absolute;
+    padding-top: 146px;
+    width: 28px;
+    margin-left: 174px;
+}
+
+.wheel-2 {
+    position: absolute;
+    padding-top: 146px;
+    width: 28px;
+    margin-left: 261px;
+}
+
+/* Home animation end */
+
+.reload {
+    display:table-cell !important;
+    vertical-align: middle;
 }
 
 .reload:before {
@@ -539,20 +602,22 @@ footer {
     bottom: 90px;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1024px) and (max-width: 1250px) {
     .city {
         margin: 30px 0px;
         text-align: center;
     }
 }
 
-@media (min-width: 1200px) {
-    .city-img { width: 1200px;
+@media (min-width: 1250px) {
+    .city-img {
+        width: 1200px;
     }
 }
 
     .city {
     text-align: center;
+        padding-top: 50px;
 }
 
 .logo-text {
@@ -575,7 +640,7 @@ footer {
     margin: 15px 20px;
     display: inline-block;
     text-align: center;
-    max-width: 160px;
+    max-width: 130px;
 }
 
 @media (min-width: 1025px) {
@@ -647,7 +712,7 @@ footer {
     display: inline-block;
     outline: none;
     position: relative;
-    z-index: 1000;
+    z-index: 0;
 }
 .option-input:hover {
 
@@ -686,7 +751,7 @@ footer {
     border-left: 4px solid #7d88ff;
     height: 107px;
     position: absolute;
-    margin-left: 133px;
+    margin-left: -268px;
     margin-top: 76px;
 }
 
@@ -694,7 +759,7 @@ footer {
     border-top: 4px solid #7d88ff;
     width: 102px;
     position: absolute;
-    margin-left: 135px;
+    margin-left: -266px;
     margin-top: 120px;
 }
 
@@ -702,7 +767,7 @@ footer {
     border-top: 4px solid #7d88ff;
     width: 102px;
     position: absolute;
-    margin-left: 135px;
+    margin-left: -266px;
     margin-top: 179px;
 }
 
@@ -710,7 +775,7 @@ footer {
     border-left: 4px solid #7d88ff;
     height: 60px;
     position: absolute;
-    margin-left: 759px;
+    margin-left: 358px;
     margin-top: 310px;
 }
 
@@ -718,7 +783,7 @@ footer {
     border-top: 4px solid #7d88ff;
     width: 105px;
     position: absolute;
-    margin-left: 658px;
+    margin-left: 257px;
     margin-top: 369px;
 }
 
@@ -726,7 +791,7 @@ footer {
     border-left: 4px solid #7d88ff;
     height: 95px;
     position: absolute;
-    margin-left: 119px;
+    margin-left: -282px;
     margin-top: 558px;
 }
 
@@ -734,7 +799,7 @@ footer {
     border-top: 4px solid #7d88ff;
     width: 62px;
     position: absolute;
-    margin-left: 119px;
+    margin-left: -282px;
     margin-top: 580px;
 }
 
@@ -742,7 +807,7 @@ footer {
     border-top: 4px solid #7d88ff;
     width: 62px;
     position: absolute;
-    margin-left: 119px;
+    margin-left: -282px;
     margin-top: 649px;
 }
 
@@ -750,7 +815,7 @@ footer {
     border-top: 4px solid #7d88ff;
     width: 62px;
     position: absolute;
-    margin-left: 681px;
+    margin-left: 280px;
     margin-top: 824px;
 }
 
@@ -758,8 +823,21 @@ footer {
     border-left: 4px solid #7d88ff;
     height: 65px;
     position: absolute;
-    margin-left: 739px;
+    margin-left: 338px;
     margin-top: 763px;
+}
+
+.reload-img {
+    position: absolute;
+    margin-top: 584px;
+    margin-left: -60px;
+    cursor: pointer;
+    height: 60px;
+}
+
+.request-form {
+    margin-top: 30px;
+    font-size: 20px !important;
 }
 
 .road-text-1 {
@@ -769,7 +847,7 @@ footer {
     font-weight: 600;
     position: absolute;
     margin-top: 24px;
-    margin-left: -40px;
+    margin-left: -441px;
 }
 
 .road-text-2 {
@@ -779,7 +857,7 @@ footer {
     font-weight: 600;
     position: absolute;
     margin-top: 255px;
-    margin-left: 820px;
+    margin-left: 419px;
 }
 
 .road-text-3 {
@@ -789,7 +867,7 @@ footer {
     font-weight: 600;
     position: absolute;
     margin-top: 415px;
-    margin-left: 110px;
+    margin-left: -291px;
 }
 
 .road-text-4 {
@@ -799,7 +877,7 @@ footer {
     font-weight: 600;
     position: absolute;
     margin-top: 705px;
-    margin-left: 805px;
+    margin-left: 404px;
 }
 
 .table-services {
@@ -931,7 +1009,6 @@ footer {
     color: black;
 }
 
-
 .Input {
     position: relative;
     margin:10px 0px;
@@ -976,7 +1053,7 @@ footer {
 
 .Input-2 {
     position: absolute;
-    margin-top: 554px;
+    margin-top: 557px;
     margin-left: 362px;
 }
 
@@ -993,14 +1070,20 @@ footer {
 }
 
 .Input-3 {
+     position: absolute;
+     margin-top: 627px;
+     margin-left: 362px;
+ }
+
+.Input-3-1 {
     position: absolute;
-    margin-top: 624px;
-    margin-left: 362px;
+    margin-top: 557px;
+    margin-left: 532px;
 }
 
 .Input-text-3 {
     display: inline-block;
-    font-size: 20px;
+    font-size: 14px;
     font-family: 'Zing Sans Rust R Base';
     position: absolute;
     width: 140px;
@@ -1105,6 +1188,40 @@ footer {
     color: #8598ff;
     text-align: center;
     border: 3px solid #7d88ff;
+}
+
+
+.additional-city {
+    position: absolute;
+    margin-top: 560px;
+    margin-left: 512px;
+    color: #8598ff;
+    text-align: left;
+    cursor: pointer;
+    font-size: 18px;
+    font-family: 'Zing Sans Rust R Base';
+    font-weight: 600;
+    line-height:40px;
+}
+
+.delete-city {
+    position: absolute;
+    margin-top: 560px;
+    margin-left: 690px;
+    color: #8598ff;
+    text-align: left;
+    cursor: pointer;
+    font-size: 18px;
+    font-family: 'Zing Sans Rust R Base';
+    font-weight: 600;
+    line-height:40px;
+    visibility: hidden;
+}
+
+.reload-img-tablet {
+    margin-bottom: 50px;
+    margin-left: 10px; cursor: pointer;
+    height: 40px;
 }
 
 @media (max-width: 600px) {
@@ -1317,7 +1434,7 @@ footer {
     border-top: 4px solid #7d88ff;
     width: 65px;
     position: absolute;
-    margin-left: 698px;
+    margin-left: 297px;
     margin-top: 369px;
 }
 
@@ -1331,6 +1448,7 @@ footer {
     opacity: 0;
     transition: opacity 0.3s ease;
     z-index: 1;
+    cursor: pointer;
 }
 
 .active + .backdrop {
@@ -1338,27 +1456,37 @@ footer {
     opacity: 1;
 }
 
-.reload-img {
-    position: absolute;
-    margin-top: 594px;
-    margin-left: 342px;
-}
-
 .reload-header {
     display:inline-block;
-    margin-bottom: 40px;
 }
 
-.additional-city {
-    position: absolute;
-    margin-top: 564px;
-    margin-left: 512px;
-    color: #8598ff;
-    text-align: left;
-    cursor: pointer;
-    font-size: 18px;
-    font-family: 'Zing Sans Rust R Base';
-    font-weight: 600;
-    line-height:40px;
+.dropdown-menu li a {
+    margin-left: 5px;
 }
 
+.p-0 {
+    padding: 0px;
+}
+
+.margin-home {
+    margin: 0% 0% 2% 0%;
+}
+
+.m-b-20 {
+    margin-bottom: 20px;
+}
+
+.m-t-10 {
+    margin-top: 10px;
+}
+
+.align-home {
+    display: table-cell !important;
+    vertical-align: middle;
+}
+
+/* Footer */
+
+.logo-footer {
+    width: 120px;
+}

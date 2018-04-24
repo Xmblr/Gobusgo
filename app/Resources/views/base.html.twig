@@ -17,15 +17,14 @@
         {% endstylesheets %}
         <link type="text/css" rel="stylesheet" href="{{ asset('css/bootstrap-1.css') }}">
         <link type="text/css" rel="stylesheet" href="{{ asset('css/style.css') }}">
-
         <link type="text/css" rel="stylesheet" href="{{ asset('css/font-awesome/css/font-awesome.css') }}">
         <link type="text/css" rel="stylesheet" href="{{ asset('css/header.css') }}">
         <link type="text/css" rel="stylesheet" href="{{ asset('css/responsive.css') }}">
         <link type="text/css" rel="stylesheet" href="{{ asset('css/swiper.min.css') }}">
         <link type="text/css" rel="stylesheet" href="{{ asset('css/header-second.css') }}">
         <link type="text/css" rel="stylesheet" href="{{ asset('css/popup.css') }}">
-
-
+        <link type="text/css" rel="stylesheet" href="{{ asset('css/select2-bootstrap.css') }}">
+        <link type="text/css" rel="stylesheet" href="{{ asset('css/select2.css') }}">
 
     {% endblock %}
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
@@ -40,17 +39,20 @@
             <div class="row">
                 <div class="col-md-12 col-lg-12 col-xl-12 header-desktop"
                      style=" border-bottom: 2px solid #ffe775;">
-                    <div class="col-md-5">
+                    <div class="col-md-5" style="padding-right: 0px; padding-left: 0px;">
                         <div class="top-bar">
+                            <li class="top-bar-menu">
+                            <a class="" href="{{ path('gobusgo_gobusgo_homepage') }}">Главная</a>
+                            </li>
                             <li class="top-bar-menu">
                                 <a href="{{ path('gobusgo_gobusgo_about') }}">О нас</a>
                             </li>
                             <li class="top-bar-menu">
                                 <a class="" href="{{ path('sonata_news_home') }}">Новости</a>
                             </li>
-                            <li class="top-bar-menu">
-                                <a class="" href="index.html">Отзывы</a>
-                            </li>
+                            {#<li class="top-bar-menu">#}
+                                {#<a class="" href="index.html">Отзывы</a>#}
+                            {#</li>#}
                             <li class="top-bar-menu">
                                 <a href="{{ path('gobusgo_gobusgo_contacts') }}">Контакты</a>
                             </li>
@@ -68,17 +70,14 @@
                             <div class="top-bar-right">
 
 
-                                {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-                                    <a class="top-bar-menu-active"
-                                       href="{{ path('sonata_admin_dashboard') }}"> {{ app.user.organization }} </a> |
-                                    <a class="top-bar-menu" href="{{ path('fos_user_security_logout') }}">
-                                        {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
-                                    </a>
-                                {% else %}
-                                    <a class="top-bar-menu-active"
-                                       href="{{ path('sonata_admin_dashboard') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
-                                    <a class="top-bar-menu"
-                                       href="{{ path('fos_user_registration_register') }}">{{ 'layout.register'|trans({}, 'FOSUserBundle') }}</a>
+                                    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                                        <a class="top-bar-menu-active" href="{{ path('sonata_admin_dashboard') }}"> {{ app.user.organization }} </a>
+                                        <a style="border-left: 2px solid #ffeb89; padding: 8px 15px 8px 8px;" class="top-bar-menu" href="{{ path('fos_user_security_logout') }}">
+                                            {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
+                                        </a>
+                                    {% else %}
+                                        <a class="top-bar-menu-active" href="{{ path('sonata_admin_dashboard') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
+                                        <a class="top-bar-menu" href="{{ path('fos_user_registration_register') }}">{{ 'layout.register'|trans({}, 'FOSUserBundle') }}</a>
 
                                 {% endif %}
 
@@ -116,15 +115,17 @@
 
 
                     </div>
-                    <div class="col-md-5 align-j">
-                        <div class="time-of-work inline-block">
-                            <li class="time-of-work">
-                                <a href=""><span style="line-height: 36px;">Время работы:</span><br> Пн-Пт - с 9.00 до
-                                    18.00<br>Сб-Вс - с 9.00 до
-                                    16.00</a>
+                    <div class="col-md-5 align-j" style="padding-left: 0px;">
+                        <div class="col-md-6" style="padding-left: 0px; padding-right: 0px; text-align: center;">
+                        <div class="time-of-work inline-block" style="height: 108px; vertical-align: middle; display: table-cell; padding-right: 10px;">
+                            <li>
+                              <span style="line-height: 2.2vw;">Время работы:</span><br> Пн-Пт - с 9.00 до 18.00<br>Сб-Вс - с 9.00 до
+                                    16.00
                             </li>
                         </div>
-                        <div class="inline-block padding-phones">
+                        </div>
+                        <div class="col-md-6" style="padding-left: 0px; padding-right: 0px; ">
+                        <div class="inline-block padding-phones" style="height: 98px; vertical-align: middle; display: table-cell;">
                             <table class="menu-table-header" border="1">
                                 <tbody>
                                 <tr colspan="2">
@@ -151,6 +152,7 @@
                                 </tr>
                                 </tbody>
                             </table>
+                        </div>
                         </div>
                     </div>
                 </div>
@@ -186,6 +188,10 @@
                             <a class="closeme" href="#" style="display: inline-block;"><i
                                         class="fa fa-times"></i></a></li>
                         <li class="divider-menu"></li>
+                        <li class="link-menu">
+                            <a class="" href="{{ path('gobusgo_gobusgo_homepage') }}">Главная</a>
+                        </li>
+                        <li class="divider-menu"></li>
                         <div class="dropdown">
                             <a class="link-menu" style="display:block;" href="#" role="button" id="dropdownMenuLink"
                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -196,8 +202,8 @@
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                                 <li class="divider-menu"></li>
                                 <li class="link-menu">
-                                    <a style="display:block;"
-                                       href="{{ path('gobusgo_gobusgo_deliveryMoscowMinsk') }}">Минск - Москва</a>
+                                <a style="display:block;"
+                                   href="{{ path('gobusgo_gobusgo_deliveryMoscowMinsk') }}">Минск - Москва</a>
                                 </li>
                                 <li class="divider-menu"></li>
                                 <li class="link-menu">
@@ -211,30 +217,19 @@
                                 </li>
                             </div>
                         </div>
-                        {#<li class="link-menu">#}
-                        {#<a class="" href="index.html">Минск - Москва</a>#}
-                        {#</li>#}
-                        {#<li class="divider-menu"></li>#}
-                        {#<li class="link-menu">#}
-                        {#<a class="" href="index.html">По Беларуси</a>#}
-                        {#</li>#}
-                        {#<li class="divider-menu"></li>#}
-                        {#<li class="link-menu">#}
-                        {#<a href="about-us.html">По Минску</a>#}
-                        {#</li>#}
                         <li class="divider-menu"></li>
                         <li class="link-menu"><a href="{{ path('gobusgo_gobusgo_about') }}">О нас</a></li>
                         <li class="divider-menu"></li>
                         <li class="link-menu">
                             <a class="" href="{{ path('sonata_news_home') }}">Новости</a>
                         </li>
+                        {#<li class="divider-menu"></li>#}
+                        {#<li class="link-menu">#}
+                            {#<a class="" href="index.html">Отзывы</a>#}
+                        {#</li>#}
                         <li class="divider-menu"></li>
                         <li class="link-menu">
-                            <a class="" href="index.html">Отзывы</a>
-                        </li>
-                        <li class="divider-menu"></li>
-                        <li class="link-menu">
-                            <a href="{{ path('gobusgo_gobusgo_about') }}">Контакты</a>
+                            <a href="{{ path('gobusgo_gobusgo_contacts') }}">Контакты</a>
                         </li>
                         <li class="divider-menu"></li>
 
@@ -320,9 +315,10 @@
         <div class="container-fluid" style="">
             <div class="row">
                 <div class="col-md-3 footer-table" style="text-align: left;">
-                    <div style="text-align: center; width: 180px;">
+                    <div>
                         <a href="{{ path('gobusgo_gobusgo_homepage') }}">
-                            <img src="{{ asset('images/logo-1.png') }}" style="width: 180px;">
+                            <img class="logo-footer" src="{{ asset('images/logo-1.png') }}">
+                        </a>
                     </div>
                 </div>
                 <div class="col-md-3 footer-table">
@@ -389,7 +385,7 @@
 
             </div>
         </div>
-        <div class="container-fluid" style="margin-top: 10px;">
+        <div class="container-fluid m-t-10">
             <div class="row">
 
                 <div class="col-md-6">
@@ -397,7 +393,7 @@
                 </div>
                 <div class="col-md-6">
                     <p class="footer-caption" style="float:right;">Разработка: <a
-                                href="http:\\new-line.by">New-line.by</a>
+                                href="http://new-line.by">New-line.by</a>
                     </p>
                 </div>
             </div>

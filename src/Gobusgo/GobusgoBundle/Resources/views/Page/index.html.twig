@@ -4,8 +4,8 @@
     {% block callback %}
         <a href="#x" class="overlay" id="win3">
         </a>
-        <div class="popup" style="max-width:500px; text-align:center;">
-            <div class="section bg-gray-light container-fluid" style="padding-top: 10px; padding-bottom: 10px; padding:0%;">
+        <div class="popup">
+            <div class="section bg-gray-light container-fluid">
                 <h2>Заказ обратного звонка</h2>
                 <div class="container-fluid">
 
@@ -13,12 +13,12 @@
                     {{ form_errors(callform) }}
 
                     <div class="form-group">
-                        {{ form_widget(callform.name, {'attr':{'class':'form-control','placeholder':'Как вас зовут?'}}) }}
+                        {{ form_widget(callform.name, {'attr':{'class':'Input-text','placeholder':'Как вас зовут?'}}) }}
                     </div>
                     <div class="form-group">
-                        {{ form_widget(callform.phone, {'attr':{'class':'form-control','placeholder':'Номер телефона'}}) }}
+                        {{ form_widget(callform.phone, {'attr':{'class':'Input-text','placeholder':'Номер телефона'}}) }}
                     </div>
-                    <input type="submit" class="submitBnt btn btn-custom" value="Отправить" style="color:black;">
+                    <input type="submit" class="submit-button" value="Отправить">
                     {{ form_end(callform) }}
                 </div>
             </div>
@@ -28,7 +28,7 @@
     {% endblock %}
 
     <header class="main-menu-area height-vh">
-        <div class="container-fluid" style="padding:0px;">
+        <div class="container-fluid p-0">
             <div class="row">
                 <div class="col-md-12 col-lg-12 col-xl-12">
                     <div class="logo">
@@ -123,31 +123,26 @@
         </div>
 
 
-        <div class="container" style="padding:0px;">
+        <div class="container p-0">
             <div class="row">
-                <h1 style="margin: 0% 0% 5% 0%;">Куда везем груз?</h1>
-                <div class="col-md-4" style="margin-bottom:20px;">
+                <h1 class="margin-home">Куда везем груз?</h1>
+                <div class="col-md-4 m-b-20">
                     <div class="background-round">
-                        <h3 class="reload" style="display:table-cell !important; vertical-align: middle; "
-                            OnClick="a('{{ path('gobusgo_gobusgo_deliveryMoscowMinsk') }}');">
+                        <h3 class="reload" OnClick="a('{{ path('gobusgo_gobusgo_deliveryMoscowMinsk') }}');">
                             Москва</br>Минск</h3>
                     </div>
                 </div>
-                <div class="col-md-4" style="margin-bottom:20px;">
+                <div class="col-md-4 m-b-20">
                     <div class="background-round">
-                        <h3 style="display:table-cell !important; vertical-align: middle; "
-                            OnClick="a('{{ path('gobusgo_gobusgo_deliveryMinsk') }}');">Минск</h3>
+                        <h3 class="align-home" OnClick="a('{{ path('gobusgo_gobusgo_deliveryMinsk') }}');">Минск</h3>
                     </div>
                 </div>
-                <div class="col-md-4" style="margin-bottom:20px;">
+                <div class="col-md-4 m-b-20">
                     <div class="background-round">
-                        <h3 style="display:table-cell !important; vertical-align: middle; "
-                            OnClick="a('{{ path('gobusgo_gobusgo_deliveryRB') }}');">Беларусь</h3>
+                        <h3 class="align-home" OnClick="a('{{ path('gobusgo_gobusgo_deliveryRB') }}');">Беларусь</h3>
                     </div>
                 </div>
                 <script language="JavaScript">
-
-
                         function sleep(ms) {
                             return new Promise(resolve => setTimeout(resolve, ms));
                         }
@@ -174,38 +169,37 @@
                             s.style.transform = "translate(2000px,0px) rotate(10turn)";
                             s.style.transition = "all 5s ease-in-out";
 
-                            await sleep(5000);
+                            await sleep(4000);
 
                             window.location.replace(url);
                         }
                 </script>
             </div>
         </div>
-        <div class="container-fluid" style="position:relative; overflow: hidden;">
+        <div class="container-fluid overflow-animation">
             <div class="row">
                 <div class="car-gobusgo">
-                    <img src="{{ asset('images/car-body.png') }}" id="car" width="200px;"
-                         style="position: absolute; margin-top: 55px;margin-left: 119px;">
-                    <div style="position: absolute; padding-top: 122px; width: 28px; margin-left: 174px;">
+                    <img src="{{ asset('images/car-body.png') }}" id="car">
+                    <div class="wheel-1">
                         <img src="{{ asset('images/wheel.png') }}" id="wheel1">
                     </div>
-                    <div style="position: absolute; padding-top: 122px; width: 28px; margin-left: 261px;">
+                    <div class="wheel-2">
                         <img src="{{ asset('images/wheel.png') }}" id="wheel2">
                     </div>
                 </div>
                 <div class="city">
-                    <img src="{{ asset('images/city.png') }}" style="margin: 0 auto; width: 80%;">
+                    <img class="city-img" src="{{ asset('images/city.png') }}" style="margin: 0 auto;">
                 </div>
                 <div class="clouds" >
-                    <img class="cloud" src="{{ asset('images/cloud1.png') }}" style="position: absolute; margin-left: 20px; margin-top: -260px; width: 80px;">
-                    <img class="cloud1" src="{{ asset('images/cloud1.png') }}" style="position: absolute; margin-left: 20px; margin-top: -255px; width: 80px;">
-                    <img class="cloud4" src="{{ asset('images/cloud2.png') }}" style="position: absolute; margin-left: 20px; margin-top: -255px; width: 80px;">
-                    <img class="cloud5" src="{{ asset('images/cloud2.png') }}" style="position: absolute; margin-left: 20px; margin-top: -255px; width: 80px;">
-                    <img class="cloud2" src="{{ asset('images/cloud1.png') }}" style="position: absolute; margin-left: 20px; margin-top: -243px; width: 80px;">
-                    <img class="cloud3" src="{{ asset('images/cloud1.png') }}" style="position: absolute; margin-left: 20px; margin-top: -249px; width: 80px;">
-                    <img class="cloud6" src="{{ asset('images/cloud2.png') }}" style="position: absolute; margin-left: 20px; margin-top: -245px; width: 80px;">
-                    <img class="cloud7" src="{{ asset('images/cloud2.png') }}" style="position: absolute; margin-left: 20px; margin-top: -245px; width: 80px;">
 
+                    <img class="cloud cloud1" src="{{ asset('images/cloud1.png') }}">
+                    <img class="cloud cloud2" src="{{ asset('images/cloud1.png') }}">
+                    <img class="cloud cloud3" src="{{ asset('images/cloud1.png') }}">
+                    <img class="cloud cloud4" src="{{ asset('images/cloud2.png') }}">
+                    <img class="cloud cloud5" src="{{ asset('images/cloud2.png') }}">
+                    <img class="cloud cloud6" src="{{ asset('images/cloud2.png') }}">
+                    <img class="cloud cloud7" src="{{ asset('images/cloud2.png') }}">
+                    <img class="cloud cloud8" src="{{ asset('images/cloud1.png') }}">
                 </div>
             </div>
         </div>
@@ -217,19 +211,19 @@
     <div class="container">
         <div class="row">
             <h2>Почему выбирают именно нас?</h2>
-            <div class="col-md-3" style="margin-bottom:20px;">
+            <div class="col-md-3 m-b-20">
                 <div class="advantage-icons">
                     <img src="{{ asset('images/advantage-1.png') }}" style="width:230px;">
                 </div>
                 <div class="advantage-title" style="margin: 10px;">Доставка любых грузов до 2-х тонн</div>
             </div>
-            <div class="col-md-3" style="margin-bottom:20px;">
+            <div class="col-md-3 m-b-20">
                 <div class="advantage-icons">
                     <img src="{{ asset('images/advantage-2.png') }}" style="width:230px;">
                 </div>
                 <div class="advantage-title" style="margin: 10px;">Доставка от письма до крупногабаритного груза</div>
             </div>
-            <div class="col-md-3" style="margin-bottom:20px;">
+            <div class="col-md-3 m-b-20">
                 <div class="advantage-icons">
                     <img src="{{ asset('images/advantage-3.png') }}" style="width:230px;">
                 </div>

@@ -40,7 +40,9 @@
             <span class="line-10"></span>
             <div class="additional-city" onclick="addCity()" id="addCity">
                 <i class="fa fa-plus fa-2x" style="vertical-align: middle; " aria-hidden="true"></i>
-                <span style="vertical-align: middle; margin-left: 5px;">Дополнительный пункт</span>
+            </div>
+            <div class="delete-city" onclick="deleteCity()" id="deleteCity">
+                <i class="fa fa-minus fa-2x" style="vertical-align: middle; " aria-hidden="true"></i>
             </div>
 
 
@@ -49,7 +51,7 @@
 
             <div class="Input-1-1">
                 <i class="fa fa-chevron-left" aria-hidden="true"
-                   style="position: absolute; margin-left: 160px; margin-top: 17px; font-size: 20px; color: #7d88ff;"></i>
+                   style="position: absolute; margin-left: 170px; margin-top: 51px; font-size: 20px; color: #7d88ff;"></i>
                 {{ form_errors(legalCallform.weight) }}
                 {{ form_widget(legalCallform.weight, {'attr':{'class':'Input-text-1', 'position': 'absolute','placeholder':'Вес\, кг', 'onchange':'sum()'}}) }}
             </div>
@@ -72,9 +74,9 @@
 
             <div class="Input-2">
                 <i class="fa fa-chevron-right" aria-hidden="true"
-                   style="position: absolute; margin-left: -19px; margin-top: 18px; font-size: 20px; color: #7d88ff;"></i>
+                   style="position: absolute; margin-left: -19px; margin-top: 16px; font-size: 20px; color: #7d88ff;"></i>
                 <div id="city1area">
-                    <select class="selectize-input items full has-options has-items" onchange="city()" id="city1">
+                    <select class="Input-text-3" onchange="city()" id="city1">
                         <option>Откуда...</option>
                         {% for cities in cities %}
                             <option value="{{ cities.name }}">{{ cities.name }}</option>
@@ -84,9 +86,13 @@
                         </div>
                     </select>
                 </div>
+            </div>
+            <div class="Input-3">
+                <i class="fa fa-chevron-right" aria-hidden="true"
+                   style="position: absolute; margin-left: -19px; margin-top: 15px; font-size: 20px; color: #7d88ff;"></i>
                 <div id="city2area">
-                    <select class="selectize-input items full has-options has-items" onchange="city()" id="city2">
-                        <option>Откуда...</option>
+                    <select class="Input-text-3" onchange="city()" id="city2">
+                        <option>Куда...</option>
                         {% for cities in cities %}
                             <option value="{{ cities.name }}">{{ cities.name }}</option>
                         {% endfor %}
@@ -95,9 +101,12 @@
                         </div>
                     </select>
                 </div>
+            </div>
+
+            <div class="Input-3-1">
                 <div id="city3area" style="visibility: hidden">
-                    <select class="selectize-input items full has-options has-items" onchange="city()" id="city3">
-                        <option>Откуда...</option>
+                    <select class="Input-text-3" onchange="city()" id="city3">
+                        <option>Доп. пункт</option>
                         {% for cities in cities %}
                             <option value="{{ cities.name }}">{{ cities.name }}</option>
                         {% endfor %}
@@ -107,16 +116,16 @@
                     </select>
                 </div>
                 {#<input class="Input-text-2" type="text" id="weight" name="from"#}
-                       {#required="required" style="position: absolute;" placeholder="Откуда"/>#}
+                {#required="required" style="position: absolute;" placeholder="Откуда"/>#}
             </div>
-            <div class="Input-3">
-                <i class="fa fa-chevron-right" aria-hidden="true"
-                   style="position: absolute; margin-left: -19px; margin-top: 18px; font-size: 20px; color: #7d88ff;"></i>
+            {#<div class="Input-3">#}
+            {#<i class="fa fa-chevron-right" aria-hidden="true"#}
+            {#style="position: absolute; margin-left: -19px; margin-top: 18px; font-size: 20px; color: #7d88ff;"></i>#}
 
 
-                {#<input class="Input-text-3" type="text" id="weight" name="to"#}
-                       {#required="required" style="position: absolute;" placeholder="Куда"/>#}
-            </div>
+            {#<input class="Input-text-3" type="text" id="weight" name="to"#}
+            {#required="required" style="position: absolute;" placeholder="Куда"/>#}
+            {#</div>#}
             <div class="Input-4">
                 <i class="fa fa-chevron-left" aria-hidden="true"
                    style="position: absolute; margin-left: 152px; margin-top: 17px; font-size: 20px; color: #7d88ff;"></i>
@@ -138,81 +147,94 @@
                 </label>
             </div>
             <img src="{{ asset('images/road.png') }}" style="width: 800px;">
-            <h2>Оформление заявки</h2>
 
-            <div style="" id="legal_form">
-                <div class="Input-5">
-                    {{ form_errors(legalCallform.organization) }}
-                    {{ form_widget(legalCallform.organization, {'attr':{'class':'Input-text-5', 'position': 'absolute','placeholder':'Название организации?'}}) }}
-                </div>
-                <div class="Input-6">
-                    {{ form_errors(legalCallform.UNP) }}
-                    {{ form_widget(legalCallform.UNP, {'attr':{'class':'Input-text-5', 'position': 'absolute','placeholder':'УНП'}}) }}
-                </div>
-                <div class="Input-7">
-                    {{ form_errors(legalCallform.bank) }}
-                    {{ form_widget(legalCallform.bank, {'attr':{'class':'Input-text-5', 'position': 'absolute','placeholder':'Банк'}}) }}
-                </div>
-                <div class="Input-8">
-                    {{ form_errors(legalCallform.addressOfTheBank) }}
-                    {{ form_widget(legalCallform.addressOfTheBank, {'attr':{'class':'Input-text-5', 'position': 'absolute','placeholder':'Адресс банка'}}) }}
-                </div>
-                <div class="Input-9">
-                    {{ form_errors(legalCallform.legalAddress) }}
-                    {{ form_widget(legalCallform.legalAddress, {'attr':{'class':'Input-text-5', 'position': 'absolute','placeholder':'Юридический адресс'}}) }}
-                </div>
-                <div class="Input-10">
-                    {{ form_errors(legalCallform.settlementAccount) }}
-                    {{ form_widget(legalCallform.settlementAccount, {'attr':{'class':'Input-text-5', 'position': 'absolute','placeholder':'Расчётный счёт'}}) }}
-                </div>
-                <div class="Input-11">
-                    {{ form_errors(legalCallform.code) }}
-                    {{ form_widget(legalCallform.code, {'attr':{'class':'Input-text-5', 'position': 'absolute','placeholder':'Код'}}) }}
-                </div>
-                <div class="Input-12">
-                    {{ form_errors(legalCallform.fullName) }}
-                    {{ form_widget(legalCallform.fullName, {'attr':{'class':'Input-text-5', 'position': 'absolute','placeholder':'Контактное лицо'}}) }}
-                </div>
-                <div class="Input-13">
-                    {{ form_errors(legalCallform.phone) }}
-                    {{ form_widget(legalCallform.phone, {'attr':{'class':'Input-text-5', 'position': 'absolute','placeholder':'телефон'}}) }}
-                </div>
 
-                <div style="display:none">
-                    {{ form_widget(legalCallform.cities) }}
+            <a href="#x" class="overlay" id="legal-form">
+            </a>
+            <div class="popup">
+                <div class="section bg-gray-light container-fluid">
 
-                    {{ form_rest(legalCallform) }}
-                </div>
+                    <h2>Заявка</h2>
 
-                <div class="text-center" style="margin-bottom: 30px; margin-top: -40px;">
-                    <input class="submit-button" value="Оформить заявку" type="submit">
+                    <div style="" id="legal_form">
+                        <div class="Input">
+                            {{ form_errors(legalCallform.organization) }}
+                            {{ form_widget(legalCallform.organization, {'attr':{'class':'Input-text', 'position': 'absolute','placeholder':'Название организации?'}}) }}
+                        </div>
+                        <div class="Input">
+                            {{ form_errors(legalCallform.UNP) }}
+                            {{ form_widget(legalCallform.UNP, {'attr':{'class':'Input-text', 'position': 'absolute','placeholder':'УНП'}}) }}
+                        </div>
+                        <div class="Input">
+                            {{ form_errors(legalCallform.bank) }}
+                            {{ form_widget(legalCallform.bank, {'attr':{'class':'Input-text', 'position': 'absolute','placeholder':'Банк'}}) }}
+                        </div>
+                        <div class="Input">
+                            {{ form_errors(legalCallform.addressOfTheBank) }}
+                            {{ form_widget(legalCallform.addressOfTheBank, {'attr':{'class':'Input-text', 'position': 'absolute','placeholder':'Адресс банка'}}) }}
+                        </div>
+                        <div class="Input">
+                            {{ form_errors(legalCallform.legalAddress) }}
+                            {{ form_widget(legalCallform.legalAddress, {'attr':{'class':'Input-text', 'position': 'absolute','placeholder':'Юридический адресс'}}) }}
+                        </div>
+                        <div class="Input">
+                            {{ form_errors(legalCallform.settlementAccount) }}
+                            {{ form_widget(legalCallform.settlementAccount, {'attr':{'class':'Input-text', 'position': 'absolute','placeholder':'Расчётный счёт'}}) }}
+                        </div>
+                        <div class="Input">
+                            {{ form_errors(legalCallform.code) }}
+                            {{ form_widget(legalCallform.code, {'attr':{'class':'Input-text', 'position': 'absolute','placeholder':'Код'}}) }}
+                        </div>
+                        <div class="Input">
+                            {{ form_errors(legalCallform.fullName) }}
+                            {{ form_widget(legalCallform.fullName, {'attr':{'class':'Input-text', 'position': 'absolute','placeholder':'Контактное лицо'}}) }}
+                        </div>
+                        <div class="Input">
+                            {{ form_errors(legalCallform.phone) }}
+                            {{ form_widget(legalCallform.phone, {'attr':{'class':'Input-text', 'position': 'absolute','placeholder':'Телефон'}}) }}
+                        </div>
+
+                        <div style="display:none">
+                            {{ form_widget(legalCallform.cities) }}
+
+                            {{ form_rest(legalCallform) }}
+                        </div>
+
+                        <div class="text-center" style="margin-bottom: 30px;">
+                            <input class="submit-button" value="Оформить заявку" type="submit">
+                        </div>
+                        {{ form_end(legalCallform) }}
+                    </div>
+
+
+                    <div style="display: none" id="individual_form">
+                        {{ form_start(secondCallform, { 'action': path('gobusgo_gobusgo_confirm'), 'method': 'POST' }) }}
+                        {{ form_errors(secondCallform) }}
+
+                        <div class="Input">
+                            {{ form_widget(secondCallform.name, {'attr':{'class':'Input-text', 'position': 'absolute','placeholder':'Как вас зовут?'}}) }}
+                        </div>
+                        <div class="Input">
+                            {{ form_widget(secondCallform.phone, {'attr':{'class':'Input-text', 'position': 'absolute','placeholder':'Номер телефона'}}) }}
+                        </div>
+
+                        <div class="text-center" style="margin-bottom: 30px;">
+                            <input id="_submit" name="_submit" class="submit-button" value="Оформить заявку"
+                                   type="submit">
+                        </div>
+                        {{ form_end(secondCallform) }}
+                    </div>
                 </div>
-                {{ form_end(legalCallform) }}
+                    {#<img src="{{ asset('images/tablet.png') }}" width="800px;">#}
+                    <a class="close" title="Закрыть" href="#close"></a>
+
             </div>
 
+            <a class="submit-button request-form" href="#legal-form">Оформление заявки</a>
         </div>
-
-
-        <div style="visibility: hidden" id="individual_form">
-            {{ form_start(secondCallform, { 'action': path('gobusgo_gobusgo_confirm'), 'method': 'POST' }) }}
-            {{ form_errors(secondCallform) }}
-
-            <div class="Input-5">
-                {{ form_widget(secondCallform.name, {'attr':{'class':'Input-text-5', 'position': 'absolute','placeholder':'Как вас зовут?'}}) }}
-            </div>
-            <div class="Input-6">
-                {{ form_widget(secondCallform.phone, {'attr':{'class':'Input-text-5', 'position': 'absolute','placeholder':'Номер телефона'}}) }}
-            </div>
-
-            <div class="text-center" style="margin-bottom: 30px; margin-top: -40px;">
-                <input id="_submit" name="_submit" class="submit-button" value="Оформить заявку" type="submit">
-            </div>
-            {{ form_end(secondCallform) }}
-        </div>
-
-        <img src="{{ asset('images/tablet.png') }}" width="800px;">
 
     </div>
+
 
 
     <div class="container-fluid road-tablet">
@@ -278,8 +300,20 @@
 
                 <div style="height: 124px; padding-top: 10px;">
                     <div style="padding-bottom: 10px;">
-                        <input class="input-tablet" type="text" name="from" id="from"
-                               required="required" placeholder="Откуда" style="display: block;"/>
+
+                        <div id="city1area">
+                            <select class="input-tablet" onchange="city()" id="city1">
+                                <option>Откуда...</option>
+                                {% for cities in cities %}
+                                    <option value="{{ cities.name }}">{{ cities.name }}</option>
+                                {% endfor %}
+                                <div class="selectize-dropdown single">
+                                    <div class="selectize-dropdown-content"></div>
+                                </div>
+                            </select>
+                        </div>
+
+
                     </div>
                     <div style="padding-bottom: 10px;">
                         <input class="input-tablet" type="text"
@@ -492,16 +526,16 @@
             if (document.getElementById('legal').checked) {
                 type = 2;
                 form = document.getElementById('legal_form')
-                form.style.visibility = 'visible';
+                form.style.display = 'block';
                 form2 = document.getElementById('individual_form')
-                form2.style.visibility = 'hidden';
+                form2.style.display = 'none';
             }
             else {
                 type = 1;
                 form = document.getElementById('individual_form')
-                form.style.visibility = 'visible';
+                form.style.display = 'block';
                 form2 = document.getElementById('legal_form')
-                form2.style.visibility = 'hidden';
+                form2.style.display = 'none';
             }
             weight = document.getElementById('request_weight');
             height = document.getElementById('request_height');
@@ -516,24 +550,36 @@
             }
         }
 
-        function city(city1, city2, city3)
-        {
+        function city(city1, city2, city3) {
             city1 = document.getElementById('city1').value;
             city2 = document.getElementById('city2').value;
             city3 = document.getElementById('city3').value;
-            document.getElementById('request_cities').value = city1+'-'+city2+'-'+city3 ;
+            document.getElementById('request_cities').value = city1 + '-' + city2 + '-' + city3;
             // city1 = document.getElementById('city1').value;
             // city2 = document.getElementById('city2').value;
             // cities = document.getElementsByName('request[cities]');
             // cities.value = city1.toString() + '-' + city2.toString();
         }
 
-        function addCity(addCity, city3) {
+        function addCity(addCity, deleteCity, city3) {
             addCity = document.getElementById('addCity')
             addCity.style.visibility = 'hidden';
             city3 = document.getElementById('city3area');
             city3.style.visibility = 'visible';
+            deleteCity = document.getElementById('deleteCity')
+            deleteCity.style.visibility = 'visible';
         }
+
+        function deleteCity(addCity, deleteCity, city3) {
+            addCity = document.getElementById('addCity')
+            addCity.style.visibility = 'visible';
+            city3 = document.getElementById('city3area');
+            city3.style.visibility = 'hidden';
+            deleteCity = document.getElementById('deleteCity')
+            deleteCity.style.visibility = 'hidden';
+
+        }
+
     </script>
 
 {% endblock %}

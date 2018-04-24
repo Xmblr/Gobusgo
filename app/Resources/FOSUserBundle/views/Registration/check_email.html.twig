@@ -3,5 +3,13 @@
 {% trans_default_domain 'FOSUserBundle' %}
 
 {% block fos_user_content %}
-    <p>{{ 'registration.check_email'|trans({'%email%': user.email}) }}</p>
+
+<div class="container">
+    <div class="row">
+        {#<p>{{ 'registration.check_email'|trans({'%email%': user.email}) }}</p>#}
+        {<p class="text-center">Поздравляем с регистрацией на GoBusGo. Мы выслали письмо на адрес {{ user.email}}. Для завершения
+            регистрации пройдите по ссылке, указанной в письме.</p>#}
+
+    </div>
+</div>
 {% endblock fos_user_content %}

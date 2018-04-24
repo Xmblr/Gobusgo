@@ -161,7 +161,7 @@ color: #8598ff;
 }
 
 .logo {
-    margin:30px;
+    margin:20px 30px;
     display:inline-block;
 }
 
@@ -260,8 +260,8 @@ color: #8598ff;
 
 .text-operator {
     margin: 0px;
-    font-size:8px;
-    line-height:8px;
+    font-size: 0.5vw;
+    line-height: 0.8vw;
     color: #566fe0;
     margin-left: 5px;
 }

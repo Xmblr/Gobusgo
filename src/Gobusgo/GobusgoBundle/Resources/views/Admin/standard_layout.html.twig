@@ -162,6 +162,9 @@ file that was distributed with this source code.
                     </a>
                     <div class="inline-block admin-header" style="margin-left: 20px;">
                         <li class="top-bar-menu">
+                            <a href="{{ path('gobusgo_gobusgo_homepage') }}">Главная</a>
+                        </li>
+                        <li class="top-bar-menu">
                             <a href="{{ path('gobusgo_gobusgo_about') }}" style="text-decoration: none;">О нас</a>
                         </li>
                         <li class="top-bar-menu">
@@ -177,8 +180,8 @@ file that was distributed with this source code.
                     <div class="inline-block admin-header" style="float: right;">
                         {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
                             <a class="top-bar-menu-active"
-                               href="{{ path('fos_user_profile_show') }}"> {{ app.user.organization }} </a> |
-                            <a class="top-bar-menu" href="{{ path('fos_user_security_logout') }}">
+                               href="{{ path('fos_user_profile_show') }}"> {{ app.user.organization }} </a>
+                            <a style="border-left: 2px solid #ffeb89; padding: 0px 15px 0px 8px;" class="top-bar-menu" href="{{ path('fos_user_security_logout') }}">
                                 {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
                             </a>
                         {% else %}
@@ -393,6 +396,8 @@ file that was distributed with this source code.
                                                 </div>
                                             {% endif %}
                                         {% endblock %}
+
+
 
                                         <div class="navbar-collapse">
                                             {% if _tab_menu is not empty %}

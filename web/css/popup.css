@@ -59,26 +59,16 @@
     top: 5%;
     overflow: auto;
     z-index:1000;
+    max-width: 500px;
+    text-align: center;
 }
 /* формируем кнопку закрытия */
 .close {
-    top: 5px;
-    right: 5px;
-    width: 22px;
-    height: 22px;
+    top: 10px;
+    right: 10px;
     position: absolute;
     line-height: 18px;
     padding: 0;
-    border: 2px solid #ccc;
-    -webkit-border-radius: 15px;
-    -moz-border-radius: 15px;
-    -ms-border-radius: 15px;
-    -o-border-radius: 15px;
-    border-radius: 15px;
-    background-color: rgba(61, 61, 61, 0.8);
-    -webkit-box-shadow: 0px 0px 10px #000;
-    -moz-box-shadow: 0px 0px 10px #000;
-    box-shadow: 0px 0px 10px #000;
     text-align: center;
     text-decoration: none;
     font-weight: bold;
@@ -89,22 +79,22 @@
     transition: all ease .8s;
     opacity: 1.0;
     font-size: 10px;
-    line-height: 18px;
+
 }
 .close:before {
-    color: rgba(255, 255, 255, 0.9);
-    content: "X";
-    text-shadow: 0 -1px rgba(0, 0, 0, 0.9);
-    font-size: 12px;
+    color: #566fe0;
+    content: "\f00d";
+    font-size: 20px;
+    font-family: fontawesome;
 }
-.close:hover {
-    background-color: black;
-    -webkit-transform: rotate(360deg);
-    -moz-transform: rotate(360deg);
-    -ms-transform: rotate(360deg);
-    -o-transform: rotate(360deg);
-    transform: rotate(360deg);
-}
+/*.close:hover {*/
+    /*background-color: black;*/
+    /*-webkit-transform: rotate(360deg);*/
+    /*-moz-transform: rotate(360deg);*/
+    /*-ms-transform: rotate(360deg);*/
+    /*-o-transform: rotate(360deg);*/
+    /*transform: rotate(360deg);*/
+/*}*/
 /* изображения внутри окна */
 .popup img {
     width: 100%;

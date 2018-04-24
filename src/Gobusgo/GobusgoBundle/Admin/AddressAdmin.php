@@ -19,6 +19,7 @@ class AddressAdmin extends AbstractAdmin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
+
             ->add('name', 'text')
             ->add('organization')
             ->add('city', ModelType::class, [
