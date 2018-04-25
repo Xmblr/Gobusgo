@@ -18,6 +18,15 @@
     src: url(/fonts/bosk.otf);
 }
 
+@font-face{
+    font-family: 'MyWebFont';
+    src: url('/fonts/zero5-WebFont.eot');
+    src: url('/fonts/zero5-WebFont.eot?#iefix') format('embedded-opentype'),
+    url('/fonts/zero5-WebFont.woff') format('woff'),
+    url('/fonts/zero5-WebFont.ttf') format('truetype'),
+    url('/fonts/zero5-WebFont.svg#webfont') format('svg');
+}
+
 h1 {
     font-family: Trebuchet MS;
     font-size:44px;
@@ -63,7 +72,7 @@ h2 {
 }
 
 h3 {
-    font-family: 'zero 5';
+    font-family: MyWebFont;
     font-size:30px;
     color: #566fe0;
     text-transform: uppercase;
@@ -655,10 +664,11 @@ footer {
     text-align: left;
     cursor: pointer;
     font-size: 20px;
-    font-family: 'Zing Sans Rust R Base';
+    font-family: 'Zero 5';
     font-weight: 600;
     position: absolute;
     margin-top: 90px;
+    text-transform: Uppercase;
     margin-left: 400px;
 }
 
@@ -844,7 +854,8 @@ footer {
 .road-text-1 {
     color: #8598ff;
     font-size: 24px;
-    font-family: 'Zing Sans Rust R Base';
+    font-family: Trebuchet MS;
+    text-transform: uppercase;
     font-weight: 600;
     position: absolute;
     margin-top: 24px;
@@ -854,17 +865,19 @@ footer {
 .road-text-2 {
     color: #8598ff;
     font-size: 24px;
-    font-family: 'Zing Sans Rust R Base';
+    font-family: Trebuchet MS;
     font-weight: 600;
     position: absolute;
     margin-top: 255px;
     margin-left: 419px;
+    text-transform: uppercase;
 }
 
 .road-text-3 {
     color: #8598ff;
     font-size: 24px;
-    font-family: 'Zing Sans Rust R Base';
+    font-family: Trebuchet MS;
+    text-transform: uppercase;
     font-weight: 600;
     position: absolute;
     margin-top: 415px;
@@ -874,7 +887,8 @@ footer {
 .road-text-4 {
     color: #8598ff;
     font-size: 24px;
-    font-family: 'Zing Sans Rust R Base';
+    font-family: Trebuchet MS;
+    text-transform: uppercase;
     font-weight: 600;
     position: absolute;
     margin-top: 705px;
@@ -995,7 +1009,7 @@ footer {
     font-size: 16px;
     position: relative;
     transition: all 0.4s ease;
-    font-family: 'Zing Sans Rust R Base';
+    font-family: Trebuchet MS;
     font-weight: 600;
     letter-spacing: -0.5px;
     background-color: #ffeb89;
