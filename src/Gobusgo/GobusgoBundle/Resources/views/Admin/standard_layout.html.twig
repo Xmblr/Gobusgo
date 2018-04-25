@@ -160,23 +160,7 @@ file that was distributed with this source code.
                     <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
                         <span class="sr-only">{{ 'toggle_navigation'|trans({}, 'SonataAdminBundle') }}</span>
                     </a>
-                    <div class="inline-block admin-header" style="margin-left: 20px;">
-                        <li class="top-bar-menu">
-                            <a href="{{ path('gobusgo_gobusgo_homepage') }}">Главная</a>
-                        </li>
-                        <li class="top-bar-menu">
-                            <a href="{{ path('gobusgo_gobusgo_about') }}" style="text-decoration: none;">О нас</a>
-                        </li>
-                        <li class="top-bar-menu">
-                            <a class="" href="" style="text-decoration: none;">Новости</a>
-                        </li>
-                        <li class="top-bar-menu">
-                            <a class="" href="index.html" style="text-decoration: none;">Отзывы</a>
-                        </li>
-                        <li class="top-bar-menu">
-                            <a href="{{ path('gobusgo_gobusgo_contacts') }}" style="text-decoration: none;">Контакты</a>
-                        </li>
-                    </div>
+
                     <div class="inline-block admin-header" style="float: right;">
                         {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
                             <a class="top-bar-menu-active"
@@ -293,13 +277,34 @@ file that was distributed with this source code.
 
                         <ul class="sidebar-menu" data-widget="tree">
 
-                            <li class="treeview"><a href="#" style="vertical-align: middle; text-decoration: none;"><i
+                                <li>
+                                    <a href="{{ path('gobusgo_gobusgo_homepage') }}"><i  style="vertical-align: middle;" class="fa fa-home fa-2x" aria-hidden="true"></i>
+                                        <span class="admin-menu-left">Главная</span></a>
+                                </li>
+                                <li>
+                                    <a href="{{ path('gobusgo_gobusgo_about') }}"><i  style="vertical-align: middle;" class="fa fa-info-circle fa-2x" aria-hidden="true"></i>
+                                        <span class="admin-menu-left">О нас</span></a>
+                                </li>
+                                <li>
+                                    <a href="{{ path('sonata_news_home') }}"><i  style="vertical-align: middle;" class="fa fa-newspaper-o fa-2x" aria-hidden="true"></i>
+                                        <span class="admin-menu-left">Новости</span></a>
+                                </li>
+                                <li>
+                                    <a class="" href="index.html"><i  style="vertical-align: middle;" class="fa fa-comment-o fa-2x" aria-hidden="true"></i>
+                                        <span class="admin-menu-left">Отзывы</a>
+                                </li>
+                                <li>
+                                    <a href="{{ path('gobusgo_gobusgo_contacts') }}"><i  style="vertical-align: middle;" class="fa fa-phone fa-2x" aria-hidden="true"></i>
+                                        <span class="admin-menu-left">Контакты</span></a>
+                                </li>
+
+                            <li><a href="#" style="vertical-align: middle; text-decoration: none;"><i
                                             class="fa fa-user-circle-o fa-2x" aria-hidden="true"
                                             style="vertical-align: middle; "></i>
                                     <span class="admin-menu-left">Профиль</span></a>
                             </li>
 
-                            <li class="first treeview"><a href="#"><i
+                            <li><a href="#"><i
                                             class="fa fa-folder"></i><span>Администратор</span><span
                                             class="pull-right-container"><i
                                                 class="fa pull-right fa-angle-left"></i></span></a>
@@ -322,7 +327,7 @@ file that was distributed with this source code.
                                     </li>
                                 </ul>
                             </li>
-                            <li class="treeview"><a href="#"><i class="fa fa-folder"></i><span>Новости</span><span
+                            <li><a href="#"><i class="fa fa-folder"></i><span>Новости</span><span
                                             class="pull-right-container"><i
                                                 class="fa pull-right fa-angle-left"></i></span></a>
                                 <ul class="active treeview-menu menu_level_1">
@@ -338,7 +343,7 @@ file that was distributed with this source code.
                                 </ul>
 
                             </li>
-                            <li class="last treeview"><a href="#"><i
+                            <li><a href="#"><i
                                             class="fa fa-folder"></i><span>Пользователь</span><span
                                             class="pull-right-container"><i
                                                 class="fa pull-right fa-angle-left"></i></span></a>

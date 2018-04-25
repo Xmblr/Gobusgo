@@ -63,9 +63,10 @@ h2 {
 }
 
 h3 {
-    font-family: Zing Sans Rust R Base;
+    font-family: 'zero 5';
     font-size:30px;
     color: #566fe0;
+    text-transform: uppercase;
 }
 
 h4 {
@@ -170,7 +171,7 @@ footer {
     color: #566fe0;
     line-height: 36px;
     margin-top: 5px;
-    margin-left: 10%;
+    margin-left: 15px;
 }
 
 .title-footer-border {
@@ -643,7 +644,7 @@ footer {
     max-width: 130px;
 }
 
-@media (min-width: 1025px) {
+@media (min-width: 1250px) {
     .logo-mobile {
         display: none;
     }

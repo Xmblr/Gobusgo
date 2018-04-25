@@ -23,11 +23,12 @@
         <link type="text/css" rel="stylesheet" href="{{ asset('css/swiper.min.css') }}">
         <link type="text/css" rel="stylesheet" href="{{ asset('css/header-second.css') }}">
         <link type="text/css" rel="stylesheet" href="{{ asset('css/popup.css') }}">
-        <link type="text/css" rel="stylesheet" href="{{ asset('css/select2-bootstrap.css') }}">
-        <link type="text/css" rel="stylesheet" href="{{ asset('css/select2.css') }}">
+        {#<link type="text/css" rel="stylesheet" href="{{ asset('css/select2-bootstrap.css') }}">#}
+        {#<link type="text/css" rel="stylesheet" href="{{ asset('css/select2.css') }}">#}
 
     {% endblock %}
-    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
+    <link rel="icon" type="image/x-icon" href="{{ asset('images/favicon.ico') }}"/>
+
 </head>
 <body>
 
@@ -326,7 +327,7 @@
                         <p class="title-footer">Доставка грузов:</p>
                     </li>
                     <li class="link-footer">
-                        <a class="link-text-footer" href="{{ path('gobusgo_gobusgo_deliveryMoscowMinsk') }}">Москва-Минск</a>
+                        <a class="link-text-footer" href="{{ path('gobusgo_gobusgo_deliveryMoscowMinsk') }}">Москва <i class="fa fa-arrows-h" aria-hidden="true"></i>Минск</a>
                     </li>
                     <li class="link-footer">
                         <a class="link-text-footer" href="{{ path('gobusgo_gobusgo_deliveryRB') }}">по Беларуси</a>

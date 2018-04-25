@@ -63,9 +63,9 @@
 }
 @media (max-width: 767px) {
     .skin-black .main-header > .logo {
-        background-color: #222222;
+        background-color: white;
         color: #ffffff;
-        border-bottom: 0 solid transparent;
+        border-bottom: 1px solid #eee;
         border-right: none;
     }
     .skin-black .main-header > .logo:hover {
@@ -82,7 +82,7 @@
 .skin-black .wrapper,
 .skin-black .main-sidebar,
 .skin-black .left-side {
-    background-color: #222d32;
+    background-color: white;
 }
 .skin-black .user-panel > .info,
 .skin-black .user-panel > .info > a {
@@ -97,16 +97,17 @@
 }
 .skin-black .sidebar-menu > li:hover > a,
 .skin-black .sidebar-menu > li.active > a {
-    color: #ffffff;
-    background: #1e282c;
     border-left-color: #ffffff;
+    font-family: 'zero 5';
+    color: #566fe0;
+    background: none;
 }
 .skin-black .sidebar-menu > li > .treeview-menu {
     margin: 0 1px;
     background: #2c3b41;
 }
 .skin-black .sidebar a {
-    color: #b8c7ce;
+    color: #8598ff;
 }
 .skin-black .sidebar a:hover {
     text-decoration: none;

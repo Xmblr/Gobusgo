@@ -1,4 +1,4 @@
-@media (min-width: 1025px) {
+@media (min-width: 1250px) {
     .hide-sm-up {
         display: none;
     }
@@ -177,7 +177,7 @@
     vertical-align: middle;
 }
 
-@media (max-width: 1025px) {
+@media (max-width: 1250px) {
     .header-desktop {
         display: none;
     }
@@ -208,4 +208,10 @@
     letter-spacing: 1.5px;
     text-transform: uppercase;
     font-weight: 600;
+}
+
+@media (max-width: 468px) {
+    .top-bar-menu, .top-bar-menu-active {
+        font-size:14px;
+    }
 }

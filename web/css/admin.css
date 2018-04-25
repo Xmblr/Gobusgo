@@ -516,6 +516,12 @@ a:focus {
     margin: 0;
     padding: 0;
 }
+
+.sidebar-menu > li > a {
+    font-family: 'zero 5';
+    color: #566fe0;
+}
+
 .sidebar-menu > li > a {
     padding: 12px 5px 12px 15px;
     display: block;

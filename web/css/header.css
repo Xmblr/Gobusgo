@@ -156,7 +156,7 @@ color: #8598ff;
     padding: 8px 15px 8px 10%;
     color: #8598ff;
     font-size: 18px;
-    font-family: 'Zing Sans Rust R Base';
+    font-family: 'zero 5';
     font-weight: 600;
 }
 
@@ -246,7 +246,7 @@ color: #8598ff;
 }
 
 .menu-table {
-    margin-left: 10%;
+    margin-left: 15px;
     margin-top: 20%;
 }
 
@@ -267,7 +267,7 @@ color: #8598ff;
 }
 
 .callback-header {
-    margin-left: 10%;
+    margin-left: 15px;
     margin-top:20px;
     font-family: 'Zing Sans Rust R Base';
     background-color: #ffeb89;
@@ -286,7 +286,7 @@ color: #8598ff;
 }
 
 .header-icons {
-    margin-left: 10%;
+    margin-left: 15px;
     margin-top:20px;
     margin-bottom: 20px;
 }
