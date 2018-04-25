@@ -26,6 +26,8 @@ class Call
 
     protected $name;
 
+    protected $phone;
+
     /**
      * @return mixed
      */
@@ -58,7 +60,7 @@ class Call
         $this->phone = $phone;
     }
 
-    protected $phone;
+
 
 
 }
