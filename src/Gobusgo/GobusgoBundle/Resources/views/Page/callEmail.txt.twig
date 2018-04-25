@@ -5,7 +5,7 @@
     Телефон для связи: {{ call.phone }}
 {% endif %}
 
-{% if mail is defined %}
+{% if mail.organization is defined %}
     Форма юр. лица была отправлена в {{ "now" | date("Y-m-d H:i") }}.
 
     Организация: {{ mail.organization }}
@@ -25,3 +25,17 @@
     Города: {{ mail.cities }};
     Сумма: {{ mail.sum }};
 {% endif %}
+
+{#{% if mail is defined %}#}
+    {#Форма физ. лица была отправлена в {{ "now" | date("Y-m-d H:i") }}.#}
+
+    {#Контактное лицо: {{ mail.name }}#}
+    {#Телефон для связи: {{ mail.phone }}#}
+
+    {#Вес: {{ mail.weight }};#}
+    {#Высота: {{ mail.height }};#}
+    {#Длина: {{ mail.lenght }};#}
+    {#Ширина: {{ mail.width }};#}
+    {#Города: {{ mail.cities }};#}
+    {#Сумма: {{ mail.sum }};#}
+{#{% endif %}#}

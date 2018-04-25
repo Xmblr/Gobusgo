@@ -2,7 +2,7 @@
 
 namespace Gobusgo\GobusgoBundle\Entity;
 
-class Request
+class LegalCall
 {
     protected $organization;
 

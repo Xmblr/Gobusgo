@@ -11,28 +11,37 @@
                     <div class="{{ type }}">
                         {% if message.organization is defined  %}
                             Форма юр. лица была отправлена в {{ "now" | date("Y-m-d H:i") }}.
-
-                            Организация: {{ message.organization }}
-                            УНП: {{ message.UNP }}
-                            Банк: {{ message.bank }}
-                            Адрес банка: {{ message.addressOfTheBank }}
-                            Юридический адрес: {{ message.legalAddress }}
-                            Расчётный счёт: {{ message.settlementAccount }}
-                            Код: {{ message.code }}
-                            Контактное лицо: {{ message.fullName }}
-                            Телефон для связи: {{ message.phone }}
-
-                            Вес: {{ message.weight }};
-                            Высота: {{ message.height }};
-                            Длина: {{ message.lenght }};
-                            Ширина: {{ message.width }};
-                            Города: {{ message.cities }};
-                            Сумма: {{ message.sum }};
-                        {% else %}
-                            {{ message.name }}
-                            {{ message.phone }}
-                        {%  endif %}
-
+                            </br>
+                            Организация: {{ message.organization }} </br>
+                            УНП: {{ message.UNP }} </br>
+                            Банк: {{ message.bank }} </br>
+                            Адрес банка: {{ message.addressOfTheBank }} </br>
+                            Юридический адрес: {{ message.legalAddress }} </br>
+                            Расчётный счёт: {{ message.settlementAccount }} </br>
+                            Код: {{ message.code }} </br>
+                            Контактное лицо: {{ message.fullName }} </br>
+                            Телефон для связи: {{ message.phone }} </br>
+                            </br>
+                            Вес: {{ message.weight }}; </br>
+                            Высота: {{ message.height }}; </br>
+                            Длина: {{ message.lenght }}; </br>
+                            Ширина: {{ message.width }}; </br>
+                            Города: {{ message.cities }}; </br>
+                            Сумма: {{ message.sum }}; </br>
+                        {% elseif message.weight is defined %}
+                            Контактное лицо: {{ message.name }} </br>
+                            Телефон для связи: {{ message.phone }} </br>
+                            </br>
+                            Вес: {{ message.weight }}; </br>
+                            Высота: {{ message.height }}; </br>
+                            Длина: {{ message.lenght }}; </br>
+                            Ширина: {{ message.width }}; </br>
+                            Города: {{ message.cities }}; </br>
+                            Сумма: {{ message.sum }}; </br>
+                        {%  else %}
+                            Контактное лицо: {{ message.name }} </br>
+                            Телефон для связи: {{ message.phone }} </br>
+                        {% endif %}
 
 
                     </div>

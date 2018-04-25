@@ -121,7 +121,7 @@ class PageController extends Controller
             ->addMeta('property', 'og:description', $seoDescription)
         ;
 
-        $legalCallform = $this->createForm('Gobusgo\GobusgoBundle\Form\RequestType',null,array(
+        $legalCallform = $this->createForm('Gobusgo\GobusgoBundle\Form\LegalCallType',null,array(
             'action' => $this->generateUrl('gobusgo_gobusgo_deliveryRB'),
             'method' => 'POST'
         ));
@@ -145,11 +145,33 @@ class PageController extends Controller
         $em = $this->getDoctrine()->getManager();
         $cities = $em->getRepository('GobusgoGobusgoBundle:City')->getCity();
 
+
+        $individualCallform = $this->createForm('Gobusgo\GobusgoBundle\Form\IndividualCallType',null,array(
+            'action' => $this->generateUrl('gobusgo_gobusgo_deliveryRB'),
+            'method' => 'POST'
+        ));
+        if ($request->isMethod('POST')) {
+            $individualCallform->handleRequest($request);
+
+            if($individualCallform->isValid()){
+                // Send mail
+                $data = $individualCallform->getData();
+                $this->Mailer($data);
+                $this->addFlash(
+                    'notice',
+                    $data
+                );
+                return $this->redirectToRoute('gobusgo_gobusgo_confirm');
+
+            }
+        }
+
+
         $callform = $this->Call($request);
 
         return $this->render('@GobusgoGobusgo/Page/deliveryRB.html.twig', array(
             'callform' =>$callform->createView(),
-            'secondCallform' =>$callform->createView(),
+            'individualCallform' =>$individualCallform->createView(),
             'legalCallform' =>$legalCallform->createView(),
             'cities'=>$cities
         ));
@@ -182,14 +204,14 @@ class PageController extends Controller
             ->addMeta('property', 'og:description', $seoDescription)
         ;
 
-        $legalCallform = $this->createForm('Gobusgo\GobusgoBundle\Form\RequestType',null,array(
+        $legalCallform = $this->createForm('Gobusgo\GobusgoBundle\Form\LegalCallType',null,array(
             'action' => $this->generateUrl('gobusgo_gobusgo_deliveryMoscowMinsk'),
             'method' => 'POST'
         ));
         $legalCallform->get('height')->setData('Не задано');
         $legalCallform->get('lenght')->setData('Не задано');
         $legalCallform->get('width')->setData('Не задано');
-        $legalCallform->get('cities')->setData('Москва-Минск');
+
         if ($request->isMethod('POST')) {
             $legalCallform->handleRequest($request);
 
@@ -206,11 +228,36 @@ class PageController extends Controller
             }
         }
 
+        $individualCallform = $this->createForm('Gobusgo\GobusgoBundle\Form\IndividualCallType',null,array(
+            'action' => $this->generateUrl('gobusgo_gobusgo_deliveryMoscowMinsk'),
+            'method' => 'POST'
+        ));
+        $individualCallform->get('height')->setData('Не задано');
+        $individualCallform->get('lenght')->setData('Не задано');
+        $individualCallform->get('width')->setData('Не задано');
+
+
+        if ($request->isMethod('POST')) {
+            $individualCallform->handleRequest($request);
+
+            if($individualCallform->isValid()){
+                // Send mail
+                $data = $individualCallform->getData();
+                $this->Mailer($data);
+                $this->addFlash(
+                    'notice',
+                    $data
+                );
+                return $this->redirectToRoute('gobusgo_gobusgo_confirm');
+
+            }
+        }
+
         $callform = $this->Call($request);
 
         return $this->render('@GobusgoGobusgo/Page/deliveryMoscowMinsk.html.twig', array(
             'callform' =>$callform->createView(),
-            'secondCallform' =>$callform->createView(),
+            'individualCallform' =>$individualCallform->createView(),
             'legalCallform' =>$legalCallform->createView()
         ));
     }
