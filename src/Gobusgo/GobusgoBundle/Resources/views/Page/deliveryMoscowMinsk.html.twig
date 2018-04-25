@@ -103,12 +103,10 @@
                             {{ form_widget(legalCallform.weight, {'attr':{'class':'Input-text', 'position': 'absolute','placeholder':'Вес\, кг', 'onchange':'sum()','readonly':''}}) }}
                         </div>
                         <div class="Input">
-                            <input class="Input-text" id="formLegalOne" name="from"
-                                   position="absolute" value="Москва" readonly />
+                            <input class="Input-text" id="formLegalOne" position="absolute"  readonly />
                         </div>
                         <div class="Input">
-                            <input class="Input-text" id="formLegalTwo" name="to"
-                                   position="absolute" value="Минск" readonly />
+                            <input class="Input-text" id="formLegalTwo" position="absolute" readonly />
                         </div>
                         <div class="Input">
                             {{ form_errors(legalCallform.sum) }}
@@ -176,11 +174,11 @@
                         </div>
                         <div class="Input">
                             <input class="Input-text" id="formIndividualOne" name="from"
-                                   position="absolute" value="Москва" readonly />
+                                   position="absolute" value="" readonly />
                         </div>
                         <div class="Input">
                             <input class="Input-text" id="formIndividualTwo" name="to"
-                                   position="absolute" value="Минск" readonly />
+                                   position="absolute" value="" readonly />
                         </div>
                         <div class="Input">
                             {{ form_errors(individualCallform.sum) }}
@@ -577,9 +575,9 @@
     </div>
 
     <script language="JavaScript">
-        function reload(one, two, formLegalOne, formLegalTwo,formIndividualOne,formIndividualTwo) {
-            one = document.getElementById("one");
-            two = document.getElementById("two");
+        function reload() {
+            var one = document.getElementById("one");
+            var two = document.getElementById("two");
             if (one.value === 'Москва') {
                 one.value = 'Минск';
                 two.value = 'Москва';
@@ -588,31 +586,10 @@
                 one.value = 'Москва';
                 two.value = 'Минск';
             }
-
-            formLegalOne = document.getElementById("formLegalOne");
-            formLegalTwo = document.getElementById("formLegalTwo");
-            if (formLegalOne.value === 'Москва') {
-                formLegalOne.value = 'Минск';
-                formLegalTwo.value = 'Москва';
-            }
-            else {
-                formLegalOne.value = 'Москва';
-                formLegalTwo.value = 'Минск';
-            }
-
-            formIndividualOne = document.getElementById("formIndividualOne");
-            formIndividualTwo = document.getElementById("formIndividualTwo");
-            if (formIndividualOne.value === 'Москва') {
-                formIndividualOne.value = 'Минск';
-                formIndividualTwo.value = 'Москва';
-            }
-            else {
-                formIndividualOne.value = 'Москва';
-                formIndividualTwo.value = 'Минск';
-            }
         }
 
-        function sum(type, weight, sum, formLegalWeight, formLegalSum,formIndividualWeight,formIndividualSum, form, form2) {
+        function sum() {
+            var type, form, form2;
             if (document.getElementById('legal').checked) {
                 type = 2;
                 form = document.getElementById('legal_form')
@@ -627,23 +604,14 @@
                 form2 = document.getElementById('legal_form');
                 form2.style.display = 'none';
             }
-            weight = document.getElementById('weight');
-            sum = document.getElementById('sum');
+            var weight = document.getElementById('weight');
+            var sum = document.getElementById('sum');
             sum.value = 5 * type + parseInt(weight.value);
-
-
-            formLegalWeight = document.getElementById('legal_call_weight');
-            formLegalSum = document.getElementById('legal_call_sum');
-            formLegalSum.value = 5 * type + parseInt(formLegalWeight.value);
-
-            formIndividualWeight = document.getElementById('Individual_call_weight');
-            formIndividualSum = document.getElementById('Individual_call_sum');
-            formIndividualSum.value = 5 * type + parseInt(formIndividualWeight.value);
         }
 
-        function city(city1, city2) {
-            city1 = document.getElementById('one').value;
-            city2 = document.getElementById('two').value;
+        function city() {
+            var city1 = document.getElementById('one').value;
+            var city2 = document.getElementById('two').value;
             document.getElementById('legal_call_cities').value = city1 + '-' + city2;
             document.getElementById('individual_call_cities').value = city1 + '-' + city2;
 
@@ -651,8 +619,13 @@
 
         function openform() {
             document.getElementById('legal_call_weight').value = document.getElementById('weight').value;
+            document.getElementById('formLegalOne').value = document.getElementById('one').value;
+            document.getElementById('formLegalTwo').value = document.getElementById('two').value;
             document.getElementById('legal_call_sum').value = document.getElementById('sum').value;
+
             document.getElementById('individual_call_weight').value = document.getElementById('weight').value;
+            document.getElementById('formIndividualOne').value = document.getElementById('one').value;
+            document.getElementById('formIndividualTwo').value = document.getElementById('two').value;
             document.getElementById('individual_call_sum').value = document.getElementById('sum').value;
         }
     </script>

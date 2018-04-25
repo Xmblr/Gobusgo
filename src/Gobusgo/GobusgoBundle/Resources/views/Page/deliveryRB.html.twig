@@ -46,29 +46,23 @@
             </div>
 
 
-            {{ form_start(legalCallform) }}
-
-
             <div class="Input-1-1">
                 <i class="fa fa-chevron-left" aria-hidden="true"
                    style="position: absolute; margin-left: 170px; margin-top: 51px; font-size: 20px; color: #7d88ff;"></i>
-                {{ form_errors(legalCallform.weight) }}
-                {{ form_widget(legalCallform.weight, {'attr':{'class':'Input-text-1', 'position': 'absolute','placeholder':'Вес\, кг', 'onchange':'sum()'}}) }}
+                <input id="weight" class="Input-text-1" style="position: absolute" placeholder="Вес, кг"
+                       onchange="sum()">
             </div>
             <div class="Input-1-2">
-
-                {{ form_errors(legalCallform.height) }}
-                {{ form_widget(legalCallform.height, {'attr':{'class':'Input-text-1', 'position': 'absolute','placeholder':'Высота', 'onchange':'sum()'}}) }}
+                <input id="height" class="Input-text-1" style="position: absolute" placeholder="Высота"
+                       onchange="sum()">
             </div>
             <div class="Input-1-3">
-
-                {{ form_errors(legalCallform.lenght) }}
-                {{ form_widget(legalCallform.lenght, {'attr':{'class':'Input-text-1', 'position': 'absolute','placeholder':'Длинна', 'onchange':'sum()'}}) }}
+                <input id="lenght" class="Input-text-1" style="position: absolute" placeholder="Длинна"
+                       onchange="sum()">
             </div>
             <div class="Input-1-4">
-
-                {{ form_errors(legalCallform.width) }}
-                {{ form_widget(legalCallform.width, {'attr':{'class':'Input-text-1', 'position': 'absolute','placeholder':'Глубина', 'onchange':'sum()'}}) }}
+                <input id="width" class="Input-text-1" style="position: absolute" placeholder="Глубина"
+                       onchange="sum()">
             </div>
 
 
@@ -115,23 +109,12 @@
                         </div>
                     </select>
                 </div>
-                {#<input class="Input-text-2" type="text" id="weight" name="from"#}
-                {#required="required" style="position: absolute;" placeholder="Откуда"/>#}
             </div>
-            {#<div class="Input-3">#}
-            {#<i class="fa fa-chevron-right" aria-hidden="true"#}
-            {#style="position: absolute; margin-left: -19px; margin-top: 18px; font-size: 20px; color: #7d88ff;"></i>#}
 
-
-            {#<input class="Input-text-3" type="text" id="weight" name="to"#}
-            {#required="required" style="position: absolute;" placeholder="Куда"/>#}
-            {#</div>#}
             <div class="Input-4">
                 <i class="fa fa-chevron-left" aria-hidden="true"
                    style="position: absolute; margin-left: 152px; margin-top: 17px; font-size: 20px; color: #7d88ff;"></i>
-                {{ form_errors(legalCallform.sum) }}
-                {{ form_widget(legalCallform.sum, {'attr':{'class':'Input-text-4', 'position': 'absolute','placeholder':'Сумма', 'onchange':'sum()','readonly':'true'}}) }}
-
+                <input id="sum" class="Input-text-1" style="position: absolute" placeholder="Сумма">
             </div>
             <div class="radio-cargo">
                 <label>
@@ -157,6 +140,37 @@
                     <h2>Заявка</h2>
 
                     <div style="" id="legal_form">
+                        {{ form_start(legalCallform) }}
+
+                        <div class="Input">
+                            {{ form_errors(legalCallform.weight) }}
+                            {{ form_widget(legalCallform.weight, {'attr':{'class':'Input-text', 'position': 'absolute','placeholder':'Вес\, кг','readonly':''}}) }}
+                        </div>
+                        <div class="Input">
+                            {{ form_errors(legalCallform.height) }}
+                            {{ form_widget(legalCallform.height, {'attr':{'class':'Input-text', 'position': 'absolute','placeholder':'Высота','readonly':''}}) }}
+                        </div>
+                        <div class="Input">
+                            {{ form_errors(legalCallform.lenght) }}
+                            {{ form_widget(legalCallform.lenght, {'attr':{'class':'Input-text', 'position': 'absolute','placeholder':'Длинна','readonly':''}}) }}
+                        </div>
+                        <div class="Input">
+                            {{ form_errors(legalCallform.width) }}
+                            {{ form_widget(legalCallform.width, {'attr':{'class':'Input-text', 'position': 'absolute','placeholder':'Глубина','readonly':''}}) }}
+                        </div>
+                        <div class="Input">
+                            <input class="Input-text" id="formLegalCity1" position="absolute" readonly />
+                        </div>
+                        <div class="Input">
+                            <input class="Input-text" id="formLegalCity2" position="absolute" readonly />
+                        </div>
+                        <div class="Input">
+                            <input class="Input-text" id="formLegalCity3" position="absolute" readonly />
+                        </div>
+                        <div class="Input">
+                            {{ form_errors(legalCallform.sum) }}
+                            {{ form_widget(legalCallform.sum, {'attr':{'class':'Input-text', 'position': 'absolute','placeholder':'Сумма', 'readonly':'true'}}) }}
+                        </div>
                         <div class="Input">
                             {{ form_errors(legalCallform.organization) }}
                             {{ form_widget(legalCallform.organization, {'attr':{'class':'Input-text', 'position': 'absolute','placeholder':'Название организации?'}}) }}
@@ -207,30 +221,66 @@
                     </div>
 
 
-                    <div style="display: none" id="individual_form">
-                        {{ form_start(secondCallform, { 'action': path('gobusgo_gobusgo_confirm'), 'method': 'POST' }) }}
-                        {{ form_errors(secondCallform) }}
+                    <div style="display: none;" id="individual_form">
+                        {{ form_start(individualCallform) }}
+
 
                         <div class="Input">
-                            {{ form_widget(secondCallform.name, {'attr':{'class':'Input-text', 'position': 'absolute','placeholder':'Как вас зовут?'}}) }}
+                            {{ form_errors(individualCallform.weight) }}
+                            {{ form_widget(individualCallform.weight, {'attr':{'class':'Input-text', 'position': 'absolute','placeholder':'Вес\, кг','readonly':''}}) }}
                         </div>
                         <div class="Input">
-                            {{ form_widget(secondCallform.phone, {'attr':{'class':'Input-text', 'position': 'absolute','placeholder':'Номер телефона'}}) }}
+                            {{ form_errors(individualCallform.height) }}
+                            {{ form_widget(individualCallform.height, {'attr':{'class':'Input-text', 'position': 'absolute','placeholder':'Высота','readonly':''}}) }}
+                        </div>
+                        <div class="Input">
+                            {{ form_errors(individualCallform.lenght) }}
+                            {{ form_widget(individualCallform.lenght, {'attr':{'class':'Input-text', 'position': 'absolute','placeholder':'Длинна','readonly':''}}) }}
+                        </div>
+                        <div class="Input">
+                            {{ form_errors(individualCallform.width) }}
+                            {{ form_widget(individualCallform.width, {'attr':{'class':'Input-text', 'position': 'absolute','placeholder':'Глубина','readonly':''}}) }}
+                        </div>
+                        <div class="Input">
+                            <input class="Input-text" id="formIndividualCity1" position="absolute" readonly />
+                        </div>
+                        <div class="Input">
+                            <input class="Input-text" id="formIndividualCity2" position="absolute" readonly />
+                        </div>
+                        <div class="Input">
+                            <input class="Input-text" id="formIndividualCity3" position="absolute" readonly />
+                        </div>
+                        <div class="Input">
+                            {{ form_errors(individualCallform.sum) }}
+                            {{ form_widget(individualCallform.sum, {'attr':{'class':'Input-text', 'position': 'absolute','placeholder':'Сумма','readonly':''}}) }}
+                        </div>
+                        <div class="Input">
+                            {{ form_errors(individualCallform.name) }}
+                            {{ form_widget(individualCallform.name, {'attr':{'class':'Input-text', 'position': 'absolute','placeholder':'Как вас зовут?'}}) }}
+                        </div>
+                        <div class="Input">
+                            {{ form_errors(individualCallform.phone) }}
+                            {{ form_widget(individualCallform.phone, {'attr':{'class':'Input-text', 'position': 'absolute','placeholder':'Номер телефона'}}) }}
+                        </div>
+
+                        <div style="display:none">
+                            {{ form_widget(individualCallform.cities) }}
+
+                            {{ form_rest(individualCallform) }}
                         </div>
 
                         <div class="text-center" style="margin-bottom: 30px;">
-                            <input id="_submit" name="_submit" class="submit-button" value="Оформить заявку"
-                                   type="submit">
+                            <input class="submit-button" value="Оформить заявку" type="submit" onclick="city()">
                         </div>
-                        {{ form_end(secondCallform) }}
+                        {{ form_end(individualCallform) }}
                     </div>
+
                 </div>
-                    {#<img src="{{ asset('images/tablet.png') }}" width="800px;">#}
-                    <a class="close" title="Закрыть" href="#close"></a>
+                <a class="close" title="Закрыть" href="#close"></a>
 
             </div>
 
-            <a class="submit-button request-form" href="#legal-form">Оформление заявки</a>
+            <a class="submit-button request-form" href="#legal-form" onclick="openform()">Оформление заявки</a>
         </div>
 
     </div>
@@ -522,7 +572,8 @@
     </div>
 
     <script language="JavaScript">
-        function sum(type, weight, height, lenght, width, sum, form, form2) {
+        function sum() {
+            var type, form, form2;
             if (document.getElementById('legal').checked) {
                 type = 2;
                 form = document.getElementById('legal_form')
@@ -532,33 +583,52 @@
             }
             else {
                 type = 1;
-                form = document.getElementById('individual_form')
+                form = document.getElementById('individual_form');
                 form.style.display = 'block';
-                form2 = document.getElementById('legal_form')
+                form2 = document.getElementById('legal_form');
                 form2.style.display = 'none';
             }
-            weight = document.getElementById('request_weight');
-            height = document.getElementById('request_height');
-            lenght = document.getElementById('request_lenght');
-            width = document.getElementById('request_width');
-            sum = document.getElementById('request_sum');
-            if (parseInt(weight.value) != NaN) {
-                sum.value = 5 * type + parseInt(weight.value) + parseInt(height.value) + parseInt(lenght.value) + parseInt(width.value);
-            }
-            else {
-                sum.value = 5 * type;
-            }
+            var weight = document.getElementById('weight');
+            var height = document.getElementById('height');
+            var lenght = document.getElementById('lenght');
+            var width = document.getElementById('width');
+
+            var sum = document.getElementById('sum');
+            sum.value = 5 * type + parseInt(weight.value) + parseInt(height.value) + parseInt(lenght.value) + parseInt(width.value);
         }
 
-        function city(city1, city2, city3) {
-            city1 = document.getElementById('city1').value;
-            city2 = document.getElementById('city2').value;
-            city3 = document.getElementById('city3').value;
-            document.getElementById('request_cities').value = city1 + '-' + city2 + '-' + city3;
-            // city1 = document.getElementById('city1').value;
-            // city2 = document.getElementById('city2').value;
-            // cities = document.getElementsByName('request[cities]');
-            // cities.value = city1.toString() + '-' + city2.toString();
+        function city() {
+            var city1 = document.getElementById('city1').value;
+            var city2 = document.getElementById('city2').value;
+            var city3 = document.getElementById('city3').value;
+            document.getElementById('legal_call_cities').value = city1 + '-' + city3 + '-' + city2;
+            document.getElementById('individual_call_cities').value = city1 + '-' + city3 + '-' + city2;
+
+        }
+
+        function openform() {
+            document.getElementById('legal_call_weight').value = document.getElementById('weight').value;
+            document.getElementById('legal_call_height').value = document.getElementById('height').value;
+            document.getElementById('legal_call_lenght').value = document.getElementById('lenght').value;
+            document.getElementById('legal_call_width').value = document.getElementById('width').value;
+
+            document.getElementById('formLegalCity1').value = document.getElementById('city1').value;
+            document.getElementById('formLegalCity2').value = document.getElementById('city2').value;
+            document.getElementById('formLegalCity3').value = document.getElementById('city3').value;
+
+            document.getElementById('legal_call_sum').value = document.getElementById('sum').value;
+
+
+            document.getElementById('individual_call_weight').value = document.getElementById('weight').value;
+            document.getElementById('individual_call_height').value = document.getElementById('height').value;
+            document.getElementById('individual_call_lenght').value = document.getElementById('lenght').value;
+            document.getElementById('individual_call_width').value = document.getElementById('width').value;
+
+            document.getElementById('formIndividualCity1').value = document.getElementById('city1').value;
+            document.getElementById('formIndividualCity2').value = document.getElementById('city2').value;
+            document.getElementById('formIndividualCity3').value = document.getElementById('city3').value;
+
+            document.getElementById('individual_call_sum').value = document.getElementById('sum').value;
         }
 
         function addCity(addCity, deleteCity, city3) {
