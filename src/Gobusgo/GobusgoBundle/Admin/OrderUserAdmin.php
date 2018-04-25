@@ -87,7 +87,7 @@ class OrderUserAdmin extends AbstractAdmin
             ],array(
                 'admin_code' => 'admin.user.cargo'
             ))
-            ->add('price')
+            ->add('price',null,array('label'=>'Цена'))
             ->add('quantityOfCargo')
             ->add('shippingAddress', ModelListType::class, [
                 'class'=>Address::class,

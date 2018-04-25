@@ -164,15 +164,12 @@
                             <input class="submit-button" value="Оформить заявку" type="submit" onclick="city()">
                         </div>
                         {{ form_end(legalCallform) }}
-
                     </div>
 
 
 
                     <div style="display: none;" id="individual_form">
                         {{ form_start(individualCallform) }}
-
-
                         <div class="Input">
                             {{ form_errors(individualCallform.weight) }}
                             {{ form_widget(individualCallform.weight, {'attr':{'class':'Input-text', 'position': 'absolute','placeholder':'Вес\, кг','readonly':''}}) }}
@@ -185,7 +182,7 @@
                             <input class="Input-text" id="formIndividualTwo" name="to"
                                    position="absolute" value="Минск" readonly />
                         </div>
-                        <div class="'Input">
+                        <div class="Input">
                             {{ form_errors(individualCallform.sum) }}
                             {{ form_widget(individualCallform.sum, {'attr':{'class':'Input-text', 'position': 'absolute','placeholder':'Сумма','readonly':''}}) }}
                         </div>
