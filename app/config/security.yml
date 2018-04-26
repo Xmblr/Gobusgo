@@ -18,6 +18,7 @@ security:
           - ROLE_ADMIN_USER_ORDER_ALL
         ROLE_ADMIN:
           - ROLE_ADMIN
+          - ROLE_USER
           - ROLE_MODERATOR
           - ROLE_ADMIN_USERS_ALL
           - ROLE_ADMIN_ADDRESS_ALL
@@ -27,7 +28,9 @@ security:
         ROLE_MODERATOR:
           - ROLE_USER
           - ROLE_ADMIN_NEWS_ALL
+          - ROLE_SONATA_NEWS_ADMIN_POST_ALL
           - ROLE_ADMIN_COMMENT_ALL
+          - ROLE_SONATA_NEWS_ADMIN_COMMENT_ALL
     # https://symfoy.com/doc/current/security.html#b-configuring-how-users-are-loaded
     providers:
         fos_userbundle:

@@ -106,7 +106,13 @@ fos_user:
 
 
 sonata_block:
+    default_contexts: [cms]
     blocks:
+        sonata.admin.block.menu:    # used to display the menu in profile pages
+        sonata.user.block.account: # used to display menu option (login option)
+        sonata.block.service.text:
+        sonata.block.service.rss:
+
         # enable the SonataAdminBundle block
         sonata.admin.block.admin_list:
             contexts: [admin]
@@ -179,6 +185,11 @@ sonata_admin:
             app.admin.group.user:
                 label: Пользователь
                 roles: [ ROLE_USER, ROLE_ADMIN ]
+
+        blocks:
+            - { position: left, type: sonata.block.service.text, settings: { content: '<h2>HELLO WORLD!</h2>' } }
+            - { position: center,type: sonata.block.service.text, settings: { content: '<h2>HELLO WORLD!</h2>' } }
+            - { position: right, type: sonata.admin.block.admin_list }
     title:      GoBusGo
     title_logo: favicon.ico
     templates:

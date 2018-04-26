@@ -300,73 +300,13 @@ file that was distributed with this source code.
                                         <span class="admin-menu-left">Контакты</span></a>
                                 </li>
 
-                            <li><a href="#" style="vertical-align: middle; text-decoration: none;"><i
+                            <li><a href="{{ path('fos_user_profile_show') }}"
+                                   style="vertical-align: middle; text-decoration: none;"><i
                                             class="fa fa-user-circle-o fa-2x" aria-hidden="true"
                                             style="vertical-align: middle; "></i>
                                     <span class="admin-menu-left">Профиль</span></a>
                             </li>
 
-                            {#<li><a href="#"><i#}
-                            {#class="fa fa-folder"></i><span>Администратор</span><span#}
-                            {#class="pull-right-container"><i#}
-                            {#class="fa pull-right fa-angle-left"></i></span></a>#}
-                            {#<ul class="active treeview-menu menu_level_1">#}
-
-                            {#<li class="first"><a href="/admin/users/list"><i class="fa fa-angle-double-right"#}
-                            {#aria-hidden="true"></i>Пользователи</a>#}
-                            {#</li>#}
-                            {#<li><a href="/admin/city/list"><i class="fa fa-angle-double-right"#}
-                            {#aria-hidden="true"></i>Города</a>#}
-                            {#</li>#}
-                            {#<li><a href="/admin/address_admin/list"><i class="fa fa-angle-double-right"#}
-                            {#aria-hidden="true"></i>Адреса</a>#}
-                            {#</li>#}
-                            {#<li><a href="/admin/cargo_admin/list"><i class="fa fa-angle-double-right"#}
-                            {#aria-hidden="true"></i>Груз</a>#}
-                            {#</li>#}
-                            {#<li class="last"><a href="/admin/order_admin/list"><i#}
-                            {#class="fa fa-angle-double-right" aria-hidden="true"></i>Заказ</a>#}
-                            {#</li>#}
-                            {#</ul>#}
-                            {#</li>#}
-                            {#<li><a href="#"><i class="fa fa-folder"></i><span>Новости</span><span#}
-                            {#class="pull-right-container"><i#}
-                            {#class="fa pull-right fa-angle-left"></i></span></a>#}
-                            {#<ul class="active treeview-menu menu_level_1">#}
-
-                            {#<li class="first"><a href="/admin/sonata/news/post/list"><i#}
-                            {#class="fa fa-angle-double-right" aria-hidden="true"></i>Новости</a>#}
-                            {#</li>#}
-
-
-                            {#<li class="last"><a href="/admin/sonata/news/comment/list"><i#}
-                            {#class="fa fa-angle-double-right" aria-hidden="true"></i>Комментарии</a>#}
-                            {#</li>#}
-                            {#</ul>#}
-
-                            {#</li>#}
-                            {#<li><a href="#"><i#}
-                            {#class="fa fa-folder"></i><span>Пользователь</span><span#}
-                            {#class="pull-right-container"><i#}
-                            {#class="fa pull-right fa-angle-left"></i></span></a>#}
-                            {#<ul class="active treeview-menu menu_level_1">#}
-
-                            {#<li class="first"><a href="/admin/address_user/list"><i#}
-                            {#class="fa fa-angle-double-right" aria-hidden="true"></i>Адреса</a>#}
-                            {#</li>#}
-
-
-                            {#<li><a href="/admin/cargo_user/list"><i class="fa fa-angle-double-right"#}
-                            {#aria-hidden="true"></i>Груз</a>#}
-                            {#</li>#}
-
-
-                            {#<li class="last"><a href="/admin/order_user/list"><i#}
-                            {#class="fa fa-angle-double-right" aria-hidden="true"></i>Заказ</a>#}
-                            {#</li>#}
-                            {#</ul>#}
-                            {#</li>#}
-                            {#</ul>#}
 
                         {% block side_bar_after_nav %}
                             <p class="text-center small" style="border-top: 1px solid #444444; padding-top: 10px">
