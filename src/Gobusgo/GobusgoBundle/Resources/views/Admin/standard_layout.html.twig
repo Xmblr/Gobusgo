@@ -271,10 +271,12 @@ file that was distributed with this source code.
                         {#{% endblock sonata_sidebar_search %}#}
 
                         {% block side_bar_before_nav %} {% endblock %}
-                        {#{% block side_bar_nav %}#}
-                        {#{{ knp_menu_render('sonata_admin_sidebar', {template: sonata_admin.adminPool.getTemplate('knp_menu_template')}) }}#}
-                        {#{% endblock side_bar_nav %}#}
-
+                    {% block side_bar_nav %}
+                        {{ knp_menu_render('sonata_admin_sidebar', {template: sonata_admin.adminPool.getTemplate('knp_menu_template')}) }}
+                    {% endblock side_bar_nav %}
+                    {% if is_granted('VIEW') %}
+                        <p>Hello there!</p>
+                    {% endif %}
                         <ul class="sidebar-menu" data-widget="tree">
 
                                 <li>
@@ -304,78 +306,80 @@ file that was distributed with this source code.
                                     <span class="admin-menu-left">Профиль</span></a>
                             </li>
 
-                            <li><a href="#"><i
-                                            class="fa fa-folder"></i><span>Администратор</span><span
-                                            class="pull-right-container"><i
-                                                class="fa pull-right fa-angle-left"></i></span></a>
-                                <ul class="active treeview-menu menu_level_1">
+                            {#<li><a href="#"><i#}
+                            {#class="fa fa-folder"></i><span>Администратор</span><span#}
+                            {#class="pull-right-container"><i#}
+                            {#class="fa pull-right fa-angle-left"></i></span></a>#}
+                            {#<ul class="active treeview-menu menu_level_1">#}
 
-                                    <li class="first"><a href="/admin/users/list"><i class="fa fa-angle-double-right"
-                                                                                     aria-hidden="true"></i>Пользователи</a>
-                                    </li>
-                                    <li><a href="/admin/city/list"><i class="fa fa-angle-double-right"
-                                                                      aria-hidden="true"></i>Города</a>
-                                    </li>
-                                    <li><a href="/admin/address_admin/list"><i class="fa fa-angle-double-right"
-                                                                               aria-hidden="true"></i>Адреса</a>
-                                    </li>
-                                    <li><a href="/admin/cargo_admin/list"><i class="fa fa-angle-double-right"
-                                                                             aria-hidden="true"></i>Груз</a>
-                                    </li>
-                                    <li class="last"><a href="/admin/order_admin/list"><i
-                                                    class="fa fa-angle-double-right" aria-hidden="true"></i>Заказ</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li><a href="#"><i class="fa fa-folder"></i><span>Новости</span><span
-                                            class="pull-right-container"><i
-                                                class="fa pull-right fa-angle-left"></i></span></a>
-                                <ul class="active treeview-menu menu_level_1">
+                            {#<li class="first"><a href="/admin/users/list"><i class="fa fa-angle-double-right"#}
+                            {#aria-hidden="true"></i>Пользователи</a>#}
+                            {#</li>#}
+                            {#<li><a href="/admin/city/list"><i class="fa fa-angle-double-right"#}
+                            {#aria-hidden="true"></i>Города</a>#}
+                            {#</li>#}
+                            {#<li><a href="/admin/address_admin/list"><i class="fa fa-angle-double-right"#}
+                            {#aria-hidden="true"></i>Адреса</a>#}
+                            {#</li>#}
+                            {#<li><a href="/admin/cargo_admin/list"><i class="fa fa-angle-double-right"#}
+                            {#aria-hidden="true"></i>Груз</a>#}
+                            {#</li>#}
+                            {#<li class="last"><a href="/admin/order_admin/list"><i#}
+                            {#class="fa fa-angle-double-right" aria-hidden="true"></i>Заказ</a>#}
+                            {#</li>#}
+                            {#</ul>#}
+                            {#</li>#}
+                            {#<li><a href="#"><i class="fa fa-folder"></i><span>Новости</span><span#}
+                            {#class="pull-right-container"><i#}
+                            {#class="fa pull-right fa-angle-left"></i></span></a>#}
+                            {#<ul class="active treeview-menu menu_level_1">#}
 
-                                    <li class="first"><a href="/admin/sonata/news/post/list"><i
-                                                    class="fa fa-angle-double-right" aria-hidden="true"></i>Новости</a>
-                                    </li>
-
-
-                                    <li class="last"><a href="/admin/sonata/news/comment/list"><i
-                                                    class="fa fa-angle-double-right" aria-hidden="true"></i>Комментарии</a>
-                                    </li>
-                                </ul>
-
-                            </li>
-                            <li><a href="#"><i
-                                            class="fa fa-folder"></i><span>Пользователь</span><span
-                                            class="pull-right-container"><i
-                                                class="fa pull-right fa-angle-left"></i></span></a>
-                                <ul class="active treeview-menu menu_level_1">
-
-                                    <li class="first"><a href="/admin/address_user/list"><i
-                                                    class="fa fa-angle-double-right" aria-hidden="true"></i>Адреса</a>
-                                    </li>
+                            {#<li class="first"><a href="/admin/sonata/news/post/list"><i#}
+                            {#class="fa fa-angle-double-right" aria-hidden="true"></i>Новости</a>#}
+                            {#</li>#}
 
 
-                                    <li><a href="/admin/cargo_user/list"><i class="fa fa-angle-double-right"
-                                                                            aria-hidden="true"></i>Груз</a>
-                                    </li>
+                            {#<li class="last"><a href="/admin/sonata/news/comment/list"><i#}
+                            {#class="fa fa-angle-double-right" aria-hidden="true"></i>Комментарии</a>#}
+                            {#</li>#}
+                            {#</ul>#}
+
+                            {#</li>#}
+                            {#<li><a href="#"><i#}
+                            {#class="fa fa-folder"></i><span>Пользователь</span><span#}
+                            {#class="pull-right-container"><i#}
+                            {#class="fa pull-right fa-angle-left"></i></span></a>#}
+                            {#<ul class="active treeview-menu menu_level_1">#}
+
+                            {#<li class="first"><a href="/admin/address_user/list"><i#}
+                            {#class="fa fa-angle-double-right" aria-hidden="true"></i>Адреса</a>#}
+                            {#</li>#}
 
 
-                                    <li class="last"><a href="/admin/order_user/list"><i
-                                                    class="fa fa-angle-double-right" aria-hidden="true"></i>Заказ</a>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
+                            {#<li><a href="/admin/cargo_user/list"><i class="fa fa-angle-double-right"#}
+                            {#aria-hidden="true"></i>Груз</a>#}
+                            {#</li>#}
+
+
+                            {#<li class="last"><a href="/admin/order_user/list"><i#}
+                            {#class="fa fa-angle-double-right" aria-hidden="true"></i>Заказ</a>#}
+                            {#</li>#}
+                            {#</ul>#}
+                            {#</li>#}
+                            {#</ul>#}
 
                         {% block side_bar_after_nav %}
-                            {#<p class="text-center small" style="border-top: 1px solid #444444; padding-top: 10px">#}
-                            {#{% block side_bar_after_nav_content %}#}
+                            <p class="text-center small" style="border-top: 1px solid #444444; padding-top: 10px">
+                            {% block side_bar_after_nav_content %}
                             {#<a href="http://new-line.by" rel="noreferrer" target="_blank">sonata project</a>#}
-                            {#{% endblock %}#}
-                            {#</p>#}
-
-                            <p class="footer-caption" style="text-align: center;">Разработка: <a
-                                        href="http:\\new-line.by">New-line.by</a>
+                                <p class="footer-caption" style="text-align: center;">
+                                    Разработка:
+                                    <a href="http://new-line.by">New-line.by</a>
+                                </p>
+                            {% endblock %}
                             </p>
+
+
                         {% endblock %}
                     {% endblock sonata_side_nav %}
                 </section>

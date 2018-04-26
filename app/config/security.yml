@@ -2,14 +2,33 @@
 # https://symfony.com/doc/current/security.html
 security:
 
+    # set access_strategy to unanimous, else you may have unexpected behaviors
+    access_decision_manager:
+        strategy: unanimous
     encoders:
         FOS\UserBundle\Model\UserInterface: bcrypt
 
+
     role_hierarchy:
-        ROLE_USER:       ROLE_USER
-        ROLE_ADMIN:      ROLE_ADMIN
-        ROLE_SUPER_ADMIN: ROLE_SUPER_ADMIN
-    # https://symfony.com/doc/current/security.html#b-configuring-how-users-are-loaded
+
+        ROLE_USER:
+          - ROLE_ADMIN_USER_ADDRESS_ALL
+          - ROLE_ADMIN_USER_CARGO_ALL
+          - ROLE_ADMIN_USER_CITY_ALL
+          - ROLE_ADMIN_USER_ORDER_ALL
+        ROLE_ADMIN:
+          - ROLE_ADMIN
+          - ROLE_MODERATOR
+          - ROLE_ADMIN_USERS_ALL
+          - ROLE_ADMIN_ADDRESS_ALL
+          - ROLE_ADMIN_CARGO_ALL
+          - ROLE_ADMIN_CITY_ALL
+          - ROLE_ADMIN_ORDER_ALL
+        ROLE_MODERATOR:
+          - ROLE_USER
+          - ROLE_ADMIN_NEWS_ALL
+          - ROLE_ADMIN_COMMENT_ALL
+    # https://symfoy.com/doc/current/security.html#b-configuring-how-users-are-loaded
     providers:
         fos_userbundle:
             id: fos_user.user_provider.username

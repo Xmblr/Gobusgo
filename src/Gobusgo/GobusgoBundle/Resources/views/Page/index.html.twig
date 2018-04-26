@@ -148,30 +148,37 @@
                         }
 
                         async function a(url, e, w, audio) {
-                            audio = new Audio(); // Создаём новый элемент Audio
-                            audio.src = 'audio/car.mp3'; // Указываем путь к звуку "клика"
-                            audio.autoplay = true; // Автоматически запускаем
-                            e = document.getElementById("car");
-                            w = document.getElementById("wheel1");
-                            s = document.getElementById("wheel2");
+                            if (window.innerWidth > 1250) {
+                                audio = new Audio(); // Создаём новый элемент Audio
+                                audio.src = 'audio/car.mp3'; // Указываем путь к звуку "клика"
+                                audio.autoplay = true; // Автоматически запускаем
+                                e = document.getElementById("car");
+                                w = document.getElementById("wheel1");
+                                s = document.getElementById("wheel2");
 
-                            e.style.webkitAnimationName = "shake";
-                            w.style.webkitAnimationName = "shake-w";
-                            s.style.webkitAnimationName = "shake-w";
+                                e.style.webkitAnimationName = "shake";
+                                w.style.webkitAnimationName = "shake-w";
+                                s.style.webkitAnimationName = "shake-w";
 
-                            await sleep(1500);
+                                await
+                                sleep(1500);
 
-                            e.style.transform = "translate(2000px,0px)";
-                            e.style.transition = "all 5s ease-in-out";
+                                e.style.transform = "translate(2000px,0px)";
+                                e.style.transition = "all 5s ease-in-out";
 
-                            w.style.transform = "translate(2000px,0px) rotate(5turn)";
-                            w.style.transition = "all 5s ease-in-out";
-                            s.style.transform = "translate(2000px,0px) rotate(10turn)";
-                            s.style.transition = "all 5s ease-in-out";
+                                w.style.transform = "translate(2000px,0px) rotate(5turn)";
+                                w.style.transition = "all 5s ease-in-out";
+                                s.style.transform = "translate(2000px,0px) rotate(10turn)";
+                                s.style.transition = "all 5s ease-in-out";
 
-                            await sleep(4000);
+                                await
+                                sleep(4000);
 
-                            window.location.replace(url);
+                                window.location.replace(url);
+                            }
+                            else {
+                                window.location.replace(url);
+                            }
                         }
                 </script>
             </div>

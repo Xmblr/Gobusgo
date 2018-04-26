@@ -167,18 +167,18 @@ sonata_admin:
             - bundles/sonataformatter/markitup/sets/html/style.css
             - bundles/sonataformatter/markitup/sets/textile/style.css
     security:
-        handler: sonata.admin.security.handler.noop
+        handler: sonata.admin.security.handler.role
     dashboard:
         groups:
             app.admin.group.admin:
                 label: Администратор
-                roles: [ ROLE_ADMIN, ROLE_SUPER_ADMIN ]
+                roles: [ ROLE_ADMIN ]
             app.admin.group.moderator:
                 label: Новости
-                roles: [ ROLE_ADMIN, ROLE_SUPER_ADMIN ]
+                roles: [ ROLE_ADMIN, ROLE_MODERATOR ]
             app.admin.group.user:
                 label: Пользователь
-                roles: [ ROLE_USER, ROLE_ADMIN, ROLE_SUPER_ADMIN ]
+                roles: [ ROLE_USER, ROLE_ADMIN ]
     title:      GoBusGo
     title_logo: favicon.ico
     templates:

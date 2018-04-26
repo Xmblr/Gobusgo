@@ -280,27 +280,6 @@
 
 
     </header>
-    {#<div>#}
-        {#{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}#}
-            {#<a href="{{ path('fos_user_profile_show') }}"> {{ 'layout.logged_in_as'|trans({'%username%': app.user.organization}, 'FOSUserBundle') }} </a> |#}
-            {#<a href="{{ path('fos_user_security_logout') }}">#}
-                {#{{ 'layout.logout'|trans({}, 'FOSUserBundle') }}#}
-            {#</a>#}
-        {#{% else %}#}
-            {#<a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>#}
-            {#OR#}
-            {#<a href="{{ path('fos_user_registration_register') }}">{{ 'layout.register'|trans({}, 'FOSUserBundle') }}</a>#}
-        {#{% endif %}#}
-    {#</div>#}
-    {#{{ knp_menu_render('GobusgoGobusgoBundle:Builder:mainMenu', {'template': 'GobusgoGobusgoBundle:Menu:knp_menu.html.twig'}) }}#}
-    {#{% for type, messages in app.session.flashBag.all %}#}
-        {#{% for message in messages %}#}
-            {#<div class="{{ type }}">#}
-                {#{{ message|trans({}, 'FOSUserBundle') }}#}
-            {#</div>#}
-        {#{% endfor %}#}
-    {#{% endfor %}#}
-
 
 {% endblock %}
 {% block callback %}
