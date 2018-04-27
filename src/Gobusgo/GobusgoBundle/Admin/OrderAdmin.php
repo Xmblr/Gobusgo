@@ -21,6 +21,7 @@ class OrderAdmin extends AbstractAdmin
     protected $baseRouteName = 'order_admin';
     protected $baseRoutePattern = 'order_admin';
 
+
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
@@ -48,36 +49,36 @@ class OrderAdmin extends AbstractAdmin
             ],array(
                 'admin_code' => 'admin.address'
             ))
-            ->add('additionalAddress1', ModelType::class, [
+            ->add('additionalAddress', ModelType::class, [
                 'class'=>Address::class,
                 'property' => 'name'
             ],array(
                 'admin_code' => 'admin.address'
             ))
-            ->add('additionalAddress2', ModelType::class, [
-                'class'=>Address::class,
-                'property' => 'name'
-            ],array(
-                'admin_code' => 'admin.address'
-            ))
-            ->add('additionalAddress3', ModelType::class, [
-                'class'=>Address::class,
-                'property' => 'name'
-            ],array(
-                'admin_code' => 'admin.address'
-            ))
-            ->add('additionalAddress4', ModelType::class, [
-                'class'=>Address::class,
-                'property' => 'name'
-            ],array(
-                'admin_code' => 'admin.address'
-            ))
-            ->add('additionalAddress5', ModelType::class, [
-                'class'=>Address::class,
-                'property' => 'name'
-            ],array(
-                'admin_code' => 'admin.address'
-            ))
+//            ->add('additionalAddress2', ModelType::class, [
+//                'class'=>Address::class,
+//                'property' => 'name'
+//            ],array(
+//                'admin_code' => 'admin.address'
+//            ))
+//            ->add('additionalAddress3', ModelType::class, [
+//                'class'=>Address::class,
+//                'property' => 'name'
+//            ],array(
+//                'admin_code' => 'admin.address'
+//            ))
+//            ->add('additionalAddress4', ModelType::class, [
+//                'class'=>Address::class,
+//                'property' => 'name'
+//            ],array(
+//                'admin_code' => 'admin.address'
+//            ))
+//            ->add('additionalAddress5', ModelType::class, [
+//                'class'=>Address::class,
+//                'property' => 'name'
+//            ],array(
+//                'admin_code' => 'admin.address'
+//            ))
             ->add('dateOfOrder', DateTimeType::DATETIME)
             ->add('status')
             ->add('notice', TextareaType::class)
@@ -88,6 +89,7 @@ class OrderAdmin extends AbstractAdmin
     {
         $datagridMapper
             ->add('id')
+            ->add('dateOfOrder')
             ->add('status')
             ->add('userId.fullName')
             ->add('cargoId.name')
@@ -95,18 +97,20 @@ class OrderAdmin extends AbstractAdmin
             ->add('quantityOfCargo')
             ->add('shippingAddress.name')
             ->add('deliveryAddress.name')
-            ->add('additionalAddress1.name')
-            ->add('additionalAddress2.name')
-            ->add('additionalAddress3.name')
-            ->add('additionalAddress4.name')
-            ->add('additionalAddress5.name')
+            ->add('additionalAddress.name')
+//            ->add('additionalAddress2.name')
+//            ->add('additionalAddress3.name')
+//            ->add('additionalAddress4.name')
+//            ->add('additionalAddress5.name')
         ;
     }
 
     protected function configureListFields(ListMapper $listMapper)
     {
+
         $listMapper
             ->addIdentifier('id')
+            ->addIdentifier('dateOfOrder')
             ->addIdentifier('status', null, array('template' => '@GobusgoGobusgo/Admin/CRUD/list_boolean.html.twig'))
             ->addIdentifier('userId.fullName')
             ->addIdentifier('cargoId.name')
@@ -114,11 +118,11 @@ class OrderAdmin extends AbstractAdmin
             ->addIdentifier('quantityOfCargo')
             ->addIdentifier('shippingAddress.name')
             ->addIdentifier('deliveryAddress.name')
-            ->addIdentifier('additionalAddress1.name')
-            ->addIdentifier('additionalAddress2.name')
-            ->addIdentifier('additionalAddress3.name')
-            ->addIdentifier('additionalAddress4.name')
-            ->addIdentifier('additionalAddress5.name')
+            ->addIdentifier('additionalAddress.name')
+//            ->addIdentifier('additionalAddress2.name')
+//            ->addIdentifier('additionalAddress3.name')
+//            ->addIdentifier('additionalAddress4.name')
+//            ->addIdentifier('additionalAddress5.name')
         ;
     }
 }

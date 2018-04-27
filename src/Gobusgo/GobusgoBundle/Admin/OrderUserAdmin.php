@@ -114,41 +114,41 @@ class OrderUserAdmin extends AbstractAdmin
             ],array(
                 'admin_code' => 'admin.user.address'
             ))
-            ->add('additionalAddress1', ModelListType::class, [
+            ->add('additionalAddress', ModelListType::class, [
                 'class'=>Address::class,
 //                'property'=>'fullName',
 //                'choices' => $address_available_choices
             ],array(
                 'admin_code' => 'admin.user.address'
             ))
-            ->add('additionalAddress2', ModelListType::class, [
-                'class'=>Address::class,
-//                'property'=>'fullName',
-//                'choices' => $address_available_choices
-            ],array(
-                'admin_code' => 'admin.user.address'
-            ))
-            ->add('additionalAddress3', ModelListType::class, [
-                'class'=>Address::class,
-//                'property'=>'fullName',
-//                'choices' => $address_available_choices
-            ],array(
-                'admin_code' => 'admin.user.address'
-            ))
-            ->add('additionalAddress4', ModelListType::class, [
-                'class'=>Address::class,
-//                'property'=>'fullName',
-//                'choices' => $address_available_choices
-            ],array(
-                'admin_code' => 'admin.user.address'
-            ))
-            ->add('additionalAddress5', ModelListType::class, [
-                'class'=>Address::class,
-//                'property'=>'fullName',
-//                'choices' => $address_available_choices
-            ],array(
-                'admin_code' => 'admin.user.address'
-            ))
+//            ->add('additionalAddress2', ModelListType::class, [
+//                'class'=>Address::class,
+////                'property'=>'fullName',
+////                'choices' => $address_available_choices
+//            ],array(
+//                'admin_code' => 'admin.user.address'
+//            ))
+//            ->add('additionalAddress3', ModelListType::class, [
+//                'class'=>Address::class,
+////                'property'=>'fullName',
+////                'choices' => $address_available_choices
+//            ],array(
+//                'admin_code' => 'admin.user.address'
+//            ))
+//            ->add('additionalAddress4', ModelListType::class, [
+//                'class'=>Address::class,
+////                'property'=>'fullName',
+////                'choices' => $address_available_choices
+//            ],array(
+//                'admin_code' => 'admin.user.address'
+//            ))
+//            ->add('additionalAddress5', ModelListType::class, [
+//                'class'=>Address::class,
+////                'property'=>'fullName',
+////                'choices' => $address_available_choices
+//            ],array(
+//                'admin_code' => 'admin.user.address'
+//            ))
             ->add('notice', TextareaType::class)
 
         ;
@@ -159,17 +159,18 @@ class OrderUserAdmin extends AbstractAdmin
         $datagridMapper
             ->add('id')
             ->add('status')
+            ->add('dateOfOrder')
             ->add('userId.fullName')
             ->add('cargoId.name')
             ->add('price')
             ->add('quantityOfCargo')
             ->add('shippingAddress.name')
             ->add('deliveryAddress.name')
-            ->add('additionalAddress1.name')
-            ->add('additionalAddress2.name')
-            ->add('additionalAddress3.name')
-            ->add('additionalAddress4.name')
-            ->add('additionalAddress5.name')
+            ->add('additionalAddress.name')
+//            ->add('additionalAddress2.name')
+//            ->add('additionalAddress3.name')
+//            ->add('additionalAddress4.name')
+//            ->add('additionalAddress5.name')
         ;
     }
 
@@ -178,17 +179,18 @@ class OrderUserAdmin extends AbstractAdmin
         $listMapper
             ->addIdentifier('id')
             ->addIdentifier('status', null, array('template' => '@GobusgoGobusgo/Admin/CRUD/list_boolean.html.twig'))
+            ->addIdentifier('dateOfOrder')
             ->addIdentifier('userId.fullName')
             ->addIdentifier('cargoId.name')
             ->addIdentifier('price')
             ->addIdentifier('quantityOfCargo')
             ->addIdentifier('shippingAddress.name')
             ->addIdentifier('deliveryAddress.name')
-            ->addIdentifier('additionalAddress1.name')
-            ->addIdentifier('additionalAddress2.name')
-            ->addIdentifier('additionalAddress3.name')
-            ->addIdentifier('additionalAddress4.name')
-            ->addIdentifier('additionalAddress5.name')
+            ->addIdentifier('additionalAddress.name')
+//            ->addIdentifier('additionalAddress2.name')
+//            ->addIdentifier('additionalAddress3.name')
+//            ->addIdentifier('additionalAddress4.name')
+//            ->addIdentifier('additionalAddress5.name')
         ;
     }
 }
