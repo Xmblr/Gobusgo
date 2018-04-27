@@ -45,7 +45,7 @@
 
                             <li class="start-li">
                                 {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-                                <a class="button-active-header" href="{{ path('fos_user_profile_show') }}"> {{ app.user.organization }} </a>
+                                <a class="button-active-header" href="{{ path('sonata_admin_dashboard') }}"> {{ app.user.organization }} </a>
                                 <a class="button-not-active-header" href="{{ path('fos_user_security_logout') }}">
                                     {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
                                 </a>
@@ -171,8 +171,7 @@
                                 s.style.transform = "translate(2000px,0px) rotate(10turn)";
                                 s.style.transition = "all 5s ease-in-out";
 
-                                await
-                                sleep(4000);
+                            await sleep(3000);
 
                                 window.location.replace(url);
                             }
@@ -339,7 +338,7 @@
                 </div>
             </div>
             <!-- Swiper JS -->
-            <script type="text/javascript" src="{{ asset('js/swiper.min.js') }}"></script>
+
             <script>
                 var swiper = new Swiper('.swiper-container', {
                     navigation: {
@@ -351,6 +350,7 @@
                     },
                 });
             </script>
+            <script type="text/javascript" src="{{ asset('js/swiper.min.js') }}"></script>
 
         </div>
     </div>

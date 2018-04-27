@@ -5,9 +5,9 @@
 {% block fos_user_content %}
 <div class="container">
     <div class="row">
-    <p>{{ 'registration.confirmed'|trans({'%username%': user.username}) }}</p>
+    <h3>{{ 'registration.confirmed'|trans({'%username%': user.username}) }}</h3>
     {% if targetUrl %}
-    <p><a href="{{ targetUrl }}">{{ 'registration.back'|trans }}</a></p>
+    <h3><a href="{{ targetUrl }}">{{ 'registration.back'|trans }}</a></h3>
     {% endif %}
     </div>
 </div>

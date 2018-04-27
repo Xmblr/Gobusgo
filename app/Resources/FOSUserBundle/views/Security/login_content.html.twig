@@ -1,8 +1,8 @@
 {% trans_default_domain 'FOSUserBundle' %}
 
-{% if error %}
-    <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-{% endif %}
+{#{% if error %}#}
+    {#<div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>#}
+{#{% endif %}#}
 <div class="container">
     <div class="row text-center">
         <h1>Добро пожаловать</h1>
@@ -22,7 +22,9 @@
                 </div>
 
 
-
+                {% if error %}
+                    <p style="color:red;">{{ error.messageKey|trans(error.messageData, 'security') }}</p>
+                {% endif %}
                 <div class="label-remember">
                     <input type="checkbox" id="remember_me" name="_remember_me" value="on" style="margin:10px 0px; margin-bottom: 8px;" class="option-input radio"/>
                     <label style="margin-left: 5px" for="remember_me">{{ 'security.login.remember_me'|trans }}</label>

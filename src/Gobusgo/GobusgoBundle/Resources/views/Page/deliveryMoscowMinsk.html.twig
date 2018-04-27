@@ -21,7 +21,7 @@
             </div>
         </div>
     </div>
-    <div class="container road-loptop" style="text-align: center;">
+    <div class="container road-loptop">
         <div class="row">
             <h2>Расчет стоимости грузоперевозки:</h2>
             <span class="road-text-1">Клиент</span>
@@ -41,13 +41,11 @@
             <span class="line-10"></span>
 
 
-
-
-
             <div class="Input-1">
                 <i class="fa fa-chevron-left" aria-hidden="true"
                    style="position: absolute; margin-left: 160px; margin-top: 17px; font-size: 20px; color: #7d88ff;"></i>
-                <input id="weight" class="Input-text-1" style="position: absolute" placeholder="Вес, кг" onchange="sum()">
+                <input id="weight" class="Input-text-1" style="position: absolute" placeholder="Вес, кг"
+                       onchange="sum()">
             </div>
             <div>
                 <div class="Input-2">
@@ -55,14 +53,14 @@
                        style="position: absolute; margin-left: -19px; margin-top: 16px; font-size: 20px; color: #7d88ff;"></i>
 
                     <input class="Input-text-3" id="one" name="from"
-                           style="position: absolute;" value="Москва" readonly />
+                           style="position: absolute;" value="Москва" readonly/>
                 </div>
                 <div class="Input-3">
                     <i class="fa fa-chevron-right" aria-hidden="true"
                        style="position: absolute; margin-left: -19px; margin-top: 15px; font-size: 20px; color: #7d88ff;"></i>
 
                     <input class="Input-text-3" id="two" name="to"
-                           style="position: absolute;" value="Минск" readonly />
+                           style="position: absolute;" value="Минск" readonly/>
                 </div>
             </div>
 
@@ -84,8 +82,9 @@
                     <input type="radio" class="option-input radio" name="example" id="individual" onchange="sum()"/>
                 </label>
             </div>
-            <img src="{{ asset('images/road.png') }}" style="width: 800px;">
-
+            <div style="text-align: center;">
+                <img src="{{ asset('images/road.png') }}" style="width: 800px;">
+            </div>
 
             {#TODO: сделать форму для юр лица#}
 
@@ -95,27 +94,46 @@
             <div class="popup">
                 <div class="section bg-gray-light container-fluid">
 
-                    <h2>Заявка</h2>
                     <div id="legal_form">
+
                         {{ form_start(legalCallform) }}
-                        <div class="Input">
-                            {{ form_errors(legalCallform.weight) }}
-                            {{ form_widget(legalCallform.weight, {'attr':{'class':'Input-text', 'position': 'absolute','placeholder':'Вес\, кг', 'onchange':'sum()','readonly':''}}) }}
+                        <h2>Заявка для юридического лица</h2>
+                        <div class="col-md-6">
+                            <div class="Input" style="display:none;">
+                                {{ form_errors(legalCallform.weight) }}
+                                {{ form_widget(legalCallform.weight, {'attr':{'class':'Input-text', 'position': 'absolute','placeholder':'Вес\, кг', 'onchange':'sum()','readonly':''}}) }}
+                            </div>
+                            <div class="Input" style="display:none;">
+                                <input class="Input-text" id="formLegalOne" position="absolute" readonly/>
+                            </div>
+                            <div class="Input" style="display:none;">
+                                <input class="Input-text" id="formLegalTwo" position="absolute" readonly/>
+                            </div>
+
+                            <div class="Input" style="display:none;">
+                                {{ form_errors(legalCallform.sum) }}
+                                {{ form_widget(legalCallform.sum, {'attr':{'class':'Input-text', 'position': 'absolute','placeholder':'Сумма','readonly':''}}) }}
+                            </div>
+                            <div class="Input">
+                                {{ form_errors(legalCallform.organization) }}
+                                {{ form_widget(legalCallform.organization, {'attr':{'class':'Input-text', 'position': 'absolute','placeholder':'Название организации?'}}) }}
+                            </div>
+                            <div class="Input">
+                                {{ form_errors(legalCallform.fullName) }}
+                                {{ form_widget(legalCallform.fullName, {'attr':{'class':'Input-text', 'position': 'absolute','placeholder':'Контактное лицо'}}) }}
+                            </div>
+                            <div class="Input">
+                                {{ form_errors(legalCallform.phone) }}
+                                {{ form_widget(legalCallform.phone, {'attr':{'class':'Input-text', 'position': 'absolute','placeholder':'телефон'}}) }}
+                            </div>
+                            <div class="Input">
+                                {{ form_errors(legalCallform.code) }}
+                                {{ form_widget(legalCallform.code, {'attr':{'class':'Input-text', 'position': 'absolute','placeholder':'Код'}}) }}
+                            </div>
+
                         </div>
-                        <div class="Input">
-                            <input class="Input-text" id="formLegalOne" position="absolute"  readonly />
-                        </div>
-                        <div class="Input">
-                            <input class="Input-text" id="formLegalTwo" position="absolute" readonly />
-                        </div>
-                        <div class="Input">
-                            {{ form_errors(legalCallform.sum) }}
-                            {{ form_widget(legalCallform.sum, {'attr':{'class':'Input-text', 'position': 'absolute','placeholder':'Сумма','readonly':''}}) }}
-                        </div>
-                        <div class="Input">
-                            {{ form_errors(legalCallform.organization) }}
-                            {{ form_widget(legalCallform.organization, {'attr':{'class':'Input-text', 'position': 'absolute','placeholder':'Название организации?'}}) }}
-                        </div>
+                        <div class="col-md-6">
+
                         <div class="Input">
                             {{ form_errors(legalCallform.UNP) }}
                             {{ form_widget(legalCallform.UNP, {'attr':{'class':'Input-text', 'position': 'absolute','placeholder':'УНП'}}) }}
@@ -136,18 +154,7 @@
                             {{ form_errors(legalCallform.settlementAccount) }}
                             {{ form_widget(legalCallform.settlementAccount, {'attr':{'class':'Input-text', 'position': 'absolute','placeholder':'Расчётный счёт'}}) }}
                         </div>
-                        <div class="Input">
-                            {{ form_errors(legalCallform.code) }}
-                            {{ form_widget(legalCallform.code, {'attr':{'class':'Input-text', 'position': 'absolute','placeholder':'Код'}}) }}
-                        </div>
-                        <div class="Input">
-                            {{ form_errors(legalCallform.fullName) }}
-                            {{ form_widget(legalCallform.fullName, {'attr':{'class':'Input-text', 'position': 'absolute','placeholder':'Контактное лицо'}}) }}
-                        </div>
-                        <div class="Input">
-                            {{ form_errors(legalCallform.phone) }}
-                            {{ form_widget(legalCallform.phone, {'attr':{'class':'Input-text', 'position': 'absolute','placeholder':'телефон'}}) }}
-                        </div>
+
 
                         <div style="display:none">
                             {{ form_widget(legalCallform.height) }}
@@ -157,6 +164,7 @@
 
                             {{ form_rest(legalCallform) }}
                         </div>
+                        </div>
 
                         <div class="text-center" style="margin-bottom: 30px;">
                             <input class="submit-button" value="Оформить заявку" type="submit" onclick="city()">
@@ -165,25 +173,28 @@
                     </div>
 
 
-
                     <div style="display: none;" id="individual_form">
                         {{ form_start(individualCallform) }}
-                        <div class="Input">
+                        <h2>Заявка для физического лица</h2>
+
+                        <div class="Input" style="display: none;">
                             {{ form_errors(individualCallform.weight) }}
                             {{ form_widget(individualCallform.weight, {'attr':{'class':'Input-text', 'position': 'absolute','placeholder':'Вес\, кг','readonly':''}}) }}
                         </div>
-                        <div class="Input">
+                        <div class="Input" style="display: none;">
                             <input class="Input-text" id="formIndividualOne" name="from"
-                                   position="absolute" value="" readonly />
+                                   position="absolute" value="" readonly/>
                         </div>
-                        <div class="Input">
+                        <div class="Input"style="display: none;">
                             <input class="Input-text" id="formIndividualTwo" name="to"
-                                   position="absolute" value="" readonly />
+                                   position="absolute" value="" readonly/>
                         </div>
-                        <div class="Input">
+                        <div class="Input" style="display: none;">
                             {{ form_errors(individualCallform.sum) }}
                             {{ form_widget(individualCallform.sum, {'attr':{'class':'Input-text', 'position': 'absolute','placeholder':'Сумма','readonly':''}}) }}
                         </div>
+
+
                         <div class="Input">
                             {{ form_errors(individualCallform.name) }}
                             {{ form_widget(individualCallform.name, {'attr':{'class':'Input-text', 'position': 'absolute','placeholder':'Как вас зовут?'}}) }}
@@ -213,9 +224,9 @@
                 <a class="close" title="Закрыть" href="#close"></a>
             </div>
 
-
-            <a class="submit-button request-form" href="#legal-form" onclick="openform()">Оформление заявки</a>
-            {#<img src="{{ asset('images/tablet.png') }}" width="800px;">#}
+            <div class="text-center">
+                <a class="submit-button request-form" href="#legal-form" onclick="openform()">Оформление заявки</a>
+            </div> {#<img src="{{ asset('images/tablet.png') }}" width="800px;">#}
         </div>
     </div>
 
@@ -606,7 +617,7 @@
             }
             var weight = document.getElementById('weight');
             var sum = document.getElementById('sum');
-            sum.value = 5 * type + parseInt(weight.value);
+            sum.value = 5 * type + parseInt(weight.value) + ' BYN';
         }
 
         function city() {

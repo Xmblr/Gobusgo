@@ -92,7 +92,7 @@ h4 {
 }
 
 .advantage-title {
-    font-family: 'Zero 5';
+    font-family: MyWebFont;
     font-size:22px;
     line-height: 24px;
     color: black;
@@ -126,7 +126,7 @@ p {
 }
 
 .text-auto {
-    font-family: 'zero 5';
+    font-family: MyWebFont;
     font-size: 18px;
     color: black;
     line-height: 20px;
@@ -134,7 +134,7 @@ p {
 }
 
 .auto-title {
-    font-family: 'zero 5';
+    font-family: MyWebFont;
     font-size:24px;
     line-height: 24px;
     color: #8598ff;
@@ -148,7 +148,7 @@ p {
 }
 
 .footer-text {
-    font-family: 'zero 5';
+    font-family: MyWebFont;
     font-size: 18px;
     color: #8598ff;
     line-height: 22px;
@@ -664,7 +664,7 @@ footer {
     text-align: left;
     cursor: pointer;
     font-size: 20px;
-    font-family: 'Zero 5';
+    font-family: MyWebFont;
     font-weight: 600;
     position: absolute;
     margin-top: 90px;
@@ -684,6 +684,7 @@ footer {
 .radio-cargo label {
     display: block;
     line-height: 40px;
+    cursor: pointer;
 }
 
 @keyframes click-wave {
@@ -762,15 +763,15 @@ footer {
     border-left: 4px solid #7d88ff;
     height: 107px;
     position: absolute;
-    margin-left: -268px;
-    margin-top: 76px;
+    margin-left: 303px;
+    margin-top: 75px;
 }
 
 .line-2 {
     border-top: 4px solid #7d88ff;
     width: 102px;
     position: absolute;
-    margin-left: -266px;
+    margin-left: 305px;
     margin-top: 120px;
 }
 
@@ -778,15 +779,15 @@ footer {
     border-top: 4px solid #7d88ff;
     width: 102px;
     position: absolute;
-    margin-left: -266px;
-    margin-top: 179px;
+    margin-left: 305px;
+    margin-top: 178px;
 }
 
 .line-4 {
     border-left: 4px solid #7d88ff;
     height: 60px;
     position: absolute;
-    margin-left: 358px;
+    margin-left: 928px;
     margin-top: 310px;
 }
 
@@ -794,7 +795,7 @@ footer {
     border-top: 4px solid #7d88ff;
     width: 105px;
     position: absolute;
-    margin-left: 257px;
+    margin-left: 827px;
     margin-top: 369px;
 }
 
@@ -802,7 +803,7 @@ footer {
     border-left: 4px solid #7d88ff;
     height: 95px;
     position: absolute;
-    margin-left: -282px;
+    margin-left: 287px;
     margin-top: 558px;
 }
 
@@ -810,7 +811,7 @@ footer {
     border-top: 4px solid #7d88ff;
     width: 62px;
     position: absolute;
-    margin-left: -282px;
+    margin-left: 290px;
     margin-top: 580px;
 }
 
@@ -818,7 +819,7 @@ footer {
     border-top: 4px solid #7d88ff;
     width: 62px;
     position: absolute;
-    margin-left: -282px;
+    margin-left: 290px;
     margin-top: 649px;
 }
 
@@ -826,7 +827,7 @@ footer {
     border-top: 4px solid #7d88ff;
     width: 62px;
     position: absolute;
-    margin-left: 280px;
+    margin-left: 850px;
     margin-top: 824px;
 }
 
@@ -834,14 +835,14 @@ footer {
     border-left: 4px solid #7d88ff;
     height: 65px;
     position: absolute;
-    margin-left: 338px;
+    margin-left: 910px;
     margin-top: 763px;
 }
 
 .reload-img {
     position: absolute;
     margin-top: 584px;
-    margin-left: -60px;
+    margin-left: 510px;
     cursor: pointer;
     height: 60px;
 }
@@ -859,7 +860,7 @@ footer {
     font-weight: 600;
     position: absolute;
     margin-top: 24px;
-    margin-left: -441px;
+    margin-left: 140px;
 }
 
 .road-text-2 {
@@ -869,7 +870,7 @@ footer {
     font-weight: 600;
     position: absolute;
     margin-top: 255px;
-    margin-left: 419px;
+    margin-left: 990px;
     text-transform: uppercase;
 }
 
@@ -881,7 +882,7 @@ footer {
     font-weight: 600;
     position: absolute;
     margin-top: 415px;
-    margin-left: -291px;
+    margin-left: 291px;
 }
 
 .road-text-4 {
@@ -892,7 +893,7 @@ footer {
     font-weight: 600;
     position: absolute;
     margin-top: 705px;
-    margin-left: 404px;
+    margin-left: 974px;
 }
 
 .table-services {
@@ -910,7 +911,7 @@ footer {
 
 .table-services table td {
     border: 2px solid #818180;
-    font-family: 'zero 5';
+    font-family: MyWebFont;
     font-size: 16px;
     padding: 10px 20px;
 }
@@ -925,7 +926,7 @@ footer {
 }
 
 .text-title-map {
-    font-family: 'zero 5';
+    font-family: MyWebFont;
     font-size: 22px;
     line-height: 24px;
     color: #8598ff;
@@ -933,7 +934,7 @@ footer {
 }
 
 .text-map {
-    font-family: 'zero 5';
+    font-family: MyWebFont;
     color: black;
     font-size: 18px;
     margin: 10px 0px 20px 0px;
@@ -955,7 +956,7 @@ footer {
 
 .table-services-minsk table td {
     border: 2px solid #818180;
-    font-family: 'zero 5';
+    font-family: MyWebFont;
     font-size: 18px;
     padding: 20px 20px;
 }
@@ -978,21 +979,6 @@ footer {
     margin: 20px 0px;
 }
 
-.submit-button {
-    cursor: pointer;
-    display: inline-block;
-    padding: 0px 20px;
-    color: #8598ff;
-    font-size: 18px;
-    position: relative;
-    transition: all 0.4s ease;
-    font-family: 'Zing Sans Rust R Base';
-    font-weight: 600;
-    letter-spacing: -0.5px;
-    background-color: #ffeb89;
-    border-radius: 4px;
-}
-
 .label-remember {
     text-align: center;
 }
@@ -1004,16 +990,17 @@ footer {
 .submit-button {
     cursor: pointer;
     display: inline-block;
-    padding: 5px 20px;
+    padding: 8px 20px;
     color: black;
     font-size: 16px;
     position: relative;
     transition: all 0.4s ease;
     font-family: Trebuchet MS;
     font-weight: 600;
-    letter-spacing: -0.5px;
     background-color: #ffeb89;
     border-radius: 4px;
+    text-transform: uppercase;
+    margin-top: 10px;
 }
 
 .label-remember {
@@ -1057,7 +1044,7 @@ footer {
 .Input-text-1 {
     display: inline-block;
     font-size: 20px;
-    font-family: 'Zing Sans Rust R Base';
+    font-family: MyWebFont;
     position: absolute;
     width: 140px;
     padding: 10px 5px;
@@ -1075,7 +1062,7 @@ footer {
 .Input-text-2 {
     display: inline-block;
     font-size: 20px;
-    font-family: 'Zing Sans Rust R Base';
+    font-family: MyWebFont;
     position: absolute;
     width: 140px;
     padding: 10px 5px;
@@ -1099,13 +1086,14 @@ footer {
 .Input-text-3 {
     display: inline-block;
     font-size: 14px;
-    font-family: 'Zing Sans Rust R Base';
+    font-family: MyWebFont;
     position: absolute;
     width: 140px;
     padding: 10px 5px;
     color: #8598ff;
     text-align: center;
     border: 3px solid #7d88ff;
+    cursor: pointer;
 }
 
 .Input-4 {
@@ -1117,7 +1105,7 @@ footer {
 .Input-text-4 {
     display: inline-block;
     font-size: 20px;
-    font-family: 'Zing Sans Rust R Base';
+    font-family: MyWebFont;
     position: absolute;
     width: 140px;
     padding: 10px 5px;
@@ -1135,7 +1123,7 @@ footer {
 .Input-text-5 {
     display: inline-block;
     font-size: 14px;
-    font-family: 'Zing Sans Rust R Base';
+    font-family: MyWebFont;
     position: absolute;
     width: 314px;
     padding: 4px 5px;
@@ -1196,7 +1184,7 @@ footer {
 .Input-text-13 {
     display: inline-block;
     font-size: 14px;
-    font-family: 'Zing Sans Rust R Base';
+    font-family: MyWebFont;
     position: absolute;
     width: 275px;
     padding: 4px 5px;
@@ -1214,7 +1202,7 @@ footer {
     text-align: left;
     cursor: pointer;
     font-size: 18px;
-    font-family: 'Zing Sans Rust R Base';
+    font-family: MyWebFont;
     font-weight: 600;
     line-height:40px;
 }
@@ -1227,7 +1215,7 @@ footer {
     text-align: left;
     cursor: pointer;
     font-size: 18px;
-    font-family: 'Zing Sans Rust R Base';
+    font-family: MyWebFont;
     font-weight: 600;
     line-height:40px;
     visibility: hidden;
@@ -1449,7 +1437,7 @@ footer {
     border-top: 4px solid #7d88ff;
     width: 65px;
     position: absolute;
-    margin-left: 297px;
+    margin-left: 867px;
     margin-top: 369px;
 }
 

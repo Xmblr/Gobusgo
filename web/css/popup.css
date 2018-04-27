@@ -59,7 +59,7 @@
     top: 5%;
     overflow: auto;
     z-index:1000;
-    max-width: 500px;
+    max-width: 800px;
     text-align: center;
 }
 /* формируем кнопку закрытия */

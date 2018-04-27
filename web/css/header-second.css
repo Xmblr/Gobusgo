@@ -59,6 +59,7 @@
     border-radius: 4px;
     line-height: 24px;
     text-transform: uppercase;
+    margin-right: 10px;
 }
 
 .header-menu li a {
@@ -89,6 +90,7 @@
     padding: 15px 10px;
     float: left;
     text-align: center;
+    height: 108px;
 }
 
 .logo-text-header {
@@ -114,7 +116,11 @@
 }
 
 .menu-table-header {
-    margin: 0px;
+    height: 108px;
+    vertical-align: middle;
+    display: table-cell;
+    padding-right: 10px;
+    padding-bottom: 18px;
 }
 
 .menu-table-header tr td, .menu-table-header {
@@ -187,21 +193,26 @@
     }
 
     .time-of-work {
-        padding-left: 30px;
+
     }
+}
+
+.time-of-work {
+    height: 108px;
+    vertical-align: middle;
+    display: table-cell;
+    padding-right: 10px;
 }
 
 .time-of-work li {
     font-family: "Trebuchet MS";
     font-size: 15px;
-    line-height: 17px;
     color: #566fe0;
-    letter-spacing: 1.5px;
     text-transform: uppercase;
     font-weight: 600;
 }
 
-@media (max-width: 468px) {
+@media (max-width: 768px) {
     .top-bar-menu, .top-bar-menu-active {
         font-size:14px;
     }

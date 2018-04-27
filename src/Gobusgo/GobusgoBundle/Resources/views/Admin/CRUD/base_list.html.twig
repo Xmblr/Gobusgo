@@ -160,7 +160,7 @@ file that was distributed with this source code.
                                             </script>
 
                                         {% block batch_actions %}
-                                            <label class="checkbox" for="{{ admin.uniqid }}_all_elements">
+                                            <label class="checkbox" style="margin-right: 10px;" for="{{ admin.uniqid }}_all_elements">
                                                 <input type="checkbox" name="all_elements" id="{{ admin.uniqid }}_all_elements">
                                                 {{ 'all_elements'|trans({}, 'SonataAdminBundle') }}
                                                 ({{ admin.datagrid.pager.nbresults }})
@@ -185,7 +185,7 @@ file that was distributed with this source code.
                                 <div class="pull-right">
                                     {% if admin.hasRoute('export') and admin.hasAccess('export') and export_formats|length %}
                                         <div class="btn-group">
-                                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                                            <button type="button" class="export-button" data-toggle="dropdown">
                                                 <i class="fa fa-share-square-o" aria-hidden="true"></i>
                                                 {{ "label_export_download"|trans({}, "SonataAdminBundle") }}
                                                 <span class="caret"></span>
@@ -193,7 +193,7 @@ file that was distributed with this source code.
                                             <ul class="dropdown-menu">
                                                 {% for format in export_formats %}
                                                 <li>
-                                                    <a href="{{ admin.generateUrl('export', admin.modelmanager.paginationparameters(admin.datagrid, 0) + {'format' : format}) }}">
+                                                    <a style="font-family: trebuchet MS;" href="{{ admin.generateUrl('export', admin.modelmanager.paginationparameters(admin.datagrid, 0) + {'format' : format}) }}">
                                                         <i class="fa fa-arrow-circle-o-down" aria-hidden="true"></i>
                                                         {{ ("export_format_" ~ format)|trans({}, 'SonataAdminBundle') }}
                                                     </a>
@@ -236,7 +236,7 @@ file that was distributed with this source code.
                 <a href="#" class="dropdown-toggle sonata-ba-action" data-toggle="dropdown">
                     <i class="fa fa-filter" aria-hidden="true"></i>
                     {{ 'link_filters'|trans({}, 'SonataAdminBundle') }}
-                    <span class="badge sonata-filter-count"></span>
+                    {#<span class="badge sonata-filter-count"></span>#}
                     <b class="caret"></b>
                 </a>
 
@@ -245,7 +245,7 @@ file that was distributed with this source code.
                         {% set filterActive = ((filter.isActive() or filter.options['show_filter']) and not admin.isDefaultFilter(filter.formName)) %}
                         <li>
                             <a href="#" class="sonata-toggle-filter sonata-ba-action" filter-target="filter-{{ admin.uniqid }}-{{ filter.name }}" filter-container="filter-container-{{ admin.uniqid() }}">
-                                <i class="fa {{ (filter.isActive() or filter.options['show_filter']) ? 'fa-check-square-o' : 'fa-square-o' }}"></i>{{ filter.label|trans({}, filter.translationDomain ?: admin.translationDomain) }}
+                                <i style="vertical-align: middle;" class="fa {{ (filter.isActive() or filter.options['show_filter']) ? 'option-filter' : 'option-filter-noactive' }}"></i><span style="vertical-align: middle;">{{ filter.label|trans({}, filter.translationDomain ?: admin.translationDomain) }}</span>
                             </a>
                         </li>
                     {% endfor %}
@@ -282,13 +282,13 @@ file that was distributed with this source code.
                                         </div>
 
                                         <div class="col-sm-4">
-                                            {{ form_widget(form[filter.formName].children['value']) }}
+                                            {{ form_widget(form[filter.formName].children['value'], {'attr':{'class':'input-admin'}}) }}
                                         </div>
 
                                         <div class="col-sm-1">
                                             <label class="control-label">
                                                 <a href="#" class="sonata-toggle-filter sonata-ba-action" filter-target="filter-{{ admin.uniqid }}-{{ filter.name }}" filter-container="filter-container-{{ admin.uniqid() }}">
-                                                    <i class="fa fa-minus-circle" aria-hidden="true"></i>
+                                                    <i class="fa fa-minus-circle fa-2x" aria-hidden="true"></i>
                                                 </a>
                                             </label>
                                         </div>
@@ -305,12 +305,12 @@ file that was distributed with this source code.
                                 {% set foo = form['_page'].setRendered() %}
                                 {{ form_rest(form) }}
 
-                                <div class="form-group">
-                                    <button type="submit" class="btn btn-primary">
+                                <div class="form-group" style="padding-top: 4px;">
+                                    <button type="submit" class="top-bar-menu-active">
                                         <i class="fa fa-filter" aria-hidden="true"></i> {{ 'btn_filter'|trans({}, 'SonataAdminBundle') }}
                                     </button>
 
-                                    <a class="btn btn-default" href="{{ admin.generateUrl('list', {filters: 'reset'}) }}">
+                                    <a class="top-bar-menu" style="padding: 0px;" href="{{ admin.generateUrl('list', {filters: 'reset'}) }}">
                                         {{ 'link_reset_filter'|trans({}, 'SonataAdminBundle') }}
                                     </a>
                                 </div>

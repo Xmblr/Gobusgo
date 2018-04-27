@@ -20,6 +20,7 @@
     -webkit-transition: all 0.4s ease;
     -o-transition: all 0.4s ease;
     transition: all 0.4s ease;
+    padding-top: 2px;
 }
 .accordion li i.fa-chevron-down {
     right: 12px;
@@ -156,7 +157,7 @@ color: #8598ff;
     padding: 8px 15px 8px 10%;
     color: #8598ff;
     font-size: 18px;
-    font-family: 'zero 5';
+    font-family: MyWebFont;
     font-weight: 600;
 }
 
@@ -171,19 +172,14 @@ color: #8598ff;
 
 .button-active-header {
     display: inline-block;
-    font-family: Zing Sans Rust R Base;
-    letter-spacing: -0.5px;
+    font-family: Trebuchet MS;
     background-color: #ffeb89;
     color: #8598ff;
     font-weight: 600;
     padding: 0px 20px;
     border-radius: 4px;
     font-size: 18px;
-    -o-transform: scale(0.9, 1.5);
-    -ms-transform: scale(0.9, 1.5));
-    -moz-transform: scale(0.9, 1.5);
-    -webkit-transform: scale(0.9, 1.5);
-    transform: scale(0.9, 1.5);
+    text-transform: uppercase;
 }
 
 .button-active-header:hover {
@@ -192,18 +188,13 @@ color: #8598ff;
 
 .button-not-active-header {
     display: inline-block;
-    font-family: Zing Sans Rust R Base;
-    letter-spacing: 0.3px;
+    font-family: Trebuchet MS;
     font-weight: 600;
     padding: 0px;
     font-size: 18px;
-    -o-transform: scale(0.9, 1.5);
-    -ms-transform: scale(0.9, 1.5));
-    -moz-transform: scale(0.9, 1.5);
-    -webkit-transform: scale(0.9, 1.5);
-    transform: scale(0.9, 1.5);
     margin-left: 10px;
     color: #8598ff;
+    text-transform: uppercase;
 }
 
 @media (min-width: 1200px) {
@@ -213,7 +204,7 @@ color: #8598ff;
 }
 
 .start-li {
-    margin: 30px 0px 20% 0px;
+    margin: 30px 0px 20% 15px;
 }
 
 .divider-header {

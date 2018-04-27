@@ -10,6 +10,7 @@ use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Form\Type\ModelType;
+use Sonata\AdminBundle\Route\RouteCollection;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Finder\Exception\AccessDeniedException;
 
@@ -50,32 +51,47 @@ class AddressUserAdmin extends AbstractAdmin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('name', null,array('label'=>'Имя'))
+            ->add('name', null,array('label'=>'ФИО получателя'))
             ->add('organization')
             ->add('city', EntityType::class, [
                 'class' => City::class,
                 'choice_label' => 'name'])
-            ->add('street')
+            ->add('street', null,array('label'=>'Адрес'))
         ;
     }
 
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
-            ->add('name')
-            ->add('organization')
-            ->add('city.name')
-            ->add('street')
+            ->add('name', null,array('label'=>'ФИО получателя'))
+            ->add('organization', null,array('label'=>'Организация'))
+            ->add('city.name', null,array('label'=>'Имя'))
+            ->add('street', null,array('label'=>'Имя'))
         ;
     }
 
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-            ->addIdentifier('name')
-            ->addIdentifier('organization')
-            ->addIdentifier('city.name')
-            ->addIdentifier('street')
+            ->addIdentifier('name', null,array('label'=>'ФИО получателя'))
+            ->addIdentifier('organization', null,array('label'=>'Организация'))
+            ->addIdentifier('city.name', null,array('label'=>'Город'))
+            ->addIdentifier('street', null,array('label'=>'Адрес'))
         ;
+    }
+
+    public function configureBatchActions($actions)
+    {
+        if (
+            $this->hasRoute('edit') && $this->hasAccess('edit') &&
+            $this->hasRoute('delete') && $this->hasAccess('delete')
+        ) {
+            $actions['merge'] = [
+                'ask_confirmation' => true
+            ];
+
+        }
+
+        return $actions;
     }
 }

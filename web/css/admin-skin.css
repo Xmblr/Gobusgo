@@ -69,7 +69,7 @@
         border-right: none;
     }
     .skin-black .main-header > .logo:hover {
-        background-color: #1f1f1f;
+        background-color: white;
     }
 }
 .skin-black .main-header li.user-header {
@@ -104,7 +104,7 @@
 }
 .skin-black .sidebar-menu > li > .treeview-menu {
     margin: 0 1px;
-    background: #2c3b41;
+    background: white;
 }
 .skin-black .sidebar a {
     color: #8598ff;
@@ -113,11 +113,11 @@
     text-decoration: none;
 }
 .skin-black .treeview-menu > li > a {
-    color: #8aa4af;
+    color: #8598ff;
 }
 .skin-black .treeview-menu > li.active > a,
 .skin-black .treeview-menu > li > a:hover {
-    color: #ffffff;
+    color: #566fe0;
 }
 .skin-black .sidebar-form {
     border-radius: 3px;

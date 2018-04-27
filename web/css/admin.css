@@ -938,7 +938,7 @@ a:focus {
     border-color: #eee;
 }
 .dropdown-menu > li > a {
-    color: #777;
+    color: #333;
 }
 .dropdown-menu > li > a > .glyphicon,
 .dropdown-menu > li > a > .fa,
@@ -946,7 +946,7 @@ a:focus {
     margin-right: 10px;
 }
 .dropdown-menu > li > a:hover {
-    background-color: #e1e3e9;
+    background-color: white;
     color: #333;
 }
 .dropdown-menu > .divider {
@@ -1559,7 +1559,6 @@ a:focus {
     position: relative;
     border-radius: 3px;
     background: #ffffff;
-    border-top: 3px solid #d2d6de;
     margin-bottom: 20px;
     width: 100%;
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
@@ -2259,23 +2258,35 @@ a:focus {
     background-color: #e7e7e7;
 }
 .btn-primary {
-    background-color: #3c8dbc;
-    border-color: #367fa9;
+    background-color: #8598ff;
+    border-color: #8598ff;
 }
 .btn-primary:hover,
 .btn-primary:active,
 .btn-primary.hover {
-    background-color: #367fa9;
+    background-color: #566fe0;
 }
 .btn-success {
-    background-color: #00a65a;
-    border-color: #008d4c;
+    background-color: #ffeb89;
+    border-color: #ffeb89;
+    color: #566fe0;
+    font-weight: 600;
 }
+
 .btn-success:hover,
 .btn-success:active,
 .btn-success.hover {
-    background-color: #008d4c;
+    color: #8598ff;
+    background-color: #ffeb89;
+    border-color: #ffeb89;
 }
+
+.btn-success.active.focus, .btn-success.focus, .btn-success:focus, .btn-success.active:focus, .btn-success.active:hover, .btn-success:active.focus, .btn-success:active:focus, .btn-success:active:hover, .open > .dropdown-toggle.btn-success.focus, .open > .dropdown-toggle.btn-success:focus, .open > .dropdown-toggle.btn-success:hover {
+    color: #566fe0;
+    background-color: #ffeb89;
+    border-color: #ffeb89;
+}
+
 .btn-info {
     background-color: #00c0ef;
     border-color: #00acd6;
@@ -4956,4 +4967,206 @@ table.text-center th {
 .admin-menu-left {
     vertical-align: middle;
     margin-left: 20px;
+}
+
+.navbar-default {
+    background-color: white;
+}
+
+.navbar-default .navbar-nav > li > a {
+    font-family: trebuchet MS;
+    text-transform: uppercase;
+    color: #8598ff;
+}
+
+/*.navbar-default .navbar-nav > li > a:hover {*/
+    /*color: #566fe0;*/
+/*}*/
+
+.badge {
+    display: inline-block;
+    min-width: 10px;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1;
+    color: #566fe0;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    background-color: white;
+}
+
+.navbar-default .navbar-nav > .open > a,
+.navbar-default .navbar-nav > .open > a:focus,
+.navbar-default .navbar-nav > .open > a:hover {
+    color: #8598ff;
+    background-color: white;
+}
+
+.navbar-default .navbar-nav > li > a:focus, .navbar-default .navbar-nav > li > a:hover {
+    color: #566fe0;
+}
+
+.option-filter {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    -o-appearance: none;
+    appearance: none;
+    position: relative;
+    background: #ffe775;
+    bottom: 0;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    transition: all 0.15s ease-out 0s;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    outline: none;
+    position: relative;
+    z-index: 0;
+}
+
+.option-filter:after {
+    -webkit-animation: click-wave 0.65s;
+    -moz-animation: click-wave 0.65s;
+    animation: click-wave 0.65s;
+    background: #aec1fb;
+    content: '';
+    display: block;
+    position: relative;
+    z-index: 100;
+}
+
+.option-filter:before {
+    height: 20px;
+    width: 20px;
+    position: absolute;
+    content: '✔';
+    display: inline-block;
+    font-size: 15px;
+    text-align: center;
+    line-height: 20px;
+}
+
+.option-filter-noactive {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    -o-appearance: none;
+    appearance: none;
+    position: relative;
+    background: white;
+    bottom: 0;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    transition: all 0.15s ease-out 0s;
+    border: 2px solid #ffe775;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    outline: none;
+    position: relative;
+    z-index: 0;
+}
+
+.input-admin {
+    display: block;
+    margin: 0;
+    width: 100%;
+    font-weight: inherit;
+    font-size: 16px;
+    font-family: mywebfont;
+    padding: 10px 5px;
+    color: #333;
+    text-align: center;
+    border: 2px solid #8598ff;
+}
+
+.select2-container .select2-choice {
+    border: 2px solid #8598ff;
+    line-height: 32px;
+    box-shadow: none;
+    color: #333;
+}
+
+.select2-choice > span:first-child, .select2-chosen, .select2-container .select2-choices .select2-search-field input {
+    padding: 0px;
+    text-align: center;
+    font-family: MyWebFont;
+    text-transform: uppercase;
+}
+
+.select2-results .select2-highlighted {
+    background-color: white;
+    color: #8598ff;
+}
+
+.select2-drop {
+    color: #333;
+}
+
+.sonata-toggle-filter {
+    color: #8598ff;
+}
+
+.form-horizontal .control-label {
+    padding-top: 2px;
+}
+
+.select2-results .select2-result-label {
+    font-family: MyWebFont;
+}
+
+a {
+    color: #8598ff;
+    font-family: trebuchet MS;
+}
+
+.dropdown-menu > li > a:focus, .dropdown-menu > li > a:hover {
+    background-color: white;
+}
+
+.select2-container .select2-choice > .select2-chosen {
+    margin-left: 10px;
+}
+
+label {
+    font-family: trebuchet MS;
+}
+
+.select2-dropdown-open.select2-drop-above [class^="select2-choice"] {
+    border-radius: 0px !important;
+}
+
+.export-button {
+    background-color: white;
+    padding: 5px 10px;
+    border: 2px solid #8598ff;
+    color: #333;
+    font-family: mywebfont;
+    text-transform: uppercase;
+}
+
+.box {
+    border-top: 0px;
+}
+
+.button-admin {
+    cursor: pointer;
+    display: inline-block;
+    padding: 4px 20px;
+    color: black;
+    font-size: 15px;
+    position: relative;
+    transition: all 0.4s ease;
+    font-family: Trebuchet MS;
+    font-weight: 500;
+    background-color: #ffeb89;
+    border-radius: 4px;
+    text-transform: uppercase;
+    margin-top: 10px;
 }

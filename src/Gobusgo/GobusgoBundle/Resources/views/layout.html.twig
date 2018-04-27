@@ -13,7 +13,7 @@
     </a>
     <div class="popup" style="max-width:500px; text-align:center;">
         <div class="section bg-gray-light container-fluid" style="padding-top: 10px; padding-bottom: 10px; padding:0%;">
-            <h2>Заказ обратного звонка</h2>
+            <h2 class="m-b-20">Заказ обратного звонка</h2>
             <div class="container-fluid">
 
                 {{ form_start(callform) }}
@@ -25,7 +25,7 @@
                 <div class="form-group">
                     {{ form_widget(callform.phone, {'attr':{'class':'Input-text','placeholder':'Номер телефона'}}) }}
                 </div>
-                <input type="submit" class="submitBnt btn btn-custom" value="Отправить" style="color:black;">
+                <input type="submit" class="submit-button" value="Отправить">
                 {{ form_end(callform) }}
             </div>
         </div>

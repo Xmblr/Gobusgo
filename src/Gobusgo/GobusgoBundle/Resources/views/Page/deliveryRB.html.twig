@@ -21,7 +21,7 @@
         </div>
     </div>
 
-    <div class="container road-loptop" style="text-align: center;">
+    <div class="container road-loptop">
         <div class="row">
             <h2>Расчет стоимости грузоперевозки:</h2>
             <span class="road-text-1">Клиент</span>
@@ -49,6 +49,10 @@
             <div class="Input-1-1">
                 <i class="fa fa-chevron-left" aria-hidden="true"
                    style="position: absolute; margin-left: 170px; margin-top: 51px; font-size: 20px; color: #7d88ff;"></i>
+                {#<div class="Input">#}
+                {#{{ form_errors(legalCallform.weight) }}#}
+                {#{{ form_widget(legalCallform.weight, {'attr':{'class':'Input-text', 'position': 'absolute','placeholder':'Вес\, кг','readonly':''}}) }}#}
+                {#</div>#}
                 <input id="weight" class="Input-text-1" style="position: absolute" placeholder="Вес, кг"
                        onchange="sum()">
             </div>
@@ -129,7 +133,9 @@
                     <input type="radio" class="option-input radio" name="example" id="individual" onchange="sum()"/>
                 </label>
             </div>
-            <img src="{{ asset('images/road.png') }}" style="width: 800px;">
+            <div style="text-align: center;">
+                <img src="{{ asset('images/road.png') }}" style="width: 800px;">
+            </div>
 
 
             <a href="#x" class="overlay" id="legal-form">
@@ -141,77 +147,83 @@
 
                     <div style="" id="legal_form">
                         {{ form_start(legalCallform) }}
+                        <div class="col-md-6">
+                            <div class="Input">
+                                {{ form_errors(legalCallform.organization) }}
+                                {{ form_widget(legalCallform.organization, {'attr':{'class':'Input-text', 'position': 'absolute','placeholder':'Название организации'}}) }}
+                            </div>
+                            <div class="Input">
+                                {{ form_errors(legalCallform.fullName) }}
+                                {{ form_widget(legalCallform.fullName, {'attr':{'class':'Input-text', 'position': 'absolute','placeholder':'Контактное лицо'}}) }}
+                            </div>
+                            <div class="Input">
+                                {{ form_errors(legalCallform.phone) }}
+                                {{ form_widget(legalCallform.phone, {'attr':{'class':'Input-text', 'position': 'absolute','placeholder':'Телефон'}}) }}
+                            </div>
+                            <div class="Input">
+                                {{ form_errors(legalCallform.code) }}
+                                {{ form_widget(legalCallform.code, {'attr':{'class':'Input-text', 'position': 'absolute','placeholder':'Код'}}) }}
+                            </div>
 
-                        <div class="Input">
+                            <div class="Input" style="display: none;">
                             {{ form_errors(legalCallform.weight) }}
                             {{ form_widget(legalCallform.weight, {'attr':{'class':'Input-text', 'position': 'absolute','placeholder':'Вес\, кг','readonly':''}}) }}
-                        </div>
-                        <div class="Input">
+                            </div>
+                            <div class="Input" style="display: none;">
                             {{ form_errors(legalCallform.height) }}
                             {{ form_widget(legalCallform.height, {'attr':{'class':'Input-text', 'position': 'absolute','placeholder':'Высота','readonly':''}}) }}
-                        </div>
-                        <div class="Input">
+                            </div>
+                            <div class="Input" style="display: none;">
                             {{ form_errors(legalCallform.lenght) }}
                             {{ form_widget(legalCallform.lenght, {'attr':{'class':'Input-text', 'position': 'absolute','placeholder':'Длинна','readonly':''}}) }}
-                        </div>
-                        <div class="Input">
+                            </div>
+                            <div class="Input" style="display: none;">
                             {{ form_errors(legalCallform.width) }}
                             {{ form_widget(legalCallform.width, {'attr':{'class':'Input-text', 'position': 'absolute','placeholder':'Глубина','readonly':''}}) }}
-                        </div>
-                        <div class="Input">
+                            </div>
+                            <div class="Input" style="display: none;">
                             <input class="Input-text" id="formLegalCity1" position="absolute" readonly />
-                        </div>
-                        <div class="Input">
+                            </div>
+                            <div class="Input" style="display: none;">
                             <input class="Input-text" id="formLegalCity2" position="absolute" readonly />
-                        </div>
-                        <div class="Input">
+                            </div>
+                            <div class="Input" style="display: none;">
                             <input class="Input-text" id="formLegalCity3" position="absolute" readonly />
-                        </div>
-                        <div class="Input">
+                            </div>
+                            <div class="Input" style="display: none;">
                             {{ form_errors(legalCallform.sum) }}
                             {{ form_widget(legalCallform.sum, {'attr':{'class':'Input-text', 'position': 'absolute','placeholder':'Сумма', 'readonly':'true'}}) }}
+                            </div>
                         </div>
-                        <div class="Input">
-                            {{ form_errors(legalCallform.organization) }}
-                            {{ form_widget(legalCallform.organization, {'attr':{'class':'Input-text', 'position': 'absolute','placeholder':'Название организации?'}}) }}
-                        </div>
-                        <div class="Input">
-                            {{ form_errors(legalCallform.UNP) }}
-                            {{ form_widget(legalCallform.UNP, {'attr':{'class':'Input-text', 'position': 'absolute','placeholder':'УНП'}}) }}
-                        </div>
-                        <div class="Input">
-                            {{ form_errors(legalCallform.bank) }}
-                            {{ form_widget(legalCallform.bank, {'attr':{'class':'Input-text', 'position': 'absolute','placeholder':'Банк'}}) }}
-                        </div>
-                        <div class="Input">
-                            {{ form_errors(legalCallform.addressOfTheBank) }}
-                            {{ form_widget(legalCallform.addressOfTheBank, {'attr':{'class':'Input-text', 'position': 'absolute','placeholder':'Адресс банка'}}) }}
-                        </div>
-                        <div class="Input">
-                            {{ form_errors(legalCallform.legalAddress) }}
-                            {{ form_widget(legalCallform.legalAddress, {'attr':{'class':'Input-text', 'position': 'absolute','placeholder':'Юридический адресс'}}) }}
-                        </div>
-                        <div class="Input">
-                            {{ form_errors(legalCallform.settlementAccount) }}
-                            {{ form_widget(legalCallform.settlementAccount, {'attr':{'class':'Input-text', 'position': 'absolute','placeholder':'Расчётный счёт'}}) }}
-                        </div>
-                        <div class="Input">
-                            {{ form_errors(legalCallform.code) }}
-                            {{ form_widget(legalCallform.code, {'attr':{'class':'Input-text', 'position': 'absolute','placeholder':'Код'}}) }}
-                        </div>
-                        <div class="Input">
-                            {{ form_errors(legalCallform.fullName) }}
-                            {{ form_widget(legalCallform.fullName, {'attr':{'class':'Input-text', 'position': 'absolute','placeholder':'Контактное лицо'}}) }}
-                        </div>
-                        <div class="Input">
-                            {{ form_errors(legalCallform.phone) }}
-                            {{ form_widget(legalCallform.phone, {'attr':{'class':'Input-text', 'position': 'absolute','placeholder':'Телефон'}}) }}
-                        </div>
+                        <div class="col-md-6">
 
-                        <div style="display:none">
-                            {{ form_widget(legalCallform.cities) }}
+                            <div class="Input">
+                                {{ form_errors(legalCallform.UNP) }}
+                                {{ form_widget(legalCallform.UNP, {'attr':{'class':'Input-text', 'position': 'absolute','placeholder':'УНП'}}) }}
+                            </div>
+                            <div class="Input">
+                                {{ form_errors(legalCallform.bank) }}
+                                {{ form_widget(legalCallform.bank, {'attr':{'class':'Input-text', 'position': 'absolute','placeholder':'Банк'}}) }}
+                            </div>
+                            <div class="Input">
+                                {{ form_errors(legalCallform.addressOfTheBank) }}
+                                {{ form_widget(legalCallform.addressOfTheBank, {'attr':{'class':'Input-text', 'position': 'absolute','placeholder':'Адресс банка'}}) }}
+                            </div>
+                            <div class="Input">
+                                {{ form_errors(legalCallform.legalAddress) }}
+                                {{ form_widget(legalCallform.legalAddress, {'attr':{'class':'Input-text', 'position': 'absolute','placeholder':'Юридический адресс'}}) }}
+                            </div>
+                            <div class="Input">
+                                {{ form_errors(legalCallform.settlementAccount) }}
+                                {{ form_widget(legalCallform.settlementAccount, {'attr':{'class':'Input-text', 'position': 'absolute','placeholder':'Расчётный счёт'}}) }}
+                            </div>
 
-                            {{ form_rest(legalCallform) }}
+
+                            <div style="display:none">
+                                {{ form_widget(legalCallform.cities) }}
+
+                                {{ form_rest(legalCallform) }}
+                            </div>
                         </div>
 
                         <div class="text-center" style="margin-bottom: 30px;">
@@ -242,13 +254,13 @@
                             {{ form_widget(individualCallform.width, {'attr':{'class':'Input-text', 'position': 'absolute','placeholder':'Глубина','readonly':''}}) }}
                         </div>
                         <div class="Input">
-                            <input class="Input-text" id="formIndividualCity1" position="absolute" readonly />
+                            <input class="Input-text" id="formIndividualCity1" position="absolute" readonly/>
                         </div>
                         <div class="Input">
-                            <input class="Input-text" id="formIndividualCity2" position="absolute" readonly />
+                            <input class="Input-text" id="formIndividualCity2" position="absolute" readonly/>
                         </div>
                         <div class="Input">
-                            <input class="Input-text" id="formIndividualCity3" position="absolute" readonly />
+                            <input class="Input-text" id="formIndividualCity3" position="absolute" readonly/>
                         </div>
                         <div class="Input">
                             {{ form_errors(individualCallform.sum) }}
@@ -279,8 +291,9 @@
                 <a class="close" title="Закрыть" href="#close"></a>
 
             </div>
-
-            <a class="submit-button request-form" href="#legal-form" onclick="openform()">Оформление заявки</a>
+            <div class="text-center">
+                <a class="submit-button request-form" href="#legal-form" onclick="openform()">Оформление заявки</a>
+            </div>
         </div>
 
     </div>
@@ -594,7 +607,7 @@
             var width = document.getElementById('width');
 
             var sum = document.getElementById('sum');
-            sum.value = 5 * type + parseInt(weight.value) + parseInt(height.value) + parseInt(lenght.value) + parseInt(width.value);
+            sum.value = 5 * type + parseInt(weight.value) + parseInt(height.value) + parseInt(lenght.value) + parseInt(width.value) + ' BYN';
         }
 
         function city() {
