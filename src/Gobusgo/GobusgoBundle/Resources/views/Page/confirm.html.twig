@@ -43,9 +43,18 @@
                             Сумма: {{ message.sum }}; </br>
                             </br>
                             Примечания: {{ message.notice }};
-                        {%  else %}
-                            Контактное лицо: {{ message.name }} </br>
-                            Телефон для связи: {{ message.phone }} </br>
+                        {% else %}
+
+                            <div class="alert alert-success">
+                                {{ message }}
+                                Сейчас Вас перенаправят на предыдущую страницу.
+                            </div>
+                            <script>
+
+                                var oldURL = document.referrer;
+                                setTimeout('location=oldURL;', 5000);
+
+                            </script>
                         {% endif %}
 
 

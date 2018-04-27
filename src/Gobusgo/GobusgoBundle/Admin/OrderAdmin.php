@@ -38,43 +38,43 @@ class OrderAdmin extends AbstractAdmin
             ->add('quantityOfCargo')
             ->add('shippingAddress', ModelType::class, [
                 'class'=>Address::class,
-                'property'=>'fullName'
+                'property' => 'name'
             ],array(
                 'admin_code' => 'admin.address'
             ))
             ->add('deliveryAddress', ModelType::class, [
                 'class'=>Address::class,
-                'property'=>'fullName'
+                'property' => 'name'
             ],array(
                 'admin_code' => 'admin.address'
             ))
             ->add('additionalAddress1', ModelType::class, [
                 'class'=>Address::class,
-                'property'=>'fullName'
+                'property' => 'name'
             ],array(
                 'admin_code' => 'admin.address'
             ))
             ->add('additionalAddress2', ModelType::class, [
                 'class'=>Address::class,
-                'property'=>'fullName'
+                'property' => 'name'
             ],array(
                 'admin_code' => 'admin.address'
             ))
             ->add('additionalAddress3', ModelType::class, [
                 'class'=>Address::class,
-                'property'=>'fullName'
+                'property' => 'name'
             ],array(
                 'admin_code' => 'admin.address'
             ))
             ->add('additionalAddress4', ModelType::class, [
                 'class'=>Address::class,
-                'property'=>'fullName'
+                'property' => 'name'
             ],array(
                 'admin_code' => 'admin.address'
             ))
             ->add('additionalAddress5', ModelType::class, [
                 'class'=>Address::class,
-                'property'=>'fullName'
+                'property' => 'name'
             ],array(
                 'admin_code' => 'admin.address'
             ))
@@ -88,17 +88,18 @@ class OrderAdmin extends AbstractAdmin
     {
         $datagridMapper
             ->add('id')
+            ->add('status')
             ->add('userId.fullName')
             ->add('cargoId.name')
             ->add('price')
             ->add('quantityOfCargo')
-            ->add('shippingAddress.fullName')
-            ->add('deliveryAddress.fullName')
-            ->add('additionalAddress1.fullName')
-            ->add('additionalAddress2.fullName')
-            ->add('additionalAddress3.fullName')
-            ->add('additionalAddress4.fullName')
-            ->add('additionalAddress5.fullName')
+            ->add('shippingAddress.name')
+            ->add('deliveryAddress.name')
+            ->add('additionalAddress1.name')
+            ->add('additionalAddress2.name')
+            ->add('additionalAddress3.name')
+            ->add('additionalAddress4.name')
+            ->add('additionalAddress5.name')
         ;
     }
 
@@ -106,17 +107,18 @@ class OrderAdmin extends AbstractAdmin
     {
         $listMapper
             ->addIdentifier('id')
+            ->addIdentifier('status', null, array('template' => '@GobusgoGobusgo/Admin/CRUD/list_boolean.html.twig'))
             ->addIdentifier('userId.fullName')
             ->addIdentifier('cargoId.name')
             ->addIdentifier('price')
             ->addIdentifier('quantityOfCargo')
-            ->addIdentifier('shippingAddress.fullName')
-            ->addIdentifier('deliveryAddress.fullName')
-            ->addIdentifier('additionalAddress1.fullName')
-            ->addIdentifier('additionalAddress2.fullName')
-            ->addIdentifier('additionalAddress3.fullName')
-            ->addIdentifier('additionalAddress4.fullName')
-            ->addIdentifier('additionalAddress5.fullName')
+            ->addIdentifier('shippingAddress.name')
+            ->addIdentifier('deliveryAddress.name')
+            ->addIdentifier('additionalAddress1.name')
+            ->addIdentifier('additionalAddress2.name')
+            ->addIdentifier('additionalAddress3.name')
+            ->addIdentifier('additionalAddress4.name')
+            ->addIdentifier('additionalAddress5.name')
         ;
     }
 }

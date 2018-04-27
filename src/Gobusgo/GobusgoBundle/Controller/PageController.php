@@ -134,7 +134,7 @@ class PageController extends Controller
                 $data = $legalCallform->getData();
                 $this->Mailer($data);
                 $this->addFlash(
-                    'notice',
+                    'info',
                     $data
                 );
                 return $this->redirectToRoute('gobusgo_gobusgo_confirm');
@@ -158,7 +158,7 @@ class PageController extends Controller
                 $data = $individualCallform->getData();
                 $this->Mailer($data);
                 $this->addFlash(
-                    'notice',
+                    'info',
                     $data
                 );
                 return $this->redirectToRoute('gobusgo_gobusgo_confirm');
@@ -220,7 +220,7 @@ class PageController extends Controller
                 $data = $legalCallform->getData();
                 $this->Mailer($data);
                 $this->addFlash(
-                    'notice',
+                    'info',
                     $data
                 );
                 return $this->redirectToRoute('gobusgo_gobusgo_confirm');
@@ -245,7 +245,7 @@ class PageController extends Controller
                 $data = $individualCallform->getData();
                 $this->Mailer($data);
                 $this->addFlash(
-                    'notice',
+                    'info',
                     $data
                 );
                 return $this->redirectToRoute('gobusgo_gobusgo_confirm');
@@ -293,9 +293,13 @@ class PageController extends Controller
 
                 $this->Caller($call);
 
-                $request->getSession()
-                    ->getFlashBag()
-                    ->add('success', $call);
+//                $request->getSession()
+//                    ->getFlashBag()
+//                    ->add('success', 'Спасибо за оформление обратного званка. Наши специалисты свяжутся с вами в ближайшее время.');
+                $this->addFlash(
+                    'success',
+                    'Спасибо за оформление обратного званка. Наши специалисты свяжутся с вами в ближайшее время.'
+                );
             }
         }
 

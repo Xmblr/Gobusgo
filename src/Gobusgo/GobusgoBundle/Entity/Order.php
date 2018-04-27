@@ -97,9 +97,9 @@ class Order
     protected $dateOfOrder;
 
     /**
-     * @var float
+     * @var boolean
      *
-     * @ORM\Column(type="float")
+     * @ORM\Column(type="boolean")
      */
     protected $status;
 

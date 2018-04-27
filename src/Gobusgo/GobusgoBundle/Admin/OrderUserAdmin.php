@@ -167,7 +167,7 @@ class OrderUserAdmin extends AbstractAdmin
     {
         $listMapper
             ->addIdentifier('id')
-            ->addIdentifier('status')
+            ->addIdentifier('status', null, array('template' => '@GobusgoGobusgo/Admin/CRUD/list_boolean.html.twig'))
             ->addIdentifier('userId.fullName')
             ->addIdentifier('cargoId.name')
             ->addIdentifier('price')
