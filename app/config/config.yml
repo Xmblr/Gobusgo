@@ -112,7 +112,7 @@ sonata_block:
         sonata.user.block.account: # used to display menu option (login option)
         sonata.block.service.text:
         sonata.block.service.rss:
-
+        sonata.block.service.infouser:
         # enable the SonataAdminBundle block
         sonata.admin.block.admin_list:
             contexts: [admin]
@@ -157,20 +157,6 @@ assetic:
                 - "%kernel.root_dir%/../vendor/components/jquery/jquery.js"
 
 sonata_admin:
-    dashboard:
-        blocks:
-
-            # display two dashboard blocks
-            -
-                position: left
-                type: sonata.admin.block.admin_list
-                settings:
-                    groups: [app.admin.group.admin]
-            -
-                position: right
-                type: sonata.admin.block.admin_list
-                settings:
-                    groups: [app.admin.group.moderator]
     assets:
         extra_javascripts:
             # ...
@@ -201,8 +187,9 @@ sonata_admin:
                 roles: [ ROLE_USER, ROLE_ADMIN ]
 
         blocks:
-            - { position: left, type: sonata.block.service.text, settings: { content: '<h2>HELLO WORLD!</h2>' } }
-            - { position: center,type: sonata.block.service.text, settings: { content: '<h2>HELLO WORLD!</h2>' } }
+            - { position: left, type: sonata.block.service.rss, settings: { title: Sonata Project's Feeds, url: https://sonata-project.org/blog/archive.rss } }
+#            - { position: center,type: sonata.block.service.text, settings: { content: '<h2>HELLO WORLD!</h2>' } }
+#            - { position: center,type: sonata.block.service.infouser }
             - { position: right, type: sonata.admin.block.admin_list }
     title:      GoBusGo
     title_logo: favicon.ico
@@ -242,6 +229,7 @@ sonata_admin:
         button_history:                 "@GobusgoGobusgo/Admin/Button/history_button.html.twig"
         button_list:                    "@GobusgoGobusgo/Admin/Button/list_button.html.twig"
         button_show:                    "@GobusgoGobusgo/Admin/Button/show_button.html.twig"
+
 
 sonata_seo:
     encoding:         UTF-8

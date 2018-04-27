@@ -15,6 +15,7 @@ use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Form\Type\ModelListType;
 use Sonata\CoreBundle\Form\Type\CollectionType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\Validator\Constraints\DateTime;
 
@@ -138,6 +139,7 @@ class OrderUserAdmin extends AbstractAdmin
             ],array(
                 'admin_code' => 'admin.user.address'
             ))
+            ->add('notice', TextareaType::class)
 
         ;
     }

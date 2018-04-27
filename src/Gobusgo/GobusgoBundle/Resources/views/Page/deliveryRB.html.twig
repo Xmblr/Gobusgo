@@ -164,6 +164,10 @@
                                 {{ form_errors(legalCallform.code) }}
                                 {{ form_widget(legalCallform.code, {'attr':{'class':'Input-text', 'position': 'absolute','placeholder':'Код'}}) }}
                             </div>
+                            <div class="Input">
+                                {{ form_errors(legalCallform.notice) }}
+                                {{ form_widget(legalCallform.notice, {'attr':{'class':'Input-text', 'position': 'absolute','placeholder':'Примечания'}}) }}
+                            </div>
 
                             <div class="Input" style="display: none;">
                             {{ form_errors(legalCallform.weight) }}
@@ -273,6 +277,10 @@
                         <div class="Input">
                             {{ form_errors(individualCallform.phone) }}
                             {{ form_widget(individualCallform.phone, {'attr':{'class':'Input-text', 'position': 'absolute','placeholder':'Номер телефона'}}) }}
+                        </div>
+                        <div class="Input">
+                            {{ form_errors(individualCallform.notice) }}
+                            {{ form_widget(individualCallform.notice, {'attr':{'class':'Input-text', 'position': 'absolute','placeholder':'Примечания'}}) }}
                         </div>
 
                         <div style="display:none">

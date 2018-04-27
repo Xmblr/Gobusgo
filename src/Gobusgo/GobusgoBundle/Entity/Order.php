@@ -104,6 +104,27 @@ class Order
     protected $status;
 
     /**
+     * @ORM\Column(type="string")
+     */
+    protected $notice;
+
+    /**
+     * @return mixed
+     */
+    public function getNotice()
+    {
+        return $this->notice;
+    }
+
+    /**
+     * @param mixed $notice
+     */
+    public function setNotice($notice)
+    {
+        $this->notice = $notice;
+    }
+
+    /**
      * @return int
      */
     public function getId()

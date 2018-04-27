@@ -28,6 +28,9 @@
                             Ширина: {{ message.width }}; </br>
                             Города: {{ message.cities }}; </br>
                             Сумма: {{ message.sum }}; </br>
+                            </br>
+                            Примечания: {{ message.notice }};
+
                         {% elseif message.weight is defined %}
                             Контактное лицо: {{ message.name }} </br>
                             Телефон для связи: {{ message.phone }} </br>
@@ -38,6 +41,8 @@
                             Ширина: {{ message.width }}; </br>
                             Города: {{ message.cities }}; </br>
                             Сумма: {{ message.sum }}; </br>
+                            </br>
+                            Примечания: {{ message.notice }};
                         {%  else %}
                             Контактное лицо: {{ message.name }} </br>
                             Телефон для связи: {{ message.phone }} </br>

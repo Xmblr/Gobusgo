@@ -130,40 +130,44 @@
                                 {{ form_errors(legalCallform.code) }}
                                 {{ form_widget(legalCallform.code, {'attr':{'class':'Input-text', 'position': 'absolute','placeholder':'Код'}}) }}
                             </div>
+                            <div class="Input">
+                                {{ form_errors(legalCallform.notice) }}
+                                {{ form_widget(legalCallform.notice, {'attr':{'class':'Input-text', 'position': 'absolute','placeholder':'Примечания'}}) }}
+                            </div>
 
                         </div>
                         <div class="col-md-6">
 
-                        <div class="Input">
-                            {{ form_errors(legalCallform.UNP) }}
-                            {{ form_widget(legalCallform.UNP, {'attr':{'class':'Input-text', 'position': 'absolute','placeholder':'УНП'}}) }}
-                        </div>
-                        <div class="Input">
-                            {{ form_errors(legalCallform.bank) }}
-                            {{ form_widget(legalCallform.bank, {'attr':{'class':'Input-text', 'position': 'absolute','placeholder':'Банк'}}) }}
-                        </div>
-                        <div class="Input">
-                            {{ form_errors(legalCallform.addressOfTheBank) }}
-                            {{ form_widget(legalCallform.addressOfTheBank, {'attr':{'class':'Input-text', 'position': 'absolute','placeholder':'Адресс банка'}}) }}
-                        </div>
-                        <div class="Input">
-                            {{ form_errors(legalCallform.legalAddress) }}
-                            {{ form_widget(legalCallform.legalAddress, {'attr':{'class':'Input-text', 'position': 'absolute','placeholder':'Юридический адресс'}}) }}
-                        </div>
-                        <div class="Input">
-                            {{ form_errors(legalCallform.settlementAccount) }}
-                            {{ form_widget(legalCallform.settlementAccount, {'attr':{'class':'Input-text', 'position': 'absolute','placeholder':'Расчётный счёт'}}) }}
-                        </div>
+                            <div class="Input">
+                                {{ form_errors(legalCallform.UNP) }}
+                                {{ form_widget(legalCallform.UNP, {'attr':{'class':'Input-text', 'position': 'absolute','placeholder':'УНП'}}) }}
+                            </div>
+                            <div class="Input">
+                                {{ form_errors(legalCallform.bank) }}
+                                {{ form_widget(legalCallform.bank, {'attr':{'class':'Input-text', 'position': 'absolute','placeholder':'Банк'}}) }}
+                            </div>
+                            <div class="Input">
+                                {{ form_errors(legalCallform.addressOfTheBank) }}
+                                {{ form_widget(legalCallform.addressOfTheBank, {'attr':{'class':'Input-text', 'position': 'absolute','placeholder':'Адресс банка'}}) }}
+                            </div>
+                            <div class="Input">
+                                {{ form_errors(legalCallform.legalAddress) }}
+                                {{ form_widget(legalCallform.legalAddress, {'attr':{'class':'Input-text', 'position': 'absolute','placeholder':'Юридический адресс'}}) }}
+                            </div>
+                            <div class="Input">
+                                {{ form_errors(legalCallform.settlementAccount) }}
+                                {{ form_widget(legalCallform.settlementAccount, {'attr':{'class':'Input-text', 'position': 'absolute','placeholder':'Расчётный счёт'}}) }}
+                            </div>
 
 
-                        <div style="display:none">
-                            {{ form_widget(legalCallform.height) }}
-                            {{ form_widget(legalCallform.lenght) }}
-                            {{ form_widget(legalCallform.width) }}
-                            {{ form_widget(legalCallform.cities) }}
+                            <div style="display:none">
+                                {{ form_widget(legalCallform.height) }}
+                                {{ form_widget(legalCallform.lenght) }}
+                                {{ form_widget(legalCallform.width) }}
+                                {{ form_widget(legalCallform.cities) }}
 
-                            {{ form_rest(legalCallform) }}
-                        </div>
+                                {{ form_rest(legalCallform) }}
+                            </div>
                         </div>
 
                         <div class="text-center" style="margin-bottom: 30px;">
@@ -185,7 +189,7 @@
                             <input class="Input-text" id="formIndividualOne" name="from"
                                    position="absolute" value="" readonly/>
                         </div>
-                        <div class="Input"style="display: none;">
+                        <div class="Input" style="display: none;">
                             <input class="Input-text" id="formIndividualTwo" name="to"
                                    position="absolute" value="" readonly/>
                         </div>
@@ -202,6 +206,10 @@
                         <div class="Input">
                             {{ form_errors(individualCallform.phone) }}
                             {{ form_widget(individualCallform.phone, {'attr':{'class':'Input-text', 'position': 'absolute','placeholder':'Номер телефона'}}) }}
+                        </div>
+                        <div class="Input">
+                            {{ form_errors(individualCallform.notice) }}
+                            {{ form_widget(individualCallform.notice, {'attr':{'class':'Input-text', 'position': 'absolute','placeholder':'Примечания'}}) }}
                         </div>
 
                         <div style="display:none">

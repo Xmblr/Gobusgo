@@ -12,6 +12,7 @@ use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Form\Type\ModelType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class OrderAdmin extends AbstractAdmin
@@ -79,6 +80,7 @@ class OrderAdmin extends AbstractAdmin
             ))
             ->add('dateOfOrder', DateTimeType::DATETIME)
             ->add('status')
+            ->add('notice', TextareaType::class)
         ;
     }
 

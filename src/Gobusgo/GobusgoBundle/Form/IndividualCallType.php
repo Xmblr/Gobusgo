@@ -30,6 +30,10 @@ class IndividualCallType extends AbstractType
             ->add('height')
             ->add('lenght')
             ->add('width')
+            ->add('notice', TextareaType::class, array(
+                'required' => false,
+                'empty_data' => 'Не задано',
+            ))
             ;
     }
 }

@@ -47,11 +47,16 @@ class AddressAdmin extends AbstractAdmin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
+            ->add('_action', null, [
+                'actions' => [
+                    'edit' => [],
+                    'delete' => [],
+                ]
+            ])
             ->addIdentifier('name')
             ->addIdentifier('organization')
             ->addIdentifier('city.name')
-            ->addIdentifier('street')
-            ->addIdentifier('userId.fullName')
+            ->addIdentifier('street')//            ->addIdentifier('userId.fullName')
         ;
     }
 }

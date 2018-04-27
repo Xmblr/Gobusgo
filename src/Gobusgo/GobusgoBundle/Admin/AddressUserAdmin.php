@@ -73,25 +73,21 @@ class AddressUserAdmin extends AbstractAdmin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
+            ->add('_action', null, [
+                'actions' => [
+                    'show' => [],
+                    'edit' => [],
+                    'delete' => [],
+                ]
+            ])
+            ->addIdentifier('name')
+            ->addIdentifier('organization')
+            ->addIdentifier('city.name')
+            ->addIdentifier('street')
             ->addIdentifier('name', null,array('label'=>'ФИО получателя'))
             ->addIdentifier('organization', null,array('label'=>'Организация'))
             ->addIdentifier('city.name', null,array('label'=>'Город'))
             ->addIdentifier('street', null,array('label'=>'Адрес'))
         ;
-    }
-
-    public function configureBatchActions($actions)
-    {
-        if (
-            $this->hasRoute('edit') && $this->hasAccess('edit') &&
-            $this->hasRoute('delete') && $this->hasAccess('delete')
-        ) {
-            $actions['merge'] = [
-                'ask_confirmation' => true
-            ];
-
-        }
-
-        return $actions;
     }
 }

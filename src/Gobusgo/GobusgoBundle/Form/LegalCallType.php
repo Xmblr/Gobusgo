@@ -31,6 +31,10 @@ class LegalCallType extends AbstractType
             ->add('width')
             ->add('cities')
             ->add('sum')
+            ->add('notice', TextareaType::class, array(
+                'required' => false,
+                'empty_data' => 'Не задано',
+            ))
 //            ->add('name', TextType::class, array('attr' => array('placeholder' => 'Your name'),
 //                'constraints' => array(
 //                    new NotBlank(array("message" => "Please provide your name")),

@@ -34,6 +34,24 @@ class IndividualCall
 
     protected $cities;
 
+    protected $notice;
+
+    /**
+     * @return mixed
+     */
+    public function getNotice()
+    {
+        return $this->notice;
+    }
+
+    /**
+     * @param mixed $notice
+     */
+    public function setNotice($notice)
+    {
+        $this->notice = $notice;
+    }
+
     /**
      * @return mixed
      */
@@ -162,8 +180,6 @@ class IndividualCall
     {
         $this->phone = $phone;
     }
-
-
 
 
 }

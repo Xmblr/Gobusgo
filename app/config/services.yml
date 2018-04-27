@@ -105,6 +105,12 @@ services:
         tags:
             - { name: form.type, alias: app_user_profile }
 
+#    sonata.block.service.infouser:
+#        class: Gobusgo\GobusgoBundl\Block\UserInfoBlockService
+#        arguments: { name: "sonata.block.service.infouser"}
+#        tags:
+#            - { name: sonata.block}
+
 
 #   --------------------------- Form builders ----------------------------------
 
