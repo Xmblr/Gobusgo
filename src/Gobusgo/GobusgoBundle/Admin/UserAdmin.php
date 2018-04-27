@@ -22,7 +22,7 @@ class   UserAdmin extends AbstractAdmin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->with('хуй',['class' => 'col-md-9'])
+            ->with('Данные', ['class' => 'col-md-9'])
                 ->add('username', 'text')
                 ->add('email', 'text')
             ->end()

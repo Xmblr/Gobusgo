@@ -30,6 +30,7 @@ class AddressAdmin extends AbstractAdmin
                 'class'=>User::class,
                 'property'=>'fullName',
             ])
+            ->add('phone')
         ;
     }
 
@@ -49,8 +50,8 @@ class AddressAdmin extends AbstractAdmin
         $listMapper
             ->add('_action', null, [
                 'actions' => [
-                    'edit' => [],
-                    'delete' => [],
+                    'edit' => ['template' => '@GobusgoGobusgo/Admin/CRUD/list__action_edit.html.twig'],
+                    'delete' => ['template' => '@GobusgoGobusgo/Admin/CRUD/list__action_delete.html.twig'],
                 ]
             ])
             ->addIdentifier('name')
