@@ -14,8 +14,10 @@ use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Form\Type\ModelListType;
 use Sonata\AdminBundle\Route\RouteCollection;
+use Sonata\AdminBundle\Show\ShowMapper;
 use Sonata\CoreBundle\Form\Type\CollectionType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Symfony\Bundle\SwiftmailerBundle\DependencyInjection\SwiftmailerTransportFactory;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\Validator\Constraints\DateTime;
@@ -44,8 +46,54 @@ class OrderUserAdmin extends AbstractAdmin
         return $query;
     }
 
+    public function Transport()
+    {
+        $transport = \Swift_SmtpTransport::newInstance(
+            $this->getConfigurationPool()->getContainer()->getParameter('mailer_host'),
+            $this->getConfigurationPool()->getContainer()->getParameter('mailer_port'),
+            $this->getConfigurationPool()->getContainer()->getParameter('mailer_encryption')
+        )
+            ->setUsername($this->getConfigurationPool()->getContainer()->getParameter('mailer_user'))
+            ->setPassword($this->getConfigurationPool()->getContainer()->getParameter('mailer_password'));
+
+        return $mailer = \Swift_Mailer::newInstance($transport);
+
+    }
+
+    public function sendEmail($subject, $message, $from, $to)
+    {
+        $mailer = $this->Transport();
+
+        $message = (new \Swift_Message($subject))
+            ->setFrom($this->getConfigurationPool()->getContainer()->getParameter('mailer_user'))
+            ->setTo($this->getConfigurationPool()->getContainer()->getParameter('mailer_user'))
+            ->setBody($message, 'text/html')//            ->setBody($this->setTemplates(array('template'=>'@GobusgoGobusgo/Page/callEmail.txt.twig', 'order' => $order)))
+        ;
+
+        $mailer->send($message);
+    }
+
+    public function postPersist($order)
+    {
+        $this->sendEmail(
+            'Новая заявка',
+            'На сайте оставили заявку. для просмотра перейдите по <a href="http://gobusgo.by/admin/order_admin/' . $order->getId() . '/edit">Ссылке</a>',
+            $this->getConfigurationPool()->getContainer()->getParameter('mailer_user'),
+            $this->getConfigurationPool()->getContainer()->getParameter('mailer_user')
+        );
+        $this->sendEmail(
+            'Ваша заявка на Gobusgo.by',
+            'Спасибо за заявку. В ближайшее время с Вами свяжутся наши консультанты для обсуждения деталей заказа. Для просмотра перейдите по <a href="http://gobusgo.by/admin/order_user/' . $order->getId() . '/show">Ссылке</a>',
+            $this->getConfigurationPool()->getContainer()->getParameter('mailer_user'),
+            $this->getUserId()->getEmail()
+        );
+    }
+
     public function prePersist($order)
     {
+
+//        $this->sendEmail(array('name'=>$this->getUserId(),'date'=>'new \DateTime()'));
+
         $order->setUserId($this->getUserId());
         $order->setDateOfOrder(new \DateTime());
         $order->setStatus(0);
@@ -61,7 +109,6 @@ class OrderUserAdmin extends AbstractAdmin
     {
         $collection
             ->remove('edit')
-            ->remove('show')
             ->remove('remove');
 
     }
@@ -192,5 +239,34 @@ class OrderUserAdmin extends AbstractAdmin
 //            ->addIdentifier('additionalAddress4.name')
 //            ->addIdentifier('additionalAddress5.name')
         ;
+    }
+
+    public function configureShowFields(ShowMapper $showMapper)
+    {
+        $showMapper
+            ->with('Общее', ['class' => 'col-md-6'])
+            ->add('id')
+            ->add('status')
+            ->add('dateOfOrder')
+            ->add('quantityOfCargo')
+            ->add('price')
+            ->end()
+            ->with('Груз', ['class' => 'col-md-6'])
+            ->add('cargoId.name')
+            ->add('cargoId.width')
+            ->add('cargoId.height')
+            ->add('cargoId.lenght')
+            ->add('cargoId.weight')
+            ->end()
+            ->with('Откуда', ['class' => 'col-md-4'])
+            ->add('shippingAddress.name')
+            ->add('shippingAddress.organization')
+            ->add('shippingAddress.city')
+            ->end()
+            ->with('Куда', ['class' => 'col-md-4'])
+            ->add('deliveryAddress.name')
+            ->add('deliveryAddress.organization')
+            ->add('deliveryAddress.city')
+            ->end();
     }
 }
