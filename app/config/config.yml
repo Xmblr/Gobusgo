@@ -72,7 +72,8 @@ doctrine:
         auto_mapping: true
         mappings:
             ApplicationSonataMediaBundle: ~
-            SonataMediaBundle: ~
+            SonataMediaBundle:
+                prefix: Sonata\MediaBundle\PHPCR
 
 # Swiftmailer Configuration
 swiftmailer:
@@ -111,8 +112,7 @@ sonata_block:
         sonata.admin.block.menu:    # used to display the menu in profile pages
         sonata.user.block.account: # used to display menu option (login option)
         sonata.block.service.text:
-        sonata.block.service.rss:
-        sonata.block.service.infouser:
+        sonata.block.service.user: ~
         # enable the SonataAdminBundle block
         sonata.admin.block.admin_list:
             contexts: [admin]
@@ -187,9 +187,8 @@ sonata_admin:
                 roles: [ ROLE_USER, ROLE_ADMIN ]
 
         blocks:
-            - { position: left, type: sonata.block.service.rss, settings: { title: Sonata Project's Feeds, url: https://sonata-project.org/blog/archive.rss } }
 #            - { position: center,type: sonata.block.service.text, settings: { content: '<h2>HELLO WORLD!</h2>' } }
-#            - { position: center,type: sonata.block.service.infouser }
+            - { position: left, type: sonata.block.service.user }
             - { position: right, type: sonata.admin.block.admin_list }
     title:      GoBusGo
     title_logo: favicon.ico
@@ -294,6 +293,7 @@ sonata_media:
             formats:
                 small: { width: 150 , quality: 95}
                 big:   { width: 500 , quality: 90}
+                wide:   { width: 500 , quality: 90}
 
     cdn:
         server:

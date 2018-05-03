@@ -198,4 +198,9 @@ class Address
     {
         return $this->street;
     }
+
+    public function __toString()
+    {
+        return (string)$this->getStreet();
+    }
 }

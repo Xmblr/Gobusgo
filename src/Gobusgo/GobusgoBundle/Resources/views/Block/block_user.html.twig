@@ -1,0 +1,41 @@
+{% extends 'SonataBlockBundle:Block:block_base.html.twig' %}
+
+{% block block %}
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="row">
+                id: {{ app.user.id }}
+            </div>
+            <div class="row">
+                organization: {{ app.user.organization }}
+            </div>
+            <div class="row">
+                UNP: {{ app.user.UNP }}
+            </div>
+            <div class="row">
+                Bank: {{ app.user.bank }}
+            </div>
+            <div class="row">
+                address Of The Bank: {{ app.user.addressOfTheBank }}
+            </div>
+            <div class="row">
+                legal Address: {{ app.user.legalAddress }}
+            </div>
+            <div class="row">
+                settlement Account: {{ app.user.settlementAccount }}
+            </div>
+            <div class="row">
+                code: {{ app.user.code }}
+            </div>
+            <div class="row">
+                phone: {{ app.user.phone }}
+            </div>
+            <div class="row">
+                full Name: {{ app.user.fullName }}
+            </div>
+            <div class="row">
+                <a href="{{ path('fos_user_profile_show') }}">Change data</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

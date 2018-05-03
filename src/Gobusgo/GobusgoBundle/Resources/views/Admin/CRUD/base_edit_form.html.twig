@@ -71,6 +71,8 @@
             {% block formactions %}
                 <div class="sonata-ba-form-actions well well-small form-actions">
                 {% block sonata_form_actions %}
+
+
                     {% if app.request.isxmlhttprequest %}
                         {# NEXT_MAJOR: remove default filter #}
                         {% if objectId|default(admin.id(object)) is not null %}

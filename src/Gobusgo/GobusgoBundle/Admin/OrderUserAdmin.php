@@ -29,6 +29,7 @@ class OrderUserAdmin extends AbstractAdmin
     protected $baseRouteName = 'order_user';
     protected $baseRoutePattern = 'order_user';
 
+
     public function getUserId ()
     {
         $userId = $this->getConfigurationPool()->getContainer()->get('security.token_storage')->getToken()->getUser();
@@ -83,7 +84,7 @@ class OrderUserAdmin extends AbstractAdmin
         );
         $this->sendEmail(
             'Ваша заявка на Gobusgo.by',
-            'Спасибо за заявку. В ближайшее время с Вами свяжутся наши консультанты для обсуждения деталей заказа. Для просмотра перейдите по <a href="http://gobusgo.by/admin/order_user/' . $order->getId() . '/show">Ссылке</a>',
+            'Спасибо за заявку. В ближайшее время с Вами свяжутся наши консультанты для обсуждения деталей заказа. Дзля просмотра перейдите по <a href="http://gobusgo.by/admin/order_user/' . $order->getId() . '/show">Ссылке</a>',
             $this->getConfigurationPool()->getContainer()->getParameter('mailer_user'),
             $this->getUserId()->getEmail()
         );
@@ -115,15 +116,15 @@ class OrderUserAdmin extends AbstractAdmin
 
     protected function configureFormFields(FormMapper $formMapper)
     {
-        $em = $this->getConfigurationPool()->getContainer()->get('doctrine.orm.entity_manager');
-
-        $qb1 = $em->createQueryBuilder();
-        $qb1->select('c')->from(Cargo::class, 'c')->where('c.userId = :userId')->setParameters(['userId'=>$this->getUserId()]);
-        $cargo_available_choices = $qb1->getQuery()->getResult();
-
-        $qb2 = $em->createQueryBuilder();
-        $qb2->select('a')->from(Address::class, 'a')->where('a.userId = :userId')->setParameters(['userId'=>$this->getUserId()]);
-        $address_available_choices = $qb2->getQuery()->getResult();
+//        $em = $this->getConfigurationPool()->getContainer()->get('doctrine.orm.entity_manager');
+//
+//        $qb1 = $em->createQueryBuilder();
+//        $qb1->select('c')->from(Cargo::class, 'c')->where('c.userId = :userId')->setParameters(['userId'=>$this->getUserId()]);
+//        $cargo_available_choices = $qb1->getQuery()->getResult();
+//
+//        $qb2 = $em->createQueryBuilder();
+//        $qb2->select('a')->from(Address::class, 'a')->where('a.userId = :userId')->setParameters(['userId'=>$this->getUserId()]);
+//        $address_available_choices = $qb2->getQuery()->getResult();
 
 
 
@@ -161,13 +162,16 @@ class OrderUserAdmin extends AbstractAdmin
             ],array(
                 'admin_code' => 'admin.user.address'
             ))
+            ->end()
+            ->with('Дополнителный адрес', ['class' => 'collapse'])
             ->add('additionalAddress', ModelListType::class, [
-                'class'=>Address::class,
-//                'property'=>'fullName',
-//                'choices' => $address_available_choices
-            ],array(
+                'class' => Address::class,
+                //                'property'=>'fullName',
+                //                'choices' => $address_available_choices
+            ], array(
                 'admin_code' => 'admin.user.address'
             ))
+            ->end()
 //            ->add('additionalAddress2', ModelListType::class, [
 //                'class'=>Address::class,
 ////                'property'=>'fullName',
