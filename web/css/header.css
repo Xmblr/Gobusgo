@@ -55,7 +55,7 @@
     position: fixed;
     right: -110%;
     top: 0px;
-    z-index: 2;
+    z-index: 3;
     background: #fff;
     -webkit-transition: all 0.25s ease;
     -o-transition: all 0.25s ease;
@@ -258,22 +258,7 @@ color: #8598ff;
 }
 
 .callback-header {
-    margin-left: 15px;
-    margin-top:20px;
-    font-family: 'Zing Sans Rust R Base';
-    background-color: #ffeb89;
-    font-weight: 600;
-    padding: 5px 10px;
-    border-radius: 4px;
-    font-size: 18px;
-    -o-transform: scale(1, 1.2);
-    -ms-transform: scale(1, 1.2);
-    -moz-transform: scale(1, 1.2);
-    -webkit-transform: scale(1, 1.2);
-    transform: scale(1, 1.2);
-    text-transform: uppercase;
-    transform: scale(1, 1.2);
-    display: inline-block;
+    padding: 10px 0px;
 }
 
 .header-icons {

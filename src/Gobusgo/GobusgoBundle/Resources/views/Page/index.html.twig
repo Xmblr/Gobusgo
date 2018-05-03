@@ -4,21 +4,21 @@
     {% block callback %}
         <a href="#x" class="overlay" id="win3">
         </a>
-        <div class="popup">
+        <div class="popup" style="max-width: 500px;">
             <div class="section bg-gray-light container-fluid">
-                <h2>Заказ обратного звонка</h2>
+                <h2 class="m-b-20">Заказ обратного звонка</h2>
                 <div class="container-fluid">
 
                     {{ form_start(callform, { 'action': path('gobusgo_gobusgo_confirm'), 'method': 'POST' }) }}
                     {{ form_errors(callform) }}
 
                     <div class="form-group">
-                        {{ form_widget(callform.name, {'attr':{'class':'Input-text','placeholder':'Как вас зовут?'}}) }}
+                        {{ form_widget(callform.name, {'attr':{'class':'input-log','placeholder':'Как вас зовут?'}}) }}
                     </div>
                     <div class="form-group">
-                        {{ form_widget(callform.phone, {'attr':{'class':'Input-text','placeholder':'Номер телефона'}}) }}
+                        {{ form_widget(callform.phone, {'attr':{'class':'input-log','placeholder':'Номер телефона'}}) }}
                     </div>
-                    <input type="submit" class="submit-button" value="Отправить">
+                    <input type="submit" class="button-log" value="Отправить">
                     {{ form_end(callform) }}
                 </div>
             </div>
@@ -45,13 +45,15 @@
 
                             <li class="start-li">
                                 {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-                                <a class="button-active-header" href="{{ path('sonata_admin_dashboard') }}"> {{ app.user.organization }} </a>
+                                    <a class="btn-1"
+                                       href="{{ path('sonata_admin_dashboard') }}"> {{ app.user.organization }} </a>
                                 <a class="button-not-active-header" href="{{ path('fos_user_security_logout') }}">
                                     {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
                                 </a>
                                 {% else %}
                                 <a class="button-not-active-header" href="{{ path('fos_user_registration_register') }}">{{ 'layout.register'|trans({}, 'FOSUserBundle') }}</a>
-                                <a class="button-active-header" href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
+                                    <a class="btn-1"
+                                       href="{{ path('sonata_admin_dashboard') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
                                 {% endif %}
 
                                 <a class="closeme" href="#" style="display: inline-block;"><i
@@ -64,10 +66,10 @@
                                 <a class="" href="{{ path('sonata_news_home') }}">Новости</a>
                             </li>
                             <li class="divider-header"></li>
-                            <li class="link out-link">
-                                <a class="" href="index.html">Отзывы</a>
-                            </li>
-                            <li class="divider-header"></li>
+                            {#<li class="link out-link">#}
+                            {#<a class="" href="index.html">Отзывы</a>#}
+                            {#</li>#}
+                            {#<li class="divider-header"></li>#}
                             <li class="link out-link">
                                 <a href="{{ path('gobusgo_gobusgo_contacts') }}">Контакты</a>
                             <li class="divider-header"></li>
@@ -98,7 +100,8 @@
                             </table>
                             <p class="big-letter">info@gobusgo.by</p>
                             <div class="callback-header">
-                                <a href="#win3"><i class="fa fa-phone" aria-hidden="true"></i>
+                                <a class="button-callback btn-1" href="#win3"><i class="fa fa-phone"
+                                                                                 aria-hidden="true"></i>
                                     Заказать звонок</a>
                             </div>
                             <div class="header-icons">
@@ -134,12 +137,13 @@
                 </div>
                 <div class="col-md-4 m-b-20">
                     <div class="background-round">
-                        <h3 class="align-home" OnClick="a('{{ path('gobusgo_gobusgo_deliveryMinsk') }}');">Минск</h3>
+                        <h3 class="align-home" OnClick="a('{{ path('gobusgo_gobusgo_deliveryMinsk') }}');">По
+                            Минску</h3>
                     </div>
                 </div>
                 <div class="col-md-4 m-b-20">
                     <div class="background-round">
-                        <h3 class="align-home" OnClick="a('{{ path('gobusgo_gobusgo_deliveryRB') }}');">Беларусь</h3>
+                        <h3 class="align-home" OnClick="a('{{ path('gobusgo_gobusgo_deliveryRB') }}');">По Беларуси</h3>
                     </div>
                 </div>
                 <script language="JavaScript">

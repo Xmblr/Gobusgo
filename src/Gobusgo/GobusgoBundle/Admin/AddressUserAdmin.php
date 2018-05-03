@@ -76,12 +76,12 @@ class AddressUserAdmin extends AbstractAdmin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-            ->add('_action', null, [
-                'actions' => [
-                    'edit' => ['template' => '@GobusgoGobusgo/Admin/CRUD/list__action_edit.html.twig'],
-                    'delete' => ['template' => '@GobusgoGobusgo/Admin/CRUD/list__action_delete.html.twig'],
-                ]
-            ])
+//            ->add('_action', null, [
+//                'actions' => [
+//                    'edit' => ['template' => '@GobusgoGobusgo/Admin/CRUD/list__action_edit.html.twig'],
+//                    'delete' => ['template' => '@GobusgoGobusgo/Admin/CRUD/list__action_delete.html.twig'],
+//                ]
+//            ])
             ->addIdentifier('name', null,array('label'=>'ФИО получателя'))
             ->addIdentifier('phone', null, array('label' => 'Контактный телефон'))
             ->addIdentifier('organization', null,array('label'=>'Организация'))

@@ -1264,10 +1264,10 @@ a:focus {
 .form-control {
     border-radius: 0;
     box-shadow: none;
-    border-color: #d2d6de;
+    border-color: #eee;
 }
 .form-control:focus {
-    border-color: #3c8dbc;
+    border: 2px solid #8598ff;
     box-shadow: none;
 }
 .form-control::-moz-placeholder,
@@ -5087,7 +5087,7 @@ table.text-center th {
 }
 
 .select2-container .select2-choice {
-    border: 2px solid #8598ff;
+    border: 2px solid #eee;
     line-height: 32px;
     box-shadow: none;
     color: #333;
@@ -5095,7 +5095,6 @@ table.text-center th {
 
 .select2-choice > span:first-child, .select2-chosen, .select2-container .select2-choices .select2-search-field input {
     padding: 0px;
-    text-align: center;
     font-family: MyWebFont;
     text-transform: uppercase;
 }
@@ -5169,4 +5168,13 @@ label {
     border-radius: 4px;
     text-transform: uppercase;
     margin-top: 10px;
+}
+
+.sonata-ba-list-field-header-text {
+    color: #8598ff;
+    font-family: trebuchet MS;
+}
+
+body {
+    font-family: trebuchet MS;
 }

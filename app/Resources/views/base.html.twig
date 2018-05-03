@@ -20,6 +20,7 @@
         <link type="text/css" rel="stylesheet" href="{{ asset('css/header-second.css') }}">
         <link type="text/css" rel="stylesheet" href="{{ asset('css/popup.css') }}">
         <link type="text/css" rel="stylesheet" href="{{ asset('css/zero-5.css') }}">
+        <link type="text/css" rel="stylesheet" href="{{ asset('css/phone-call.css') }}">
         {#<link type="text/css" rel="stylesheet" href="{{ asset('css/select2-bootstrap.css') }}">#}
         {#<link type="text/css" rel="stylesheet" href="{{ asset('css/select2.css') }}">#}
     {% endblock %}
@@ -30,7 +31,7 @@
 
 
 {% block header %}
-
+    <a href="#win3"><i class="Phone is-animating"></i></a>
     <header class="main-menu-area">
         <div class="container-fluid" style="padding: 0px;">
             <div class="row">
@@ -56,9 +57,8 @@
                         </div>
                     </div>
                     <div class="col-md-7">
-                        <div class="top-bar">
-                            <span class="mail-top">info@gobusgo.by</span>
-                            <div class="icons-top-bar">
+                        <div class="top-bar" style="text-align: right;">
+                            <div class="icons-top-bar" style=" margin-right: 20px;">
                                 <img class="icons-top" src="{{ asset('images/whatsup.png') }}"/>
                                 <img class="icons-top" src="{{ asset('images/telegram.png') }}"/>
                                 <img class="icons-top" src="{{ asset('images/viber.png') }}"/>
@@ -68,12 +68,14 @@
 
 
                                     {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-                                        <a class="top-bar-menu-active" href="{{ path('sonata_admin_dashboard') }}"> {{ app.user.organization }} </a>
+                                        <a style="margin-right: 10px; font-size: 1vw;" class="btn-1"
+                                           href="{{ path('sonata_admin_dashboard') }}"> {{ app.user.organization }} </a>
                                         <a style="border-left: 2px solid #ffeb89; padding: 8px 15px 8px 8px;" class="top-bar-menu" href="{{ path('fos_user_security_logout') }}">
                                             {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
                                         </a>
                                     {% else %}
-                                        <a class="top-bar-menu-active" href="{{ path('sonata_admin_dashboard') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
+                                        <a style="margin-right: 10px; font-size: 1vw;" class="btn-1"
+                                           href="{{ path('sonata_admin_dashboard') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
                                         <a class="top-bar-menu" href="{{ path('fos_user_registration_register') }}">{{ 'layout.register'|trans({}, 'FOSUserBundle') }}</a>
 
                                 {% endif %}
@@ -126,8 +128,7 @@
                             <table class="menu-table-header" border="1">
                                 <tbody>
                                 <tr colspan="2">
-                                    <td style="text-align: center;"><a href="#win3" class="call-back-top">
-                                            Заказать звонок</a></td>
+                                    <td style="text-align: center;"><span class="mail-top">info@gobusgo.by</span></td>
                                 </tr>
                                 <tr>
                                     <td rowspan="3">
@@ -169,16 +170,17 @@
 
 
                             {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-                                <a class="button-active-header"
-                                   href="{{ path('fos_user_profile_show') }}"> {{ app.user.organization }} </a> |
+                                <a class="btn-1"
+                                   href="{{ path('fos_user_profile_show') }}"> {{ app.user.organization }} </a>
                                 <a class="button-not-active-header" href="{{ path('fos_user_security_logout') }}">
                                     {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
                                 </a>
                             {% else %}
                                 <a class="button-not-active-header"
-                                   href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
-                                <a class="button-active-header"
                                    href="{{ path('fos_user_registration_register') }}">{{ 'layout.register'|trans({}, 'FOSUserBundle') }}</a>
+                                <a class="btn-1"
+                                   href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
+
 
                             {% endif %}
 
@@ -200,7 +202,8 @@
                                 <li class="divider-menu"></li>
                                 <li class="link-menu">
                                 <a style="display:block;"
-                                   href="{{ path('gobusgo_gobusgo_deliveryMoscowMinsk') }}">Минск - Москва</a>
+                                   href="{{ path('gobusgo_gobusgo_deliveryMoscowMinsk') }}">Минск <span
+                                            class="fa fa-arrows-h" aria-hidden="true"></span> Москва</a>
                                 </li>
                                 <li class="divider-menu"></li>
                                 <li class="link-menu">
@@ -254,7 +257,8 @@
                         </table>
                         <p class="big-letter">info@gobusgo.by</p>
                         <div class="callback-header">
-                            <a href="#win3"><i class="fa fa-phone" aria-hidden="true"></i>
+                            <a href="#win3" class="btn-1" style="margin-left: 0px; padding: 5px 20px;"><i
+                                        class="fa fa-phone" aria-hidden="true"></i>
                                 Заказать звонок</a>
                         </div>
                         <div class="header-icons">

@@ -17,36 +17,43 @@ class CargoAdmin extends Admin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('name')
-            ->add('width')
-            ->add('height')
-            ->add('lenght')
-            ->add('weight')
-            ->add('CN')
+            ->add('name', null, array('label' => 'Наименование груза'))
+            ->add('width', null, array('label' => 'Ширина'))
+            ->add('height', null, array('label' => 'Высота'))
+            ->add('lenght', null, array('label' => 'Длинна'))
+            ->add('weight', null, array('label' => 'Вес, кг'))
+            ->add('CN', null, array('label' => 'Номер ТТН'))
         ;
     }
 
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
-            ->add('name')
-            ->add('width')
-            ->add('height')
-            ->add('lenght')
-            ->add('weight')
-            ->add('CN')
+            ->add('name', null, array('label' => 'Наименование груза'))
+            ->add('width', null, array('label' => 'Ширина'))
+            ->add('height', null, array('label' => 'Высота'))
+            ->add('lenght', null, array('label' => 'Длинна'))
+            ->add('weight', null, array('label' => 'Вес, кг'))
+            ->add('CN', null, array('label' => 'Номер ТТН'))
         ;
     }
 
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-            ->addIdentifier('name')
-            ->addIdentifier('width')
-            ->addIdentifier('height')
-            ->addIdentifier('lenght')
-            ->addIdentifier('weight')
-            ->addIdentifier('CN')
+            ->addIdentifier('name', null, array('label' => 'Наименование груза'))
+            ->addIdentifier('width', null, array('label' => 'Ширина'))
+            ->addIdentifier('height', null, array('label' => 'Высота'))
+            ->addIdentifier('lenght', null, array('label' => 'Длинна'))
+            ->addIdentifier('weight', null, array('label' => 'Вес, кг'))
+            ->addIdentifier('CN', null, array('label' => 'Номер ТТН'))
+            ->add('_action', null, [
+                'label' => 'Действия',
+                'actions' => [
+                    'edit' => ['template' => '@GobusgoGobusgo/Admin/CRUD/list__action_edit.html.twig'],
+                    'delete' => ['template' => '@GobusgoGobusgo/Admin/CRUD/list__action_delete.html.twig'],
+                ]
+            ])
         ;
     }
 }

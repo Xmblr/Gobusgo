@@ -1,48 +1,51 @@
 {% trans_default_domain 'FOSUserBundle' %}
-<div class="container">
+<div class="container" style="padding-top: 5%;">
     <div class="row text-center">
+        <a href="{{ path('gobusgo_gobusgo_homepage') }}">
+            <img src="{{ asset('images/logo-1.png') }}" class="m-b-20" alt="" width="120px;">
+        </a>
         <h1>Добро пожаловать</h1>
-        <p class="login-text">Уже зарегистрированы?? <a style="color: #566fe0;"
-                                                        href="{{ path('fos_user_security_login') }}">Авторизуйтесь!</a>
+        <p class="login-text">Уже зарегистрированы? <a style="color: #566fe0;"
+                                                       href="{{ path('fos_user_security_login') }}">Авторизуйтесь!</a>
         </p>
         <div class="registration-form">
             {{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
             {#{{ form_widget(form) }}#}
-
+            <div class="form-input">
             <div class="col-md-6">
                 <h4>Юридические данные:</h4>
                 <div class="Input">
                     {{ form_errors(form.organization) }}
-                    {{ form_widget(form.organization, {'attr':{'class':'input-registration', 'placeholder':'Организация'}}) }}
+                    {{ form_widget(form.organization, {'attr':{'class':'input-log', 'placeholder':'Организация'}}) }}
                 </div>
                 <div class="Input">
                     {{ form_errors(form.UNP) }}
-                    {{ form_widget(form.UNP, {'attr':{'class':'input-registration', 'placeholder':'УНП'}}) }}
+                    {{ form_widget(form.UNP, {'attr':{'class':'input-log', 'placeholder':'УНП'}}) }}
                 </div>
                 <div class="Input">
                     {{ form_errors(form.bank) }}
-                    {{ form_widget(form.bank, {'attr':{'class':'input-registration', 'placeholder':'Банк'}}) }}
+                    {{ form_widget(form.bank, {'attr':{'class':'input-log', 'placeholder':'Банк'}}) }}
                 </div>
                 <div class="Input">
                     {{ form_errors(form.addressOfTheBank) }}
-                    {{ form_widget(form.addressOfTheBank, {'attr':{'class':'input-registration', 'placeholder':'Адрес банка'}}) }}
+                    {{ form_widget(form.addressOfTheBank, {'attr':{'class':'input-log', 'placeholder':'Адрес банка'}}) }}
                 </div>
                 <div class="Input">
                     {{ form_errors(form.legalAddress) }}
-                    {{ form_widget(form.legalAddress, {'attr':{'class':'input-registration', 'placeholder':'Юридический адрес'}}) }}
+                    {{ form_widget(form.legalAddress, {'attr':{'class':'input-log', 'placeholder':'Юридический адрес'}}) }}
                 </div>
                 <div class="Input">
                     {{ form_errors(form.settlementAccount) }}
-                    {{ form_widget(form.settlementAccount, {'attr':{'class':'input-registration', 'placeholder':'Расчетный счет'}}) }}
+                    {{ form_widget(form.settlementAccount, {'attr':{'class':'input-log', 'placeholder':'Расчетный счет'}}) }}
                 </div>
                 <div class="Input">
                     {{ form_errors(form.code) }}
-                    {{ form_widget(form.code, {'attr':{'class':'input-registration', 'placeholder':'Код'}}) }}
+                    {{ form_widget(form.code, {'attr':{'class':'input-log', 'placeholder':'Код'}}) }}
 
                 </div>
                 <div class="Input">
                     {{ form_errors(form.contractNumber) }}
-                    {{ form_widget(form.contractNumber, {'attr':{'class':'input-registration', 'placeholder':'Номер договора'}}) }}
+                    {{ form_widget(form.contractNumber, {'attr':{'class':'input-log', 'placeholder':'Номер договора'}}) }}
                 </div>
 
             </div>
@@ -51,37 +54,46 @@
                 <h4>Данные для авторизации:</h4>
                 <div class="Input">
                     {{ form_errors(form.username) }}
-                    {{ form_widget(form.username, {'attr':{'class':'input-registration', 'placeholder':'Имя пользователя'}}) }}
+                    {{ form_widget(form.username, {'attr':{'class':'input-log', 'placeholder':'Имя пользователя'}}) }}
                 </div>
                 <div class="Input">
                     {{ form_errors(form.email) }}
-                    {{ form_widget(form.email, {'attr':{'class':'input-registration', 'placeholder':'E-mail'}}) }}
+                    {{ form_widget(form.email, {'attr':{'class':'input-log', 'placeholder':'E-mail'}}) }}
                 </div>
                 <div class="Input">
                     {{ form_errors(form.plainPassword.first) }}
-                    {{ form_widget(form.plainPassword.first, {'attr':{'class':'input-registration', 'placeholder':'Пароль'}}) }}
+                    {{ form_widget(form.plainPassword.first, {'attr':{'class':'input-log', 'placeholder':'Пароль'}}) }}
                 </div>
                 <div class="Input">
                     {{ form_errors(form.plainPassword.second) }}
-                    {{ form_widget(form.plainPassword.second, {'attr':{'class':'input-registration', 'placeholder':'Подтвердите пароль'}}) }}
+                    {{ form_widget(form.plainPassword.second, {'attr':{'class':'input-log', 'placeholder':'Подтвердите пароль'}}) }}
                 </div>
                 <div class="Input">
                     {{ form_errors(form.fullName) }}
-                    {{ form_widget(form.fullName, {'attr':{'class':'input-registration', 'placeholder':'Контактное лицо'}}) }}
+                    {{ form_widget(form.fullName, {'attr':{'class':'input-log', 'placeholder':'Контактное лицо'}}) }}
                 </div>
                 <div class="Input">
                     {{ form_errors(form.phone) }}
-                    {{ form_widget(form.phone, {'attr':{'class':'input-registration', 'placeholder':'Контактный номер телефона'}}) }}
+                    {{ form_widget(form.phone, {'attr':{'class':'input-log', 'placeholder':'Контактный номер телефона'}}) }}
+                </div>
+            </div>
+
+            </div>
+
+            <div class="col-md-12 text-center">
+
+                <div class="button-parent">
+
+
+                    <div class="button-item">
+
+                        <input type="submit" class="button-log" value="{{ 'registration.submit'|trans }}"/>
+
+                    </div>
+
                 </div>
 
             </div>
-            <div class="col-md-12 text-center">
-            <div style="margin-top: 10px;">
-                <input type="submit" class="submit-button" value="{{ 'registration.submit'|trans }}"/>
-            </div>
-
-            </div>
-
 
 
 

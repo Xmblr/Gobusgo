@@ -78,6 +78,13 @@ class CargoUserAdmin extends AbstractAdmin
             ->addIdentifier('lenght', null,array('label'=>'Длинна'))
             ->addIdentifier('weight', null,array('label'=>'Вес, кг'))
             ->addIdentifier('CN', null,array('label'=>'Номер ТТН'))
+            ->add('_action', null, [
+                'label' => 'Действия',
+                'actions' => [
+                    'edit' => ['template' => '@GobusgoGobusgo/Admin/CRUD/list__action_edit.html.twig'],
+                    'delete' => ['template' => '@GobusgoGobusgo/Admin/CRUD/list__action_delete.html.twig'],
+                ]
+            ])
         ;
     }
 }

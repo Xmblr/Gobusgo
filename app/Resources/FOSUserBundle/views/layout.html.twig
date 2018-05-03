@@ -2,8 +2,10 @@
 {% extends '::base.html.twig' %}
 
 {% block header %}
-    <a onclick="javascript:history.back(); return false;">Назад</a>
-    <a href="{{ path('gobusgo_gobusgo_homepage') }}">Домой</a>
+
+    <a onclick="javascript:history.back(); return false;"> <img class="exit-img" src="{{ asset('/images/exit.png') }}">
+    </a>
+    {#<a href="{{ path('gobusgo_gobusgo_homepage') }}">Домой</a>#}
 {% endblock %}
 
 {% block body %}

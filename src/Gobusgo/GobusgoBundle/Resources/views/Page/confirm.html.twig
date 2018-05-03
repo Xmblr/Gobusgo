@@ -3,52 +3,470 @@
 {#{% block title %}Confirm{% endblock %}#}
 
 {% block body %}
-    <div class="row" style="background-color: #f5f5f7; padding-bottom: 3%;">
-        <div class="container-fluid" style="margin-top: 3%;">
+    <div class="row" style="padding-bottom: 3%;">
+        <span class="container-fluid" style="margin-top: 3%;">
 
             {% for type, messages in app.session.flashBag.all %}
                 {% for message in messages %}
-                    <div class="{{ type }}">
-                        {% if message.organization is defined  %}
-                            Форма юр. лица была отправлена в {{ "now" | date("Y-m-d H:i") }}.
-                            </br>
-                            Организация: {{ message.organization }} </br>
-                            УНП: {{ message.UNP }} </br>
-                            Банк: {{ message.bank }} </br>
-                            Адрес банка: {{ message.addressOfTheBank }} </br>
-                            Юридический адрес: {{ message.legalAddress }} </br>
-                            Расчётный счёт: {{ message.settlementAccount }} </br>
-                            Код: {{ message.code }} </br>
-                            Контактное лицо: {{ message.fullName }} </br>
-                            Телефон для связи: {{ message.phone }} </br>
-                            </br>
-                            Вес: {{ message.weight }}; </br>
-                            Высота: {{ message.height }}; </br>
-                            Длина: {{ message.lenght }}; </br>
-                            Ширина: {{ message.width }}; </br>
-                            Города: {{ message.cities }}; </br>
-                            Сумма: {{ message.sum }}; </br>
-                            </br>
-                            Примечания: {{ message.notice }};
+                    <span class="{{ type }}">
+                        {% if message.organization is defined %}
+                            <div class="col-md-push-2 col-md-8 check">
+                                <div class="check-border col-md-12">
+                                    <div class="col-md-12" style="border-bottom: 1px solid #eee;">
+                                    <div class="check-title col-md-12">
+                                        <div class="col-md-12 text-center">
+                                    <img src="{{ asset('images/well-done.png') }}" style="height: 70px;">
+                                        </div>
+                                        <div class="col-md-12 text-center" style="margin-bottom: 20px;">
+                                    <span class="text-confirm">Спасибо за оформление заявки на GoBusGo.</span>
+                                        </div>
+                                    </div>
+                                    <div class="text-center col-md-12" style="margin:20px 0px;">
+                                        {#<h4 class="text-center" style="margin: 20px;">Информация заявки:</h4>#}
+                                        <p class="text-right">Дата отправки <span
+                                                    style="text-decoration: underline; color: #566fe0;">{{ "now" | date("Y-m-d") }}</span>
+                                            в <span style="text-decoration: underline; color: #566fe0;">{{ "now" | date("H:i") }}</span></p>
 
-                        {% elseif message.weight is defined %}
-                            Контактное лицо: {{ message.name }} </br>
-                            Телефон для связи: {{ message.phone }} </br>
-                            </br>
-                            Вес: {{ message.weight }}; </br>
-                            Высота: {{ message.height }}; </br>
-                            Длина: {{ message.lenght }}; </br>
-                            Ширина: {{ message.width }}; </br>
-                            Города: {{ message.cities }}; </br>
-                            Сумма: {{ message.sum }}; </br>
-                            </br>
-                            Примечания: {{ message.notice }};
+                                    </div>
+                                <div class="col-md-6 col-sm-6">
+
+
+                                    <table class="table-check">
+                                        <tr>
+                                            <td>
+                                                 <i class="fa fa-cube fa-2x"
+                                                    style="display: inline-block; color: #566fe0;"
+                                                    aria-hidden="true"></i>
+                                            </td>
+                                            <td colspan="2">
+                                                <h4 style="display: inline-block;">Габариты:</h4>
+                                            </td>
+
+                                        </tr>
+                                        <tr>
+                                            <td>
+
+                                            </td>
+
+                                            <td style="padding-top: 15px;">
+                                                Вес:
+                                            </td>
+                                            <td style="padding-top: 15px;">
+                                                {{ message.weight }} кг
+                                            </td>
+                                        </tr>
+                                        {% if message.height not in ['Не задано'] %}
+                                            <tr>
+                                            <td>
+
+                                            </td>
+                                            <td>
+
+                                                Высота:
+                                            </td>
+                                            <td>
+                                                 {{ message.height }} мм
+                                            </td>
+                                        </tr>
+                                            <tr>
+                                             <td>
+
+                                            </td>
+                                            <td>
+                                                 Длина:
+                                            </td>
+                                            <td>
+                                                 {{ message.lenght }} мм
+                                            </td>
+                                        </tr>
+                                            <tr>
+                                             <td>
+
+                                            </td>
+                                            <td>
+                                                Ширина:
+                                            </td>
+                                            <td>
+                                                 {{ message.width }} мм
+                                            </td>
+                                        </tr>
+                                        {% endif %}
+                                    </table>
+                                    <div style="margin-top: 20px;">
+
+                                    <table class="table-check">
+                                        <tr>
+                                            <td>
+                                                <i style="display: inline-block; color: #566fe0;"
+                                                   class="fa fa-exchange fa-2x" aria-hidden="true"></i>
+                                            </td>
+                                            <td>
+                                                <h4 style="display: inline-block;">Направление:</h4>
+                                            </td>
+
+                                        </tr>
+                                        <tr>
+                                            <td>
+
+                                            </td>
+                                            <td style="padding-top: 15px;">
+                                               {{ message.cities }}
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    </div>
+                                    <div style="margin-top: 20px;">
+
+                                    <table class="table-check">
+                                        <tr>
+                                            <td>
+                                                <i style="display: inline-block; color: #566fe0;"
+                                                   class="fa fa-comment fa-2x" aria-hidden="true"></i>
+                                            </td>
+                                            <td>
+                                                <h4 style="display: inline-block;">Примечания:</h4>
+                                            </td>
+
+                                        </tr>
+                                        <tr>
+                                            <td>
+
+                                            </td>
+                                            <td style="padding-top: 15px; padding-bottom: 20px;">
+                                                {{ message.notice }}
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    </div>
+
+
+
+
+                                </div>
+                                <div class="col-md-6 col-sm-6">
+
+
+                                    <table class="table-check">
+                                        <tr>
+                                            <td>
+                                                <i style="display: inline-block; color: #566fe0;"
+                                                   class="fa fa-id-card fa-2x" aria-hidden="true"></i>
+                                            </td>
+
+                                            <td colspan="2">
+                                                <h4 style="display: inline-block;">Персональные данные:</h4>
+                                            </td>
+
+                                        </tr>
+                                        <tr>
+                                            <td>
+
+                                            </td>
+                                            <td style="padding-top: 15px;">
+                                                Организация:
+                                            </td>
+                                            <td style="padding-top: 15px;">
+                                                {{ message.organization }}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                              <td>
+
+                                            </td>
+                                            <td>
+                                                УНП:
+                                            </td>
+                                            <td>
+                                                {{ message.UNP }}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                              <td>
+
+                                            </td>
+                                            <td>
+                                                Банк:
+                                            </td>
+                                            <td>
+                                                {{ message.bank }}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                              <td>
+
+                                            </td>
+                                            <td>
+                                                Адрес банка:
+                                            </td>
+                                            <td>
+                                                {{ message.addressOfTheBank }}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                              <td>
+
+                                            </td>
+                                            <td>
+                                                Юридический адрес:
+                                            </td>
+                                            <td>
+                                                {{ message.legalAddress }}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                              <td>
+
+                                            </td>
+                                            <td>
+                                                Расчётный счёт:
+                                            </td>
+                                            <td>
+                                                {{ message.settlementAccount }}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                              <td>
+
+                                            </td>
+                                            <td>
+                                                Код:
+                                            </td>
+                                            <td>
+                                                {{ message.code }}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                              <td>
+
+                                            </td>
+                                            <td>
+                                                Контактное лицо:
+                                            </td>
+                                            <td>
+                                                {{ message.fullName }}
+                                            </td>
+                                        </tr>
+                                         <tr>
+                                               <td>
+
+                                            </td>
+                                            <td>
+                                                Телефон для связи:
+                                            </td>
+                                            <td>
+                                                {{ message.phone }}
+                                            </td>
+                                        </tr>
+                                    </table>
+
+                                </div>
+                                    </div>
+                                    <div class="col-md-12 col-sm-12 text-center" style="margin-top: 20px;">
+                                            <h4 class="inline-block">Сумма к оплате:</h4>
+                                            <span style="font-size: 24px; font-family: Trebuchet MS; text-decoration: underline; display: inline-block; margin-left: 20px; color: #566fe0;"> {{ message.sum }}</span>
+                                    </div>
+                                    <div class="col-md-12 text-center"
+                                         style="margin-bottom: 30px; font-size: 16px; font-family: mywebfont; color: #333;">
+                                       <a href="{{ path('gobusgo_gobusgo_homepage') }}"><i class="fa fa-home"
+                                                                                           aria-hidden="true"></i><span
+                                                   style="margin-left: 15px;">На главную</span>
+                                       </a></div>
+                                </div>
+                            </div>
+                            {% elseif message.weight is defined %}
+
+
+
+
+
+                            <div class="col-md-push-4 col-md-4 check">
+                                <div class="check-border col-md-12">
+                                    <div class="col-md-12"
+                                         style="border-bottom: 1px solid #eee; padding-left: 0px; padding-right: 0px;">
+                                    <div class="check-title col-md-12">
+                                        <div class="col-md-12 text-center">
+                                    <img src="{{ asset('images/well-done.png') }}" style="height: 70px;">
+                                        </div>
+                                        <div class="col-md-12 text-center" style="margin-bottom: 20px;">
+                                    <span class="text-confirm">Спасибо за оформление заявки на GoBusGo.</span>
+                                        </div>
+                                    </div>
+                                    <div class="text-center col-md-12" style="margin:20px 0px;">
+                                        {#<h4 class="text-center" style="margin: 20px;">Информация заявки:</h4>#}
+                                        <p class="text-right">Дата отправки <span
+                                                    style="text-decoration: underline; color: #566fe0;">{{ "now" | date("Y-m-d") }}</span>
+                                            в <span style="text-decoration: underline; color: #566fe0;">{{ "now" | date("H:i") }}</span></p>
+
+                                    </div>
+
+
+                                    <table class="table-check">
+                                        <tr>
+                                            <td>
+                                                 <i class="fa fa-cube fa-2x"
+                                                    style="display: inline-block; color: #566fe0;"
+                                                    aria-hidden="true"></i>
+                                            </td>
+                                            <td colspan="2">
+                                                <h4 style="display: inline-block;">Габариты:</h4>
+                                            </td>
+
+                                        </tr>
+                                        <tr>
+                                            <td>
+
+                                            </td>
+
+                                            <td style="padding-top: 15px;">
+                                                Вес:
+                                            </td>
+                                            <td style="padding-top: 15px;">
+                                                {{ message.weight }} кг
+                                            </td>
+                                        </tr>
+                                        {% if message.height not in ['Не задано'] %}
+                                            <tr>
+                                            <td>
+
+                                            </td>
+                                            <td>
+
+                                                Высота:
+                                            </td>
+                                            <td>
+                                                 {{ message.height }} мм
+                                            </td>
+                                        </tr>
+                                            <tr>
+                                             <td>
+
+                                            </td>
+                                            <td>
+                                                 Длина:
+                                            </td>
+                                            <td>
+                                                 {{ message.lenght }} мм
+                                            </td>
+                                        </tr>
+                                            <tr>
+                                             <td>
+
+                                            </td>
+                                            <td>
+                                                Ширина:
+                                            </td>
+                                            <td>
+                                                 {{ message.width }} мм
+                                            </td>
+                                        </tr>
+                                        {% endif %}
+                                    </table>
+                                    <div style="margin-top: 20px;">
+                                    <table class="table-check">
+                                        <tr>
+                                            <td>
+                                                <i style="display: inline-block; color: #566fe0;"
+                                                   class="fa fa-exchange fa-2x" aria-hidden="true"></i>
+                                            </td>
+                                            <td>
+                                                <h4 style="display: inline-block;">Направление:</h4>
+                                            </td>
+
+                                        </tr>
+                                        <tr>
+                                            <td>
+
+                                            </td>
+                                            <td style="padding-top: 15px;">
+                                               {{ message.cities }}
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    </div>
+                                          <div style="margin-top: 20px;">
+                                         <table class="table-check">
+                                        <tr>
+                                            <td>
+                                                <i style="display: inline-block; color: #566fe0;"
+                                                   class="fa fa-id-card fa-2x" aria-hidden="true"></i>
+                                            </td>
+
+                                            <td colspan="2">
+                                                <h4 style="display: inline-block;">Персональные данные:</h4>
+                                            </td>
+
+                                        </tr>
+                                        <tr>
+                                            <td>
+
+                                            </td>
+                                            <td style="padding-top: 15px;">
+                                                Контактное лицо:
+                                            </td>
+                                            <td style="padding-top: 15px;">
+                                                {{ message.name }}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                              <td>
+                                            </td>
+                                            <td>
+                                                Телефон для связи:
+                                            </td>
+                                            <td>
+                                                {{ message.phone }}
+                                            </td>
+                                        </tr>
+                                    </table>
+                                        </div>
+                                    <div style="margin-top: 20px;">
+
+
+                                    <table class="table-check">
+                                        <tr>
+                                            <td>
+                                                <i style="display: inline-block; color: #566fe0;"
+                                                   class="fa fa-comment fa-2x" aria-hidden="true"></i>
+                                            </td>
+                                            <td>
+                                                <h4 style="display: inline-block;">Примечания:</h4>
+                                            </td>
+
+                                        </tr>
+                                        <tr>
+                                            <td>
+
+                                            </td>
+                                            <td style="padding-top: 15px; padding-bottom: 20px;">
+                                                {{ message.notice }}
+                                            </td>
+                                        </tr>
+                                    </table>
+
+
+                                    </div>
+
+
+                                     <div class="col-md-12 text-center" style="margin-top: 30px;">
+                                            <h4 class="inline-block">Сумма к оплате:</h4>
+                                            <span style="font-size: 24px; font-family: Trebuchet MS; text-decoration: underline; display: inline-block; margin-left: 20px; color: #566fe0;"> {{ message.sum }}</span>
+                                    </div>
+                                    <div class="col-md-12 text-center"
+                                         style="margin-bottom: 30px; font-size: 16px; font-family: mywebfont; color: #333;">
+                                       <a href="{{ path('gobusgo_gobusgo_homepage') }}"><i class="fa fa-home"
+                                                                                           aria-hidden="true"></i><span
+                                                   style="margin-left: 15px;">На главную</span>
+                                       </a></div>
+                                    </div>
+                                </div>
+                        </div>
+
                         {% else %}
 
-                            <div class="alert alert-success">
+                            <h4 class="confirm col-md-6 col-md-push-3">
                                 {{ message }}
-                                Сейчас Вас перенаправят на предыдущую страницу.
-                            </div>
+                            Сейчас Вас перенаправят на предыдущую страницу.
+                            </h4>
                             <script>
 
                                 var oldURL = document.referrer;
@@ -58,14 +476,12 @@
                         {% endif %}
 
 
-                    </div>
+                    </span>
                 {% endfor %}
             {% endfor %}
 
 
-
-
-        </div>
+    </div>
     </div>
 
 {% endblock %}
