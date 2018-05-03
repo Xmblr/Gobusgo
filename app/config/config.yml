@@ -113,6 +113,7 @@ sonata_block:
         sonata.user.block.account: # used to display menu option (login option)
         sonata.block.service.text:
         sonata.block.service.user: ~
+        sonata.block.service.order:
         # enable the SonataAdminBundle block
         sonata.admin.block.admin_list:
             contexts: [admin]
@@ -189,7 +190,8 @@ sonata_admin:
         blocks:
 #            - { position: center,type: sonata.block.service.text, settings: { content: '<h2>HELLO WORLD!</h2>' } }
             - { position: left, type: sonata.block.service.user }
-            - { position: right, type: sonata.admin.block.admin_list }
+            - { position: center, type: sonata.block.service.order }
+#            - { position: right, type: sonata.admin.block.admin_list }
     title:      GoBusGo
     title_logo: favicon.ico
     templates:
@@ -293,7 +295,7 @@ sonata_media:
             formats:
                 small: { width: 150 , quality: 95}
                 big:   { width: 500 , quality: 90}
-                wide:   { width: 500 , quality: 90}
+                wide:  { width: 500 , quality: 90}
 
     cdn:
         server:

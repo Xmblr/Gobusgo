@@ -279,26 +279,60 @@ file that was distributed with this source code.
                     {% endif %}
                         <ul class="sidebar-menu" data-widget="tree">
 
-                                <li>
-                                    <a href="{{ path('gobusgo_gobusgo_homepage') }}"><i  style="vertical-align: middle;" class="fa fa-home fa-2x" aria-hidden="true"></i>
-                                        <span class="admin-menu-left">Главная</span></a>
-                                </li>
-                                <li>
-                                    <a href="{{ path('gobusgo_gobusgo_about') }}"><i  style="vertical-align: middle;" class="fa fa-info-circle fa-2x" aria-hidden="true"></i>
-                                        <span class="admin-menu-left">О нас</span></a>
-                                </li>
-                                <li>
-                                    <a href="{{ path('sonata_news_home') }}"><i  style="vertical-align: middle;" class="fa fa-newspaper-o fa-2x" aria-hidden="true"></i>
-                                        <span class="admin-menu-left">Новости</span></a>
-                                </li>
-                                <li>
-                                    <a class="" href="index.html"><i  style="vertical-align: middle;" class="fa fa-comment-o fa-2x" aria-hidden="true"></i>
-                                        <span class="admin-menu-left">Отзывы</a>
-                                </li>
-                                <li>
-                                    <a href="{{ path('gobusgo_gobusgo_contacts') }}"><i  style="vertical-align: middle;" class="fa fa-phone fa-2x" aria-hidden="true"></i>
-                                        <span class="admin-menu-left">Контакты</span></a>
-                                </li>
+                            <li>
+                                <a href="{{ path('address_user_list') }}"><i style="vertical-align: middle;"
+                                                                             class="fa fa-home fa-2x"
+                                                                             aria-hidden="true"></i>
+                                    <span class="admin-menu-left">Шаблоны адресов</span></a>
+                            </li>
+                            <li>
+                                <a href="{{ path('cargo_user_list') }}"><i style="vertical-align: middle;"
+                                                                           class="fa fa-home fa-2x"
+                                                                           aria-hidden="true"></i>
+                                    <span class="admin-menu-left">Шаблоны грузов</span></a>
+                            </li>
+                            <li>
+                                <a href="{{ path('order_user_list') }}"><i style="vertical-align: middle;"
+                                                                           class="fa fa-home fa-2x"
+                                                                           aria-hidden="true"></i>
+                                    <span class="admin-menu-left">История грузоперевозок</span></a>
+                            </li>
+                            <li>
+                                <a href="{{ path('order_user_create') }}"><i style="vertical-align: middle;"
+                                                                             class="fa fa-home fa-2x"
+                                                                             aria-hidden="true"></i>
+                                    <span class="admin-menu-left">Создать заявку</span></a>
+                            </li>
+
+                            <li>
+                                <a href="{{ path('gobusgo_gobusgo_homepage') }}"><i style="vertical-align: middle;"
+                                                                                    class="fa fa-home fa-2x"
+                                                                                    aria-hidden="true"></i>
+                                    <span class="admin-menu-left">Главная</span></a>
+                            </li>
+                            <li>
+                                <a href="{{ path('gobusgo_gobusgo_about') }}"><i style="vertical-align: middle;"
+                                                                                 class="fa fa-info-circle fa-2x"
+                                                                                 aria-hidden="true"></i>
+                                    <span class="admin-menu-left">О нас</span></a>
+                            </li>
+                            <li>
+                                <a href="{{ path('sonata_news_home') }}"><i style="vertical-align: middle;"
+                                                                            class="fa fa-newspaper-o fa-2x"
+                                                                            aria-hidden="true"></i>
+                                    <span class="admin-menu-left">Новости</span></a>
+                            </li>
+                            {#<li>#}
+                            {#<a class="" href="index.html"><i style="vertical-align: middle;"#}
+                            {#class="fa fa-comment-o fa-2x" aria-hidden="true"></i>#}
+                            {#<span class="admin-menu-left">Отзывы</a>#}
+                            {#</li>#}
+                            <li>
+                                <a href="{{ path('gobusgo_gobusgo_contacts') }}"><i style="vertical-align: middle;"
+                                                                                    class="fa fa-phone fa-2x"
+                                                                                    aria-hidden="true"></i>
+                                    <span class="admin-menu-left">Контакты</span></a>
+                            </li>
 
                             <li><a href="{{ path('fos_user_profile_show') }}"
                                    style="vertical-align: middle; text-decoration: none;"><i
@@ -306,6 +340,7 @@ file that was distributed with this source code.
                                             style="vertical-align: middle; "></i>
                                     <span class="admin-menu-left">Профиль</span></a>
                             </li>
+                        </ul>
 
 
                         {% block side_bar_after_nav %}
@@ -341,7 +376,7 @@ file that was distributed with this source code.
                                         {% block tab_menu_navbar_header %}
                                             {% if _navbar_title is not empty %}
                                                 <div class="navbar-header">
-                                                    <a class="navbar-brand" href="#">{{ _navbar_title|raw }}</a>
+                                                    {#<a class="navbar-brand" href="#">{{ _navbar_title|raw }}</a>#}
                                                 </div>
                                             {% endif %}
                                         {% endblock %}

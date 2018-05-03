@@ -51,6 +51,7 @@ class AddressUserAdmin extends AbstractAdmin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
+            ->with(' ')
             ->add('name', null,array('label'=>'ФИО получателя'))
             ->add('phone', null, array('label' => 'Контактный телефон'))
             ->add('organization', null, array('label' => 'Организация'))
@@ -59,6 +60,7 @@ class AddressUserAdmin extends AbstractAdmin
                 'choice_label' => 'name',
                 'label' => 'Город'])
             ->add('street', null,array('label'=>'Адрес'))
+            ->end()
         ;
     }
 

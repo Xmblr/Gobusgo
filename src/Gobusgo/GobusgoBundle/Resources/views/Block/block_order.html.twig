@@ -1,0 +1,19 @@
+{% extends sonata_block.templates.block_base %}
+
+{% block block %}
+    {% for myentity in myentity %}
+        {{ myentity.id }}
+        {{ myentity.userid }}
+        {{ myentity.cargoId }}
+        {{ myentity.price }}
+        {{ myentity.quantityOfCargo }}
+        {{ myentity.shippingAddress }}
+        {{ myentity.deliveryAddress }}
+        {{ myentity.additionalAddress }}
+        {#{{ myentity.dateOfOrder }}#}
+        {{ myentity.status }}
+        {{ myentity.notice }}
+        </br>
+    {% endfor %}
+
+{% endblock %}

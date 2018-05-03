@@ -29,6 +29,18 @@ class OrderUserAdmin extends AbstractAdmin
     protected $baseRouteName = 'order_user';
     protected $baseRoutePattern = 'order_user';
 
+    protected $datagridValues = [
+        '_page' => 1,
+        '_sort_order' => 'DESC',
+        '_sort_by' => 'id',
+    ];
+
+
+    public function configure()
+    {
+        parent::configure();
+        $this->classnameLabel = 'История грузоперевозок';
+    }
 
     public function getUserId ()
     {
@@ -116,91 +128,55 @@ class OrderUserAdmin extends AbstractAdmin
 
     protected function configureFormFields(FormMapper $formMapper)
     {
-//        $em = $this->getConfigurationPool()->getContainer()->get('doctrine.orm.entity_manager');
-//
-//        $qb1 = $em->createQueryBuilder();
-//        $qb1->select('c')->from(Cargo::class, 'c')->where('c.userId = :userId')->setParameters(['userId'=>$this->getUserId()]);
-//        $cargo_available_choices = $qb1->getQuery()->getResult();
-//
-//        $qb2 = $em->createQueryBuilder();
-//        $qb2->select('a')->from(Address::class, 'a')->where('a.userId = :userId')->setParameters(['userId'=>$this->getUserId()]);
-//        $address_available_choices = $qb2->getQuery()->getResult();
 
 
 
         $formMapper
-
-//            ->add('cargoId', CargoType::class, array(
-//                'class'=>Cargo::class,
-//                'compound'=>true,
-////                'allow_add' => true,
-//                'by_reference' => false,
-////                'allow_delete' => true
-//            ),array(
-//                'admin_code' => 'admin.user.cargo'
-//            ))
+            ->with('Создание заявки', ['class' => 'col-md-12'])
+//
             ->add('cargoId', ModelListType::class, [
                 'class'=>Cargo::class,
+                'label' => 'Шаблон груза',
+                'btn_delete' => false,
 //                'property'=>'name',
 //                'choices' => $cargo_available_choices
             ],array(
-                'admin_code' => 'admin.user.cargo'
+                'admin_code' => 'admin.user.cargo',
+
             ))
             ->add('price',null,array('label'=>'Цена'))
-            ->add('quantityOfCargo')
+            ->add('quantityOfCargo', null, array('label' => 'Количество груза'))
             ->add('shippingAddress', ModelListType::class, [
                 'class'=>Address::class,
-//                'mapped'=>'name',
-//                'choices' =>  $address_available_choices
+                'label' => 'Адрес отправки',
+                'btn_delete' => false,
             ],array(
-                'admin_code' => 'admin.user.address'
+                'admin_code' => 'admin.user.address',
+
             ))
             ->add('deliveryAddress', ModelListType::class, [
                 'class'=>Address::class,
-//                'property'=>'fullName',
-//                'choices' => $address_available_choices
+                'label' => 'Адрес доставки',
+                'btn_delete' => false,
             ],array(
                 'admin_code' => 'admin.user.address'
             ))
-            ->end()
-            ->with('Дополнителный адрес', ['class' => 'collapse'])
+//            ->end()
+//            ->with('Дополнителный адрес', ['class' => 'collapse'])
             ->add('additionalAddress', ModelListType::class, [
                 'class' => Address::class,
-                //                'property'=>'fullName',
-                //                'choices' => $address_available_choices
+                'label' => 'Дополнительный адрес',
+                'btn_delete' => false,
+                'required' => false
             ], array(
                 'admin_code' => 'admin.user.address'
             ))
+            ->add('notice', TextareaType::class, array('label' => 'Примечания', 'required' => false))
             ->end()
-//            ->add('additionalAddress2', ModelListType::class, [
-//                'class'=>Address::class,
-////                'property'=>'fullName',
-////                'choices' => $address_available_choices
-//            ],array(
-//                'admin_code' => 'admin.user.address'
-//            ))
-//            ->add('additionalAddress3', ModelListType::class, [
-//                'class'=>Address::class,
-////                'property'=>'fullName',
-////                'choices' => $address_available_choices
-//            ],array(
-//                'admin_code' => 'admin.user.address'
-//            ))
-//            ->add('additionalAddress4', ModelListType::class, [
-//                'class'=>Address::class,
-////                'property'=>'fullName',
-////                'choices' => $address_available_choices
-//            ],array(
-//                'admin_code' => 'admin.user.address'
-//            ))
-//            ->add('additionalAddress5', ModelListType::class, [
-//                'class'=>Address::class,
-////                'property'=>'fullName',
-////                'choices' => $address_available_choices
-//            ],array(
-//                'admin_code' => 'admin.user.address'
-//            ))
-            ->add('notice', TextareaType::class)
+            ->with('Пользователь', ['class' => 'col-md-4'])
+            ->end()
+            ->with('Карта', ['class' => 'col-md-6'])
+            ->end()
 
         ;
     }
