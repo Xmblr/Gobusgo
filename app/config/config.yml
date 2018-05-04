@@ -183,14 +183,16 @@ sonata_admin:
             app.admin.group.moderator:
                 label: Новости
                 roles: [ ROLE_ADMIN, ROLE_MODERATOR ]
-            app.admin.group.user:
-                label: Пользователь
-                roles: [ ROLE_USER, ROLE_ADMIN ]
+
+
+#            app.admin.group.user:
+#                label: Пользователь
+#                roles: [ ROLE_USER, ROLE_ADMIN ]
 
         blocks:
 #            - { position: center,type: sonata.block.service.text, settings: { content: '<h2>HELLO WORLD!</h2>' } }
             - { position: left, type: sonata.block.service.user }
-            - { position: center, type: sonata.block.service.order }
+            - { position: right, type: sonata.block.service.order }
 #            - { position: right, type: sonata.admin.block.admin_list }
     title:      GoBusGo
     title_logo: favicon.ico

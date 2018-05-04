@@ -25,7 +25,11 @@
                             {{ myentity.id }}
                         </td>
                         <td>
-                            {{ myentity.status }}
+                            {% if myentity.status == 1 %}
+                                Завершено
+                            {% else %}
+                                В обработке
+                            {% endif %}
                         </td>
                         <td>
                             {{ myentity.cargoId }}

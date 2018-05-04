@@ -29,7 +29,7 @@ class OrderBlockService extends BaseBlockService implements BlockServiceInterfac
         $settings = array_merge($this->getDefaultSettings(), $blockContext->getSettings());
         $userId = 1;
         $myentityrepository = $this->em->getRepository('GobusgoGobusgoBundle:Order');
-        $myentity = $myentityrepository->findBy(array('userId' => $userId));
+        $myentity = $myentityrepository->findBy(array('userId' => $userId), array('id' => 'DESC'), 15);
 
         return $this->renderResponse('@GobusgoGobusgo/Block/block_order.html.twig', array(
             'block' => $blockContext->getBlock(),
