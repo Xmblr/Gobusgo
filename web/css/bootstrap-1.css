@@ -1093,7 +1093,7 @@ textarea {
     line-height: inherit;
 }
 a {
-    color: #000;
+    color: #333;
     text-decoration: none;
     cursor: pointer;
 }

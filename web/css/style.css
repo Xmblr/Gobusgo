@@ -20,11 +20,11 @@
 
 @font-face {
     font-family: 'MyWebFont';
-    src: url('/fonts/zero5-WebFont.eot');
-    src: url('/fonts/zero5-WebFont.eot?#iefix') format('embedded-opentype'),
-    url('/fonts/zero5-WebFont.woff') format('woff'),
-    url('/fonts/zero5-WebFont.ttf') format('truetype'),
-    url('/fonts/zero5-WebFont.svg#webfont') format('svg');
+    src: url('/fonts/zero5-webfont.eot');
+    src: url('/fonts/zero5-webfont.eot?#iefix') format('embedded-opentype'),
+    url('/fonts/zero5-webfont.woff') format('woff'),
+    url('/fonts/zero5-webfont.ttf') format('truetype'),
+    url('/fonts/zero5-webfont.svg#webfont') format('svg');
 }
 
 h1 {
@@ -88,6 +88,10 @@ h4 {
     text-align: left;
     margin: 10px 0px;
     line-height: 24px;
+}
+
+a:hover {
+    color: #566fe0;
 }
 
 .advantage-title {
@@ -666,6 +670,7 @@ footer {
         max-width: 90px;
     }
 }
+
 @media (min-width: 1250px) {
     .logo-mobile {
         display: none;
@@ -1171,6 +1176,15 @@ footer {
     color: black;
 }
 
+.Input li {
+    list-style-type: none;
+    color: red;
+}
+
+.Input ul {
+    padding-left: 0px;
+}
+
 .Input-1 {
     position: absolute;
     margin-top: 345px;
@@ -1666,7 +1680,7 @@ footer {
 .exit-img {
     height: 30px;
     float: right;
-    margin: 30px 30px 0px 0px;
+    margin: 20px 30px 0px 0px;
 }
 
 .confirm {
@@ -1722,3 +1736,51 @@ footer {
     padding-top: 5px;
     font-family: mywebfont;
 }
+
+.home-img {
+    height: 38px;
+    text-align: right;
+    margin: 16px 30px 0px 0px;
+    color: #8598ff;
+    font-size: 38px !important;
+}
+
+.field-closed {
+    background: #eee;
+    cursor: default;
+}
+
+.profile-table td {
+    text-align: left;
+    font-size: 16px;
+    padding: 10px 0px 0px 0px;
+}
+
+@media (max-width: 468px) {
+    .profile-table td {
+        display: block;
+    }
+}
+
+.profile-fon {
+    background-color: #f3f5fc;
+    padding: 5px 5px;
+}
+
+@media (max-width: 468px) {
+    .table-mobile th, .table-mobile td {
+        display: block;
+        text-align: center;
+        width: 100% !important;
+        height: auto !important;
+    }
+
+}
+
+@media (min-width: 468px) {
+    .table-mobile th, .table-mobile td {
+        max-width: 70px;
+    }
+}
+
+

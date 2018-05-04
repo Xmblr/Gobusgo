@@ -1,20 +1,122 @@
 {% trans_default_domain 'FOSUserBundle' %}
 
-<div class="fos_user_user_show">
-    <p>{{ 'profile.show.username'|trans }}: {{ user.username }}</p>
-    <p>{{ 'profile.show.email'|trans }}: {{ user.email }}</p>
-    <p>Организация: {{ user.organization }}</p>
-    <p>УНП: {{ user.UNP }}</p>
-    <p>Банк: {{ user.bank }}</p>
-    <p>Адресс банка: {{ user.addressOfTheBank }}</p>
-    <p>Юридический адрес: {{ user.legalAddress }}</p>
-    <p>Расчетный счет: {{ user.settlementAccount }}</p>
-    <p>Почтовый индекс: {{ user.code }}</p>
-    <p>Телефон: {{ user.phone }}</p>
-    <p>ФИО: {{ user.fullName }}</p>
-    <p>Номер контракта: {{ user.contractNumber }}</p>
 
+<div class="container">
+    <div class="row text-center">
+        <a href="{{ path('gobusgo_gobusgo_homepage') }}">
+            <img src="{{ asset('images/logo-1.png') }}" class="m-b-20" alt="" width="120px;">
+        </a>
+        <h1>Профиль</h1>
+        <div class="login-form">
+            <div class="form-input" style="width: 100%; max-width: 600px;">
+                <table class="profile-table" style="width: 100%;">
+                    <tr>
+                        <td>
+                            {{ 'profile.show.username'|trans }}:
+                        </td>
+                        <td>
+                            <div class="input-log profile-fon">{{ user.username }}</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            {{ 'profile.show.email'|trans }}:
+                        </td>
+                        <td>
+                            <div class="input-log profile-fon">{{ user.email }}</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Организация:
+                        </td>
+                        <td>
+                            <div class="input-log profile-fon">{{ user.organization }}</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            УНП:
+                        </td>
+                        <td>
+                            <div class="input-log profile-fon">{{ user.UNP }}</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Банк:
+                        </td>
+                        <td>
+                            <div class="input-log profile-fon">{{ user.bank }}</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Адресс банка:
+                        </td>
+                        <td>
+                            <div class="input-log profile-fon">{{ user.addressOfTheBank }}</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Юридический адрес:
+                        </td>
+                        <td>
+                            <div class="input-log profile-fon">{{ user.legalAddress }}</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Расчетный счет:
+                        </td>
+                        <td>
+                            <div class="input-log profile-fon">{{ user.settlementAccount }}</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Почтовый индекс:
+                        </td>
+                        <td>
+                            <div class="input-log profile-fon">{{ user.code }}</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Телефон:
+                        </td>
+                        <td>
+                            <div class="input-log profile-fon">{{ user.phone }}</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            ФИО:
+                        </td>
+                        <td>
+                            <div class="input-log profile-fon">{{ user.fullName }}</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Номер контракта:
+                        </td>
+                        <td>
+                            <div class="input-log profile-fon">{{ user.contractNumber }}</div>
+                        </td>
+                    </tr>
+                </table>
 
-    <a href="{{ path('fos_user_change_password') }}">сменить пароль</a>
-    <a href="{{ path('fos_user_profile_edit') }}">изменить данные</a>
+                <div style="margin: 20px 0px;">
+                    <a href="{{ path('fos_user_profile_edit') }}" class="button-log" style="color: white;">Редактировать
+                        профиль</a>
+                    <div class="text-center">
+                        <a href="{{ path('fos_user_change_password') }}" style="color: #8598ff;">Изменить пароль</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+

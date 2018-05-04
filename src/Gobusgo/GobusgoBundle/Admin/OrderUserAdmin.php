@@ -173,7 +173,7 @@ class OrderUserAdmin extends AbstractAdmin
             ))
             ->add('notice', TextareaType::class, array('label' => 'Примечания', 'required' => false))
             ->end()
-            ->with('Пользователь', ['class' => 'col-md-4'])
+            ->with('Пользователь', ['class' => 'col-md-6'])
             ->end()
             ->with('Карта', ['class' => 'col-md-6'])
             ->end()
@@ -205,7 +205,7 @@ class OrderUserAdmin extends AbstractAdmin
     {
         $listMapper
             ->addIdentifier('id', null, array('label' => 'Номер заказа'))
-            ->addIdentifier('status', null, array('template' => '@GobusgoGobusgo/Admin/CRUD/list_boolean.html.twig'))
+            ->addIdentifier('status', null, array('template' => '@GobusgoGobusgo/Admin/CRUD/list_boolean.html.twig', 'label' => 'Статус'))
             ->add('dateOfOrder', null, array('label' => 'Дата заявки'))
             ->add('userId.fullName', null, array('label' => 'Пользователь'))
             ->add('cargoId.name', null, array('label' => 'Груз'))

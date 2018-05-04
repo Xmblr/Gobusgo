@@ -27,30 +27,35 @@ class OrderAdmin extends AbstractAdmin
         $formMapper
             ->add('userId', ModelType::class,[
                 'class'=>User::class,
+                'label' => 'Пользователь',
                 'property'=>'fullName',
             ])
             ->add('cargoId', ModelType::class, [
                 'class'=>Cargo::class,
+                'label' => 'Груз',
                 'property'=>'name'
             ],array(
                 'admin_code' => 'admin.cargo'
             ))
-            ->add('price')
-            ->add('quantityOfCargo')
+            ->add('quantityOfCargo', null, array('label' => 'Кол-во груза'))
+            ->add('price', null, array('label' => 'Цена'))
             ->add('shippingAddress', ModelType::class, [
                 'class'=>Address::class,
+                'label' => 'Адрес отправки',
                 'property' => 'name'
             ],array(
                 'admin_code' => 'admin.address'
             ))
             ->add('deliveryAddress', ModelType::class, [
                 'class'=>Address::class,
+                'label' => 'Адрес доставки',
                 'property' => 'name'
             ],array(
                 'admin_code' => 'admin.address'
             ))
             ->add('additionalAddress', ModelType::class, [
                 'class'=>Address::class,
+                'label' => 'Дополнительный адрес',
                 'property' => 'name'
             ],array(
                 'admin_code' => 'admin.address'
@@ -79,25 +84,25 @@ class OrderAdmin extends AbstractAdmin
 //            ],array(
 //                'admin_code' => 'admin.address'
 //            ))
-            ->add('dateOfOrder', DateTimeType::DATETIME)
-            ->add('status')
-            ->add('notice', TextareaType::class)
+            ->add('dateOfOrder', DateTimeType::DATETIME, array('label' => 'Дата заявки'))
+            ->add('status', null, array('label' => 'Статус'))
+            ->add('notice', TextareaType::class, array('label' => 'Примечания', 'required' => false))
         ;
     }
 
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
-            ->add('id')
-            ->add('dateOfOrder')
-            ->add('status')
-            ->add('userId.fullName')
-            ->add('cargoId.name')
-            ->add('price')
-            ->add('quantityOfCargo')
-            ->add('shippingAddress.name')
-            ->add('deliveryAddress.name')
-            ->add('additionalAddress.name')
+            ->add('id', null, array('label' => 'Номер заказа'))
+            ->add('status', null, array('label' => 'Статус'))
+            ->add('dateOfOrder', null, array('label' => 'Дата заявки'))
+            ->add('userId.fullName', null, array('label' => 'Пользователь'))
+            ->add('cargoId.name', null, array('label' => 'Груз'))
+            ->add('quantityOfCargo', null, array('label' => 'Кол-во груза'))
+            ->add('price', null, array('label' => 'Оценочная стоимость'))
+            ->add('shippingAddress.name', null, array('label' => 'Адрес отправки'))
+            ->add('deliveryAddress.name', null, array('label' => 'Адрес доставки'))
+            ->add('additionalAddress.name', null, array('label' => 'Дополнительный адрес'))
 //            ->add('additionalAddress2.name')
 //            ->add('additionalAddress3.name')
 //            ->add('additionalAddress4.name')
@@ -109,16 +114,23 @@ class OrderAdmin extends AbstractAdmin
     {
 
         $listMapper
-            ->addIdentifier('id')
-            ->addIdentifier('dateOfOrder')
-            ->addIdentifier('status', null, array('template' => '@GobusgoGobusgo/Admin/CRUD/list_boolean.html.twig'))
-            ->addIdentifier('userId.fullName')
-            ->addIdentifier('cargoId.name')
-            ->addIdentifier('price')
-            ->addIdentifier('quantityOfCargo')
-            ->addIdentifier('shippingAddress.name')
-            ->addIdentifier('deliveryAddress.name')
-            ->addIdentifier('additionalAddress.name')
+            ->addIdentifier('id', null, array('label' => 'Номер заказа'))
+            ->addIdentifier('status', null, array('template' => '@GobusgoGobusgo/Admin/CRUD/list_boolean.html.twig', 'label' => 'Статус'))
+            ->add('dateOfOrder', null, array('label' => 'Дата заявки'))
+            ->add('userId.fullName', null, array('label' => 'Пользователь'))
+            ->add('cargoId.name', null, array('label' => 'Груз'))
+            ->add('quantityOfCargo', null, array('label' => 'Кол-во груза'))
+            ->add('price', null, array('label' => 'Оценочная стоимость'))
+            ->add('shippingAddress.name', null, array('label' => 'Адрес отправки'))
+            ->add('deliveryAddress.name', null, array('label' => 'Адрес доставки'))
+            ->add('additionalAddress.name', null, array('label' => 'Дополнительный адрес'))
+            ->add('_action', null, [
+                'label' => 'Действия',
+                'actions' => [
+                    'edit' => ['template' => '@GobusgoGobusgo/Admin/CRUD/list__action_edit.html.twig'],
+                    'delete' => ['template' => '@GobusgoGobusgo/Admin/CRUD/list__action_delete.html.twig'],
+                ]
+            ])
 //            ->addIdentifier('additionalAddress2.name')
 //            ->addIdentifier('additionalAddress3.name')
 //            ->addIdentifier('additionalAddress4.name')

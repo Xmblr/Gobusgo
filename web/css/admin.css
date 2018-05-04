@@ -5178,3 +5178,8 @@ label {
 body {
     font-family: trebuchet MS;
 }
+
+.btn-success.disabled.focus, .btn-success.disabled:focus, .btn-success.disabled:hover, .btn-success[disabled].focus, .btn-success[disabled]:focus, .btn-success[disabled]:hover, fieldset[disabled] .btn-success.focus, fieldset[disabled] .btn-success:focus, fieldset[disabled] .btn-success:hover {
+    background-color: inherit;
+    color: inherit;
+}

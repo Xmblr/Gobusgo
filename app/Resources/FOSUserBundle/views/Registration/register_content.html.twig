@@ -1,5 +1,5 @@
 {% trans_default_domain 'FOSUserBundle' %}
-<div class="container" style="padding-top: 5%;">
+<div class="container">
     <div class="row text-center">
         <a href="{{ path('gobusgo_gobusgo_homepage') }}">
             <img src="{{ asset('images/logo-1.png') }}" class="m-b-20" alt="" width="120px;">
@@ -23,16 +23,16 @@
                     {{ form_widget(form.UNP, {'attr':{'class':'input-log', 'placeholder':'УНП'}}) }}
                 </div>
                 <div class="Input">
+                    {{ form_errors(form.legalAddress) }}
+                    {{ form_widget(form.legalAddress, {'attr':{'class':'input-log', 'placeholder':'Юридический адрес'}}) }}
+                </div>
+                <div class="Input">
                     {{ form_errors(form.bank) }}
                     {{ form_widget(form.bank, {'attr':{'class':'input-log', 'placeholder':'Банк'}}) }}
                 </div>
                 <div class="Input">
                     {{ form_errors(form.addressOfTheBank) }}
                     {{ form_widget(form.addressOfTheBank, {'attr':{'class':'input-log', 'placeholder':'Адрес банка'}}) }}
-                </div>
-                <div class="Input">
-                    {{ form_errors(form.legalAddress) }}
-                    {{ form_widget(form.legalAddress, {'attr':{'class':'input-log', 'placeholder':'Юридический адрес'}}) }}
                 </div>
                 <div class="Input">
                     {{ form_errors(form.settlementAccount) }}

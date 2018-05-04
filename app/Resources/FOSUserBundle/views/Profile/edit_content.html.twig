@@ -1,8 +1,103 @@
 {% trans_default_domain 'FOSUserBundle' %}
 
-{{ form_start(form, { 'action': path('fos_user_profile_edit'), 'attr': { 'class': 'fos_user_profile_edit' } }) }}
-    {{ form_widget(form) }}
-    <div>
-        <input type="submit" value="{{ 'profile.edit.submit'|trans }}" />
+{#{{ form_start(form, { 'action': path('fos_user_profile_edit'), 'attr': { 'class': 'fos_user_profile_edit' } }) }}#}
+    {#{{ form_widget(form) }}#}
+    {#<div>#}
+        {#<input type="submit" value="{{ 'profile.edit.submit'|trans }}" />#}
+    {#</div>#}
+{#{{ form_end(form) }}#}
+
+
+<div class="container">
+    <div class="row text-center">
+        <a href="{{ path('gobusgo_gobusgo_homepage') }}">
+            <img src="{{ asset('images/logo-1.png') }}" class="m-b-20" alt="" width="120px;">
+        </a>
+        <h1>Редактировать профиль</h1>
+        <div class="registration-form">
+            {{ form_start(form, { 'action': path('fos_user_profile_edit'), 'attr': { 'class': 'fos_user_profile_edit' } }) }}
+            <div class="form-input">
+                {#{{ form_widget(form) }}#}
+                <div class="col-md-6">
+                    <h4>Данные организации:</h4>
+                    <div class="Input">
+                        {{ form_errors(form.organization) }}
+                        {{ form_widget(form.organization, {'attr':{'class':'input-log field-closed', 'placeholder':'Организация'}}) }}
+                    </div>
+                    <div class="Input">
+                        {{ form_errors(form.UNP) }}
+                        {{ form_widget(form.UNP, {'attr':{'class':'input-log field-closed', 'placeholder':'УНП'}}) }}
+                    </div>
+                    <div class="Input">
+                        {{ form_errors(form.bank) }}
+                        {{ form_widget(form.bank, {'attr':{'class':'input-log field-closed', 'placeholder':'Банк'}}) }}
+                    </div>
+                    <div class="Input">
+                        {{ form_errors(form.addressOfTheBank) }}
+                        {{ form_widget(form.addressOfTheBank, {'attr':{'class':'input-log field-closed', 'placeholder':'Адрес банка'}}) }}
+                    </div>
+                    <div class="Input">
+                        {{ form_errors(form.legalAddress) }}
+                        {{ form_widget(form.legalAddress, {'attr':{'class':'input-log field-closed', 'placeholder':'Юридический адрес'}}) }}
+                    </div>
+                    <div class="Input">
+                        {{ form_errors(form.settlementAccount) }}
+                        {{ form_widget(form.settlementAccount, {'attr':{'class':'input-log field-closed', 'placeholder':'Расчетный счет'}}) }}
+                    </div>
+                    <div class="Input">
+                        {{ form_errors(form.code) }}
+                        {{ form_widget(form.code, {'attr':{'class':'input-log field-closed', 'placeholder':'Код'}}) }}
+
+                    </div>
+                    <div class="Input">
+                        {{ form_errors(form.contractNumber) }}
+                        {{ form_widget(form.contractNumber, {'attr':{'class':'input-log field-closed', 'placeholder':'Номер договора'}}) }}
+                    </div>
+
+                </div>
+
+                <div class="col-md-6">
+                    <h4>Данные для авторизации:</h4>
+                    <div class="Input">
+                        {{ form_errors(form.username) }}
+                        {{ form_widget(form.username, {'attr':{'class':'input-log', 'placeholder':'Имя пользователя'}}) }}
+                    </div>
+                    <div class="Input">
+                        {{ form_errors(form.email) }}
+                        {{ form_widget(form.email, {'attr':{'class':'input-log', 'placeholder':'E-mail'}}) }}
+                    </div>
+                    <div class="Input">
+                        {{ form_errors(form.fullName) }}
+                        {{ form_widget(form.fullName, {'attr':{'class':'input-log', 'placeholder':'Контактное лицо'}}) }}
+                    </div>
+                    <div class="Input">
+                        {{ form_errors(form.phone) }}
+                        {{ form_widget(form.phone, {'attr':{'class':'input-log', 'placeholder':'Контактный номер телефона'}}) }}
+                    </div>
+                    <div class="Input">
+                        {{ form_errors(form.current_password) }}
+                        {{ form_widget(form.current_password, {'attr':{'class':'input-log', 'placeholder':'Введите Пароль'}}) }}
+                    </div>
+
+
+                </div>
+            </div>
+
+            <div class="col-md-12 text-center">
+
+                <div class="button-parent">
+
+
+                    <div class="button-item">
+
+                        <input type="submit" class="button-log" value="{{ 'profile.edit.submit'|trans }}"/>
+
+                    </div>
+
+                </div>
+
+            </div>
+            {{ form_end(form) }}
+        </div>
     </div>
-{{ form_end(form) }}
+</div>

@@ -3,7 +3,7 @@
 {#{% if error %}#}
     {#<div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>#}
 {#{% endif %}#}
-<div class="container" style="padding-top: 5%;">
+<div class="container">
     <div class="row text-center">
         <a href="{{ path('gobusgo_gobusgo_homepage') }}">
             <img src="{{ asset('images/logo-1.png') }}" class="m-b-20" alt="" width="120px;">
@@ -39,16 +39,11 @@
                     </div>
                 </div>
 
-
+                <p class="login-text"><a href="{{ path('fos_user_resetting_request') }}">Забыли пароль?</a></p>
                 <div class="button-parent">
-
-
-                    <div class="button-item">
 
                         <input type="submit" id="_submit" name="_submit" class="button-log" style="margin-bottom:5px;"
                                value="{{ 'security.login.submit'|trans }}"/>
-
-                    </div>
 
                 </div>
                 {#<div class="text-center">#}
