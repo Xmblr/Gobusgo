@@ -1,21 +1,4 @@
-@media (max-width: 768px) {
-    .Phone {
-        width: 1.6em;
-        height: 1.6em;
-    }
 
-    .Phone::before {
-        width: 1.6em;
-        height: 1.6em;
-    }
-
-    .Phone::after {
-        top: 0.4em;
-        left: 0.4em;
-        width: 0.8em;
-        height: 0.8em;
-    }
-}
 
 .Phone {
     position: fixed;
@@ -61,6 +44,25 @@
     background-size: cover;
     -webkit-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0);
+}
+
+@media (max-width: 768px) {
+    .Phone {
+        width: 1.6em;
+        height: 1.6em;
+    }
+
+    .Phone::before {
+        width: 1.6em;
+        height: 1.6em;
+    }
+
+    .Phone::after {
+        top: 0.4em;
+        left: 0.4em;
+        width: 0.8em;
+        height: 0.8em;
+    }
 }
 
 .Phone.is-animating {
@@ -367,6 +369,3 @@
         transform: translate3d(0em, 0, 0);
     }
 }
-
-View SCSS Code
-Rerun
