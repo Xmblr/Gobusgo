@@ -4,8 +4,8 @@
     <div class="container">
         <div class="row">
             <div class="col-md-10 col-md-push-1">
-                <h1>Грузоперевозки Москва <i class="fa fa-arrows-h" aria-hidden="true"></i>
-                    Минск?</h1>
+                <h1>Грузоперевозки<br> Москва <i class="fa fa-arrows-h" aria-hidden="true"></i>
+                    Минск</h1>
                 <p class="text-center" style="font-size: 20px; line-height: 24px;">В наше время различная деятельность
                     разных компаний
                     не обходится без очень тесного сотрудничества с компаниями, которые занимаются грузоперевозками
@@ -243,20 +243,20 @@
         <div class="row">
 
             <div class="col-md-3 col-sm-3 col-xs-3">
-                <div style="height: 124px;">
+                <div style="height: 123px;">
                     <h3 class="road-tablet-title">Клиент</h3>
                 </div>
 
-                <div style="height: 124px;">
+                <div style="height: 123px;">
                     <h3 class="road-tablet-title">Габариты</h3>
                 </div>
-                <div style="height: 124px;">
+                <div style="height: 123px;">
                     <h3 class="road-tablet-title">Город</h3>
                 </div>
-                <div style="height: 124px;">
+                <div style="height: 123px;">
                     <h3 class="road-tablet-title">ИТОГО</h3>
                 </div>
-                <div style="height: 124px;">
+                <div style="height: 123px;">
                     <h3 class="road-tablet-title">Заявка</h3>
                 </div>
             </div>
@@ -280,12 +280,12 @@
                         </label>
                     </div>
                 </div>
-                <div style="height: 124px; padding-top: 10px;">
+                <div style="height: 123px; padding-top: 10px;">
                     <input class="input-tablet" type="text" id="weight" name="weight"
                            required="required" style="position: absolute;" placeholder="Вес, кг"/>
                 </div>
 
-                <div style="height: 124px; padding-top: 10px;">
+                <div style="height: 123px; padding-top: 10px;">
                     <div style="padding-bottom: 10px;">
                         <input class="input-tablet" type="text" name="from" id="from"
                                required="required" value="Москва"/>
@@ -295,7 +295,8 @@
                                required="required" value="Минск" name="to" id="to"/>
                     </div>
                 </div>
-                <div style="height: 124px; padding-top: 10px;">
+                <img class="reload-img-tablet" src="{{ asset('images/reload-double.png') }}" onclick="c();">
+                <div style="height: 123px; padding-top: 10px;">
                     <input class="input-tablet" type="text" name="price" id="price"
                            required="required" placeholder="Сумма"/>
                 </div>
@@ -381,15 +382,18 @@
                                required="required" placeholder="Куда" name="to" id="to"/>
                     </div>
                 </div>
-                <img class="reload-img-tablet" src="{{ asset('images/reload-double.png') }}" onclick="c();">
-                <div style="height: 124px; margin-top: -10px;">
+                {#<div>#}
+                {#<img class="reload-img-tablet" src="{{ asset('images/reload-double.png') }}" onclick="c();">#}
+                {#</div>#}
+
+                <div style="height: 124px;">
                     <h3 class="road-mobile-title" style="margin-bottom: 5px;">ИТОГО</h3>
                     <input class="input-tablet" type="text" name="price" id="price"
                            required="required" placeholder="Сумма"/>
                 </div>
 
                 <div>
-                    <h3 class="road-mobile-title" style="margin-bottom: 10px;">Оформление:</h3>
+                    {#<h3 class="road-mobile-title" style="margin-bottom: 10px;">Оформление:</h3>#}
                     {#<div style="padding-bottom: 10px;">#}
                     {#<input class="input-mobile-form" type="text" id="weight" name="weight"#}
                     {#required="required" placeholder="Название организации"/>#}

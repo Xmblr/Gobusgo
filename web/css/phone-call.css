@@ -46,24 +46,24 @@
     transform: translate3d(0, 0, 0);
 }
 
-@media (max-width: 768px) {
-    .Phone {
-        width: 1.6em;
-        height: 1.6em;
-    }
+/*@media (max-width: 768px) {*/
+/*.Phone {*/
+/*width: 1.6em;*/
+/*height: 1.6em;*/
+/*}*/
 
-    .Phone::before {
-        width: 1.6em;
-        height: 1.6em;
-    }
+/*.Phone::before {*/
+/*width: 1.6em;*/
+/*height: 1.6em;*/
+/*}*/
 
-    .Phone::after {
-        top: 0.4em;
-        left: 0.4em;
-        width: 0.8em;
-        height: 0.8em;
-    }
-}
+/*.Phone::after {*/
+/*top: 0.4em;*/
+/*left: 0.4em;*/
+/*width: 0.8em;*/
+/*height: 0.8em;*/
+/*}*/
+/*}*/
 
 .Phone.is-animating {
     -webkit-animation: phone-outer 3000ms infinite;

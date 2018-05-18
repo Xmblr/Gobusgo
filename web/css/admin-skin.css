@@ -98,8 +98,7 @@
 .skin-black .sidebar-menu > li:hover > a,
 .skin-black .sidebar-menu > li.active > a {
     border-left-color: #ffffff;
-    font-family: 'zero 5';
-    color: #566fe0;
+    color: #ffeb89;
     background: none;
 }
 .skin-black .sidebar-menu > li > .treeview-menu {
@@ -107,7 +106,7 @@
     background: white;
 }
 .skin-black .sidebar a {
-    color: #8598ff;
+    color: #566fe0;
 }
 .skin-black .sidebar a:hover {
     text-decoration: none;
@@ -162,6 +161,5 @@
 }
 
 .main-header .logo img {
-    height: 40px;
     padding: 5px 0px 5px;
 }
