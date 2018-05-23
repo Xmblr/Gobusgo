@@ -54,7 +54,7 @@ services:
         class: Gobusgo\GobusgoBundle\Admin\AddressUserAdmin
         arguments: [~, Gobusgo\GobusgoBundle\Entity\Address, ~]
         tags:
-            - { name: sonata.admin, manager_type: orm, label: Шаблоны адресов " }
+            - { name: sonata.admin, manager_type: orm, label: Шаблоны адресов, group: "admin.user.address" }
         public: true
 
     admin.cargo:
@@ -68,7 +68,7 @@ services:
         class: Gobusgo\GobusgoBundle\Admin\CargoUserAdmin
         arguments: [~, Gobusgo\GobusgoBundle\Entity\Cargo, ~]
         tags:
-            - { name: sonata.admin, manager_type: orm, label: Шаблоны грузов " }
+            - { name: sonata.admin, manager_type: orm, label: Шаблоны грузов, group: "admin.user.cargo" }
         public: true
 
     admin.order:
@@ -82,7 +82,7 @@ services:
         class: Gobusgo\GobusgoBundle\Admin\OrderUserAdmin
         arguments: [~, Gobusgo\GobusgoBundle\Entity\Order, ~]
         tags:
-            - { name: sonata.admin, manager_type: orm, label: История грузоперевозок " }
+            - { name: sonata.admin, manager_type: orm, label: История грузоперевозок, group: "admin.user.order" }
         public: true
 
     sonata.block.service.order:
