@@ -293,6 +293,8 @@ sonata_media:
                 - sonata.media.provider.dailymotion
                 - sonata.media.provider.youtube
                 - sonata.media.provider.image
+                - sonata.media.provider.file
+                - sonata.media.provider.vimeo
 
             formats:
                 small: { width: 150 , quality: 95}

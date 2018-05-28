@@ -177,45 +177,45 @@ file that was distributed with this source code.
                         {% endif %}
                     </div>
                     <div class="navbar-left">
-                        {#{% block sonata_breadcrumb %}#}
-                        {#<div class="hidden-xs">#}
-                        {#{% if _breadcrumb is not empty or action is defined %}#}
-                        {#<ol class="nav navbar-top-links breadcrumb">#}
-                        {#{% if _breadcrumb is empty %}#}
-                        {#{% if action is defined %}#}
-                        {#{% for menu in breadcrumbs_builder.breadcrumbs(admin, action) %}#}
-                        {#{%- set translation_domain = menu.extra('translation_domain', 'messages') -%}#}
-                        {#{%- set label = menu.label -%}#}
-                        {#{%- if translation_domain is not same as(false) -%}#}
-                        {#{%- set label = label|trans(menu.extra('translation_params', {}), translation_domain) -%}#}
-                        {#{%- endif -%}#}
+                        {% block sonata_breadcrumb %}
+                            <div class="hidden-xs">
+                                {% if _breadcrumb is not empty or action is defined %}
+                                    <ol class="nav navbar-top-links breadcrumb">
+                                        {% if _breadcrumb is empty %}
+                                            {% if action is defined %}
+                                                {% for menu in breadcrumbs_builder.breadcrumbs(admin, action) %}
+                                                    {%- set translation_domain = menu.extra('translation_domain', 'messages') -%}
+                                                    {%- set label = menu.label -%}
+                                                    {%- if translation_domain is not same as(false) -%}
+                                                        {%- set label = label|trans(menu.extra('translation_params', {}), translation_domain) -%}
+                                                    {%- endif -%}
 
-                        {#{% if not loop.last %}#}
-                        {#<li>#}
-                        {#{% if menu.uri is not empty %}#}
-                        {#<a href="{{ menu.uri }}">#}
-                        {#{% if menu.extra('safe_label', true) %}#}
-                        {#{{- label|raw -}}#}
-                        {#{% else %}#}
-                        {#{{- label -}}#}
-                        {#{% endif %}#}
-                        {#</a>#}
-                        {#{% else %}#}
-                        {#<span>{{ label }}</span>#}
-                        {#{% endif %}#}
-                        {#</li>#}
-                        {#{% else %}#}
-                        {#<li class="active"><span>{{ label }}</span></li>#}
-                        {#{% endif %}#}
-                        {#{% endfor %}#}
-                        {#{% endif %}#}
-                        {#{% else %}#}
-                        {#{{ _breadcrumb|raw }}#}
-                        {#{% endif %}#}
-                        {#</ol>#}
-                        {#{% endif %}#}
-                        {#</div>#}
-                        {#{% endblock sonata_breadcrumb %}#}
+                                                    {% if not loop.last %}
+                                                        <li>
+                                                            {% if menu.uri is not empty %}
+                                                                <a href="{{ menu.uri }}">
+                                                                    {% if menu.extra('safe_label', true) %}
+                                                                        {{- label|raw -}}
+                                                                    {% else %}
+                                                                        {{- label -}}
+                                                                    {% endif %}
+                                                                </a>
+                                                            {% else %}
+                                                                <span>{{ label }}</span>
+                                                            {% endif %}
+                                                        </li>
+                                                    {% else %}
+                                                        <li class="active"><span>{{ label }}</span></li>
+                                                    {% endif %}
+                                                {% endfor %}
+                                            {% endif %}
+                                        {% else %}
+                                            {{ _breadcrumb|raw }}
+                                        {% endif %}
+                                    </ol>
+                                {% endif %}
+                            </div>
+                        {% endblock sonata_breadcrumb %}
                     </div>
 
                     {% block sonata_top_nav_menu %}
