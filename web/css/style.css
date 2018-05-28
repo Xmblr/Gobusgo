@@ -60,6 +60,13 @@ div {
     cursor: pointer;
 }
 
+@media (max-width: 468px) {
+    .background-round {
+        width: 230px;
+        height: 230px;
+    }
+}
+
 h2, h3, h4, h5, h6 {
     font-family: Trebuchet MS;
     color: #566fe0;
@@ -95,8 +102,7 @@ a:hover {
 }
 
 .advantage-title {
-    font-family: MyWebFont;
-    font-size: 22px;
+    font-size: 20px;
     line-height: 24px;
     color: black;
     text-align: center;
@@ -139,7 +145,7 @@ p {
 }
 
 .auto-title {
-    font-family: MyWebFont;
+    font-family: Trebuchet MS;
     font-size: 24px;
     line-height: 24px;
     color: #8598ff;
@@ -150,6 +156,16 @@ p {
 
 .advantage-icons {
     text-align: center;
+}
+
+.advantage-img {
+    width: 80%;
+}
+
+@media (max-width: 1200px) {
+    .advantage-img {
+        width: 200px;
+    }
 }
 
 .footer-text {
@@ -209,8 +225,13 @@ footer {
     margin-top: 5px;
 }
 
+@media (max-width: 1024px) {
+    .footer-table {
+        text-align: center;
+    }
+}
+
 .footer-caption {
-    font-family: 'zero 5';
     font-size: 16px;
     color: #8598ff;
     line-height: 22px;
@@ -611,14 +632,14 @@ footer {
 }
 
 .reload:before {
-    content: url('/images/reload1.png');
+    content: url('/images/reload-home-1.png');
     margin-left: -25px;
     position: absolute;
     top: 102px;
 }
 
 .reload:after {
-    content: url('/images/reload.png');
+    content: url('/images/reload-home-2.png');
     position: absolute;
     margin-left: 15px;
     bottom: 90px;
@@ -635,11 +656,35 @@ footer {
     .city-img {
         width: 1200px;
     }
+
+    .city-mobile {
+        display: none;
+    }
+}
+
+@media (min-width: 1600px) {
+    .city-img {
+        width: 1500px
+    }
+
+    .wheel-1, .wheel-2 {
+        padding-top: 176px;
+    }
+
+    #car {
+        margin-top: 109px;
+    }
 }
 
 .city {
     text-align: center;
     padding-top: 50px;
+}
+
+@media (max-width: 1250px) {
+    .city {
+        display: none;
+    }
 }
 
 .logo-text {
@@ -942,10 +987,10 @@ footer {
 
 @media (max-width: 468px) {
     .table-services table td, .table-services-minsk table td {
-        display: block;
+        /*display: block;*/
         text-align: center;
-        width: 100% !important;
-        height: auto !important;
+        /*width: 100% !important;*/
+        /*height: auto !important;*/
     }
 }
 
@@ -966,6 +1011,9 @@ footer {
 
 .table-services-minsk {
     text-align: center;
+    width: 100%;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
 }
 
 .table-services-minsk table {
@@ -1023,6 +1071,14 @@ footer {
     background: #566fe0;
     margin-top: 10px;
     margin-bottom: 10px;
+}
+
+.road-tablet .button-log, .road-mobile .button-log {
+    margin-top: 5px;
+}
+
+.road-reload:after {
+    content: url('/images/reload-double.png');
 }
 
 .button-log:hover {
@@ -1501,6 +1557,12 @@ footer {
     }
 }
 
+@media (min-height: 768px) {
+    .height-vh {
+        height: auto;
+    }
+}
+
 .input-tablet {
     display: inline-block;
     margin: 0;
@@ -1544,6 +1606,10 @@ footer {
     font-size: 14px;
     font-family: Trebuchet MS;
     font-weight: 600;
+}
+
+.radio-cargo-mobile .option-input, .radio-cargo-tablet .option-input {
+    margin-left: 0px;
 }
 
 .input-mobile-form {
@@ -1611,6 +1677,7 @@ footer {
 
 .reload-header {
     display: inline-block;
+    height: 35px;
 }
 
 .dropdown-menu li a {
@@ -1622,7 +1689,7 @@ footer {
 }
 
 .margin-home {
-    margin: 0% 0% 2% 0%;
+    margin: 0% 0% 5% 0%;
 }
 
 .m-b-20 {
@@ -1641,7 +1708,7 @@ footer {
 /* Footer */
 
 .logo-footer {
-    width: 120px;
+    width: 150px;
 }
 
 .action-button {
