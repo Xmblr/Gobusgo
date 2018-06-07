@@ -201,6 +201,8 @@ class Address
 
     public function __toString()
     {
-        return (string)$this->getStreet();
+//        return ($ this-> title === null)? '-': $ this-> title;
+//        return (string)$this->getStreet();
+        return 'Шаблон адреса';
     }
 }
