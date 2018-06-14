@@ -79,19 +79,4 @@ class AddressUserAdmin extends AbstractAdmin
             ->addIdentifier('street', null,array('label'=>'Адрес'))
         ;
     }
-
-    public function configureBatchActions($actions)
-    {
-        if (
-            $this->hasRoute('edit') && $this->hasAccess('edit') &&
-            $this->hasRoute('delete') && $this->hasAccess('delete')
-        ) {
-            $actions['merge'] = [
-                'ask_confirmation' => true
-            ];
-
-        }
-
-        return $actions;
-    }
 }
