@@ -55,6 +55,29 @@ class Address
     protected $userId;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="phone", type="string", length=255)
+     */
+    private $phone;
+
+    /**
+     * @return string
+     */
+    public function getPhone()
+    {
+        return $this->phone;
+    }
+
+    /**
+     * @param string $phone
+     */
+    public function setPhone($phone)
+    {
+        $this->phone = $phone;
+    }
+
+    /**
      * @return mixed
      */
     public function getUserId()
@@ -174,5 +197,12 @@ class Address
     public function getStreet()
     {
         return $this->street;
+    }
+
+    public function __toString()
+    {
+//        return ($ this-> title === null)? '-': $ this-> title;
+//        return (string)$this->getStreet();
+        return 'Шаблон адреса';
     }
 }

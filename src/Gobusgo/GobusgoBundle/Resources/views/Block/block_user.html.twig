@@ -1,0 +1,153 @@
+{% extends 'SonataBlockBundle:Block:block_base.html.twig' %}
+
+{% block block %}
+    <h4>Профиль</h4>
+    <div class="login-form">
+        <div class="form-input" style="width: 100%;">
+            <table class="profile-table" style="width: 100%;">
+                <tr>
+                    <td>
+                        Профиль:
+                    </td>
+                    <td>
+                        <div class="input-log profile-fon">{{ app.user.username }}</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Email:
+                    </td>
+                    <td>
+                        <div class="input-log profile-fon">{{ app.user.email }}</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Организация:
+                    </td>
+                    <td>
+                        <div class="input-log profile-fon">{{ app.user.organization }}</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        УНП:
+                    </td>
+                    <td>
+                        <div class="input-log profile-fon">{{ app.user.UNP }}</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Банк:
+                    </td>
+                    <td>
+                        <div class="input-log profile-fon">{{ app.user.bank }}</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Адресс банка:
+                    </td>
+                    <td>
+                        <div class="input-log profile-fon">{{ app.user.addressOfTheBank }}</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Юридический адрес:
+                    </td>
+                    <td>
+                        <div class="input-log profile-fon">{{ app.user.legalAddress }}</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Расчетный счет:
+                    </td>
+                    <td>
+                        <div class="input-log profile-fon">{{ app.user.settlementAccount }}</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Почтовый индекс:
+                    </td>
+                    <td>
+                        <div class="input-log profile-fon">{{ app.user.code }}</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Телефон:
+                    </td>
+                    <td>
+                        <div class="input-log profile-fon">{{ app.user.phone }}</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        ФИО:
+                    </td>
+                    <td>
+                        <div class="input-log profile-fon">{{ app.user.fullName }}</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Номер контракта:
+                    </td>
+                    <td>
+                        <div class="input-log profile-fon">{{ app.user.contractNumber }}</div>
+                    </td>
+                </tr>
+            </table>
+
+            <div style="margin: 20px 0px; text-align: center;">
+                <a href="{{ path('fos_user_profile_edit') }}" class="button-log">Редактировать профиль</a>
+                <div class="text-center">
+                    <a href="{{ path('fos_user_change_password') }}">Изменить пароль</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {#<div class="row">#}
+    {#<div class="col-lg-4">#}
+    {#<div class="row">#}
+    {#id: {{ app.user.id }}#}
+    {#</div>#}
+    {#<div class="row">#}
+    {#organization: {{ app.user.organization }}#}
+    {#</div>#}
+    {#<div class="row">#}
+    {#UNP: {{ app.user.UNP }}#}
+    {#</div>#}
+    {#<div class="row">#}
+    {#Bank: {{ app.user.bank }}#}
+    {#</div>#}
+    {#<div class="row">#}
+    {#address Of The Bank: {{ app.user.addressOfTheBank }}#}
+    {#</div>#}
+    {#<div class="row">#}
+    {#legal Address: {{ app.user.legalAddress }}#}
+    {#</div>#}
+    {#<div class="row">#}
+    {#settlement Account: {{ app.user.settlementAccount }}#}
+    {#</div>#}
+    {#<div class="row">#}
+    {#code: {{ app.user.code }}#}
+    {#</div>#}
+    {#<div class="row">#}
+    {#phone: {{ app.user.phone }}#}
+    {#</div>#}
+    {#<div class="row">#}
+    {#full Name: {{ app.user.fullName }}#}
+    {#</div>#}
+    {#<div class="row">#}
+    {#<a href="{{ path('fos_user_profile_edit') }}">Change data</a>#}
+    {#<a href="{{ path('fos_user_change_password') }}">Change password</a>#}
+    {#</div>#}
+    {#</div>#}
+    {#</div>#}
+{% endblock %}

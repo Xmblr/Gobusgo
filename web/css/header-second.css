@@ -7,7 +7,7 @@
 .top-bar-menu {
     cursor: pointer;
     display: inline-block;
-    padding: 8px 15px 8px 0px;
+    padding: 8px 25px 8px 0px;
     color: #8598ff;
     font-size: 1vw;
     position: relative;
@@ -64,7 +64,7 @@
 
 .header-menu li a {
     font-family: "Trebuchet MS";
-    font-size: 1.7vw;
+    font-size: 1.3vw;
     line-height: 32px;
     color: #566fe0;
     letter-spacing: 1.5px;
@@ -121,6 +121,7 @@
     display: table-cell;
     padding-right: 10px;
     padding-bottom: 18px;
+    padding-top: 10px;
 }
 
 .menu-table-header tr td, .menu-table-header {
@@ -166,12 +167,12 @@
 
 .mail-top {
     font-family: vladivostok bold;
-    font-size: 1.3vw;
+    font-size: 1.5vw;
     color: #566fe0;
     line-height: 24px;
     display: inline-block;
-    margin-right: 20px;
     vertical-align: middle;
+    margin-bottom: 5px;
 }
 
 @media (max-width: 1250px) {

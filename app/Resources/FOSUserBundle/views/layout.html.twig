@@ -1,33 +1,22 @@
 {#{% extends '@GobusgoGobusgo/layout.html.twig' %}#}
 {% extends '::base.html.twig' %}
 
-{% block callback %}
-{#<a href="#x" class="overlay" id="win3">#}
-{#</a>#}
-{#<div class="popup" style="max-width:500px; text-align:center;">#}
-    {#<div class="section bg-gray-light container-fluid" style="padding-top: 10px; padding-bottom: 10px; padding:0%;">#}
-        {#<h2 style="margin-bottom: 20px;">Заказ обратного звонка</h2>#}
-        {#<div class="container-fluid">#}
+{% block header %}
+    <div class="container-fluid">
+        <div class="row" style="text-align: right;">
+            <a href="{{ path('gobusgo_gobusgo_homepage') }}"><i class="fa fa-home fa-2x home-img"
+                                                                aria-hidden="true"></i></a>
+    <a onclick="javascript:history.back(); return false;"> <img class="exit-img" src="{{ asset('/images/exit.png') }}">
+    </a>
 
-            {#{{ form_start(callform, { 'action': path('BloggerBlogBundle_confirm'), 'method': 'POST' }) }}#}
-            {#{{ form_errors(callform) }}#}
 
-            {#<div class="Input-text">#}
-                {#{{ form_widget(callform.name, {'attr':{'class':'form-control','placeholder':'Как вас зовут?'}}) }}#}
-            {#</div>#}
-            {#<div class="Input-text">#}
-                {#{{ form_widget(callform.phone, {'attr':{'class':'form-control','placeholder':'Номер телефона'}}) }}#}
-            {#</div>#}
-            {#<input type="submit" class="submit-button" value="Отправить" style="color:black;">#}
-            {#{{ form_end(callform) }}#}
-        {#</div>#}
-    {#</div>#}
-
-    {#<a class="close" title="Закрыть" href="#close"></a>#}
-{#</div>#}
+        </div>
+    </div>
 
 {% endblock %}
+
 {% block body %}
+
     <body>
 
 
@@ -42,13 +31,14 @@
                 {#<a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>#}
             {#{% endif %}#}
         {#</div>#}
-
+    <div class="container-fluid">
+        <div class="row">
         {% if app.request.hasPreviousSession %}
             {% for type, messages in app.session.flashbag.all() %}
                 {% for message in messages %}
-                    <div class="flash-{{ type }}">
+                    <h4 class="flash-{{ type }}" style="text-align: center;">
                         {{ message }}
-                    </div>
+                    </h4>
                 {% endfor %}
             {% endfor %}
         {% endif %}
@@ -58,4 +48,8 @@
             {% endblock fos_user_content %}
         </div>
     </body>
+{% endblock %}
+
+{% block footer %}
+
 {% endblock %}

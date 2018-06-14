@@ -54,7 +54,7 @@ services:
         class: Gobusgo\GobusgoBundle\Admin\AddressUserAdmin
         arguments: [~, Gobusgo\GobusgoBundle\Entity\Address, ~]
         tags:
-            - { name: sonata.admin, manager_type: orm, label: Адреса , group: "app.admin.group.user" }
+            - { name: sonata.admin, manager_type: orm, label: Шаблоны адресов, group: "admin.user.address" }
         public: true
 
     admin.cargo:
@@ -68,7 +68,7 @@ services:
         class: Gobusgo\GobusgoBundle\Admin\CargoUserAdmin
         arguments: [~, Gobusgo\GobusgoBundle\Entity\Cargo, ~]
         tags:
-            - { name: sonata.admin, manager_type: orm, label: Груз , group: "app.admin.group.user" }
+            - { name: sonata.admin, manager_type: orm, label: Шаблоны грузов, group: "admin.user.cargo" }
         public: true
 
     admin.order:
@@ -82,11 +82,20 @@ services:
         class: Gobusgo\GobusgoBundle\Admin\OrderUserAdmin
         arguments: [~, Gobusgo\GobusgoBundle\Entity\Order, ~]
         tags:
-            - { name: sonata.admin, manager_type: orm, label: Заказ , group: "app.admin.group.user" }
+            - { name: sonata.admin, manager_type: orm, label: История грузоперевозок, group: "admin.user.order" }
         public: true
 
+    sonata.block.service.order:
+        class: Gobusgo\GobusgoBundle\Block\OrderBlockService
+        arguments: [ sonata.block.service.order, "@templating", "@doctrine.orm.entity_manager" ]
+        tags:
+            - { name: sonata.block }
 
-
+    sonata.block.service.user:
+        class: Gobusgo\GobusgoBundle\Block\UserBlockService
+        arguments: [ sonata.block.service.user, "@templating" ]
+        tags:
+            - { name: sonata.block }
 #   --------------------------- Admin controllers ----------------------------------
 
 
@@ -104,6 +113,12 @@ services:
         class: Gobusgo\GobusgoBundle\Form\ProfileFormType
         tags:
             - { name: form.type, alias: app_user_profile }
+
+#    sonata.block.service.infouser:
+#        class: Gobusgo\GobusgoBundl\Block\UserInfoBlockService
+#        arguments: { name: "sonata.block.service.infouser"}
+#        tags:
+#            - { name: sonata.block}
 
 
 #   --------------------------- Form builders ----------------------------------

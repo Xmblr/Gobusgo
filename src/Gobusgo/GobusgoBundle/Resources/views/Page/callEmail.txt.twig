@@ -24,6 +24,8 @@
     Города: {{ mail.cities }};
     Сумма: {{ mail.sum }};
 
+    Примечания: {{ mail.notice }};
+
 {% elseif mail is defined %}
     Форма физ. лица была отправлена в {{ "now" | date("Y-m-d H:i") }}.
 
@@ -36,4 +38,9 @@
     Ширина: {{ mail.width }};
     Города: {{ mail.cities }};
     Сумма: {{ mail.sum }};
+
+    Примечания: {{ mail.notice }};
+
+{% else %}
+    text: {{ mail }}
 {% endif %}

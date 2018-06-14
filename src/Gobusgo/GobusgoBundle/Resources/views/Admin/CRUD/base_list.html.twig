@@ -12,7 +12,7 @@ file that was distributed with this source code.
 {% extends base_template %}
 
 {%- block actions -%}
-    {% include '@SonataAdmin/CRUD/action_buttons.html.twig' %}
+    {% include '@GobusgoGobusgo/Admin/CRUD/action_buttons.html.twig' %}
 {%- endblock -%}
 
 {% block tab_menu %}{{ knp_menu_render(admin.sidemenu(action), {'currentClass' : 'active', 'template': sonata_admin.adminPool.getTemplate('tab_menu_template')}, 'twig') }}{% endblock %}
@@ -110,7 +110,7 @@ file that was distributed with this source code.
                                 <span class="progress-description">
                                     {% if not app.request.xmlHttpRequest %}
                                     <ul class="list-unstyled">
-                                        {% include '@SonataAdmin/Button/create_button.html.twig' %}
+                                        {% include '@GobusgoGobusgo/Admin/Button/create_button.html.twig' %}
                                     </ul>
                                     {% endif %}
                                 </span>
@@ -160,7 +160,8 @@ file that was distributed with this source code.
                                             </script>
 
                                         {% block batch_actions %}
-                                            <label class="checkbox" style="margin-right: 10px;" for="{{ admin.uniqid }}_all_elements">
+                                            <label class="checkbox" style="margin-right: 10px; display: inline-block;"
+                                                   for="{{ admin.uniqid }}_all_elements">
                                                 <input type="checkbox" name="all_elements" id="{{ admin.uniqid }}_all_elements">
                                                 {{ 'all_elements'|trans({}, 'SonataAdminBundle') }}
                                                 ({{ admin.datagrid.pager.nbresults }})
@@ -184,25 +185,25 @@ file that was distributed with this source code.
 
                                 <div class="pull-right">
                                     {% if admin.hasRoute('export') and admin.hasAccess('export') and export_formats|length %}
-                                        <div class="btn-group">
-                                            <button type="button" class="export-button" data-toggle="dropdown">
-                                                <i class="fa fa-share-square-o" aria-hidden="true"></i>
-                                                {{ "label_export_download"|trans({}, "SonataAdminBundle") }}
-                                                <span class="caret"></span>
-                                            </button>
-                                            <ul class="dropdown-menu">
-                                                {% for format in export_formats %}
-                                                <li>
-                                                    <a style="font-family: trebuchet MS;" href="{{ admin.generateUrl('export', admin.modelmanager.paginationparameters(admin.datagrid, 0) + {'format' : format}) }}">
-                                                        <i class="fa fa-arrow-circle-o-down" aria-hidden="true"></i>
-                                                        {{ ("export_format_" ~ format)|trans({}, 'SonataAdminBundle') }}
-                                                    </a>
-                                                <li>
-                                                {% endfor %}
-                                            </ul>
-                                        </div>
+                                        {#<div class="btn-group">#}
+                                        {#<button type="button" class="export-button" data-toggle="dropdown">#}
+                                        {#<i class="fa fa-share-square-o" aria-hidden="true"></i>#}
+                                        {#{{ "label_export_download"|trans({}, "SonataAdminBundle") }}#}
+                                        {#<span class="caret"></span>#}
+                                        {#</button>#}
+                                        {#<ul class="dropdown-menu">#}
+                                        {#{% for format in export_formats %}#}
+                                        {#<li>#}
+                                        {#<a style="font-family: trebuchet MS;" href="{{ admin.generateUrl('export', admin.modelmanager.paginationparameters(admin.datagrid, 0) + {'format' : format}) }}">#}
+                                        {#<i class="fa fa-arrow-circle-o-down" aria-hidden="true"></i>#}
+                                        {#{{ ("export_format_" ~ format)|trans({}, 'SonataAdminBundle') }}#}
+                                        {#</a>#}
+                                        {#<li>#}
+                                        {#{% endfor %}#}
+                                        {#</ul>#}
+                                        {#</div>#}
 
-                                        &nbsp;-&nbsp;
+                                        {#&nbsp;-&nbsp;#}
                                     {% endif %}
 
                                     {% block pager_results %}

@@ -5,33 +5,50 @@
 {#{% endif %}#}
 <div class="container">
     <div class="row text-center">
+        <a href="{{ path('gobusgo_gobusgo_homepage') }}">
+            <img src="{{ asset('images/logo-1.png') }}" class="m-b-20" alt="" width="120px;">
+        </a>
         <h1>Добро пожаловать</h1>
         <p class="login-text">Нет учетной записи? <a style="color: #566fe0;" href="{{ path('fos_user_registration_register') }}">Зарегистрируйтесь!</a></p>
         <div class="login-form">
             <form action="{{ path("fos_user_security_check") }}" class="" method="post">
-                {% if csrf_token %}
-                    <input type="hidden" name="_csrf_token" value="{{ csrf_token }}"/>
-                {% endif %}
-                <div class="Input">
+                <div class="form-input">
+                    {% if csrf_token %}
+                        <input type="hidden" name="_csrf_token" value="{{ csrf_token }}"/>
+                    {% endif %}
+                    <div class="Input">
 
-                    <input class="Input-text" type="text" id="username" name="_username" value="{{ last_username }}"
-                           required="required" placeholder="Имя пользователя"/>
-                </div>
-                <div class="Input">
-                    <input class="Input-text" type="password" id="password" name="_password" required="required" placeholder="Пароль" style="margin-bottom: 0px;"/>
-                </div>
+                        <input class="input-log" type="text" id="username" name="_username" value="{{ last_username }}"
+                               required="required" placeholder="Имя пользователя"/>
+                    </div>
+                    <div class="Input">
+                        <input class="input-log" type="password" id="password" name="_password" required="required"
+                               placeholder="Пароль" style="margin-bottom: 0px;"/>
+                    </div>
 
 
-                {% if error %}
-                    <p style="color:red;">{{ error.messageKey|trans(error.messageData, 'security') }}</p>
-                {% endif %}
-                <div class="label-remember">
-                    <input type="checkbox" id="remember_me" name="_remember_me" value="on" style="margin:10px 0px; margin-bottom: 8px;" class="option-input radio"/>
-                    <label style="margin-left: 5px" for="remember_me">{{ 'security.login.remember_me'|trans }}</label>
+                    {% if error %}
+                        <p style="color:red;">{{ error.messageKey|trans(error.messageData, 'security') }}</p>
+                    {% endif %}
+
+                    <div class="label-remember">
+                        <input type="checkbox" id="remember_me" name="_remember_me" value="on"
+                               style="margin:0px 0px; margin-bottom: 8px;" class="option-input radio"/>
+                        <label style="margin-left: 5px; cursor: pointer; font-family: Trebuchet MS; font-weight: 500;"
+                               for="remember_me">{{ 'security.login.remember_me'|trans }}</label>
+                    </div>
                 </div>
-                <div class="text-center">
-                <input type="submit" id="_submit" name="_submit" class="submit-button" style="margin-bottom:5px;" value="{{ 'security.login.submit'|trans }}"/>
+
+                <p class="login-text"><a href="{{ path('fos_user_resetting_request') }}">Забыли пароль?</a></p>
+                <div class="button-parent">
+
+                        <input type="submit" id="_submit" name="_submit" class="button-log" style="margin-bottom:5px;"
+                               value="{{ 'security.login.submit'|trans }}"/>
+
                 </div>
+                {#<div class="text-center">#}
+                {#<input type="submit" id="_submit" name="_submit" class="button-log" style="margin-bottom:5px;" value="{{ 'security.login.submit'|trans }}"/>#}
+                {#</div>#}
             </form>
         </div>
     </div>

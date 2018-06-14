@@ -4,7 +4,7 @@
     <div class="container">
         <p class="row">
             <h1 style="text-align:left;"> Контакты</h1>
-        <div class="col-md-7 col-xs-12">
+        <div class="col-md-7 col-xs-12" style="padding-left: 0px;">
             <div class="col-md-7 col-xs-12" style="padding: 0px;">
                 <h4>Юридические данные:</h4>
                 <p class="text-contacts">
@@ -37,43 +37,50 @@
                 </div>
             </div>
             <div class="col-md-12 col-xs-12" style="padding: 0px; margin-bottom: 20px;">
+
                 <h4>Форма обратной связи:</h4>
                 <form name="enquiry" method="post" action="/contact">
-
+                    <div style="background-color: #cfd9ff; border-radius: 12px; padding: 10px 0px;">
                     <div class="row">
-                        <div class="col-md-6 col-xs-12" style="padding-left: 0px;">
+                        <div class="col-md-6 col-xs-12" style="padding-right: 0px;">
                             <div class="Input">
-                                <input id="enquiry_name" name="enquiry[name]" required="required" class="input-contacts" placeholder="Имя" type="text">
+                                <input id="enquiry_name" name="enquiry[name]" required="required" class="input-log"
+                                       placeholder="Имя" type="text">
                             </div>
                         </div>
                         <div class="col-md-6 col-xs-12" style="padding-left: 0px;">
                             <div class="Input">
-                                <input id="enquiry_email" name="enquiry[email]" required="required" class="input-contacts" placeholder="Ваш Email" type="email">
+                                <input id="enquiry_email" name="enquiry[email]" required="required" class="input-log"
+                                       placeholder="Ваш Email" type="email">
                             </div>
                         </div>
-                        <div class="col-md-12 col-xs-12" style="padding-left: 0px;">
+                        <div class="col-md-12 col-xs-12">
                             <div class="Input">
-                                <input id="enquiry_subject" name="enquiry[subject]" required="required" class="input-contacts" placeholder="Тема" type="text">
+                                <input id="enquiry_subject" name="enquiry[subject]" required="required"
+                                       class="input-log" placeholder="Тема" type="text">
                             </div>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-12 col-xs-12" style="padding-left: 0px;">
-                            <div class="Input" style="padding-left: 0px;">
-                                <textarea id="enquiry_body" name="enquiry[body]" required="required" class="input-contacts" placeholder="Сообщение...." rows="5"></textarea>
+                        <div class="col-md-12 col-xs-12">
+                            <div class="Input">
+                                <textarea id="enquiry_body" name="enquiry[body]" required="required" class="input-log"
+                                          placeholder="Сообщение...." rows="5"></textarea>
                             </div>
                         </div>
+                    </div>
                     </div>
                     <div class="row">
                         <div class="col-sm-12 text-right">
                             <input id="enquiry_phone" name="enquiry[phone]" type="text" hidden="">
-                            <input class="submit-button" value="Отправить сообщение" style="color:black; font-size: 16px; letter-spacing: 0px;" type="submit">
+                            <input class="button-log" value="Отправить сообщение" style="font-size: 16px;"
+                                   type="submit">
                         </div>
                     </div>
                 </form>
             </div>
         </div>
-            <div class="col-md-5">
+        <div class="col-md-5 col-xs-12">
                 <h4>Адреса:</h4>
 
                     <p class="text-contacts">Склад: Пр. Дзержинского</br>Офис: Пр. Дзержинского</p>

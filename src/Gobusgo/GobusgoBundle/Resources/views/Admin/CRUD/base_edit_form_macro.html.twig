@@ -20,7 +20,142 @@
                         {% for field_name in form_group.fields if form[field_name] is defined %}
                             {{ form_row(form[field_name])}}
                         {% else %}
-                            <em>{{ 'message_form_group_empty'|trans({}, 'SonataAdminBundle') }}</em>
+                            {% if form_group.label == 'Пользователь' %}
+
+                                <div class="login-form">
+                                    <div class="form-input" style="width: 100%;">
+                                        <table class="profile-table" style="width: 100%;">
+
+                                            <tr>
+                                                <td>
+                                                    Организация:
+                                                </td>
+                                                <td>
+                                                    <div class="input-log profile-fon">{{ app.user.organization }}</div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    УНП:
+                                                </td>
+                                                <td>
+                                                    <div class="input-log profile-fon">{{ app.user.UNP }}</div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    Банк:
+                                                </td>
+                                                <td>
+                                                    <div class="input-log profile-fon">{{ app.user.bank }}</div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    Адресс банка:
+                                                </td>
+                                                <td>
+                                                    <div class="input-log profile-fon">{{ app.user.addressOfTheBank }}</div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    Юридический адрес:
+                                                </td>
+                                                <td>
+                                                    <div class="input-log profile-fon">{{ app.user.legalAddress }}</div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    Расчетный счет:
+                                                </td>
+                                                <td>
+                                                    <div class="input-log profile-fon">{{ app.user.settlementAccount }}</div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    Почтовый индекс:
+                                                </td>
+                                                <td>
+                                                    <div class="input-log profile-fon">{{ app.user.code }}</div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    Телефон:
+                                                </td>
+                                                <td>
+                                                    <div class="input-log profile-fon">{{ app.user.phone }}</div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    ФИО:
+                                                </td>
+                                                <td>
+                                                    <div class="input-log profile-fon">{{ app.user.fullName }}</div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    Номер контракта:
+                                                </td>
+                                                <td>
+                                                    <div class="input-log profile-fon">{{ app.user.contractNumber }}</div>
+                                                </td>
+                                            </tr>
+                                        </table>
+
+                                    </div>
+                                </div>
+
+                                {#<div class="row">#}
+                                {#<div class="col-lg-4">#}
+                                {#<div class="row">#}
+                                {#id: {{ app.user.id }}#}
+                                {#</div>#}
+                                {#<div class="row">#}
+                                {#organization: {{ app.user.organization }}#}
+                                {#</div>#}
+                                {#<div class="row">#}
+                                {#UNP: {{ app.user.UNP }}#}
+                                {#</div>#}
+                                {#<div class="row">#}
+                                {#Bank: {{ app.user.bank }}#}
+                                {#</div>#}
+                                {#<div class="row">#}
+                                {#address Of The Bank: {{ app.user.addressOfTheBank }}#}
+                                {#</div>#}
+                                {#<div class="row">#}
+                                {#legal Address: {{ app.user.legalAddress }}#}
+                                {#</div>#}
+                                {#<div class="row">#}
+                                {#settlement Account: {{ app.user.settlementAccount }}#}
+                                {#</div>#}
+                                {#<div class="row">#}
+                                {#code: {{ app.user.code }}#}
+                                {#</div>#}
+                                {#<div class="row">#}
+                                {#phone: {{ app.user.phone }}#}
+                                {#</div>#}
+                                {#<div class="row">#}
+                                {#full Name: {{ app.user.fullName }}#}
+                                {#</div>#}
+                                {#<div class="row">#}
+                                {#<a href="{{ path('fos_user_profile_edit') }}">Change data</a>#}
+                                {#<a href="{{ path('fos_user_change_password') }}">Change password</a>#}
+                                {#</div>#}
+                                {#</div>#}
+                                {#</div>#}
+                            {% elseif form_group.label == 'Карта' %}
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d150474.39557313913!2d27.40249134812782!3d53.89331684651622!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46dbcfd35b1e6ad3%3A0xb61b853ddb570d9!2z0JzQuNC90YHQug!5e0!3m2!1sru!2sby!4v1523641166856"
+                                        width="100%" height="450" frameborder="0" style="border:0"
+                                        allowfullscreen></iframe>
+                            {% else %}
+                                <em>{{ 'message_form_group_empty'|trans({}, 'SonataAdminBundle') }}</em>
+                            {% endif %}
                         {% endfor %}
                     </div>
                 </div>

@@ -34,6 +34,24 @@ class LegalCall
 
     protected $sum;
 
+    protected $notice;
+
+    /**
+     * @return mixed
+     */
+    public function getNotice()
+    {
+        return $this->notice;
+    }
+
+    /**
+     * @param mixed $notice
+     */
+    public function setNotice($notice)
+    {
+        $this->notice = $notice;
+    }
+
     /**
      * @return mixed
      */

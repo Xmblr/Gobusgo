@@ -11,10 +11,6 @@
         {% stylesheets '@bootstrap_css' %}
             <link rel="stylesheet" type="text/css" media="screen" href="{{ asset_url }}"/>
         {% endstylesheets %}
-
-        {% stylesheets '@bootstrap_css' %}
-            <link rel="stylesheet" type="text/css" media="screen" href="{{ asset_url }}"/>
-        {% endstylesheets %}
         <link type="text/css" rel="stylesheet" href="{{ asset('css/bootstrap-1.css') }}">
         <link type="text/css" rel="stylesheet" href="{{ asset('css/style.css') }}">
         <link type="text/css" rel="stylesheet" href="{{ asset('css/font-awesome/css/font-awesome.css') }}">
@@ -24,6 +20,8 @@
         <link type="text/css" rel="stylesheet" href="{{ asset('css/header-second.css') }}">
         <link type="text/css" rel="stylesheet" href="{{ asset('css/popup.css') }}">
         <link type="text/css" rel="stylesheet" href="{{ asset('css/zero-5.css') }}">
+        <link type="text/css" rel="stylesheet" href="{{ asset('css/phone-call.css') }}">
+        <link type="text/css" rel="stylesheet" href="{{ asset('css/hamburgers.css') }}">
         {#<link type="text/css" rel="stylesheet" href="{{ asset('css/select2-bootstrap.css') }}">#}
         {#<link type="text/css" rel="stylesheet" href="{{ asset('css/select2.css') }}">#}
     {% endblock %}
@@ -34,7 +32,7 @@
 
 
 {% block header %}
-
+    <a href="#win3"><i class="Phone is-animating"></i></a>
     <header class="main-menu-area">
         <div class="container-fluid" style="padding: 0px;">
             <div class="row">
@@ -43,7 +41,7 @@
                     <div class="col-md-5" style="padding-right: 0px; padding-left: 0px;">
                         <div class="top-bar">
                             <li class="top-bar-menu">
-                            <a class="" href="{{ path('gobusgo_gobusgo_homepage') }}">Главная</a>
+                                <a class="" href="{{ path('gobusgo_gobusgo_homepage') }}">Главная</a>
                             </li>
                             <li class="top-bar-menu">
                                 <a href="{{ path('gobusgo_gobusgo_about') }}">О нас</a>
@@ -60,9 +58,8 @@
                         </div>
                     </div>
                     <div class="col-md-7">
-                        <div class="top-bar">
-                            <span class="mail-top">info@gobusgo.by</span>
-                            <div class="icons-top-bar">
+                        <div class="top-bar" style="text-align: right;">
+                            <div class="icons-top-bar" style=" margin-right: 20px;">
                                 <img class="icons-top" src="{{ asset('images/whatsup.png') }}"/>
                                 <img class="icons-top" src="{{ asset('images/telegram.png') }}"/>
                                 <img class="icons-top" src="{{ asset('images/viber.png') }}"/>
@@ -72,12 +69,14 @@
 
 
                                     {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-                                        <a class="top-bar-menu-active" href="{{ path('sonata_admin_dashboard') }}"> {{ app.user.organization }} </a>
+                                        <a style="margin-right: 10px; font-size: 1vw;" class="btn-1"
+                                           href="{{ path('sonata_admin_dashboard') }}"> {{ app.user.organization }} </a>
                                         <a style="border-left: 2px solid #ffeb89; padding: 8px 15px 8px 8px;" class="top-bar-menu" href="{{ path('fos_user_security_logout') }}">
                                             {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
                                         </a>
                                     {% else %}
-                                        <a class="top-bar-menu-active" href="{{ path('sonata_admin_dashboard') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
+                                        <a style="margin-right: 10px; font-size: 1vw;" class="btn-1"
+                                           href="{{ path('sonata_admin_dashboard') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
                                         <a class="top-bar-menu" href="{{ path('fos_user_registration_register') }}">{{ 'layout.register'|trans({}, 'FOSUserBundle') }}</a>
 
                                 {% endif %}
@@ -101,10 +100,10 @@
 
                         <div class="header-menu inline-block">
                             <li class="inline-block">
-                                <img class="reload-header" src="{{ asset('images/reload1.png') }}">
+                                <img class="reload-header" src="{{ asset('images/reload-home-1.png') }}">
                                 <a style="display: inline-block;"
                                    href="{{ path('gobusgo_gobusgo_deliveryMoscowMinsk') }}">Москва</br>Минск</a>
-                                <img class="reload-header" src="{{ asset('images/reload.png') }}">
+                                <img class="reload-header" src="{{ asset('images/reload-home-2.png') }}">
                             </li>
                             <li class="inline-block">
                                 <a href="{{ path('gobusgo_gobusgo_deliveryMinsk') }}">Доставка </br>по Минску</a>
@@ -117,7 +116,13 @@
 
                     </div>
                     <div class="col-md-5 align-j" style="padding-left: 0px;">
-                        <div class="col-md-6" style="padding-left: 0px; padding-right: 0px; text-align: center; display: table;">
+                        <div class="col-md-4"
+                             style="padding-left: 0px; padding-right: 0px; text-align: center; display: table;">
+
+                        </div>
+
+                        <div class="col-md-4"
+                             style="padding-left: 0px; padding-right: 0px; text-align: center; display: table;">
                         <div class="time-of-work inline-block" style="height: 108px; vertical-align: middle; display: table-cell; padding-right: 10px;">
                             <li>
                               <span>Время работы:</span><br> Пн-Пт - с 9.00 до 18.00<br>Сб-Вс - с 9.00 до
@@ -125,35 +130,40 @@
                             </li>
                         </div>
                         </div>
-                        <div class="col-md-6" style="padding-left: 0px; padding-right: 0px; ">
-                        <div class="inline-block padding-phones" style="float: right; height: 98px; vertical-align: middle; display: table-cell;">
-                            <table class="menu-table-header" border="1">
-                                <tbody>
-                                <tr colspan="2">
-                                    <td style="text-align: center;"><a href="#win3" class="call-back-top">
-                                            Заказать звонок</a></td>
-                                </tr>
-                                <tr>
-                                    <td rowspan="3">
-                                        <p class="big-numbers">333 33 33</p>
-                                    </td>
-                                    <td>
-                                        <p class="text-operator">МТС</p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <p class="text-operator">Velcome</p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <p class="text-operator">Life :)</p>
-                                    </td>
-                                </tr>
-                                </tbody>
-                            </table>
-                        </div>
+                        <div class="col-md-4" style="padding-left: 0px; padding-right: 0px; ">
+                            <div class="time-of-work inline-block"
+                                 style="height: 108px; vertical-align: middle; display: table-cell; padding-right: 10px;">
+                                <li>
+                                    <span>info@gobusgo.by</span><br>+375 (17) 333-33-33<br>+375 (33) 333-33-33
+                                </li>
+                            </div>
+                            {#<div class="inline-block padding-phones" style="float: right; height: 98px; vertical-align: middle; display: table-cell;">#}
+                            {#<table class="menu-table-header" border="1">#}
+                            {#<tbody>#}
+                            {#<tr colspan="2">#}
+                            {#<td style="text-align: center;"><span class="mail-top">info@gobusgo.by</span></td>#}
+                            {#</tr>#}
+                            {#<tr>#}
+                            {#<td rowspan="3">#}
+                            {#<p class="big-numbers">333 33 33</p>#}
+                            {#</td>#}
+                            {#<td>#}
+                            {#<p class="text-operator">МТС</p>#}
+                            {#</td>#}
+                            {#</tr>#}
+                            {#<tr>#}
+                            {#<td>#}
+                            {#<p class="text-operator">Velcome</p>#}
+                            {#</td>#}
+                            {#</tr>#}
+                            {#<tr>#}
+                            {#<td>#}
+                            {#<p class="text-operator">Life :)</p>#}
+                            {#</td>#}
+                            {#</tr>#}
+                            {#</tbody>#}
+                            {#</table>#}
+                            {#</div>#}
                         </div>
                     </div>
                 </div>
@@ -165,7 +175,14 @@
                 </div>
 
                 <div class="accordion-wrapper hide-sm-up">
-                    <a href="#" class="mobile-open"><i class="fa fa-bars" style="font-size: 34px;"></i></a>
+                    <a href="#" class="mobile-open">
+
+                        <div class="hamburger hamburger--spin class-2">
+                            <div class="hamburger-box">
+                                <div class="hamburger-inner"></div>
+                            </div>
+                        </div>
+                    </a>
                     <!--Mobile Menu start-->
                     <ul id="mobilemenu" class="accordion">
 
@@ -173,21 +190,27 @@
 
 
                             {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-                                <a class="button-active-header"
-                                   href="{{ path('fos_user_profile_show') }}"> {{ app.user.organization }} </a> |
+                                <a class="btn-1" style="margin-left: 15px;"
+                                   href="{{ path('fos_user_profile_show') }}"> {{ app.user.organization }} </a>
                                 <a class="button-not-active-header" href="{{ path('fos_user_security_logout') }}">
                                     {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
                                 </a>
                             {% else %}
                                 <a class="button-not-active-header"
-                                   href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
-                                <a class="button-active-header"
                                    href="{{ path('fos_user_registration_register') }}">{{ 'layout.register'|trans({}, 'FOSUserBundle') }}</a>
+                                <a class="btn-1"
+                                   href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
+
 
                             {% endif %}
 
-                            <a class="closeme" href="#" style="display: inline-block;"><i
-                                        class="fa fa-times"></i></a></li>
+                            <a class="closeme" href="#" style="display: inline-block;">
+                                <div class="hamburger hamburger--spin class-1 is-active">
+                                    <div class="hamburger-box">
+                                        <div class="hamburger-inner"></div>
+                                    </div>
+                                </div>
+                            </a></li>
                         <li class="divider-menu"></li>
                         <li class="link-menu">
                             <a class="" href="{{ path('gobusgo_gobusgo_homepage') }}">Главная</a>
@@ -204,7 +227,8 @@
                                 <li class="divider-menu"></li>
                                 <li class="link-menu">
                                 <a style="display:block;"
-                                   href="{{ path('gobusgo_gobusgo_deliveryMoscowMinsk') }}">Минск - Москва</a>
+                                   href="{{ path('gobusgo_gobusgo_deliveryMoscowMinsk') }}">Минск <span
+                                            class="fa fa-arrows-h" aria-hidden="true"></span> Москва</a>
                                 </li>
                                 <li class="divider-menu"></li>
                                 <li class="link-menu">
@@ -258,7 +282,8 @@
                         </table>
                         <p class="big-letter">info@gobusgo.by</p>
                         <div class="callback-header">
-                            <a href="#win3"><i class="fa fa-phone" aria-hidden="true"></i>
+                            <a href="#win3" class="btn-1" style="margin-left: 0px; padding: 5px 20px;"><i
+                                        class="fa fa-phone" aria-hidden="true"></i>
                                 Заказать звонок</a>
                         </div>
                         <div class="header-icons">
@@ -294,7 +319,7 @@
     <footer>
         <div class="container-fluid" style="">
             <div class="row">
-                <div class="col-md-3 footer-table" style="text-align: left;">
+                <div class="col-md-3 footer-table">
                     <div>
                         <a href="{{ path('gobusgo_gobusgo_homepage') }}">
                             <img class="logo-footer" src="{{ asset('images/logo-1.png') }}">
@@ -320,8 +345,8 @@
                     <li class="title-footer-border">
                         <p class="title-footer">Контакты:</p>
                     </li>
-                    <table class="table-footer" border="1">
-                        <tbody>
+                    <table class="table-footer" border="1" style="display: block;">
+                        <tbody style="display: inline-block;">
                         <tr>
                             <td rowspan="3">
                                 <p class="big-numbers-footer">333 33 33</p>
@@ -368,10 +393,10 @@
         <div class="container-fluid m-t-10">
             <div class="row">
 
-                <div class="col-md-6">
+                <div class="col-md-6 col-sm-6 col-xs-6">
                     <p class="footer-caption" style="float:left;">&copy;Gobusgo.by 2018</p>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-6 col-sm-6 col-xs-6">
                     <p class="footer-caption" style="float:right;">Разработка: <a
                                 href="http://new-line.by">New-line.by</a>
                     </p>

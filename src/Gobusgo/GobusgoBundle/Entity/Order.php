@@ -63,31 +63,31 @@ class Order
      * @ORM\ManyToOne(targetEntity="Gobusgo\GobusgoBundle\Entity\Address")
      *
      */
-    protected $additionalAddress1;
-
-    /**
-     * @ORM\ManyToOne(targetEntity="Gobusgo\GobusgoBundle\Entity\Address")
-     *
-     */
-    protected $additionalAddress2;
-
-    /**
-     * @ORM\ManyToOne(targetEntity="Gobusgo\GobusgoBundle\Entity\Address")
-     *
-     */
-    protected $additionalAddress3;
-
-    /**
-     * @ORM\ManyToOne(targetEntity="Gobusgo\GobusgoBundle\Entity\Address")
-     *
-     */
-    protected $additionalAddress4;
-
-    /**
-     * @ORM\ManyToOne(targetEntity="Gobusgo\GobusgoBundle\Entity\Address")
-     *
-     */
-    protected $additionalAddress5;
+    protected $additionalAddress;
+//
+//    /**
+//     * @ORM\ManyToOne(targetEntity="Gobusgo\GobusgoBundle\Entity\Address")
+//     *
+//     */
+//    protected $additionalAddress2;
+//
+//    /**
+//     * @ORM\ManyToOne(targetEntity="Gobusgo\GobusgoBundle\Entity\Address")
+//     *
+//     */
+//    protected $additionalAddress3;
+//
+//    /**
+//     * @ORM\ManyToOne(targetEntity="Gobusgo\GobusgoBundle\Entity\Address")
+//     *
+//     */
+//    protected $additionalAddress4;
+//
+//    /**
+//     * @ORM\ManyToOne(targetEntity="Gobusgo\GobusgoBundle\Entity\Address")
+//     *
+//     */
+//    protected $additionalAddress5;
 
     /**
      *
@@ -97,11 +97,32 @@ class Order
     protected $dateOfOrder;
 
     /**
-     * @var float
+     * @var boolean
      *
-     * @ORM\Column(type="float")
+     * @ORM\Column(type="boolean")
      */
     protected $status;
+
+    /**
+     * @ORM\Column(type="string")
+     */
+    protected $notice;
+
+    /**
+     * @return mixed
+     */
+    public function getNotice()
+    {
+        return $this->notice;
+    }
+
+    /**
+     * @param mixed $notice
+     */
+    public function setNotice($notice)
+    {
+        $this->notice = $notice;
+    }
 
     /**
      * @return int
@@ -218,82 +239,82 @@ class Order
     /**
      * @return mixed
      */
-    public function getAdditionalAddress1()
+    public function getAdditionalAddress()
     {
-        return $this->additionalAddress1;
+        return $this->additionalAddress;
     }
 
     /**
-     * @param mixed $additionalAddress1
+     * @param mixed $additionalAddress
      */
-    public function setAdditionalAddress1($additionalAddress1)
+    public function setAdditionalAddress($additionalAddress)
     {
-        $this->additionalAddress1 = $additionalAddress1;
+        $this->additionalAddress = $additionalAddress;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getAdditionalAddress2()
-    {
-        return $this->additionalAddress2;
-    }
-
-    /**
-     * @param mixed $additionalAddress2
-     */
-    public function setAdditionalAddress2($additionalAddress2)
-    {
-        $this->additionalAddress2 = $additionalAddress2;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getAdditionalAddress3()
-    {
-        return $this->additionalAddress3;
-    }
-
-    /**
-     * @param mixed $additionalAddress3
-     */
-    public function setAdditionalAddress3($additionalAddress3)
-    {
-        $this->additionalAddress3 = $additionalAddress3;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getAdditionalAddress4()
-    {
-        return $this->additionalAddress4;
-    }
-
-    /**
-     * @param mixed $additionalAddress4
-     */
-    public function setAdditionalAddress4($additionalAddress4)
-    {
-        $this->additionalAddress4 = $additionalAddress4;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getAdditionalAddress5()
-    {
-        return $this->additionalAddress5;
-    }
-
-    /**
-     * @param mixed $additionalAddress5
-     */
-    public function setAdditionalAddress5($additionalAddress5)
-    {
-        $this->additionalAddress5 = $additionalAddress5;
-    }
+//    /**
+//     * @return mixed
+//     */
+//    public function getAdditionalAddress2()
+//    {
+//        return $this->additionalAddress2;
+//    }
+//
+//    /**
+//     * @param mixed $additionalAddress2
+//     */
+//    public function setAdditionalAddress2($additionalAddress2)
+//    {
+//        $this->additionalAddress2 = $additionalAddress2;
+//    }
+//
+//    /**
+//     * @return mixed
+//     */
+//    public function getAdditionalAddress3()
+//    {
+//        return $this->additionalAddress3;
+//    }
+//
+//    /**
+//     * @param mixed $additionalAddress3
+//     */
+//    public function setAdditionalAddress3($additionalAddress3)
+//    {
+//        $this->additionalAddress3 = $additionalAddress3;
+//    }
+//
+//    /**
+//     * @return mixed
+//     */
+//    public function getAdditionalAddress4()
+//    {
+//        return $this->additionalAddress4;
+//    }
+//
+//    /**
+//     * @param mixed $additionalAddress4
+//     */
+//    public function setAdditionalAddress4($additionalAddress4)
+//    {
+//        $this->additionalAddress4 = $additionalAddress4;
+//    }
+//
+//    /**
+//     * @return mixed
+//     */
+//    public function getAdditionalAddress5()
+//    {
+//        return $this->additionalAddress5;
+//    }
+//
+//    /**
+//     * @param mixed $additionalAddress5
+//     */
+//    public function setAdditionalAddress5($additionalAddress5)
+//    {
+//        $this->additionalAddress5 = $additionalAddress5;
+//    }
 
     /**
      * @return mixed

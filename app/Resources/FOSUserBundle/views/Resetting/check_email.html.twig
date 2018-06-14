@@ -3,7 +3,16 @@
 {% trans_default_domain 'FOSUserBundle' %}
 
 {% block fos_user_content %}
-<p>
-{{ 'resetting.check_email'|trans({'%tokenLifetime%': tokenLifetime})|nl2br }}
-</p>
+    <div class="container-fluid" style="padding-top: 5%;">
+
+        <h4 class="confirm col-md-6 col-md-push-3">
+
+            Письмо отправлено. Оно содержит ссылку, при переходе по которой ваш пароль будет сброшен.</br>
+            Заметьте, вы сможете запросить новый пароль только через 2 часа.
+
+            Если вы не получили письмо, проверьте папку Спам или попробуйте снова.
+
+        </h4>
+    </div>
+
 {% endblock %}

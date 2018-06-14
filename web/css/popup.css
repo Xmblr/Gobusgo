@@ -61,6 +61,8 @@
     z-index:1000;
     max-width: 800px;
     text-align: center;
+    background-color: #cfd9ff;
+    border-radius: 10px;
 }
 /* формируем кнопку закрытия */
 .close {
@@ -136,4 +138,10 @@
     position: fixed;
     max-height: 600px;
 }
+}
+
+@media (max-width: 468px) {
+    .popup {
+        padding: 5px;
+    }
 }

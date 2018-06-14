@@ -55,20 +55,20 @@
     position: fixed;
     right: -110%;
     top: 0px;
-    z-index: 2;
+    z-index: 3;
     background: #fff;
-    -webkit-transition: all 0.25s ease;
-    -o-transition: all 0.25s ease;
-    transition: all 0.25s ease;
+    -webkit-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
     padding-top: 5px;
     height: 100%;
     overflow-y: scroll;
 }
 .accordion.active {
-    right: -20px;
-    -webkit-transition: all 0.25s ease;
-    -o-transition: all 0.25s ease;
-    transition: all 0.25s ease;
+    right: 0px;
+    -webkit-transition: all 0.7s ease;
+    -o-transition: all 0.7s ease;
+    transition: all 0.7s ease;
     position: fixed;
     top: 0;
     border-left: 1px solid #8598ff;
@@ -76,6 +76,7 @@
     box-shadow: 8px 8px 35px 0 rgba(0,0,0,0.4);
     list-style-type: none;
     padding-left: 10px;
+    overflow: hidden;
 }
 
 .accordion.active li .button-not-active-header {
@@ -98,8 +99,7 @@ color: #8598ff;
 .closeme {
     position: relative;
     float: right;
-    margin-right: 40px;
-    top: -8px;
+    margin-right: 25px;
     padding: 3px;
 }
 
@@ -200,11 +200,18 @@ color: #8598ff;
 @media (min-width: 1200px) {
     .accordion.active {
         width: 25%;
+        height: 100vh;
     }
 }
 
+.menu-bottom {
+    position: absolute;
+    bottom: 20px;
+}
+
 .start-li {
-    margin: 30px 0px 20% 15px;
+    margin: 25px 0px 20% 15px;
+    list-style-type: none;
 }
 
 .divider-header {
@@ -258,28 +265,13 @@ color: #8598ff;
 }
 
 .callback-header {
-    margin-left: 15px;
-    margin-top:20px;
-    font-family: 'Zing Sans Rust R Base';
-    background-color: #ffeb89;
-    font-weight: 600;
-    padding: 5px 10px;
-    border-radius: 4px;
-    font-size: 18px;
-    -o-transform: scale(1, 1.2);
-    -ms-transform: scale(1, 1.2);
-    -moz-transform: scale(1, 1.2);
-    -webkit-transform: scale(1, 1.2);
-    transform: scale(1, 1.2);
-    text-transform: uppercase;
-    transform: scale(1, 1.2);
-    display: inline-block;
+    padding: 10px 0px;
 }
 
 .header-icons {
     margin-left: 15px;
-    margin-top:20px;
-    margin-bottom: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 @media (max-width: 468px) {

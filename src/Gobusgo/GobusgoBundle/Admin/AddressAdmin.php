@@ -30,6 +30,7 @@ class AddressAdmin extends AbstractAdmin
                 'class'=>User::class,
                 'property'=>'fullName',
             ])
+            ->add('phone')
         ;
     }
 
@@ -47,11 +48,16 @@ class AddressAdmin extends AbstractAdmin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
+            ->add('_action', null, [
+                'actions' => [
+                    'edit' => ['template' => '@GobusgoGobusgo/Admin/CRUD/list__action_edit.html.twig'],
+                    'delete' => ['template' => '@GobusgoGobusgo/Admin/CRUD/list__action_delete.html.twig'],
+                ]
+            ])
             ->addIdentifier('name')
             ->addIdentifier('organization')
             ->addIdentifier('city.name')
-            ->addIdentifier('street')
-            ->addIdentifier('userId.fullName')
+            ->addIdentifier('street')//            ->addIdentifier('userId.fullName')
         ;
     }
 }

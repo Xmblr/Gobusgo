@@ -1,0 +1,62 @@
+{% extends sonata_block.templates.block_base %}
+
+{% block block %}
+    <div class="container" style="width: 100%;">
+        <div class="row">
+            <h4>История грузоперевозок</h4>
+            <table class="table table-bordered table-striped sonata-ba-list table-mobile">
+                <thead>
+                <tr class="sonata-ba-list-field-header">
+
+                    <th class="sonata-ba-list-field-header-text">Номер заказа</th>
+                    <th class="sonata-ba-list-field-header-text">Статус</th>
+                    <th class="sonata-ba-list-field-header-text">Груз</th>
+                    <th class="sonata-ba-list-field-header-text">Кол-во</th>
+                    <th class="sonata-ba-list-field-header-text">Стоимость</th>
+                    <th class="sonata-ba-list-field-header-text">Адрес доставки</th>
+                </tr>
+                </thead>
+                {% for myentity in myentity %}
+
+
+
+                    <tr>
+                        <td>
+                            {{ myentity.id }}
+                        </td>
+                        <td>
+                            {% if myentity.status == 1 %}
+                                Завершено
+                            {% else %}
+                                В обработке
+                            {% endif %}
+                        </td>
+                        <td>
+                            {{ myentity.cargoId }}
+                        </td>
+                        <td>
+                            {{ myentity.quantityOfCargo }}
+                        </td>
+                        <td>
+                            {{ myentity.price }}
+                        </td>
+                        <td>
+                            {{ myentity.deliveryAddress }}
+                        </td>
+                    </tr>
+
+
+                    {#{{ myentity.userid }}#}
+
+                    {#{{ myentity.dateOfOrder }}#}
+
+                    {#{{ myentity.notice }}#}
+
+                {% endfor %}
+            </table>
+            <div class="col-md-12 text-center">
+                <a href="{{ path('order_user_list') }}" class="button-log">Полный список</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

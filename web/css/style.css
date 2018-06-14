@@ -18,21 +18,21 @@
     src: url(/fonts/bosk.otf);
 }
 
-@font-face{
+@font-face {
     font-family: 'MyWebFont';
-    src: url('/fonts/zero5-WebFont.eot');
-    src: url('/fonts/zero5-WebFont.eot?#iefix') format('embedded-opentype'),
-    url('/fonts/zero5-WebFont.woff') format('woff'),
-    url('/fonts/zero5-WebFont.ttf') format('truetype'),
-    url('/fonts/zero5-WebFont.svg#webfont') format('svg');
+    src: url('/fonts/zero5-webfont.eot');
+    src: url('/fonts/zero5-webfont.eot?#iefix') format('embedded-opentype'),
+    url('/fonts/zero5-webfont.woff') format('woff'),
+    url('/fonts/zero5-webfont.ttf') format('truetype'),
+    url('/fonts/zero5-webfont.svg#webfont') format('svg');
 }
 
 h1 {
     font-family: Trebuchet MS;
-    font-size:44px;
+    font-size: 44px;
     font-weight: 600;
     text-align: center;
-    margin-bottom:2%;
+    margin-bottom: 2%;
     color: #566fe0;
     margin: 0% 0% 2% 0%;
     line-height: 44px;
@@ -54,16 +54,23 @@ div {
     height: 250px;
     padding: 0px;
     width: 250px;
-    text-align:center;
-    display:table;
+    text-align: center;
+    display: table;
     margin: 0 auto;
     cursor: pointer;
+}
+
+@media (max-width: 468px) {
+    .background-round {
+        width: 230px;
+        height: 230px;
+    }
 }
 
 h2, h3, h4, h5, h6 {
     font-family: Trebuchet MS;
     color: #566fe0;
-    text-align:center;
+    text-align: center;
     margin-bottom: 2%;
 }
 
@@ -73,27 +80,29 @@ h2 {
 
 h3 {
     font-family: MyWebFont;
-    font-size:30px;
+    font-size: 30px;
     color: #566fe0;
     text-transform: uppercase;
 }
 
 h4 {
     font-family: Trebuchet MS;
-    font-size: 20px;
+    font-size: 18px;
     color: #566fe0;
     text-transform: uppercase;
     font-weight: 600;
     line-height: 22px;
     text-align: left;
-    text-decoration: underline;
     margin: 10px 0px;
     line-height: 24px;
 }
 
+a:hover {
+    color: #566fe0;
+}
+
 .advantage-title {
-    font-family: MyWebFont;
-    font-size:22px;
+    font-size: 20px;
     line-height: 24px;
     color: black;
     text-align: center;
@@ -101,8 +110,8 @@ h4 {
 }
 
 .icons-home {
-    margin-top:20px;
-    text-align:center;
+    margin-top: 20px;
+    text-align: center;
 }
 
 .divider-home {
@@ -112,13 +121,14 @@ h4 {
     background-color: #e5e5e5;
     width: 50%;
     margin-left: 25%;
-    margin-top:2%;
+    margin-top: 2%;
 }
 
 p {
     font-family: "Trebuchet MS";
     font-size: 14px;
     margin: 0px;
+    color: #333;
 }
 
 .auto-photo {
@@ -131,11 +141,12 @@ p {
     color: black;
     line-height: 20px;
     font-weight: 400;
+    margin-bottom: 20px;
 }
 
 .auto-title {
-    font-family: MyWebFont;
-    font-size:24px;
+    font-family: Trebuchet MS;
+    font-size: 24px;
     line-height: 24px;
     color: #8598ff;
     font-weight: 400;
@@ -145,6 +156,16 @@ p {
 
 .advantage-icons {
     text-align: center;
+}
+
+.advantage-img {
+    width: 80%;
+}
+
+@media (max-width: 1200px) {
+    .advantage-img {
+        width: 200px;
+    }
 }
 
 .footer-text {
@@ -176,7 +197,7 @@ footer {
 
 .big-letter {
     font-family: vladivostok bold;
-    font-size:28px;
+    font-size: 28px;
     color: #566fe0;
     line-height: 36px;
     margin-top: 5px;
@@ -201,11 +222,16 @@ footer {
 }
 
 .footer-icons {
-    margin-top:5px;
+    margin-top: 5px;
+}
+
+@media (max-width: 1024px) {
+    .footer-table {
+        text-align: center;
+    }
 }
 
 .footer-caption {
-    font-family: 'zero 5';
     font-size: 16px;
     color: #8598ff;
     line-height: 22px;
@@ -223,7 +249,7 @@ footer {
 
 .big-letter-footer {
     font-family: vladivostok bold;
-    font-size:28px;
+    font-size: 28px;
     color: #566fe0;
     line-height: 36px;
     margin-top: 5px;
@@ -237,33 +263,42 @@ footer {
     }
 }
 
-@media (max-width:468px) {
+@media (max-width: 468px) {
     h1 {
         font-size: 34px;
         margin: 0% 0% 20px 0%;
     }
+
     .car-gobusgo {
-        display:none;
+        display: none;
     }
+
     .display-none-mobile {
         display: none
     }
+
     h2, h3, h4, h5, h6 {
         margin-bottom: 20px;
     }
+
     h2 {
         font-size: 26px;
+        line-height: 28px;
     }
-    p{
+
+    p {
         font-size: 16px;
         line-height: 18px;
     }
+
     footer {
         padding: 20px 0px;
     }
+
     .mobile-slide {
         margin-bottom: 20px;
     }
+
     .title-footer-border {
         margin-top: 30px;
     }
@@ -271,30 +306,36 @@ footer {
 
 @media (min-width: 468px) and (max-width: 1025px) {
     .car-gobusgo {
-        display:none;
+        display: none;
     }
+
     .display-none-mobile {
         display: none
     }
+
     .mobile-slide {
         margin-bottom: 20px;
     }
+
     .footer-table {
         width: 50%;
         display: inline-block;
         float: left;
         margin-top: 20px;
     }
+
     footer {
         padding: 20px 0px;
     }
+
     .big-numbers-footer {
         font-size: 38px;
         line-height: 38px;
     }
+
     .big-letter-footer {
         font-family: vladivostok bold;
-        font-size:24px;
+        font-size: 24px;
         color: #566fe0;
         line-height: 24px;
         margin-top: 5px;
@@ -302,66 +343,57 @@ footer {
 }
 
 .slide-desktop {
-    margin-bottom: 3%;   }
+    margin-bottom: 3%;
+}
 
 /* Home animation */
 
 @-webkit-keyframes shake {
-    30%
-    {
-        -webkit-transform: translate(1px,1px);
-        transform: translate(1px,1px);
+    30% {
+        -webkit-transform: translate(1px, 1px);
+        transform: translate(1px, 1px);
     }
-    40%
-    {
-        -webkit-transform: translate(-1px,-1px);
-        transform: translate(-1px,-1px);
+    40% {
+        -webkit-transform: translate(-1px, -1px);
+        transform: translate(-1px, -1px);
     }
-    50%
-    {
-        -webkit-transform: translate(2px,2px);
-        transform: translate(2px,2px);
+    50% {
+        -webkit-transform: translate(2px, 2px);
+        transform: translate(2px, 2px);
     }
-    60%
-    {
-        -webkit-transform: translate(-2px,-2px);
-        transform: translate(-2px,-2px);
+    60% {
+        -webkit-transform: translate(-2px, -2px);
+        transform: translate(-2px, -2px);
     }
-    70%
-    {
-        -webkit-transform: translate(1px,1px);
-        transform: translate(1px,1px);
+    70% {
+        -webkit-transform: translate(1px, 1px);
+        transform: translate(1px, 1px);
     }
-    80%
-    {
-        -webkit-transform: translate(-1px,-1px);
-        transform: translate(-1px,-1px);
+    80% {
+        -webkit-transform: translate(-1px, -1px);
+        transform: translate(-1px, -1px);
     }
-    85%
-    {
-        -webkit-transform: translate(2px,2px);
-        transform: translate(2px,2px);
+    85% {
+        -webkit-transform: translate(2px, 2px);
+        transform: translate(2px, 2px);
     }
-    90%
-    {
-        -webkit-transform: translate(-2px,-2px);
-        transform: translate(-2px,-2px);
+    90% {
+        -webkit-transform: translate(-2px, -2px);
+        transform: translate(-2px, -2px);
     }
-    95%
-    {
-        -webkit-transform: translate(1px,1px);
-        transform: translate(1px,1px);
+    95% {
+        -webkit-transform: translate(1px, 1px);
+        transform: translate(1px, 1px);
     }
-    100%
-    {
-        -webkit-transform: translate(-1px,-1px);
-        transform: translate(-1px,-1px);
+    100% {
+        -webkit-transform: translate(-1px, -1px);
+        transform: translate(-1px, -1px);
     }
 }
 
 @media (min-width: 1024px) and (max-width: 1250px) {
     .car-gobusgo {
-        display:none;
+        display: none;
     }
 }
 
@@ -372,57 +404,47 @@ footer {
 }
 
 @-webkit-keyframes shake-w {
-    30%
-    {
+    30% {
         -webkit-transform: translate(0px, -1px);
         transform: translate(0px, -1px);
     }
-    40%
-    {
+    40% {
         -webkit-transform: translate(0px, 1px);
         transform: translate(0px, 1px);
     }
-    50%
-    {
-        -webkit-transform: translate(0px,-2px);
-        transform: translate(0px,-2px);
+    50% {
+        -webkit-transform: translate(0px, -2px);
+        transform: translate(0px, -2px);
 
     }
-    60%
-    {
+    60% {
         -webkit-transform: translate(0px, 2px);
         transform: translate(0px, 2px);
     }
-    70%
-    {
-        -webkit-transform: translate(0px,-1px);
-        transform: translate(0px,-1px);
+    70% {
+        -webkit-transform: translate(0px, -1px);
+        transform: translate(0px, -1px);
     }
-    80%
-    {
-        -webkit-transform: translate(0px,1px);
-        transform: translate(0px,1px);
+    80% {
+        -webkit-transform: translate(0px, 1px);
+        transform: translate(0px, 1px);
     }
-    85%
-    {
-        -webkit-transform: translate(0px,-2px);
-        transform: translate(0px,-2px);
+    85% {
+        -webkit-transform: translate(0px, -2px);
+        transform: translate(0px, -2px);
     }
-    90%
-    {
-        -webkit-transform: translate(0px,2px);
-        transform: translate(0px,2px);
+    90% {
+        -webkit-transform: translate(0px, 2px);
+        transform: translate(0px, 2px);
     }
-    95%
-    {
+    95% {
 
-        -webkit-transform: translate(0px,-1px);
-        transform: translate(0px,-1px);
+        -webkit-transform: translate(0px, -1px);
+        transform: translate(0px, -1px);
     }
-    100%
-    {
-        -webkit-transform: translate(0px,1px);
-        transform: translate(0px,1px);
+    100% {
+        -webkit-transform: translate(0px, 1px);
+        transform: translate(0px, 1px);
     }
 }
 
@@ -431,6 +453,7 @@ footer {
     -webkit-animation-iteration-count: 2;
     -webkit-animation-timing-function: linear;
 }
+
 #wheel2 {
     -webkit-animation-duration: .4s;
     -webkit-animation-iteration-count: 2;
@@ -451,12 +474,10 @@ footer {
     opacity: 0.75; /*opacity proportional to the size*/
     margin-top: -255px;
 
-
     -webkit-animation: moveclouds 40s linear infinite;
     -moz-animation: moveclouds 40s linear infinite;
     -o-animation: moveclouds 40s linear infinite;
 }
-
 
 .cloud2 {
     left: 300px;
@@ -470,7 +491,6 @@ footer {
     -moz-animation: moveclouds 40s linear infinite;
     -o-animation: moveclouds 40s linear infinite;
 }
-
 
 .cloud3 {
     left: 1600px;
@@ -533,7 +553,6 @@ footer {
     -o-animation: moveclouds 37s linear infinite;
 }
 
-
 .cloud8 {
     -webkit-transform: scale(0.6);
     -moz-transform: scale(0.6);
@@ -553,20 +572,34 @@ footer {
 }
 
 @-webkit-keyframes moveclouds {
-    0% {margin-left: 1500px;}
-    100% {margin-left: -1500px;}
+    0% {
+        margin-left: 1500px;
+    }
+    100% {
+        margin-left: -1500px;
+    }
 }
+
 @-moz-keyframes moveclouds {
-    0% {margin-left: 1500px;}
-    100% {margin-left: -1500px;}
+    0% {
+        margin-left: 1500px;
+    }
+    100% {
+        margin-left: -1500px;
+    }
 }
+
 @-o-keyframes moveclouds {
-    0% {margin-left: 1500px;}
-    100% {margin-left: -1500px;}
+    0% {
+        margin-left: 1500px;
+    }
+    100% {
+        margin-left: -1500px;
+    }
 }
 
 .overflow-animation {
-    position:relative;
+    position: relative;
     overflow: hidden;
 }
 
@@ -594,19 +627,19 @@ footer {
 /* Home animation end */
 
 .reload {
-    display:table-cell !important;
+    display: table-cell !important;
     vertical-align: middle;
 }
 
 .reload:before {
-    content: url('/images/reload1.png');
+    content: url('/images/reload-home-1.png');
     margin-left: -25px;
     position: absolute;
     top: 102px;
 }
 
 .reload:after {
-    content: url('/images/reload.png');
+    content: url('/images/reload-home-2.png');
     position: absolute;
     margin-left: 15px;
     bottom: 90px;
@@ -623,11 +656,35 @@ footer {
     .city-img {
         width: 1200px;
     }
+
+    .city-mobile {
+        display: none;
+    }
 }
 
-    .city {
+@media (min-width: 1600px) {
+    .city-img {
+        width: 1500px
+    }
+
+    .wheel-1, .wheel-2 {
+        padding-top: 176px;
+    }
+
+    #car {
+        margin-top: 109px;
+    }
+}
+
+.city {
     text-align: center;
-        padding-top: 50px;
+    padding-top: 50px;
+}
+
+@media (max-width: 1250px) {
+    .city {
+        display: none;
+    }
 }
 
 .logo-text {
@@ -651,6 +708,12 @@ footer {
     display: inline-block;
     text-align: center;
     max-width: 130px;
+}
+
+@media (min-width: 368px) and (max-width: 768px) {
+    .logo-mobile {
+        max-width: 90px;
+    }
 }
 
 @media (min-width: 1250px) {
@@ -726,12 +789,15 @@ footer {
     position: relative;
     z-index: 0;
 }
+
 .option-input:hover {
 
 }
+
 .option-input:checked {
 
 }
+
 .option-input:checked::before {
     height: 20px;
     width: 20px;
@@ -742,6 +808,7 @@ footer {
     text-align: center;
     line-height: 20px;
 }
+
 .option-input:checked::after {
     -webkit-animation: click-wave 0.65s;
     -moz-animation: click-wave 0.65s;
@@ -752,9 +819,11 @@ footer {
     position: relative;
     z-index: 100;
 }
+
 .option-input.radio {
     border-radius: 50%;
 }
+
 .option-input.radio::after {
     border-radius: 50%;
 }
@@ -918,10 +987,10 @@ footer {
 
 @media (max-width: 468px) {
     .table-services table td, .table-services-minsk table td {
-        display: block;
+        /*display: block;*/
         text-align: center;
-        width: 100% !important;
-        height: auto !important;
+        /*width: 100% !important;*/
+        /*height: auto !important;*/
     }
 }
 
@@ -940,9 +1009,11 @@ footer {
     margin: 10px 0px 20px 0px;
 }
 
-
 .table-services-minsk {
     text-align: center;
+    width: 100%;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
 }
 
 .table-services-minsk table {
@@ -969,10 +1040,132 @@ footer {
 
 .login-form form {
     width: 100%;
-    max-width: 500px;
-    background-color: #aec1fb;
+    max-width: 400px;
+}
+
+.input-log {
+    display: block;
+    margin: 0;
+    width: 100%;
+    font-weight: inherit;
+    font-size: 18px;
+    font-family: Trebuchet MS;
+    padding: 10px 5px;
+    color: #333;
+    text-align: center;
+    border: 0px solid #7d88ff;
+    border-radius: 12px;
+}
+
+.button-log {
+    padding: 10px 20px;
+    border: 3px solid #8598ff;
+    transition: all 300ms ease;
+    box-shadow: 0px 4px 10px 2px rgba(0, 0, 0, 0.2);
+    border-radius: 25px;
+    display: inline-block;
+    position: relative;
+    font-family: Trebuchet MS;
+    text-transform: uppercase;
+    color: white;
+    background: #566fe0;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.road-tablet .button-log, .road-mobile .button-log {
+    margin-top: 5px;
+}
+
+.road-reload:after {
+    content: url('/images/reload-double.png');
+}
+
+.button-log:hover {
+    color: #566fe0;
+    box-shadow: none;
+    background: white;
+}
+
+.button-callback {
+    padding: 5px 20px !important;
+    margin-left: 15px !important;
+
+}
+
+@media (max-width: 468px) {
+    .button-callback {
+        margin-left: 0px !important;
+    }
+}
+
+.button-parent {
+    max-width: 1100px;
+    margin: auto;
+    text-align: center;
+}
+
+.button-parent--inner {
+    padding: 4em 1em;
+}
+
+.button-item {
+    padding-bottom: 2em;
+    padding-top: 20px;
+}
+
+.btn-1 {
+    padding: 0px 20px;
+    transition: all 300ms ease
+    box-shadow: 0px 4px 10px 2px rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    display: inline-block;
+    position: relative;
+    font-family: Trebuchet MS;
+    text-transform: uppercase;
+    color: #8598ff;
+    background: #ffeb89;
+    font-weight: 600;
+    margin-left: 5px;
+    font-size: 18px;
+    box-shadow: 0px 4px 10px 2px rgba(0, 0, 0, 0.2);
+}
+
+.btn-1:before {
+    position: absolute;
+    content: '';
+    width: 0%;
+    height: 100%;
+    background: #ffeb89;
+    top: 0;
+    left: 50%;
+    z-index: -1;
+    transition: all 0ms ease;
+    border-radius: 4px;
+}
+
+.btn-1:hover {
+    color: white;
+    box-shadow: none;
+}
+
+.btn-1:hover:before {
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 100%;
+    background: #ffeb89;
+    top: 0;
+    left: 0%;
+    z-index: -1;
+    transition: all 300ms ease;
+}
+
+.login-form .form-input, .registration-form .form-input {
+    background-color: #cfd9ff;
     border-radius: 12px;
     padding: 20px;
+    height: 90%;
 }
 
 .login-form input {
@@ -1013,7 +1206,11 @@ footer {
 
 .Input {
     position: relative;
-    margin:10px 0px;
+    margin: 10px;
+}
+
+.form-input .Input {
+    margin: 10px 0px;
 }
 
 .Input-text {
@@ -1033,6 +1230,15 @@ footer {
     margin: 10px 0px;
     font-size: 16px;
     color: black;
+}
+
+.Input li {
+    list-style-type: none;
+    color: red;
+}
+
+.Input ul {
+    padding-left: 0px;
 }
 
 .Input-1 {
@@ -1072,10 +1278,10 @@ footer {
 }
 
 .Input-3 {
-     position: absolute;
-     margin-top: 627px;
-     margin-left: 362px;
- }
+    position: absolute;
+    margin-top: 627px;
+    margin-left: 362px;
+}
 
 .Input-3-1 {
     position: absolute;
@@ -1139,17 +1345,16 @@ footer {
 }
 
 .Input-7 {
-     position: absolute;
-     margin-top: 295px;
-     margin-left: 412px;
- }
+    position: absolute;
+    margin-top: 295px;
+    margin-left: 412px;
+}
 
 .Input-8 {
     position: absolute;
     margin-top: 338px;
     margin-left: 412px;
 }
-
 
 .Input-9 {
     position: absolute;
@@ -1193,7 +1398,6 @@ footer {
     border: 3px solid #7d88ff;
 }
 
-
 .additional-city {
     position: absolute;
     margin-top: 560px;
@@ -1204,7 +1408,7 @@ footer {
     font-size: 18px;
     font-family: MyWebFont;
     font-weight: 600;
-    line-height:40px;
+    line-height: 40px;
 }
 
 .delete-city {
@@ -1217,13 +1421,14 @@ footer {
     font-size: 18px;
     font-family: MyWebFont;
     font-weight: 600;
-    line-height:40px;
+    line-height: 40px;
     visibility: hidden;
 }
 
 .reload-img-tablet {
     margin-bottom: 50px;
-    margin-left: 10px; cursor: pointer;
+    margin-left: 10px;
+    cursor: pointer;
     height: 40px;
 }
 
@@ -1231,6 +1436,7 @@ footer {
     .road-loptop {
         display: none;
     }
+
     .road-tablet {
         display: none;
     }
@@ -1240,6 +1446,7 @@ footer {
     .road-loptop {
         display: none;
     }
+
     .road-mobile {
         display: none;
     }
@@ -1249,6 +1456,7 @@ footer {
     .road-tablet {
         display: none;
     }
+
     .road-mobile {
         display: none;
     }
@@ -1274,7 +1482,7 @@ footer {
     padding: 8px 15px 8px 15px;
     color: #8598ff;
     font-size: 14px;
-    font-family: 'Zing Sans Rust R Base';
+    font-family: Trebuchet MS;
     font-weight: 600;
     cursor: pointer;
 }
@@ -1322,9 +1530,7 @@ footer {
 .registration-form form {
     width: 100%;
     max-width: 800px;
-    background-color: #aec1fb;
-    border-radius: 12px;
-    padding: 20px;
+
 }
 
 .registration-form {
@@ -1348,6 +1554,12 @@ footer {
 @media (min-width: 1200px) {
     .height-vh {
         height: 100vh;
+    }
+}
+
+@media (min-height: 768px) {
+    .height-vh {
+        height: auto;
     }
 }
 
@@ -1394,6 +1606,10 @@ footer {
     font-size: 14px;
     font-family: Trebuchet MS;
     font-weight: 600;
+}
+
+.radio-cargo-mobile .option-input, .radio-cargo-tablet .option-input {
+    margin-left: 0px;
 }
 
 .input-mobile-form {
@@ -1447,10 +1663,10 @@ footer {
     top: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0,0,0,0.7);
+    background: rgba(0, 0, 0, 0.7);
     opacity: 0;
     transition: opacity 0.3s ease;
-    z-index: 1;
+    z-index: 2;
     cursor: pointer;
 }
 
@@ -1460,7 +1676,8 @@ footer {
 }
 
 .reload-header {
-    display:inline-block;
+    display: inline-block;
+    height: 35px;
 }
 
 .dropdown-menu li a {
@@ -1472,7 +1689,7 @@ footer {
 }
 
 .margin-home {
-    margin: 0% 0% 2% 0%;
+    margin: 0% 0% 5% 0%;
 }
 
 .m-b-20 {
@@ -1491,5 +1708,146 @@ footer {
 /* Footer */
 
 .logo-footer {
-    width: 120px;
+    width: 150px;
 }
+
+.action-button {
+    display: inline-block;
+    font-family: Trebuchet MS;
+    background-color: #ffeb89;
+    color: #8598ff;
+    font-weight: 600;
+    padding: 0px 20px;
+    border-radius: 4px;
+    font-size: 18px;
+    text-transform: uppercase;
+    border-bottom: 3px solid #D1B358;
+    margin-left: 5px;
+    border-right: 2px solid #D1B358;
+}
+
+.action-button:active {
+    transform: translate(2px, 3px);
+    -webkit-transform: translate(2px, 3px);
+    border-bottom: 0px solid;
+    border-right: 0px solid;
+    transition: all 0.1s;
+    -webkit-transition: all 0.1s;
+}
+
+.icon-back {
+    color: #8598ff;
+    padding: 20px 0px 0px 30px;
+}
+
+.icon-back:hover {
+    color: #566fe0;
+}
+
+.exit-img {
+    height: 30px;
+    float: right;
+    margin: 20px 30px 0px 0px;
+}
+
+.confirm {
+    padding: 40px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    background-color: #cfd9ff;
+    color: #566fe0;
+    text-align: center;
+    text-transform: none;
+}
+
+.check {
+    border: 2px solid #8598ff;
+    box-shadow: 5px 5px 5px #cfd9ff;
+}
+
+.check-border {
+    border: 3px dashed #eee;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+@media (max-width: 468px) {
+    .check-border {
+        margin: 5px;
+    }
+}
+
+.text-confirm {
+    font-family: MyWebFont;
+    font-size: 16px;
+    color: #566fe0;
+}
+
+.check-title {
+    vertical-align: middle;
+    border-bottom: 1px solid #eee;
+}
+
+.table-check {
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.table-check h4 {
+    margin: 0px;
+}
+
+.table-check td {
+    padding-right: 20px;
+    padding-top: 5px;
+    font-family: mywebfont;
+}
+
+.home-img {
+    height: 38px;
+    text-align: right;
+    margin: 16px 30px 0px 0px;
+    color: #8598ff;
+    font-size: 38px !important;
+}
+
+.field-closed {
+    background: #eee;
+    cursor: default;
+}
+
+.profile-table td {
+    text-align: left;
+    font-size: 16px;
+    padding: 10px 0px 0px 0px;
+}
+
+@media (max-width: 468px) {
+    .profile-table td {
+        display: block;
+    }
+}
+
+.profile-fon {
+    background-color: #f3f5fc;
+    padding: 5px 5px;
+}
+
+@media (max-width: 468px) {
+    .table-mobile th, .table-mobile td {
+        display: block;
+        text-align: center;
+        width: 100% !important;
+        height: auto !important;
+    }
+
+}
+
+@media (min-width: 468px) {
+    .table-mobile th, .table-mobile td {
+        max-width: 70px;
+    }
+}
+
+
