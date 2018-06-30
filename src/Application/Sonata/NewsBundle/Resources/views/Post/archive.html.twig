@@ -13,23 +13,26 @@
 {% extends '@ApplicationSonataNews/layout.html.twig' %}
 
 {% block body %}
-    {% sonata_template_box 'This is the archive template. Feel free to override it.' %}
+    {#{% sonata_template_box 'This is the archive template. Feel free to override it.' %}#}
 
-    {% block sonata_page_breadcrumb %}
-        <div class="row-fluid clearfix">
-            {{ sonata_block_render_event('breadcrumb', { 'context': 'news_archive', 'collection': collection, 'tag': tag, 'current_uri': app.request.requestUri }) }}
+{% block sonata_page_breadcrumb %}
+    <div class="row-fluid clearfix">
+        {{ sonata_block_render_event('breadcrumb', { 'context': 'news_archive', 'collection': collection, 'tag': tag, 'current_uri': app.request.requestUri }) }}
+    </div>
+{% endblock %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+<h1 class="text-left">Новости</h1>
         </div>
-    {% endblock %}
-
-    <h1>{{ 'title_archive'|trans({}, 'SonataNewsBundle') }}</h1>
-
     <div class="sonata-blog-post-list">
         {% for post in pager.getResults() %}
+            <div class="col-md-4">
             <div class="sonata-blog-post-container">
-                <header>
-                    <h2 class="sonata-blog-post-title">
+
+                    <h4 class="sonata-blog-post-title text-left">
                         <a href="{{ url('sonata_news_view', { 'permalink': sonata_news_permalink(post) }) }}">{{ post.title }}</a>
-                    </h2>
+                    </h4>
 
                     <div class="sonata-blog-post-information">
                         {{ post.image }}
@@ -57,26 +60,33 @@
                             {% endfor %}
                         </div>
                     </div>
-                </header>
+            </div>
+
 
                 <div class="sonata-blog-post-abtract">
                     {{ post.abstract }}
                 </div>
+                <a href="{{ url('sonata_news_view', { 'permalink': sonata_news_permalink(post) }) }}" class="button-log">Подробнее</a>
             </div>
 
-            <hr/>
+
         {% else %}
             {{ 'no_post_found'|trans({}, 'SonataNewsBundle') }}
         {% endfor %}
-
+    </div>
+    </div>
+<div class="container">
+    <div class="row">
         <ul class="pager">
-            <li{% if pager.page == pager.lastPage %} class="disabled"{% endif %}><a
+            <li{% if pager.page == pager.lastPage %} class="btn-2"{% endif %}><a
                         href="{{ url(route, route_parameters|merge({'page': pager.nextpage})) }}"
                         title="{{ 'link_previous_page'|trans({}, 'SonataNewsBundle') }}">{{ 'link_previous_page'|trans({}, 'SonataNewsBundle') }}</a>
-            <li{% if pager.page == pager.firstPage %} class="disabled"{% endif %}><a
+            <li{% if pager.page == pager.firstPage %} class="btn-3"{% endif %}><a
                         href="{{ url(route, route_parameters|merge({'page': pager.previouspage})) }}"
                         title="{{ 'link_next_page'|trans({}, 'SonataNewsBundle') }}">{{ 'link_next_page'|trans({}, 'SonataNewsBundle') }}</a>
             </li>
         </ul>
+</div>
+</div>
     </div>
 {% endblock %}

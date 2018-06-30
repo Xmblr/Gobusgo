@@ -12,20 +12,29 @@
 #}
 
 <div class="sonata-blog-comment-container">
-    <h3>{{ 'title_comments'|trans({}, 'SonataNewsBundle') }}</h3>
+    <h4>Комментарии:</h4>
 
     <ul class="sonata-blog-comment-list">
         {% for comment in pager.results %}
             <li class="sonata-blog-comment">
-                <div class="sonata-blog-comment-name">
-                    <a href="{{ comment.url }}" target="new" rel="nofollow">{{ comment.name }}</a>
+                <div>
+                <img src="{{ asset('images/man.png') }}" style="height: 50px; vertical-align: middle; display: inline-block;">
+                    <div class="sonata-blog-comment-name" style="display: inline-block; vertical-align: middle; margin-left: 10px;">
+                        <a href="{{ comment.url }}" target="new" rel="nofollow" style="vertical-align: middle;">{{ comment.name }}</a>
+                        <div class="sonata-blog-comment-date" style="display: inline-block;">
+                            {{ comment.createdAt | format_date }}
+                        </div>
+                        <div class="sonata-blog-comment-message">
+                            {{ comment.message }}
+                        </div>
+                    </div>
                 </div>
-                <div class="sonata-blog-comment-date">
-                    {{ comment.createdAt | format_date }}
-                </div>
-                <div class="sonata-blog-comment-message">
-                    {{ comment.message }}
-                </div>
+
+
+<div>
+                <img src="{{ asset('images/broken-heart.png') }}" style="height: 20px">
+                <img src="{{ asset('images/like.png') }}" style="height: 20px">
+</div>
             </li>
         {% else %}
             <li>{{ 'no_comments_available'|trans({}, 'SonataNewsBundle') }}</li>

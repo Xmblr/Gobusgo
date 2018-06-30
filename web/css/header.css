@@ -317,6 +317,7 @@ color: #8598ff;
     }
     .main-menu-area {
         margin-bottom: 10px;
+        min-height: 78px;
     }
     .logo {
         width: 50%;
@@ -344,3 +345,14 @@ color: #8598ff;
     }
 }
 
+@media (max-width: 1200px) {
+    .main-menu-area {
+        margin-bottom: 10px;
+        min-height: 78px;
+    }
+}
+
+.menu-li {
+    padding: 20px;
+    text-align: center;
+}

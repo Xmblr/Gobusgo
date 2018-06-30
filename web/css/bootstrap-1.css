@@ -1476,7 +1476,6 @@ blockquote.pull-right .small:after {
     content: '\00A0 \2014';
 }
 address {
-    margin-bottom: 20px;
     font-style: normal;
     line-height: 1.42857143;
 }
@@ -4742,16 +4741,17 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
 }
 .pager li > a,
 .pager li > span {
-    display: inline-block;
-    padding: 5px 14px;
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 15px;
+    /*display: inline-block;*/
+    /*padding: 5px 14px;*/
+    /*background-color: #fff;*/
+    /*border: 1px solid #ddd;*/
+    /*border-radius: 15px;*/
+    color: white;
 }
 .pager li > a:hover,
 .pager li > a:focus {
-    text-decoration: none;
-    background-color: #eee;
+    /*text-decoration: none;*/
+    /*background-color: #eee;*/
 }
 .pager .next > a,
 .pager .next > span {

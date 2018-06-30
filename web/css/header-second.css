@@ -20,7 +20,7 @@
 }
 
 .top-bar {
-    margin: 10px 10px;
+    margin: 10px 0px;
 }
 
 .top-bar-menu a {
@@ -38,7 +38,7 @@
 
 .icons-top-bar {
     display: inline-block;
-    margin-top: 3px;
+    margin-top: 8px;
 }
 
 .top-bar-right {
@@ -64,22 +64,29 @@
 
 .header-menu li a {
     font-family: "Trebuchet MS";
-    font-size: 1.3vw;
+    font-size: 1.2vw;
     line-height: 32px;
     color: #566fe0;
-    letter-spacing: 1.5px;
     text-transform: uppercase;
     font-weight: 600;
     vertical-align: middle;
 }
 
+.header-menu {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0px;
+}
+
 .header-menu li {
+    /*list-style-type: none;*/
+    /*padding: 0px 10px;*/
+    /*text-align: center;*/
+    /*height: 120px;*/
+    /*vertical-align:middle;*/
+    /*display:table-cell;*/
     list-style-type: none;
-    padding: 0px 10px;
     text-align: center;
-    height: 120px;
-    vertical-align:middle;
-    display:table-cell;
 }
 
 .inline-block {
@@ -185,10 +192,13 @@
     }
 }
 
-@media (min-width: 1400px) {
+@media (min-width: 1200px) {
     .header-menu li {
-        padding: 0px 20px;
+        padding: 0px 15px;
     }
+}
+
+@media (min-width: 1400px) {
     .padding-phones {
         padding-left: 30px;
     }
