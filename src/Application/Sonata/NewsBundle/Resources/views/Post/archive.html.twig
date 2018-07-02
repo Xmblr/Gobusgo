@@ -35,7 +35,7 @@
                     </h4>
 
                     <div class="sonata-blog-post-information">
-                        {{ post.image }}
+                        {% media post.image, 'small' %}
 
                         <span class="sonata-blog-post-author">{{ 'archive_author'|trans({'%author%': post.author }, 'SonataNewsBundle') }}</span>
                         |

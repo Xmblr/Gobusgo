@@ -14,20 +14,25 @@ use Sonata\BlockBundle\Block\BlockContextInterface;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\CoreBundle\Validator\ErrorElement;
 use Sonata\BlockBundle\Block\Service\AbstractBlockService;
-
 use Doctrine\ORM\EntityManager;
+use Doctrine\ORM\Query\ResultSetMapping;
+use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
+
 
 class OrderBlockService extends BaseBlockService implements BlockServiceInterface
 {
     private $em;
+
+    private $tokenStorage;
 
     /**
      * {@inheritdoc}
      */
     public function execute(BlockContextInterface $blockContext, Response $response = null)
     {
+
         $settings = array_merge($this->getDefaultSettings(), $blockContext->getSettings());
-        $userId = 1;
+        $userId = $this->tokenStorage->getToken()->getUser()->getId();
         $myentityrepository = $this->em->getRepository('GobusgoGobusgoBundle:Order');
         $myentity = $myentityrepository->findBy(array('userId' => $userId), array('id' => 'DESC'), 15);
 
@@ -76,10 +81,13 @@ class OrderBlockService extends BaseBlockService implements BlockServiceInterfac
         );
     }
 
-    public function __construct($name, $templating, EntityManager $entityManager)
+    public function __construct(TokenStorageInterface $tokenStorage, $name, $templating, EntityManager $entityManager)
     {
+        $this->tokenStorage = $tokenStorage;
+        $this->em           = $entityManager;
+
         parent::__construct($name, $templating);
-        $this->em = $entityManager;
+
     }
 
 }

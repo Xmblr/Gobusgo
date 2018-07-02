@@ -87,7 +87,7 @@ services:
 
     sonata.block.service.order:
         class: Gobusgo\GobusgoBundle\Block\OrderBlockService
-        arguments: [ sonata.block.service.order, "@templating", "@doctrine.orm.entity_manager" ]
+        arguments: [ "@security.token_storage", sonata.block.service.order, "@templating", "@doctrine.orm.entity_manager" ]
         tags:
             - { name: sonata.block }
 
