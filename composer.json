@@ -42,7 +42,7 @@
         "twig/twig": "^1.0||^2.0",
         "symfony/assetic-bundle": "dev-master",
         "twitter/bootstrap": "4.1.*",
-        "components/jquery": "1.11.1",
+        "components/jquery": "3.3.*",
         "egeloen/ckeditor-bundle": "^5.0"
     },
     "require-dev": {

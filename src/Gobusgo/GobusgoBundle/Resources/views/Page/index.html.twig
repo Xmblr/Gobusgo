@@ -163,16 +163,14 @@
                         <h3 class="align-home" OnClick="a('{{ path('gobusgo_gobusgo_deliveryRB') }}');">По Беларуси</h3>
                     </div>
                 </div>
-                <script language="JavaScript">
-                    function sleep(ms) {
-                        return new Promise(resolve = > setTimeout(resolve, ms)
-                    )
-                        ;
-                    }
+                <script type="text/javascript">
+                    // function sleep(ms) {
+                    //     return new Promise(resolve => setTimeout(resolve, ms));
+                    // }
+                    //
+                    // async
 
-                    async
-
-                    function a(url, e, w, audio) {
+                    function a(url, e, w,s, audio) {
                         if (window.innerWidth > 1250) {
                             audio = new Audio(); // Создаём новый элемент Audio
                             audio.src = 'audio/car.mp3'; // Указываем путь к звуку "клика"
@@ -185,21 +183,27 @@
                             w.style.webkitAnimationName = "shake-w";
                             s.style.webkitAnimationName = "shake-w";
 
-                            await
-                            sleep(1500);
+                            // await
+                            // sleep(1500);
+                            setTimeout(transform(e,w,s), 15000);
+                            function transform(e,w,s){
+                                e.style.transform = "translate(2000px,0px)";
+                                e.style.transition = "all 5s ease-in-out";
 
-                            e.style.transform = "translate(2000px,0px)";
-                            e.style.transition = "all 5s ease-in-out";
+                                w.style.transform = "translate(2000px,0px) rotate(5turn)";
+                                w.style.transition = "all 5s ease-in-out";
+                                s.style.transform = "translate(2000px,0px) rotate(10turn)";
+                                s.style.transition = "all 5s ease-in-out";
+                            }
 
-                            w.style.transform = "translate(2000px,0px) rotate(5turn)";
-                            w.style.transition = "all 5s ease-in-out";
-                            s.style.transform = "translate(2000px,0px) rotate(10turn)";
-                            s.style.transition = "all 5s ease-in-out";
 
-                            await
-                            sleep(2500);
+                            // await
+                            // sleep(2500);
+                            setTimeout(location(url), 20000);
+                            function location(url){
+                                window.location.replace(url);
+                            }
 
-                            window.location.replace(url);
                         }
                         else {
                             window.location.replace(url);
@@ -377,7 +381,7 @@
             </div>
             <!-- Swiper JS -->
 
-            <script>
+            <script type="text/javascript">
                 var swiper = new Swiper('.swiper-container', {
                     navigation: {
                         nextEl: '.swiper-button-next',
