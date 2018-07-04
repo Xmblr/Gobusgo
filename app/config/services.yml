@@ -100,8 +100,6 @@ services:
 
 
 
-
-
 #   --------------------------- Form builders ----------------------------------
     app.form.registration:
         class: Gobusgo\GobusgoBundle\Form\RegistrationType

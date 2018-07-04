@@ -5,6 +5,8 @@ imports:
     - { resource: "@GobusgoGobusgoBundle/Resources/config/services.yml" }
     - { resource: "@GobusgoGobusgoBundle/Resources/config/config.yml" }
     - { resource: sonata_news.yml }
+    - { resource: "@SonataClassificationBundle/Resources/config/admin.xml"}
+
 
 #    - { resource: sonata_formatter.yml }
 
@@ -75,6 +77,8 @@ doctrine:
                auto_mapping: true
                mappings:
                    SonataMediaBundle: ~
+                   SonataClassificationBundle: ~
+                   ApplicationSonataClassificationBundle: ~
 
 # Swiftmailer Configuration
 swiftmailer:
@@ -184,6 +188,14 @@ sonata_admin:
             app.admin.group.moderator:
                 label: Новости
                 roles: [ ROLE_ADMIN, ROLE_MODERATOR ]
+                items:
+                    - sonata.classification.admin.category
+                    - sonata.classification.admin.tag
+                    - sonata.classification.admin.collection
+                    - sonata.classification.admin.context
+                    - admin.news
+                    - admin.comment
+
 
 
 #            app.admin.group.user:
@@ -270,6 +282,8 @@ sonata_seo:
 
 sonata_media:
     # if you don't use default namespace configuration
+#    template:
+#        list: "@GobusgoGobusgo/Media/MediaAdmin/list.html.twig"
     class:
         media: Application\Sonata\MediaBundle\Entity\Media
         gallery: Application\Sonata\MediaBundle\Entity\Gallery
@@ -298,9 +312,25 @@ sonata_media:
                 - sonata.media.provider.vimeo
 
             formats:
-                small: { width: 150 , quality: 95}
-                big:   { width: 500 , quality: 90}
-                wide:  { width: 500 , quality: 90}
+                small: { width: 150 , quality: 100}
+                big:   { width: 500 , quality: 100}
+                wide:  { width: 800 , quality: 100}
+
+        sonata_collection:
+            providers:
+              - sonata.media.provider.image
+
+            formats:
+                preview: { width: 100, quality: 100}
+                wide:    { width: 820, quality: 100}
+
+        sonata_category:
+            providers:
+              - sonata.media.provider.image
+
+            formats:
+                preview: { width: 100, quality: 100}
+                wide:    { width: 820, quality: 100}
 
     cdn:
         server:
@@ -373,9 +403,29 @@ sonata_formatter:
 
 sonata_classification:
     class:
-        collection:     Application\Sonata\ClassificationBundle\Entity\Collection
-        tag:            Application\Sonata\ClassificationBundle\Entity\Tag
-        category:       Application\Sonata\ClassificationBundle\Entity\Category
+        tag:          Application\Sonata\ClassificationBundle\Entity\Tag
+        category:     Application\Sonata\ClassificationBundle\Entity\Category
+        collection:   Application\Sonata\ClassificationBundle\Entity\Collection
+        media:        Application\Sonata\MediaBundle\Entity\Media
+        context:      Application\Sonata\ClassificationBundle\Entity\Context
+
+    admin:
+        tag:
+            class:        Sonata\ClassificationBundle\Admin\TagAdmin
+            controller:   SonataAdminBundle:CRUD
+            translation:  SonataClassificationBundle
+        category:
+            class:        Sonata\ClassificationBundle\Admin\CategoryAdmin
+            controller:   SonataClassificationBundle:CategoryAdmin
+            translation:  SonataClassificationBundle
+        collection:
+            class:        Sonata\ClassificationBundle\Admin\CollectionAdmin
+            controller:   SonataAdminBundle:CRUD
+            translation:  SonataClassificationBundle
+        context:
+            class:        Sonata\ClassificationBundle\Admin\ContextAdmin
+            controller:   SonataAdminBundle:CRUD
+            translation:  SonataClassificationBundle
 
 sonata_news:
     title:        Sonata Project

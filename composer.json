@@ -43,7 +43,8 @@
         "symfony/assetic-bundle": "dev-master",
         "twitter/bootstrap": "4.1.*",
         "components/jquery": "3.3.*",
-        "egeloen/ckeditor-bundle": "^5.0"
+        "egeloen/ckeditor-bundle": "^5.0",
+        "sonata-project/classification-bundle": "3.7.*"
     },
     "require-dev": {
         "sensio/generator-bundle": "^3.0",

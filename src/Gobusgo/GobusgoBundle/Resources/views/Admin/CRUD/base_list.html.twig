@@ -34,6 +34,7 @@ file that was distributed with this source code.
 
 {% block list_table %}
     <div class="col-xs-12 col-md-12">
+
         {% set batchactions = admin.batchactions %}
         {% if admin.hasRoute('batch') and batchactions|length %}
             <form action="{{ admin.generateUrl('batch', {'filter': admin.filterParameters}) }}" method="POST" >
@@ -222,6 +223,7 @@ file that was distributed with this source code.
                     </div>
                 {% endif %}
             {% endblock %}
+
         </div>
         {% if admin.hasRoute('batch') and batchactions|length %}
             </form>
@@ -232,7 +234,9 @@ file that was distributed with this source code.
 {% block list_filters_actions %}
     {%- if admin.datagrid.filters|length %}
         <ul class="nav navbar-nav navbar-right">
-
+            {% if app.request.xmlHttpRequest %}
+                {% include '@GobusgoGobusgo/Admin/Button/create_button.html.twig' %}
+            {% endif %}
             <li class="dropdown sonata-actions">
                 <a href="#" class="dropdown-toggle sonata-ba-action" data-toggle="dropdown">
                     <i class="fa fa-filter" aria-hidden="true"></i>
