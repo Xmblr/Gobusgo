@@ -98,7 +98,7 @@
 .skin-black .sidebar-menu > li:hover > a,
 .skin-black .sidebar-menu > li.active > a {
     border-left-color: #ffffff;
-    color: #ffeb89;
+    color: #566fe0;
     background: none;
 }
 .skin-black .sidebar-menu > li > .treeview-menu {
@@ -106,7 +106,7 @@
     background: white;
 }
 .skin-black .sidebar a {
-    color: #566fe0;
+    color: #8598ff;
 }
 .skin-black .sidebar a:hover {
     text-decoration: none;

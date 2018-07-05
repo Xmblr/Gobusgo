@@ -5184,3 +5184,37 @@ body {
     background-color: inherit;
     color: inherit;
 }
+
+.btn-2 {
+    color: #fff;
+    background-color: #8598ff;
+    border-color: white;
+    padding: 8px 19px;
+    font-size: 14px;
+    line-height: 1.57143;
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+    letter-spacing: .02em;
+    width: 100%;
+    text-transform: uppercase;
+    box-shadow: 0px 2px 10px 0px rgba(19, 108, 191, 0.31);
+}
+
+.btn-3 {
+    color: #fff;
+    background-color: #8598ff;
+    border-color: white;
+    padding: 8px 19px;
+    font-size: 14px;
+    line-height: 1.57143;
+    border-bottom-right-radius: 50px;
+    border-top-right-radius: 50px;
+    letter-spacing: .02em;
+    width: 100%;
+    text-transform: uppercase;
+    box-shadow: 0px 2px 10px 0px rgba(19, 108, 191, 0.31);
+}
+
+.profile-table .input-log {
+    height: 40px;
+}

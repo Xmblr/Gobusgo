@@ -12,13 +12,13 @@ class Builder implements ContainerAwareInterface
 
     public function mainMenu(FactoryInterface $factory, array $options)
     {
-        $menu = $factory->createItem('root');
-
-        $menu->addChild('Home', array('route' => 'gobusgo_gobusgo_homepage'));
-
-        $menu->addChild('Contact', array('route' => 'gobusgo_gobusgo_about'));
-        $menu['Contact']->addChild('+375291234567');
-        $menu['Contact']->addChild('Edit profiles', array('route' => 'gobusgo_gobusgo_about'));
+//        $menu = $factory->createItem('root');
+        $menu = $factory->createItem('Главная', array('route' => 'gobusgo_gobusgo_homepage'));
+        $menu->addChild('О нас', array('route' => 'gobusgo_gobusgo_about'));
+        $menu->addChild('Грузоперевозки по Беларуси', array('route' => 'gobusgo_gobusgo_deliveryRB'));
+        $menu->addChild('Грезоперевозки Москва-Минск', array('route' => 'gobusgo_gobusgo_deliveryMoscowMinsk'));
+        $menu->addChild('Грузоперевозки по Минску', array('route' => 'gobusgo_gobusgo_deliveryMinsk'));
+        $menu->addChild('Контакты', array('route' => 'gobusgo_gobusgo_contacts'));
 
 
 //        // access services from the container!

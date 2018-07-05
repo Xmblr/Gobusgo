@@ -66,9 +66,9 @@
 }
 .accordion.active {
     right: 0px;
-    -webkit-transition: all 0.7s ease;
-    -o-transition: all 0.7s ease;
-    transition: all 0.7s ease;
+    -webkit-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
     position: fixed;
     top: 0;
     border-left: 1px solid #8598ff;
@@ -100,7 +100,6 @@ color: #8598ff;
     position: relative;
     float: right;
     margin-right: 25px;
-    padding: 3px;
 }
 
 .overlay {
@@ -147,27 +146,21 @@ color: #8598ff;
     -webkit-transition: all 0.4s ease;
     -o-transition: all 0.4s ease;
     transition: all 0.4s ease;
-    -o-transform: scale(1, 1.2);
-    -ms-transform: scale(1, 1.2);
-    -moz-transform: scale(1, 1.2);
-    -webkit-transform:(1, 1.2);
-    transform: scale(1, 1.2);}
+    margin: 10px 0px;
+}
 
 .accordion .out-link a {
     padding: 8px 15px 8px 10%;
-    color: #8598ff;
-    font-size: 18px;
-    font-family: MyWebFont;
-    font-weight: 600;
+    color: #29293a;
+    font-size: 20px;
+    font-family: "Trebuchet MS";
+    font-weight: 500;
+    text-transform: uppercase;
 }
 
 .logo {
     margin:20px 30px;
     display:inline-block;
-}
-
-.callback-header a {
-    color: #566fe0;
 }
 
 .button-active-header {
@@ -243,6 +236,23 @@ color: #8598ff;
     margin: 0px;
 }
 
+.header-icons img {
+    height: 35px;
+    margin-right: 5px;
+}
+
+.icons-top {
+    height: 35px;
+    margin-right: 8px;
+}
+
+@media (max-width: 768px) {
+    .header-icons img {
+        height: 30px;
+        margin-right: 5px;
+    }
+}
+
 .menu-table {
     margin-left: 15px;
     margin-top: 20%;
@@ -316,7 +326,6 @@ color: #8598ff;
         margin-left: 15px;
     }
     .main-menu-area {
-        margin-bottom: 10px;
         min-height: 78px;
     }
     .logo {
@@ -347,7 +356,6 @@ color: #8598ff;
 
 @media (max-width: 1200px) {
     .main-menu-area {
-        margin-bottom: 10px;
         min-height: 78px;
     }
 }

@@ -1101,10 +1101,7 @@ a:hover,
 a:focus {
     color: #566fe0;
 }
-a:focus {
-    outline: 5px auto -webkit-focus-ring-color;
-    outline-offset: -2px;
-}
+
 figure {
     margin: 0;
 }
@@ -1553,7 +1550,7 @@ pre code {
 }
 @media (min-width: 1200px) {
     .container {
-        width: 1170px;
+        width: 1270px;
     }
 }
 .container-fluid {

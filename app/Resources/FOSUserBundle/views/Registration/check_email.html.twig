@@ -1,16 +1,21 @@
 {% extends "@FOSUser/layout.html.twig" %}
 
-{% trans_default_domain 'FOSUserBundle' %}
+{#{% trans_default_domain 'FOSUserBundle' %}#}
 
 {% block fos_user_content %}
 
-    <div class="container-fluid" style="padding-top: 5%;">
+    <div class="container-fluid" style="padding-top: 30px; text-align: center;">
     <div class="row">
         {#<p>{{ 'registration.check_email'|trans({'%email%': user.email}) }}</p>#}
         <h4 class="confirm col-md-6 col-md-push-3">Поздравляем с регистрацией на GoBusGo. Мы выслали письмо на
             адрес {{ user.email }}. Для завершения
-            регистрации пройдите по ссылке, указанной в письме.</h4>
+            регистрации пройдите по ссылке, указанной в письме.
+
+        </h4>
+
 
     </div>
-</div>
+        <a class="button-log" href="{{ path('gobusgo_gobusgo_homepage') }}">На главную</a>
+
+    </div>
 {% endblock fos_user_content %}

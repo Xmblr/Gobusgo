@@ -82,17 +82,22 @@
                 <li class="btn-2">
                     {% if pager.previouspage == 1 %}
                         <a href="{{ url(route, route_parameters) }}"
-                           title="{{ 'link_previous_page'|trans({}, 'SonataNewsBundle') }}">{{ 'link_previous_page'|trans({}, 'SonataNewsBundle') }}</a>
+                           title="{{ 'link_previous_page'|trans({}, 'SonataNewsBundle') }}"><i class="fa fa-arrow-left"
+                                                                                               aria-hidden="true"></i>
+                            Назад</a>
                     {% else %}
                         <a href="{{ url(route, route_parameters|merge({'page': pager.previouspage})) }}"
-                           title="{{ 'link_previous_page'|trans({}, 'SonataNewsBundle') }}">{{ 'link_previous_page'|trans({}, 'SonataNewsBundle') }}</a>
+                           title="{{ 'link_previous_page'|trans({}, 'SonataNewsBundle') }}"><i class="fa fa-arrow-left"
+                                                                                               aria-hidden="true"></i>
+                            Назад</a>
                     {% endif %}
                 </li>
             {% endif %}
             {% if pager.page != pager.lastPage %}
                 <li class="btn-3">
                     <a href="{{ url(route, route_parameters|merge({'page': pager.nextpage})) }}"
-                       title="{{ 'link_next_page'|trans({}, 'SonataNewsBundle') }}">{{ 'link_next_page'|trans({}, 'SonataNewsBundle') }}</a>
+                       title="{{ 'link_next_page'|trans({}, 'SonataNewsBundle') }}">Вперед <i class="fa fa-arrow-right"
+                                                                                              aria-hidden="true"></i></a>
                 </li>
             {% endif %}
             {#<li{% if pager.page == pager.lastPage %} class="btn-2"{% endif %}><a#}

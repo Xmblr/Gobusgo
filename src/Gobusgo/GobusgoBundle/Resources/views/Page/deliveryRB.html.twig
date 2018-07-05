@@ -300,7 +300,8 @@
 
             </div>
             <div class="text-center" style="margin: 20px;">
-                <a style="padding: 10px 20px; font-size: 20px;" class="btn-1" href="#legal-form" onclick="openform()">Оформление
+                <a style="padding: 10px 20px; font-size: 20px;" class="button-log" href="#legal-form"
+                   onclick="openform()">Оформление
                     заявки</a>
             </div>
         </div>
@@ -374,7 +375,7 @@
                     <div style="padding-bottom: 10px;">
 
                         <div id="city1area">
-                            <select class="input-tablet" onchange="city()" id="city1">
+                            <select class="Input-text-3" onchange="city()" id="city1">
                                 <option>Откуда...</option>
                                 {% for cities in cities %}
                                     <option value="{{ cities.name }}">{{ cities.name }}</option>
@@ -388,8 +389,15 @@
 
                     </div>
                     <div style="padding-bottom: 10px;">
-                        <input class="input-tablet" type="text"
-                               required="required" placeholder="Куда" name="to" id="to" style="display: block;"/>
+                        <select class="Input-text-3" onchange="city()" id="city2">
+                            <option>Откуда...</option>
+                            {% for cities in cities %}
+                                <option value="{{ cities.name }}">{{ cities.name }}</option>
+                            {% endfor %}
+                            <div class="selectize-dropdown single">
+                                <div class="selectize-dropdown-content"></div>
+                            </div>
+                        </select>
                     </div>
                 </div>
                 <div style="height: 124px; padding-top: 10px;">
@@ -397,7 +405,7 @@
                            required="required" placeholder="Сумма" style="display: block;"/>
                 </div>
 
-                <div style="padding-top: 8px;">
+                <div>
                     {#<div style="padding-bottom: 10px;">#}
                     {#<input class="input-tablet-form" type="text" id="weight" name="weight"#}
                     {#required="required" placeholder="Название организации"/>#}

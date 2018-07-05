@@ -1,5 +1,20 @@
 {% extends 'base.html.twig' %}
 
+{% block breadcrumb %}
+    {#{{ knp_menu_render('BloggerBlogBundle:Builder:mainMenu') }}#}
+    <ol class="breadcrumb">
+        {% for breadcrumb_item in knp_menu_get_breadcrumbs_array(knp_menu_get_current_item('GobusgoGobusgoBundle:Builder:mainMenu')) %}
+            {% if not loop.last %}
+                <li typeof="v:Breadcrumb"><a href="{{ breadcrumb_item.uri }}" rel="v:url"
+                                             property="v:title">{{ breadcrumb_item.label }}</a></li>
+            {% else %}
+                <li class="active">{{ breadcrumb_item.label }}</li>
+            {% endif %}
+        {% endfor %}
+    </ol>
+
+{% endblock %}
+
 {% block callback %}
     {#Заявка на Обратный звонок#}
     <a href="#win3" class="overlay">
@@ -13,7 +28,7 @@
     </a>
     <div class="popup" style="max-width: 500px;">
         <div class="section bg-gray-light container-fluid">
-            <h2 class="m-b-20">Заказ обратного звонка</h2>
+            <h4 class="m-b-20 text-center">Заказ обратного звонка</h4>
             <div class="container-fluid">
 
                 {{ form_start(callform, { 'action': path('gobusgo_gobusgo_confirm'), 'method': 'POST' }) }}

@@ -36,6 +36,7 @@ h1 {
     color: #566fe0;
     margin: 0% 0% 2% 0%;
     line-height: 44px;
+    margin-top: 30px;
 }
 
 div {
@@ -94,7 +95,7 @@ h4 {
     line-height: 22px;
     text-align: left;
     margin: 10px 0px;
-    line-height: 24px;
+    line-height: 30px;
 }
 
 a:hover {
@@ -200,12 +201,11 @@ footer {
 }
 
 .big-letter {
-    font-family: vladivostok bold;
-    font-size: 28px;
-    color: #566fe0;
-    line-height: 36px;
+    font-size: 22px;
+    color: #8598ff;
+    line-height: 30px;
     margin-top: 5px;
-    margin-left: 15px;
+    margin-left: 10px;
 }
 
 .title-footer-border {
@@ -261,7 +261,7 @@ footer {
 
 @media (max-width: 468px) {
     .big-letter {
-        font-size: 24px;
+        font-size: 15px;
         margin-left: 15px;
         margin-bottom: 5px;
     }
@@ -1048,17 +1048,23 @@ footer {
 }
 
 .input-log {
-    display: block;
-    margin: 0;
-    width: 100%;
-    font-weight: inherit;
-    font-size: 18px;
-    font-family: Trebuchet MS;
-    padding: 10px 5px;
-    color: #333;
     text-align: center;
-    border: 0px solid #7d88ff;
-    border-radius: 12px;
+    display: block;
+    width: 100%;
+    height: 50px;
+    padding: 13px 44px;
+    font-size: 18px;
+    line-height: 1.57143;
+    color: #313132;
+    background-color: #f5f5f5;
+    background-image: none;
+    border: 1px solid #dbdbdb;
+    border-radius: 25px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+    -o-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+    transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
 }
 
 .button-log {
@@ -1075,6 +1081,10 @@ footer {
     background: #566fe0;
     margin-top: 10px;
     margin-bottom: 10px;
+}
+
+.button-log:focus {
+    color: white;
 }
 
 .road-tablet .button-log, .road-mobile .button-log {
@@ -1170,6 +1180,7 @@ footer {
     border-radius: 12px;
     padding: 20px;
     height: 90%;
+    box-shadow: 0px 2px 10px 0px rgba(49, 49, 50, 0.13);
 }
 
 .login-form input {
@@ -1695,6 +1706,12 @@ footer {
     margin: 0% 0% 5% 0%;
 }
 
+@media (max-width: 1250px) {
+    .margin-home {
+        margin-top: 40px;
+    }
+}
+
 .m-b-20 {
     margin-bottom: 20px;
 }
@@ -1762,10 +1779,11 @@ footer {
     padding: 40px;
     margin-bottom: 20px;
     border: 1px solid transparent;
-    border-radius: 4px;
-    background-color: #cfd9ff;
-    color: #566fe0;
+    color: #333;
     text-align: center;
+    background: #ffffff none repeat scroll 0 0;
+    border-radius: 3px;
+    box-shadow: 0 0 7.6px 0.4px rgba(0, 0, 0, 0.2);
     text-transform: none;
 }
 
@@ -1821,7 +1839,7 @@ footer {
 }
 
 .field-closed {
-    background: #eee;
+    background: #DCDCDC;
     cursor: default;
 }
 

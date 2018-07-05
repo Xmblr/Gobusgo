@@ -31,11 +31,6 @@
     line-height: 24px;
 }
 
-.icons-top {
-    height: 34px;
-    margin-right: 8px;
-}
-
 .icons-top-bar {
     display: inline-block;
     margin-top: 8px;
@@ -66,7 +61,7 @@
     font-family: "Trebuchet MS";
     font-size: 1.2vw;
     line-height: 32px;
-    color: #566fe0;
+    color: white;
     text-transform: uppercase;
     font-weight: 600;
     vertical-align: middle;
@@ -227,4 +222,17 @@
     .top-bar-menu, .top-bar-menu-active {
         font-size:14px;
     }
+}
+
+.flag {
+    height: 30px;
+    padding-bottom: 5px;
+    padding-left: 5px;
+}
+
+.country {
+    color: #29293a;
+    font: 400 14px/20px "Oswald", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    letter-spacing: .08em;
+    text-transform: uppercase;
 }

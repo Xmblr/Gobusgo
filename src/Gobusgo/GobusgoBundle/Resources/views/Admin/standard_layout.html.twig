@@ -163,15 +163,15 @@ file that was distributed with this source code.
 
                     <div class="inline-block admin-header" style="float: right;">
                         {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-                            <a class="top-bar-menu-active"
+                            <a class="btn-2"
                                href="{{ path('sonata_admin_dashboard') }}"> {{ app.user.organization }} </a>
-                            <a style="border-left: 2px solid #ffeb89; padding: 0px 15px 0px 8px;" class="top-bar-menu" href="{{ path('fos_user_security_logout') }}">
+                            <a class="btn-3" href="{{ path('fos_user_security_logout') }}">
                                 {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
                             </a>
                         {% else %}
-                            <a class="top-bar-menu-active"
+                            <a class="btn-2"
                                href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
-                            <a class="top-bar-menu"
+                            <a class="btn-3"
                                href="{{ path('fos_user_registration_register') }}">{{ 'layout.register'|trans({}, 'FOSUserBundle') }}</a>
 
                         {% endif %}
