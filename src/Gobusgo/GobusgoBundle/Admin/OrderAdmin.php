@@ -14,6 +14,7 @@ use Sonata\AdminBundle\Form\Type\ModelType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Sonata\AdminBundle\Show\ShowMapper;
 
 class OrderAdmin extends AbstractAdmin
 {
@@ -127,7 +128,7 @@ class OrderAdmin extends AbstractAdmin
             ->add('_action', null, [
                 'label' => 'Действия',
                 'actions' => [
-                    'edit' => ['template' => '@GobusgoGobusgo/Admin/CRUD/list__action_edit.html.twig'],
+                    'show' => ['template' => '@GobusgoGobusgo/Admin/CRUD/list__action_show.html.twig'],
                     'delete' => ['template' => '@GobusgoGobusgo/Admin/CRUD/list__action_delete.html.twig'],
                 ]
             ])
@@ -136,5 +137,33 @@ class OrderAdmin extends AbstractAdmin
 //            ->addIdentifier('additionalAddress4.name')
 //            ->addIdentifier('additionalAddress5.name')
         ;
+    }
+    public function configureShowFields(ShowMapper $showMapper)
+    {
+        $showMapper
+            ->with('Общее', ['class' => 'col-md-6'])
+            ->add('id',null,array('label'=>'Номер заказа'))
+            ->add('status',null,array('label'=>'Статус'))
+            ->add('dateOfOrder',null,array('label'=>'Дата заказа'))
+            ->add('quantityOfCargo',null,array('label'=>'Количество'))
+            ->add('price',null,array('label'=>'Цена'))
+            ->end()
+            ->with('Груз', ['class' => 'col-md-6'])
+            ->add('cargoId.name',null,array('label'=>'Наименование'))
+            ->add('cargoId.width',null,array('label'=>'Ширина'))
+            ->add('cargoId.height',null,array('label'=>'Высота'))
+            ->add('cargoId.lenght',null,array('label'=>'Длина'))
+            ->add('cargoId.weight',null,array('label'=>'Вес'))
+            ->end()
+            ->with('Откуда', ['class' => 'col-md-4'])
+            ->add('shippingAddress.name',null,array('label'=>'Имя отправителя'))
+            ->add('shippingAddress.organization',null,array('label'=>'Организация'))
+            ->add('shippingAddress.city',null,array('label'=>'Город'))
+            ->end()
+            ->with('Куда', ['class' => 'col-md-4'])
+            ->add('deliveryAddress.name',null,array('label'=>'Имя получателя'))
+            ->add('deliveryAddress.organization',null,array('label'=>'Организация'))
+            ->add('deliveryAddress.city',null,array('label'=>'Город'))
+            ->end();
     }
 }

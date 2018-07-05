@@ -2,6 +2,7 @@
 
 namespace Gobusgo\GobusgoBundle\Admin;
 
+use Couchbase\Exception;
 use Gobusgo\GobusgoBundle\Entity\Address;
 use Gobusgo\GobusgoBundle\Entity\City;
 use Sonata\AdminBundle\Admin\AbstractAdmin;
@@ -13,6 +14,7 @@ use Sonata\AdminBundle\Form\Type\ModelType;
 use Sonata\AdminBundle\Route\RouteCollection;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Finder\Exception\AccessDeniedException;
+
 
 class AddressUserAdmin extends AbstractAdmin
 {
@@ -55,6 +57,11 @@ class AddressUserAdmin extends AbstractAdmin
         throw new AccessDeniedException();
     }
 
+    public function preRemove($object)
+    {
+
+    }
+
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
@@ -85,17 +92,18 @@ class AddressUserAdmin extends AbstractAdmin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-//            ->add('_action', null, [
-//                'actions' => [
-//                    'edit' => ['template' => '@GobusgoGobusgo/Admin/CRUD/list__action_edit.html.twig'],
-//                    'delete' => ['template' => '@GobusgoGobusgo/Admin/CRUD/list__action_delete.html.twig'],
-//                ]
-//            ])
+            ->add('_action', null, [
+                'actions' => [
+                    'edit' => ['template' => '@GobusgoGobusgo/Admin/CRUD/list__action_edit.html.twig'],
+                    'delete' => ['template' => '@GobusgoGobusgo/Admin/CRUD/list__action_delete.html.twig'],
+                ]
+            ])
             ->addIdentifier('name', null,array('label'=>'ФИО получателя'))
             ->addIdentifier('phone', null, array('label' => 'Контактный телефон'))
             ->addIdentifier('organization', null,array('label'=>'Организация'))
             ->addIdentifier('city.name', null,array('label'=>'Город'))
             ->addIdentifier('street', null,array('label'=>'Адрес'))
+
         ;
     }
 }

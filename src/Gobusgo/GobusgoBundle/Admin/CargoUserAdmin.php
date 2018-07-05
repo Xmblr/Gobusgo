@@ -16,6 +16,12 @@ class CargoUserAdmin extends AbstractAdmin
     protected $baseRouteName = 'cargo_user';
     protected $baseRoutePattern = 'cargo_user';
 
+    public function configure()
+    {
+        parent::configure();
+        $this->classnameLabel = 'Груз';
+    }
+
     public function getUserId ()
     {
         $userId = $this->getConfigurationPool()->getContainer()->get('security.token_storage')->getToken()->getUser();
@@ -48,12 +54,14 @@ class CargoUserAdmin extends AbstractAdmin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
+            ->with(' ')
             ->add('name', null,array('label'=>'Наименование груза'))
             ->add('width', null,array('label'=>'Ширина'))
             ->add('height', null,array('label'=>'Высота'))
             ->add('lenght', null,array('label'=>'Длинна'))
             ->add('weight', null,array('label'=>'Вес, кг'))
             ->add('CN', null,array('label'=>'Номер ТТН'))
+            ->end()
         ;
     }
 

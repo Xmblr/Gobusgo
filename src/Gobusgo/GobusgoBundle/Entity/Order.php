@@ -64,30 +64,7 @@ class Order
      *
      */
     protected $additionalAddress;
-//
-//    /**
-//     * @ORM\ManyToOne(targetEntity="Gobusgo\GobusgoBundle\Entity\Address")
-//     *
-//     */
-//    protected $additionalAddress2;
-//
-//    /**
-//     * @ORM\ManyToOne(targetEntity="Gobusgo\GobusgoBundle\Entity\Address")
-//     *
-//     */
-//    protected $additionalAddress3;
-//
-//    /**
-//     * @ORM\ManyToOne(targetEntity="Gobusgo\GobusgoBundle\Entity\Address")
-//     *
-//     */
-//    protected $additionalAddress4;
-//
-//    /**
-//     * @ORM\ManyToOne(targetEntity="Gobusgo\GobusgoBundle\Entity\Address")
-//     *
-//     */
-//    protected $additionalAddress5;
+
 
     /**
      *
@@ -252,69 +229,6 @@ class Order
         $this->additionalAddress = $additionalAddress;
     }
 
-//    /**
-//     * @return mixed
-//     */
-//    public function getAdditionalAddress2()
-//    {
-//        return $this->additionalAddress2;
-//    }
-//
-//    /**
-//     * @param mixed $additionalAddress2
-//     */
-//    public function setAdditionalAddress2($additionalAddress2)
-//    {
-//        $this->additionalAddress2 = $additionalAddress2;
-//    }
-//
-//    /**
-//     * @return mixed
-//     */
-//    public function getAdditionalAddress3()
-//    {
-//        return $this->additionalAddress3;
-//    }
-//
-//    /**
-//     * @param mixed $additionalAddress3
-//     */
-//    public function setAdditionalAddress3($additionalAddress3)
-//    {
-//        $this->additionalAddress3 = $additionalAddress3;
-//    }
-//
-//    /**
-//     * @return mixed
-//     */
-//    public function getAdditionalAddress4()
-//    {
-//        return $this->additionalAddress4;
-//    }
-//
-//    /**
-//     * @param mixed $additionalAddress4
-//     */
-//    public function setAdditionalAddress4($additionalAddress4)
-//    {
-//        $this->additionalAddress4 = $additionalAddress4;
-//    }
-//
-//    /**
-//     * @return mixed
-//     */
-//    public function getAdditionalAddress5()
-//    {
-//        return $this->additionalAddress5;
-//    }
-//
-//    /**
-//     * @param mixed $additionalAddress5
-//     */
-//    public function setAdditionalAddress5($additionalAddress5)
-//    {
-//        $this->additionalAddress5 = $additionalAddress5;
-//    }
 
     /**
      * @return mixed

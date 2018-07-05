@@ -92,12 +92,20 @@
                             Назад</a>
                     {% endif %}
                 </li>
+            {% else %}
+                <li class="btn-2" style="background-color: #f5f5f5; cursor: not-allowed">
+                    <a style="background-color: #f5f5f5; cursor: not-allowed"><i class="fa fa-arrow-left" aria-hidden="true"></i>Назад</a>
+                </li>
             {% endif %}
             {% if pager.page != pager.lastPage %}
                 <li class="btn-3">
                     <a href="{{ url(route, route_parameters|merge({'page': pager.nextpage})) }}"
-                       title="{{ 'link_next_page'|trans({}, 'SonataNewsBundle') }}">Вперед <i class="fa fa-arrow-right"
+                       title="{{ 'link_next_page'|trans({}, 'SonataNewsBundle') }}">Вперёд <i class="fa fa-arrow-right"
                                                                                               aria-hidden="true"></i></a>
+                </li>
+            {% else %}
+                <li class="btn-3" style="background-color: #f5f5f5; cursor: not-allowed">
+                    <a style="background-color: #f5f5f5; cursor: not-allowed"><i class="fa fa-arrow-right" aria-hidden="true" ></i>Вперёд</a>
                 </li>
             {% endif %}
             {#<li{% if pager.page == pager.lastPage %} class="btn-2"{% endif %}><a#}

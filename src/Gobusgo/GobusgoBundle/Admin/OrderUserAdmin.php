@@ -8,6 +8,9 @@ use Gobusgo\GobusgoBundle\Entity\Address;
 use Gobusgo\GobusgoBundle\Entity\Cargo;
 use Gobusgo\GobusgoBundle\Entity\User;
 use Gobusgo\GobusgoBundle\Form\CargoType;
+use Knp\Bundle\MenuBundle\KnpMenuBundle;
+use Knp\Menu\ItemInterface;
+use Knp\Menu\MenuItem;
 use Sonata\AdminBundle\Admin\AbstractAdmin;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
@@ -34,6 +37,8 @@ class OrderUserAdmin extends AbstractAdmin
         '_sort_order' => 'DESC',
         '_sort_by' => 'id',
     ];
+
+
 
 
     public function configure()
@@ -78,8 +83,8 @@ class OrderUserAdmin extends AbstractAdmin
         $mailer = $this->Transport();
 
         $message = (new \Swift_Message($subject))
-            ->setFrom($this->getConfigurationPool()->getContainer()->getParameter('mailer_user'))
-            ->setTo($this->getConfigurationPool()->getContainer()->getParameter('mailer_user'))
+            ->setFrom($from)
+            ->setTo($to)
             ->setBody($message, 'text/html')//            ->setBody($this->setTemplates(array('template'=>'@GobusgoGobusgo/Page/callEmail.txt.twig', 'order' => $order)))
         ;
 
@@ -90,13 +95,13 @@ class OrderUserAdmin extends AbstractAdmin
     {
         $this->sendEmail(
             'Новая заявка',
-            'На сайте оставили заявку. Для просмотра перейдите по <a href="http://gobusgo.by/admin/order_admin/' . $order->getId() . '/edit">Ссылке</a>',
+            'На сайте оставили заявку. Для просмотра перейдите по /admin/order_admin/' . $order->getId() . '/edit Ссылке', //<a href="http://gobusgo.by/admin/order_admin/' . $order->getId() . '/edit">Ссылке</a>
             $this->getConfigurationPool()->getContainer()->getParameter('mailer_user'),
             $this->getConfigurationPool()->getContainer()->getParameter('mailer_user')
         );
         $this->sendEmail(
             'Ваша заявка на Gobusgo.by',
-            'Спасибо за заявку. В ближайшее время с Вами свяжутся наши консультанты для обсуждения деталей заказа. Для просмотра перейдите по <a href="http://gobusgo.by/admin/order_user/' . $order->getId() . '/show">Ссылке</a>',
+            'Спасибо за заявку. В ближайшее время с Вами свяжутся наши консультанты для обсуждения деталей заказа. Для просмотра перейдите по /admin/order_user/' . $order->getId() . '/edit Ссылке', //<a href="http://gobusgo.by/admin/order_user/' . $order->getId() . '/show">Ссылке</a>
             $this->getConfigurationPool()->getContainer()->getParameter('mailer_user'),
             $this->getUserId()->getEmail()
         );
@@ -225,28 +230,28 @@ class OrderUserAdmin extends AbstractAdmin
     {
         $showMapper
             ->with('Общее', ['class' => 'col-md-6'])
-            ->add('id')
-            ->add('status')
-            ->add('dateOfOrder')
-            ->add('quantityOfCargo')
-            ->add('price')
+            ->add('id',null,array('label'=>'Номер заказа'))
+            ->add('status',null,array('label'=>'Статус'))
+            ->add('dateOfOrder',null,array('label'=>'Дата заказа'))
+            ->add('quantityOfCargo',null,array('label'=>'Количество'))
+            ->add('price',null,array('label'=>'Цена'))
             ->end()
             ->with('Груз', ['class' => 'col-md-6'])
-            ->add('cargoId.name')
-            ->add('cargoId.width')
-            ->add('cargoId.height')
-            ->add('cargoId.lenght')
-            ->add('cargoId.weight')
+            ->add('cargoId.name',null,array('label'=>'Наименование'))
+            ->add('cargoId.width',null,array('label'=>'Ширина'))
+            ->add('cargoId.height',null,array('label'=>'Высота'))
+            ->add('cargoId.lenght',null,array('label'=>'Длина'))
+            ->add('cargoId.weight',null,array('label'=>'Вес'))
             ->end()
             ->with('Откуда', ['class' => 'col-md-4'])
-            ->add('shippingAddress.name')
-            ->add('shippingAddress.organization')
-            ->add('shippingAddress.city')
+            ->add('shippingAddress.name',null,array('label'=>'Имя отправителя'))
+            ->add('shippingAddress.organization',null,array('label'=>'Организация'))
+            ->add('shippingAddress.city',null,array('label'=>'Город'))
             ->end()
             ->with('Куда', ['class' => 'col-md-4'])
-            ->add('deliveryAddress.name')
-            ->add('deliveryAddress.organization')
-            ->add('deliveryAddress.city')
+            ->add('deliveryAddress.name',null,array('label'=>'Имя получателя'))
+            ->add('deliveryAddress.organization',null,array('label'=>'Организация'))
+            ->add('deliveryAddress.city',null,array('label'=>'Город'))
             ->end();
     }
 }
