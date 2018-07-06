@@ -161,7 +161,7 @@ file that was distributed with this source code.
                         <span class="sr-only">{{ 'toggle_navigation'|trans({}, 'SonataAdminBundle') }}</span>
                     </a>
 
-                    <div class="inline-block admin-header" style="float: right;">
+                    <div class="inline-block admin-header" style="float: right; margin-right: 5px;">
                         {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
                             <a class="btn-2"
                                href="{{ path('sonata_admin_dashboard') }}"> {{ app.user.organization }} </a>

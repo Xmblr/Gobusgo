@@ -30,27 +30,25 @@
             <div class="col-md-4">
             <div class="sonata-blog-post-container">
 
-                    <h4 class="sonata-blog-post-title text-left">
-                        <a href="{{ url('sonata_news_view', { 'permalink': sonata_news_permalink(post) }) }}">{{ post.title }}</a>
-                    </h4>
 
-                    <div class="sonata-blog-post-information">
+
+                    <div class="sonata-blog-post-information" style="font-style: italic; color: #b1b1b1;">
                         {% media post.image, 'big' %}
 
-                        <span class="sonata-blog-post-author">{{ 'archive_author'|trans({'%author%': post.author }, 'SonataNewsBundle') }}</span>
-                        |
+                        <h4 class="sonata-blog-post-title text-left">
+                            <a style="color: #8598ff;font-style: normal;" href="{{ url('sonata_news_view', { 'permalink': sonata_news_permalink(post) }) }}">{{ post.title }}</a>
+                        </h4>
+                        <i class="fa fa-clock-o" aria-hidden="true" style="color: #8598ff;"></i>
+                        {{ post.publicationDateStart | format_date }}
 
-                        <i class="icon-calendar"></i>
-                        {{ post.publicationDateStart | format_date }} |
-
-                        <i class="icon-comment"></i>
+                        <i class="fa fa-comment-o" aria-hidden="true" style="margin-left: 10px; color: #8598ff;"></i>
                         <span class="sonata-blog-post-comments-count">{{ 'comments_count'|trans({'%comments_count%': post.commentsCount }, 'SonataNewsBundle') }}</span>
 
                         <div class="sonata-blog-post-tags">
                             {% if post.tags|length > 1 %}
-                                <i class="icon-tags"></i>
+                                <i class="fa fa-tag" style="color: #8598ff;" aria-hidden="true"></i>
                             {% else %}
-                                <i class="icon-tag"></i>
+                                <i class="fa fa-tags" style="color: #8598ff;" aria-hidden="true"></i>
                             {% endif %}
                             {{ 'published_under'|transchoice(post.tags|length, {}, 'SonataNewsBundle') }}
 
@@ -63,9 +61,10 @@
             </div>
 
 
-                <div class="sonata-blog-post-abtract">
+                <div class="sonata-blog-post-abtract" style="margin: 10px 0px;">
                     {{ post.abstract }}
                 </div>
+                <div class="sonata-blog-post-author" style="font-style: Italic;">{{ 'archive_author'|trans({'%author%': post.author }, 'SonataNewsBundle') }}</div>
                 <a href="{{ url('sonata_news_view', { 'permalink': sonata_news_permalink(post) }) }}" class="button-log">Подробнее</a>
             </div>
 
@@ -93,19 +92,19 @@
                     {% endif %}
                 </li>
             {% else %}
-                <li class="btn-2" style="background-color: #f5f5f5; cursor: not-allowed">
-                    <a style="background-color: #f5f5f5; cursor: not-allowed"><i class="fa fa-arrow-left" aria-hidden="true"></i>Назад</a>
+                <li class="btn-2" style="background-color: #f5f5f5; color: #8598ff; cursor: not-allowed">
+                    <a style="background-color: #f5f5f5; cursor: not-allowed"><i class="fa fa-arrow-left" aria-hidden="true"></i> Назад</a>
                 </li>
             {% endif %}
             {% if pager.page != pager.lastPage %}
                 <li class="btn-3">
                     <a href="{{ url(route, route_parameters|merge({'page': pager.nextpage})) }}"
                        title="{{ 'link_next_page'|trans({}, 'SonataNewsBundle') }}">Вперёд <i class="fa fa-arrow-right"
-                                                                                              aria-hidden="true"></i></a>
+                                                                                               aria-hidden="true"></i></a>
                 </li>
             {% else %}
-                <li class="btn-3" style="background-color: #f5f5f5; cursor: not-allowed">
-                    <a style="background-color: #f5f5f5; cursor: not-allowed"><i class="fa fa-arrow-right" aria-hidden="true" ></i>Вперёд</a>
+                <li class="btn-3" style="background-color: #f5f5f5; color: #8598ff; cursor: not-allowed">
+                    <a style="background-color: #f5f5f5; cursor: not-allowed">Вперёд <i class="fa fa-arrow-right" aria-hidden="true" ></i></a>
                 </li>
             {% endif %}
             {#<li{% if pager.page == pager.lastPage %} class="btn-2"{% endif %}><a#}

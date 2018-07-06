@@ -1267,7 +1267,7 @@ a:focus {
     border-color: #eee;
 }
 .form-control:focus {
-    border: 2px solid #8598ff;
+    /*border: 2px solid #8598ff;*/
     box-shadow: none;
 }
 .form-control::-moz-placeholder,
@@ -5065,8 +5065,8 @@ table.text-center th {
     height: 20px;
     width: 20px;
     transition: all 0.15s ease-out 0s;
-    border: 2px solid #ffe775;
-    color: #fff;
+    border: 1px solid #ffe775;
+    color: #8598ff;
     cursor: pointer;
     display: inline-block;
     outline: none;
@@ -5075,16 +5075,22 @@ table.text-center th {
 }
 
 .input-admin {
-    display: block;
-    margin: 0;
-    width: 100%;
-    font-weight: inherit;
-    font-size: 16px;
-    font-family: mywebfont;
-    padding: 10px 5px;
-    color: #333;
     text-align: center;
-    border: 2px solid #8598ff;
+    display: block;
+    width: 100%;
+    height: 30px;
+    font-size: 18px;
+    line-height: 1.57143;
+    color: #313132;
+    background-color: #f5f5f5;
+    background-image: none;
+    border: 1px solid #dbdbdb;
+    border-radius: 25px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+    -o-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+    transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
 }
 
 .select2-container .select2-choice {
@@ -5115,6 +5121,7 @@ table.text-center th {
 
 .form-horizontal .control-label {
     padding-top: 2px;
+    line-height: 30px;
 }
 
 .select2-results .select2-result-label {
@@ -5217,4 +5224,13 @@ body {
 
 .profile-table .input-log {
     height: 40px;
+}
+
+.select2-container .select2-choice {
+    height: 30px;
+}
+
+.block-default {
+    background: white;
+    box-shadow: 0px 2px 10px 0px rgba(49, 49, 50, 0.13);
 }

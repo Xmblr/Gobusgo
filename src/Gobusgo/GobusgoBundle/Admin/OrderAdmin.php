@@ -26,39 +26,39 @@ class OrderAdmin extends AbstractAdmin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('userId', ModelType::class,[
-                'class'=>User::class,
+            ->add('userId', ModelType::class, [
+                'class' => User::class,
                 'label' => 'Пользователь',
-                'property'=>'fullName',
+                'property' => 'fullName',
             ])
             ->add('cargoId', ModelType::class, [
-                'class'=>Cargo::class,
+                'class' => Cargo::class,
                 'label' => 'Груз',
-                'property'=>'name'
-            ],array(
+                'property' => 'name'
+            ], array(
                 'admin_code' => 'admin.cargo'
             ))
             ->add('quantityOfCargo', null, array('label' => 'Кол-во груза'))
             ->add('price', null, array('label' => 'Цена'))
             ->add('shippingAddress', ModelType::class, [
-                'class'=>Address::class,
+                'class' => Address::class,
                 'label' => 'Адрес отправки',
-                'property' => 'name'
-            ],array(
+                'property' => 'city.name'
+            ], array(
                 'admin_code' => 'admin.address'
             ))
             ->add('deliveryAddress', ModelType::class, [
-                'class'=>Address::class,
+                'class' => Address::class,
                 'label' => 'Адрес доставки',
-                'property' => 'name'
-            ],array(
+                'property' => 'city.name'
+            ], array(
                 'admin_code' => 'admin.address'
             ))
             ->add('additionalAddress', ModelType::class, [
-                'class'=>Address::class,
+                'class' => Address::class,
                 'label' => 'Дополнительный адрес',
                 'property' => 'name'
-            ],array(
+            ], array(
                 'admin_code' => 'admin.address'
             ))
 //            ->add('additionalAddress2', ModelType::class, [
@@ -87,8 +87,7 @@ class OrderAdmin extends AbstractAdmin
 //            ))
             ->add('dateOfOrder', DateTimeType::DATETIME, array('label' => 'Дата заявки'))
             ->add('status', null, array('label' => 'Статус'))
-            ->add('notice', TextareaType::class, array('label' => 'Примечания', 'required' => false))
-        ;
+            ->add('notice', TextareaType::class, array('label' => 'Примечания', 'required' => false));
     }
 
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
@@ -101,9 +100,9 @@ class OrderAdmin extends AbstractAdmin
             ->add('cargoId.name', null, array('label' => 'Груз'))
             ->add('quantityOfCargo', null, array('label' => 'Кол-во груза'))
             ->add('price', null, array('label' => 'Оценочная стоимость'))
-            ->add('shippingAddress.name', null, array('label' => 'Адрес отправки'))
-            ->add('deliveryAddress.name', null, array('label' => 'Адрес доставки'))
-            ->add('additionalAddress.name', null, array('label' => 'Дополнительный адрес'))
+            ->add('shippingAddress.city.name', null, array('label' => 'Адрес отправки'))
+            ->add('deliveryAddress.city.name', null, array('label' => 'Адрес доставки'))
+            ->add('additionalAddress.city.name', null, array('label' => 'Дополнительный адрес'))
 //            ->add('additionalAddress2.name')
 //            ->add('additionalAddress3.name')
 //            ->add('additionalAddress4.name')
@@ -122,13 +121,14 @@ class OrderAdmin extends AbstractAdmin
             ->add('cargoId.name', null, array('label' => 'Груз'))
             ->add('quantityOfCargo', null, array('label' => 'Кол-во груза'))
             ->add('price', null, array('label' => 'Оценочная стоимость'))
-            ->add('shippingAddress.name', null, array('label' => 'Адрес отправки'))
-            ->add('deliveryAddress.name', null, array('label' => 'Адрес доставки'))
-            ->add('additionalAddress.name', null, array('label' => 'Дополнительный адрес'))
+            ->add('shippingAddress.city.name', null, array('label' => 'Адрес отправки'))
+            ->add('deliveryAddress.city.name', null, array('label' => 'Адрес доставки'))
+            ->add('additionalAddress.city.name', null, array('label' => 'Доп. адрес'))
             ->add('_action', null, [
                 'label' => 'Действия',
                 'actions' => [
                     'show' => ['template' => '@GobusgoGobusgo/Admin/CRUD/list__action_show.html.twig'],
+//                    'edit' => ['template' => '@GobusgoGobusgo/Admin/CRUD/list__action_edit.html.twig'],
                     'delete' => ['template' => '@GobusgoGobusgo/Admin/CRUD/list__action_delete.html.twig'],
                 ]
             ])
@@ -138,32 +138,39 @@ class OrderAdmin extends AbstractAdmin
 //            ->addIdentifier('additionalAddress5.name')
         ;
     }
+
     public function configureShowFields(ShowMapper $showMapper)
     {
         $showMapper
             ->with('Общее', ['class' => 'col-md-6'])
-            ->add('id',null,array('label'=>'Номер заказа'))
-            ->add('status',null,array('label'=>'Статус'))
-            ->add('dateOfOrder',null,array('label'=>'Дата заказа'))
-            ->add('quantityOfCargo',null,array('label'=>'Количество'))
-            ->add('price',null,array('label'=>'Цена'))
+            ->add('id', null, array('label' => 'Номер заказа'))
+            ->add('status', null, array('label' => 'Статус'))
+            ->add('dateOfOrder', null, array('label' => 'Дата заказа'))
+            ->add('quantityOfCargo', null, array('label' => 'Количество'))
+            ->add('price', null, array('label' => 'Цена'))
             ->end()
             ->with('Груз', ['class' => 'col-md-6'])
-            ->add('cargoId.name',null,array('label'=>'Наименование'))
-            ->add('cargoId.width',null,array('label'=>'Ширина'))
-            ->add('cargoId.height',null,array('label'=>'Высота'))
-            ->add('cargoId.lenght',null,array('label'=>'Длина'))
-            ->add('cargoId.weight',null,array('label'=>'Вес'))
+            ->add('cargoId.name', null, array('label' => 'Наименование'))
+            ->add('cargoId.width', null, array('label' => 'Ширина'))
+            ->add('cargoId.height', null, array('label' => 'Высота'))
+            ->add('cargoId.lenght', null, array('label' => 'Длина'))
+            ->add('cargoId.weight', null, array('label' => 'Вес'))
             ->end()
-            ->with('Откуда', ['class' => 'col-md-4'])
-            ->add('shippingAddress.name',null,array('label'=>'Имя отправителя'))
-            ->add('shippingAddress.organization',null,array('label'=>'Организация'))
-            ->add('shippingAddress.city',null,array('label'=>'Город'))
+            ->with('Откуда', ['class' => 'col-md-6'])
+            ->add('shippingAddress.name', null, array('label' => 'Имя отправителя'))
+            ->add('shippingAddress.organization', null, array('label' => 'Организация'))
+            ->add('shippingAddress.city', null, array('label' => 'Город'))
+            ->add('shippingAddress.street', null, array('label' => 'Адрес'))
             ->end()
-            ->with('Куда', ['class' => 'col-md-4'])
-            ->add('deliveryAddress.name',null,array('label'=>'Имя получателя'))
-            ->add('deliveryAddress.organization',null,array('label'=>'Организация'))
-            ->add('deliveryAddress.city',null,array('label'=>'Город'))
+            ->with('Куда', ['class' => 'col-md-6'])
+            ->add('deliveryAddress.name', null, array('label' => 'Имя получателя'))
+            ->add('deliveryAddress.organization', null, array('label' => 'Организация'))
+            ->add('deliveryAddress.city', null, array('label' => 'Город'))
+            ->add('deliveryAddress.street', null, array('label' => 'Адрес'))
+            ->end()
+            ->with('Дополнительная информация', ['class' => 'col-md-6'])
+            ->add('notice', null, array('label' => 'Примечание'))
             ->end();
+
     }
 }
