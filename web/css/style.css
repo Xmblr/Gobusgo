@@ -36,7 +36,7 @@ h1 {
     color: #566fe0;
     margin: 0% 0% 2% 0%;
     line-height: 44px;
-    margin-top: 30px;
+    margin-top: 60px;
 }
 
 div {
@@ -1272,6 +1272,15 @@ footer {
     color: #8598ff;
     text-align: center;
     border: 3px solid #7d88ff;
+    font-weight: inherit;
+    font-size: 18px;
+    font-family: Trebuchet MS;
+    padding: 10px 5px;
+    color: #333;
+    text-align: center;
+    border: 1px solid #7d88ff;
+    border-radius: 12px;
+    background: #F6F6F6;
 }
 
 .Input-2 {
@@ -1315,6 +1324,16 @@ footer {
     text-align: center;
     border: 3px solid #7d88ff;
     cursor: pointer;
+    cursor: pointer;
+    /* font-weight: inherit; */
+    font-size: 18px;
+    /* font-family: Trebuchet MS; */
+    /* padding: 10px 5px; */
+    color: #333;
+    text-align: center;
+    border: 1px solid #7d88ff;
+    /* border-radius: 12px; */
+    background: #F6F6F6;
 }
 
 .Input-4 {
@@ -1947,4 +1966,21 @@ address span {
 
 .sonata-blog-comment-container ul {
     padding-left: 0px;
+}
+
+.blog-flex {
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-flex-wrap: nowrap;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
 }

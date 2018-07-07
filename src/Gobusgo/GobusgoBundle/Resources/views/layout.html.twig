@@ -2,7 +2,8 @@
 
 {% block breadcrumb %}
     {#{{ knp_menu_render('BloggerBlogBundle:Builder:mainMenu') }}#}
-    <ol class="breadcrumb">
+    <div class="col-md-12" style="background-color: #f5f5f5;">
+        <ol class="breadcrumb col-md-push-1 col-md-10" style="margin-bottom: 0px; padding-left: 0px;">
         {% for breadcrumb_item in knp_menu_get_breadcrumbs_array(knp_menu_get_current_item('GobusgoGobusgoBundle:Builder:mainMenu')) %}
             {% if not loop.last %}
                 <li typeof="v:Breadcrumb"><a href="{{ breadcrumb_item.uri }}" rel="v:url"
@@ -12,6 +13,7 @@
             {% endif %}
         {% endfor %}
     </ol>
+    </div>
 
 {% endblock %}
 

@@ -149,7 +149,7 @@ class OrderUserAdmin extends AbstractAdmin
                 'admin_code' => 'admin.user.cargo',
 
             ))
-            ->add('price',null,array('label'=>'Цена'))
+
             ->add('quantityOfCargo', null, array('label' => 'Количество груза'))
             ->add('shippingAddress', ModelListType::class, [
                 'class'=>Address::class,
@@ -176,7 +176,8 @@ class OrderUserAdmin extends AbstractAdmin
             ], array(
                 'admin_code' => 'admin.user.address'
             ))
-            ->add('notice', TextareaType::class, array('label' => 'Примечания', 'required' => false))
+            ->add('price',null,array('label'=>'Цена'))
+            ->add('notice', TextareaType::class, array('label' => 'Примечание', 'required' => false))
             ->end()
             ->with('Пользователь', ['class' => 'col-md-6'])
             ->end()
