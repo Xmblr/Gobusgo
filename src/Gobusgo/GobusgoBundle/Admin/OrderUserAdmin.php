@@ -41,11 +41,11 @@ class OrderUserAdmin extends AbstractAdmin
 
 
 
-    public function configure()
-    {
-        parent::configure();
-        $this->classnameLabel = 'История грузоперевозок';
-    }
+//    public function configure()
+//    {
+//        parent::configure();
+//        $this->classnameLabel = 'История грузоперевозок';
+//    }
 
     public function getUserId ()
     {

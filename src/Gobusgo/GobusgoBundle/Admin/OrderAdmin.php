@@ -138,6 +138,7 @@ class OrderAdmin extends AbstractAdmin
 //            ->addIdentifier('additionalAddress5.name')
         ;
     }
+
     public function configureShowFields(ShowMapper $showMapper)
     {
         $showMapper
