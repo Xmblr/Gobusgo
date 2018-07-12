@@ -63,7 +63,7 @@
                                 {% else %}
                                     <a class="btn-2"
                                        href="{{ path('fos_user_registration_register') }}">{{ 'layout.register'|trans({}, 'FOSUserBundle') }}</a><a class="btn-3"
-                                       href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
+                                       href="{{ path('sonata_admin_dashboard') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
 
                                 {% endif %}
                                 <img class="flag" src="{{ asset('images/russian.png') }}"
@@ -472,7 +472,7 @@
                                                         <a class="btn-2"
                                                            href="{{ path('fos_user_registration_register') }}">{{ 'layout.register'|trans({}, 'FOSUserBundle') }}</a>
                                                         <a class="btn-3"
-                                                           href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
+                                                           href="{{ path('sonata_admin_dashboard') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
 
 
                                                     {% endif %}
