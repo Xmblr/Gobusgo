@@ -2,9 +2,13 @@
 <xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
     <file source-language="en" datatype="plaintext" original="SonataAdminBundle.en.xliff">
         <body>
-            <trans-unit id="sonata_order">
+            <trans-unit id="sonata_order_list">
                 <source>Order List</source>
                 <target>Список истории грузоперевозок</target>
+            </trans-unit>
+            <trans-unit id="sonata_order_create">
+                <source>Order Create</source>
+                <target>Создание заявки</target>
             </trans-unit>
         </body>
     </file>
