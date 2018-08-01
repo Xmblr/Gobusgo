@@ -10,17 +10,24 @@ file that was distributed with this source code.
 #}
 
 {%- spaceless %}
-    {% if value %}
-        {% set text = 'Завершено' %} {#'label_type_yes'|trans({}, 'SonataAdminBundle')#}
+    {% if value == 1 %}
+        {% set text = 'Завершено' %}
+        {% set class = 'label-success' %}
+        {#'label_type_yes'|trans({}, 'SonataAdminBundle')#}
+    {% elseif value == 2 %}
+        {% set text = 'Отменено' %}
+        {% set class = 'label-danger' %}
     {% else %}
-        {% set text = 'В обработке' %} {#'label_type_no'|trans({}, 'SonataAdminBundle')#}
+        {% set text = 'В обработке' %}
+        {% set class = 'label-info' %}
+        {#'label_type_no'|trans({}, 'SonataAdminBundle')#}
     {% endif %}
 
-    {% if field_description.options.inverse|default(false) ? not value : value %}
-        {% set class = 'label-success' %}
-    {% else %}
-        {% set class = 'label-danger' %}
-    {% endif %}
+    {#{% if field_description.options.inverse|default(false) ? not value : value %}#}
+        {#{% set class = 'label-success' %}#}
+    {#{% else %}#}
+        {#{% set class = 'label-danger' %}#}
+    {#{% endif %}#}
 
     <span class="label {{ class }}">{{ text }}</span>
 {% endspaceless -%}

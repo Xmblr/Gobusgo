@@ -60,7 +60,7 @@ class CargoUserAdmin extends AbstractAdmin
             ->add('height', null,array('label'=>'Высота'))
             ->add('lenght', null,array('label'=>'Длинна'))
             ->add('weight', null,array('label'=>'Вес, кг'))
-            ->add('CN', null,array('label'=>'Номер ТТН'))
+
             ->end()
         ;
     }
@@ -73,19 +73,21 @@ class CargoUserAdmin extends AbstractAdmin
             ->add('height', null,array('label'=>'Высота'))
             ->add('lenght', null,array('label'=>'Длинна'))
             ->add('weight', null,array('label'=>'Вес, кг'))
-            ->add('CN', null,array('label'=>'Номер ТТН'))
+
         ;
     }
 
     protected function configureListFields(ListMapper $listMapper)
     {
+        unset($this->listModes['mosaic']);
+
         $listMapper
             ->addIdentifier('name', null,array('label'=>'Наименование груза'))
             ->addIdentifier('width', null,array('label'=>'Ширина'))
             ->addIdentifier('height', null,array('label'=>'Высота'))
             ->addIdentifier('lenght', null,array('label'=>'Длинна'))
             ->addIdentifier('weight', null,array('label'=>'Вес, кг'))
-            ->addIdentifier('CN', null,array('label'=>'Номер ТТН'))
+
             ->add('_action', null, [
                 'label' => 'Действия',
                 'actions' => [

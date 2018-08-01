@@ -188,13 +188,13 @@ sonata_admin:
             app.admin.group.moderator:
                 label: Новости
                 roles: [ ROLE_ADMIN, ROLE_MODERATOR ]
-                items:
-                    - sonata.classification.admin.category
-                    - sonata.classification.admin.tag
-                    - sonata.classification.admin.collection
-                    - sonata.classification.admin.context
-                    - admin.news
-                    - admin.comment
+#                items:
+#                    - sonata.classification.admin.category
+#                    - sonata.classification.admin.tag
+#                    - sonata.classification.admin.collection
+#                    - sonata.classification.admin.context
+#                    - admin.news
+#                    - admin.comment
 
 
 
@@ -303,13 +303,13 @@ sonata_media:
                 small: { width: 100 , quality: 70}
                 big:   { width: 500 , quality: 70}
 
-        news:
+        blog:
             providers:
-                - sonata.media.provider.dailymotion
-                - sonata.media.provider.youtube
+#                - sonata.media.provider.dailymotion
+#                - sonata.media.provider.youtube
                 - sonata.media.provider.image
-                - sonata.media.provider.file
-                - sonata.media.provider.vimeo
+#                - sonata.media.provider.file
+#                - sonata.media.provider.vimeo
 
             formats:
                 small: { width: 150 , quality: 100}

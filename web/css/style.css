@@ -798,9 +798,6 @@ footer {
 
 }
 
-.option-input:checked {
-
-}
 
 .option-input:checked::before {
     height: 20px;

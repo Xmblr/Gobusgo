@@ -2,3 +2,13 @@ services:
 #    gobusgo_gobusgo.example:
 #        class: Gobusgo\GobusgoBundle\Example
 #        arguments: ["@service_id", "plain_value", "%parameter%"]
+
+    gobusgo_gobusgo.admin.order:
+        class: Gobusgo\GobusgoBundle\Admin\OrderUserAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin.user.order, label: TEST }
+        arguments:
+            - null
+            - Gobusgo\GobusgoBundle\Entity\Order
+            - GobusgoGobusgoBundle:CRUD
+        public: true

@@ -76,7 +76,7 @@ class Order
     /**
      * @var boolean
      *
-     * @ORM\Column(type="boolean")
+     * @ORM\Column(type="integer")
      */
     protected $status;
 

@@ -26,6 +26,8 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\Validator\Constraints\DateTime;
 
 
+
+
 class OrderUserAdmin extends AbstractAdmin
 {
 
@@ -38,14 +40,6 @@ class OrderUserAdmin extends AbstractAdmin
         '_sort_by' => 'id',
     ];
 
-
-
-
-//    public function configure()
-//    {
-//        parent::configure();
-//        $this->classnameLabel = 'История грузоперевозок';
-//    }
 
     public function getUserId ()
     {
@@ -117,7 +111,6 @@ class OrderUserAdmin extends AbstractAdmin
         $order->setStatus(0);
     }
 
-
     public function preEdit($order)
     {
         throw new AccessDeniedException();
@@ -127,9 +120,11 @@ class OrderUserAdmin extends AbstractAdmin
     {
         $collection
             ->remove('edit')
-            ->remove('delete');
-
+            ->remove('delete')
+            ->add('cancel', $this->getRouterIdParameter().'/cancel')
+            ;
     }
+
 
     protected function configureFormFields(FormMapper $formMapper)
     {
@@ -209,6 +204,8 @@ class OrderUserAdmin extends AbstractAdmin
 
     protected function configureListFields(ListMapper $listMapper)
     {
+        unset($this->listModes['mosaic']);
+
         $listMapper
             ->addIdentifier('id', null, array('label' => 'Номер заказа'))
             ->addIdentifier('status', null, array('template' => '@GobusgoGobusgo/Admin/CRUD/list_boolean.html.twig', 'label' => 'Статус'))
@@ -220,6 +217,11 @@ class OrderUserAdmin extends AbstractAdmin
             ->add('shippingAddress.name', null, array('label' => 'Адрес отправки'))
             ->add('deliveryAddress.name', null, array('label' => 'Адрес доставки'))
             ->add('additionalAddress.name', null, array('label' => 'Дополнительный адрес'))
+            ->add('_action', null, [
+                'actions' => [
+                    'cancel' => ['template' => '@GobusgoGobusgo/Admin/CRUD/list__action_cancel.html.twig'],
+                ],'label'=>'Действия'
+            ])
 //            ->addIdentifier('additionalAddress2.name')
 //            ->addIdentifier('additionalAddress3.name')
 //            ->addIdentifier('additionalAddress4.name')

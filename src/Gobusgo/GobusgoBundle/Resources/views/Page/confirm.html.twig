@@ -10,7 +10,7 @@
                 {% for message in messages %}
                     <span class="{{ type }}">
                         {% if message.organization is defined %}
-                            <div class="col-md-push-2 col-md-8 check">
+                            <div id="legal_build" class="col-md-push-2 col-md-8 check">
                                 <div class="check-border col-md-12">
                                     <div class="col-md-12" style="border-bottom: 1px solid #eee;">
                                     <div class="check-title col-md-12">
@@ -271,6 +271,22 @@
                                                                                            aria-hidden="true"></i><span
                                                    style="margin-left: 15px;">На главную</span>
                                        </a></div>
+                                    <div class="col-md-12 text-center">
+                                        <input type="button" value="Печать" onclick="window.print();"/>
+                                        {#<input type="button" value="Печать" onclick="print_legal();"/>#}
+                                        {#<script>#}
+                                            {#function print_legal() {#}
+                                                {#var prtContent = document.getElementById("legal_build");#}
+                                                {#var WinPrint = window.open('', '', 'left=0,top=0,width=800,height=900,toolbar=0,scrollbars=0,status=0');#}
+                                                {#WinPrint.document.write(prtContent.innerHTML);#}
+                                                {#WinPrint.document.close();#}
+                                                {#WinPrint.focus();#}
+                                                {#WinPrint.print();#}
+                                                {#WinPrint.close();#}
+                                            {#}#}
+                                        {#</script>#}
+
+                                    </div>
                                 </div>
                             </div>
                             {% elseif message.weight is defined %}
@@ -279,7 +295,8 @@
 
 
 
-                            <div class="col-md-push-4 col-md-4 check">
+
+                            <div id="individual_build" class="col-md-push-4 col-md-4 check">
                                 <div class="check-border col-md-12">
                                     <div class="col-md-12"
                                          style="border-bottom: 1px solid #eee; padding-left: 0px; padding-right: 0px;">
@@ -453,10 +470,26 @@
                                     </div>
                                     <div class="col-md-12 text-center"
                                          style="margin-bottom: 30px; font-size: 16px; font-family: mywebfont; color: #333;">
-                                       <a href="{{ path('gobusgo_gobusgo_homepage') }}"><i class="fa fa-home"
-                                                                                           aria-hidden="true"></i><span
-                                                   style="margin-left: 15px;">На главную</span>
-                                       </a></div>
+                                       <a href="{{ path('gobusgo_gobusgo_homepage') }}">
+                                           <i class="fa fa-home" aria-hidden="true"></i>
+                                           <span style="margin-left: 15px;">На главную</span>
+                                       </a>
+                                    </div>
+                                    <div class="col-md-12 text-center">
+                                        <input type="button" value="Печать" onclick="window.print()"/>
+                                        {#<input type="button" value="Печать" onclick="print_individual()"/>#}
+                                        {#<script>#}
+                                            {#function print_individual() {#}
+                                                {#var prtContent = document.getElementById("individual_build");#}
+                                                {#var WinPrint = window.open('', '', 'left=0,top=0,width=800,height=900,toolbar=0,scrollbars=0,status=0');#}
+                                                {#WinPrint.document.write(prtContent.innerHTML);#}
+                                                {#WinPrint.document.close();#}
+                                                {#WinPrint.focus();#}
+                                                {#WinPrint.print();#}
+                                                {#WinPrint.close();#}
+                                            {#}#}
+                                        {#</script>#}
+                                    </div>
                                     </div>
                                 </div>
                         </div>
@@ -481,7 +514,7 @@
             {% endfor %}
 
 
-    </div>
+        </div>
     </div>
 
 {% endblock %}

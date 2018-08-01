@@ -1,0 +1,6 @@
+{{ form_start(form, { 'action': path('gobusgo_gobusgo_comment_create' , { 'blog_id' : comment.blog.id }), 'method': 'POST', 'attr': {'class': 'form'} }) }}
+
+    {{ form_widget(form) }}
+<p>
+    <input type="submit" value="Submit">
+</p>

@@ -22,19 +22,32 @@ services:
             - { name: sonata.admin, manager_type: orm, label: Пользователи , group: "app.admin.group.admin" }
         public: true
 
-    admin.news:
-        class: Sonata\NewsBundle\Admin\PostAdmin
-        arguments: [~, Application\Sonata\NewsBundle\Entity\Post, ~]
+    admin.blog:
+        class: Gobusgo\GobusgoBundle\Admin\BlogAdmin
+        arguments: [~, Gobusgo\GobusgoBundle\Entity\Blog, ~]
         tags:
             - { name: sonata.admin, manager_type: orm, label: Новости , group: "app.admin.group.moderator" }
         public: true
 
-    admin.comment:
-        class: Sonata\NewsBundle\Admin\CommentAdmin
-        arguments: [~, Application\Sonata\NewsBundle\Entity\Comment, ~]
+    admin.comments:
+        class: Gobusgo\GobusgoBundle\Admin\CommentAdmin
+        arguments: [~, Gobusgo\GobusgoBundle\Entity\Comment, ~]
         tags:
-            - { name: sonata.admin, manager_type: orm, label: Комментарии , group: "app.admin.group.moderator" }
+        - { name: sonata.admin, manager_type: orm, label: Комментарии , group: "app.admin.group.moderator" }
         public: true
+#    admin.news:
+#        class: Sonata\NewsBundle\Admin\PostAdmin
+#        arguments: [~, Application\Sonata\NewsBundle\Entity\Post, ~]
+#        tags:
+#            - { name: sonata.admin, manager_type: orm, label: Новости , group: "app.admin.group.moderator" }
+#        public: true
+#
+#    admin.comment:
+#        class: Sonata\NewsBundle\Admin\CommentAdmin
+#        arguments: [~, Application\Sonata\NewsBundle\Entity\Comment, ~]
+#        tags:
+#            - { name: sonata.admin, manager_type: orm, label: Комментарии , group: "app.admin.group.moderator" }
+#        public: true
 
     admin.city:
         class: Gobusgo\GobusgoBundle\Admin\CityAdmin
@@ -96,6 +109,8 @@ services:
         arguments: [ sonata.block.service.user, "@templating" ]
         tags:
             - { name: sonata.block }
+
+
 #   --------------------------- Admin controllers ----------------------------------
 
 

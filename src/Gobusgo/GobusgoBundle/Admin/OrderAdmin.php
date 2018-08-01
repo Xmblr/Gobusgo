@@ -10,6 +10,7 @@ use Sonata\AdminBundle\Admin\AbstractAdmin;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
+use Sonata\AdminBundle\Form\Type\Filter\ChoiceType;
 use Sonata\AdminBundle\Form\Type\ModelType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
@@ -86,7 +87,13 @@ class OrderAdmin extends AbstractAdmin
 //                'admin_code' => 'admin.address'
 //            ))
             ->add('dateOfOrder', DateTimeType::DATETIME, array('label' => 'Дата заявки'))
-            ->add('status', null, array('label' => 'Статус'))
+            ->add('status', 'choice', array(
+                'choices' => array(
+                    'Завершено' => 1,
+                    'Отменено'=>2,
+                    'В обработке'=>0
+                )
+            ), array('label' => 'Статус'))
             ->add('notice', TextareaType::class, array('label' => 'Примечания', 'required' => false));
     }
 
@@ -112,6 +119,7 @@ class OrderAdmin extends AbstractAdmin
 
     protected function configureListFields(ListMapper $listMapper)
     {
+        unset($this->listModes['mosaic']);
 
         $listMapper
             ->addIdentifier('id', null, array('label' => 'Номер заказа'))

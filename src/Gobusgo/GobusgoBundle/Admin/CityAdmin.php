@@ -26,6 +26,8 @@ class CityAdmin extends Admin
 
     protected function configureListFields(ListMapper $listMapper)
     {
+        unset($this->listModes['mosaic']);
+
         $listMapper->addIdentifier('name', null, array('label' => 'Город'));
     }
 }

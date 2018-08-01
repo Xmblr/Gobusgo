@@ -70,23 +70,24 @@
                 <input id="sum" class="Input-text-1" style="position: absolute" placeholder="Сумма" readonly>
             </div>
             <div class="radio-cargo">
-                <label>
-                    <i class="fa fa-chevron-right" aria-hidden="true"></i>
-                    Юридическое лицо
-                    <input type="radio" class="option-input radio" name="example" id="legal" onchange="sum()" checked/>
 
-                </label>
                 <label>
                     <i class="fa fa-chevron-right" aria-hidden="true"></i>
                     Физическое лицо
-                    <input type="radio" class="option-input radio" name="example" id="individual" onchange="sum()"/>
+                    <input type="radio" class="option-input radio" name="example" id="individual" onchange="sum()" checked/>
+                </label>
+
+                <label>
+                    <i class="fa fa-chevron-right" aria-hidden="true"></i>
+                    Юридическое лицо
+                    <input type="radio" class="option-input radio" name="example" id="legal" onchange="sum()" />
+
                 </label>
             </div>
             <div style="text-align: center;">
                 <img src="{{ asset('images/road.png') }}" style="width: 800px;">
             </div>
 
-            {#TODO: сделать форму для юр лица#}
 
 
             <a href="#x" class="overlay" id="legal-form">
@@ -94,7 +95,57 @@
             <div class="popup">
                 <div class="section bg-gray-light container-fluid">
 
-                    <div id="legal_form">
+                    <div style="" id="individual_form">
+                        {{ form_start(individualCallform) }}
+                        <h2>Заявка для физического лица</h2>
+
+                        <div class="Input" style="display: none;">
+                            {{ form_errors(individualCallform.weight) }}
+                            {{ form_widget(individualCallform.weight, {'attr':{'class':'input-log', 'position': 'absolute','placeholder':'Вес\, кг','readonly':''}}) }}
+                        </div>
+                        <div class="Input" style="display: none;">
+                            <input class="Input-text" id="formIndividualOne" name="from"
+                                   position="absolute" value="" readonly/>
+                        </div>
+                        <div class="Input" style="display: none;">
+                            <input class="Input-text" id="formIndividualTwo" name="to"
+                                   position="absolute" value="" readonly/>
+                        </div>
+                        <div class="Input" style="display: none;">
+                            {{ form_errors(individualCallform.sum) }}
+                            {{ form_widget(individualCallform.sum, {'attr':{'class':'input-log', 'position': 'absolute','placeholder':'Сумма','readonly':''}}) }}
+                        </div>
+
+
+                        <div class="Input">
+                            {{ form_errors(individualCallform.name) }}
+                            {{ form_widget(individualCallform.name, {'attr':{'class':'input-log', 'position': 'absolute','placeholder':'Как вас зовут?'}}) }}
+                        </div>
+                        <div class="Input">
+                            {{ form_errors(individualCallform.phone) }}
+                            {{ form_widget(individualCallform.phone, {'attr':{'class':'input-log', 'position': 'absolute','placeholder':'Номер телефона'}}) }}
+                        </div>
+                        <div class="Input">
+                            {{ form_errors(individualCallform.notice) }}
+                            {{ form_widget(individualCallform.notice, {'attr':{'class':'input-log', 'position': 'absolute','placeholder':'Примечания'}}) }}
+                        </div>
+
+                        <div style="display:none">
+                            { form_widget(legalCallform.height) }}
+                            {{ form_widget(legalCallform.lenght) }}
+                            {{ form_widget(legalCallform.width) }}
+                            {{ form_widget(individualCallform.cities) }}
+
+                            {{ form_rest(individualCallform) }}
+                        </div>
+
+                        <div class="text-center" style="margin-bottom: 30px;">
+                            <input class="button-log" value="Оформить заявку" type="submit" onclick="city()">
+                        </div>
+                        {{ form_end(individualCallform) }}
+                    </div>
+
+                    <div style="display: none;" id="legal_form">
 
                         {{ form_start(legalCallform) }}
                         <h2>Заявка для юридического лица</h2>
@@ -176,57 +227,6 @@
                         {{ form_end(legalCallform) }}
                     </div>
 
-
-                    <div style="display: none;" id="individual_form">
-                        {{ form_start(individualCallform) }}
-                        <h2>Заявка для физического лица</h2>
-
-                        <div class="Input" style="display: none;">
-                            {{ form_errors(individualCallform.weight) }}
-                            {{ form_widget(individualCallform.weight, {'attr':{'class':'input-log', 'position': 'absolute','placeholder':'Вес\, кг','readonly':''}}) }}
-                        </div>
-                        <div class="Input" style="display: none;">
-                            <input class="Input-text" id="formIndividualOne" name="from"
-                                   position="absolute" value="" readonly/>
-                        </div>
-                        <div class="Input" style="display: none;">
-                            <input class="Input-text" id="formIndividualTwo" name="to"
-                                   position="absolute" value="" readonly/>
-                        </div>
-                        <div class="Input" style="display: none;">
-                            {{ form_errors(individualCallform.sum) }}
-                            {{ form_widget(individualCallform.sum, {'attr':{'class':'input-log', 'position': 'absolute','placeholder':'Сумма','readonly':''}}) }}
-                        </div>
-
-
-                        <div class="Input">
-                            {{ form_errors(individualCallform.name) }}
-                            {{ form_widget(individualCallform.name, {'attr':{'class':'input-log', 'position': 'absolute','placeholder':'Как вас зовут?'}}) }}
-                        </div>
-                        <div class="Input">
-                            {{ form_errors(individualCallform.phone) }}
-                            {{ form_widget(individualCallform.phone, {'attr':{'class':'input-log', 'position': 'absolute','placeholder':'Номер телефона'}}) }}
-                        </div>
-                        <div class="Input">
-                            {{ form_errors(individualCallform.notice) }}
-                            {{ form_widget(individualCallform.notice, {'attr':{'class':'input-log', 'position': 'absolute','placeholder':'Примечания'}}) }}
-                        </div>
-
-                        <div style="display:none">
-                            { form_widget(legalCallform.height) }}
-                            {{ form_widget(legalCallform.lenght) }}
-                            {{ form_widget(legalCallform.width) }}
-                            {{ form_widget(individualCallform.cities) }}
-
-                            {{ form_rest(individualCallform) }}
-                        </div>
-
-                        <div class="text-center" style="margin-bottom: 30px;">
-                            <input class="button-log" value="Оформить заявку" type="submit" onclick="city()">
-                        </div>
-                        {{ form_end(individualCallform) }}
-                    </div>
-
                 </div>
 
                 <a class="close" title="Закрыть" href="#close"></a>
@@ -267,6 +267,13 @@
             <div class="col-md-7 col-sm-7 col-xs-7">
                 <div style="height: 124px;">
                     <div class="radio-cargo-tablet">
+
+                        <label style="display: block; font-size: 18px; ">
+                            <input type="radio" class="option-input radio" style="margin-top: 5px;" name="example"/>
+                            Физическое лицо
+
+                        </label>
+
                         <label style="display: block; font-size: 18px; line-height: 20px;">
                             <input type="radio" class="option-input radio" name="example" style="margin-top: 5px;"
                                    checked/>
@@ -274,11 +281,7 @@
 
 
                         </label>
-                        <label style="display: block; font-size: 18px; ">
-                            <input type="radio" class="option-input radio" style="margin-top: 5px;" name="example"/>
-                            Физическое лицо
 
-                        </label>
                     </div>
                 </div>
                 <div style="height: 123px; padding-top: 10px;">
@@ -355,15 +358,18 @@
                 <div style="height: 124px;">
                     <h3 class="road-mobile-title">Клиент</h3>
                     <div class="radio-cargo-mobile">
+
+                        <label style="display: block; font-size: 14px;">
+                            <input type="radio" style="margin-top: 0px;" class="option-input radio" name="example"/>
+                            Физическое лицо
+                        </label>
+
                         <label style="display: block; font-size: 14px; margin-bottom: 0px;">
                             <input type="radio" style="margin-top: 0px;" class="option-input radio" name="example"
                                    checked/>
                             Юридическое лицо
                         </label>
-                        <label style="display: block; font-size: 14px;">
-                            <input type="radio" style="margin-top: 0px;" class="option-input radio" name="example"/>
-                            Физическое лицо
-                        </label>
+
                     </div>
                 </div>
                 <div style="height: 124px; padding-top: 10px;">
@@ -654,4 +660,8 @@
             document.getElementById('individual_call_sum').value = document.getElementById('sum').value;
         }
     </script>
+
+    {% include 'GobusgoGobusgoBundle:Blog:blog.html.twig' %}
+
+
 {% endblock %}

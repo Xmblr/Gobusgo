@@ -11,25 +11,34 @@
 
 #}
 
-
+<div class="col-md-12">
+    {% if '/add-comment/' in app.request.headers.get('referer') %}
+        <h1>Ваш комментарий принят для модерации и скоро появится на сайте. Спасибо.</h1>
+    {#{% else %}#}
+        {#<h1>{{ title }}</h1>#}
+    {% endif %}
+</div>
 
     <div class="col-md-12">
         <div style="margin-top: 30px;">
             <h4 class="text-left">{{'title_leave_comment'|trans({}, 'SonataNewsBundle') }}:</h4>
         </div>
         {{ form_start(form, { attr: { class: 'form-horizontal', role: 'form' } }) }}
-            {#{{ form_widget(form) }}#}
         <div>
-            {{ form_row(form.name, {attr: {class: 'input-log' }}) }}
+            {{ form_errors(form.name) }}
+            {{ form_widget(form.name, {attr: {class: 'input-log' }}) }}
         </div>
         <div>
-            {{ form_row(form.email, {attr: {class: 'input-log' }}) }}
+            {{ form_errors(form.email) }}
+            {{ form_widget(form.email, {attr: {class: 'input-log' }}) }}
         </div>
         <div hidden>
-            {{ form_row(form.url, {attr: {class: 'input-log', value: 'none' }}) }}
+            {{ form_errors(form.url) }}
+            {{ form_widget(form.url, {attr: {class: 'input-log', value: 'http://none' }}) }}
         </div>
         <div>
-            {{ form_row(form.message, {attr: {class: 'input-log' }}) }}
+            {{ form_errors(form.message) }}
+            {{ form_widget(form.message, {attr: {class: 'input-log', style: 'height: 300px' }}) }}
         </div>
 
         <div class="form-actions" style="margin-top: 5%">

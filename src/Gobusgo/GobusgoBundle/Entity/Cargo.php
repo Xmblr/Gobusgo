@@ -56,12 +56,7 @@ class Cargo
      */
     private $weight;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="cn", type="string", length=255)
-     */
-    private $CN;
+
 
     /**
      *
@@ -215,29 +210,6 @@ class Cargo
         return $this->weight;
     }
 
-    /**
-     * Set cN.
-     *
-     * @param string $cN
-     *
-     * @return Cargo
-     */
-    public function setCN($cN)
-    {
-        $this->CN = $cN;
-
-        return $this;
-    }
-
-    /**
-     * Get cN.
-     *
-     * @return string
-     */
-    public function getCN()
-    {
-        return $this->CN;
-    }
 
     public function __toString()
     {

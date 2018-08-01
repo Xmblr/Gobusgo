@@ -26,8 +26,16 @@ class PageController extends Controller
 
         $callform = $this->Call($request);
 
+        $em = $this->getDoctrine()
+            ->getManager();
+
+        $blogs = $em->getRepository('GobusgoGobusgoBundle:Blog')
+            ->getLatestBlogs(3);
+
+
         return $this->render('@GobusgoGobusgo/Page/index.html.twig', array(
-        'callform' =>$callform->createView()
+            'callform' =>$callform->createView(),
+            'blogs' => $blogs
         ));
     }
 
@@ -89,8 +97,16 @@ class PageController extends Controller
         ;
         $callform = $this->Call($request);
 
+        $em = $this->getDoctrine()
+            ->getManager();
+
+        $blogs = $em->getRepository('GobusgoGobusgoBundle:Blog')
+            ->getLatestBlogs(3);
+
+
         return $this->render('@GobusgoGobusgo/Page/about.html.twig', array(
-            'callform' =>$callform->createView()
+            'callform' =>$callform->createView(),
+            'blogs'=>$blogs
         ));
     }
 
@@ -169,11 +185,19 @@ class PageController extends Controller
 
         $callform = $this->Call($request);
 
+        $em = $this->getDoctrine()
+            ->getManager();
+
+        $blogs = $em->getRepository('GobusgoGobusgoBundle:Blog')
+            ->getLatestBlogs(3);
+
+
         return $this->render('@GobusgoGobusgo/Page/deliveryRB.html.twig', array(
             'callform' =>$callform->createView(),
             'individualCallform' =>$individualCallform->createView(),
             'legalCallform' =>$legalCallform->createView(),
-            'cities'=>$cities
+            'cities'=>$cities,
+            'blogs'=>$blogs
         ));
     }
 
@@ -189,8 +213,17 @@ class PageController extends Controller
 
         $callform = $this->Call($request);
 
+        $em = $this->getDoctrine()
+            ->getManager();
+
+        $blogs = $em->getRepository('GobusgoGobusgoBundle:Blog')
+            ->getLatestBlogs(3);
+
+
+
         return $this->render('@GobusgoGobusgo/Page/deliveryMinsk.html.twig', array(
-            'callform' =>$callform->createView()
+            'callform' =>$callform->createView(),
+            'blogs'=>$blogs
         ));
     }
 
@@ -255,13 +288,20 @@ class PageController extends Controller
 
         $callform = $this->Call($request);
 
+        $em = $this->getDoctrine()
+            ->getManager();
+
+        $blogs = $em->getRepository('GobusgoGobusgoBundle:Blog')
+            ->getLatestBlogs(3);
+
+
         return $this->render('@GobusgoGobusgo/Page/deliveryMoscowMinsk.html.twig', array(
             'callform' =>$callform->createView(),
             'individualCallform' =>$individualCallform->createView(),
-            'legalCallform' =>$legalCallform->createView()
+            'legalCallform' =>$legalCallform->createView(),
+            'blogs'=>$blogs
         ));
     }
-
 
     public function contactsAction(Request $request)
     {
@@ -277,6 +317,60 @@ class PageController extends Controller
 
         return $this->render('@GobusgoGobusgo/Page/contacts.html.twig', array(
             'callform' =>$callform->createView()
+        ));
+    }
+
+    public function blogAction(Request $request)
+    {
+        $em = $this->getDoctrine()
+            ->getManager();
+
+        $blogs = $em->getRepository('GobusgoGobusgoBundle:Blog')
+            ->getLatestBlogs();
+
+
+        return $this->render('GobusgoGobusgoBundle:Blog:index.html.twig', array(
+            'blogs' => $blogs
+        ));
+    }
+
+    public function blogShowAction($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $blog = $em->getRepository('GobusgoGobusgoBundle:Blog')->find($id);
+
+        if (!$blog) {
+            throw $this->createNotFoundException('Unable to find Blog post.');
+        }
+
+        $comments = $em->getRepository('GobusgoGobusgoBundle:Comment')
+            ->getCommentsForBlog($blog->getId());
+
+        return $this->render('GobusgoGobusgoBundle:Blog:show.html.twig', array(
+            'blog'      => $blog,
+            'comments'  => $comments
+        ));
+    }
+
+    public function sidebarAction()
+    {
+        $em = $this->getDoctrine()
+            ->getManager();
+
+        $tags = $em->getRepository('GobusgoGobusgoBundle:Blog')
+            ->getTags();
+
+        $tagWeights = $em->getRepository('GobusgoGobusgoBundle:Blog')
+            ->getTagWeights($tags);
+
+        $commentLimit   = 10;
+        $latestComments = $em->getRepository('GobusgoGobusgoBundle:Comment')
+            ->getLatestComments($commentLimit);
+
+        return $this->render('GobusgoGobusgoBundle:Blog:sidebar.html.twig', array(
+            'latestComments'    => $latestComments,
+            'tags'              => $tagWeights
         ));
     }
 
@@ -298,7 +392,7 @@ class PageController extends Controller
 //                    ->add('success', 'Спасибо за оформление обратного званка. Наши специалисты свяжутся с вами в ближайшее время.');
                 $this->addFlash(
                     'success',
-                    'Спасибо за оформление обратного званка. Наши специалисты свяжутся с вами в ближайшее время.'
+                    'Спасибо за оформление обратного звонка. Наши специалисты свяжутся с вами в ближайшее время.'
                 );
             }
         }

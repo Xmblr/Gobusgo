@@ -39,3 +39,23 @@ gobusgo_gobusgo_contacts:
 gobusgo_gobusgo_confirm:
     path:     /confirm
     defaults: { _controller: GobusgoGobusgoBundle:Page:confirm }
+
+gobusgo_gobusgo_blog:
+    path:     /blog
+    defaults: { _controller: GobusgoGobusgoBundle:Page:blog }
+    requirements:
+        methods:  GET|POST
+
+gobusgo_gobusgo_blog_show:
+    path:     /blog/{id}
+    defaults: { _controller: GobusgoGobusgoBundle:Page:blogShow }
+    requirements:
+        methods:  GET|POST
+        id: \d+
+
+gobusgo_gobusgo_comment_create:
+    path:  /comment/{blog_id}
+    defaults: { _controller: "GobusgoGobusgoBundle:Comment:create" }
+    requirements:
+        methods:  POST
+        blog_id: \d+
