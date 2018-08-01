@@ -7,6 +7,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Gobusgo\GobusgoBundle\Entity\Comment;
 use Gobusgo\GobusgoBundle\Form\CommentType;
 use Symfony\Component\HttpFoundation\Request;
+use Gobusgo\GobusgoBundle\Controller\PageController;
 
 /**
  * Comment controller.
@@ -48,8 +49,27 @@ class CommentController extends Controller
 
             $this->addFlash('info', 'Ваш коментарий отправлен, он появится после модерации.');
 
+            $transport = \Swift_SmtpTransport::newInstance(
+                $this->container->getParameter('mailer_host'),
+                $this->container->getParameter('mailer_port'),
+                $this->container->getParameter('mailer_encryption')
+            )
+                ->setUsername($this->container->getParameter('mailer_user'))
+                ->setPassword($this->container->getParameter('mailer_password'))
+            ;
+
+            $message = \Swift_Message::newInstance('Новый комментарий в блоге')
+                ->setFrom(array('seo-newline@mail.ru' => 'Блог'))
+                ->setTo($this->container->getParameter('gobusgo.emails.contact_email'))
+                ->setBody('Новый комментарий в блоге');
+            ;
+
+            $transport->send($message);
+
+
             return $this->redirect($this->generateUrl('gobusgo_gobusgo_blog_show', array(
-                    'id' => $comment->getBlog()->getId())) .
+                    'id'    => $comment->getBlog()->getId(),
+                    'url'  => $comment->getBlog()->getUrl())) .
                 '#comment-' . $comment->getId()
             );
         }

@@ -40,6 +40,9 @@ gobusgo_gobusgo_confirm:
     path:     /confirm
     defaults: { _controller: GobusgoGobusgoBundle:Page:confirm }
 
+
+#    ------------------------------blog
+
 gobusgo_gobusgo_blog:
     path:     /blog
     defaults: { _controller: GobusgoGobusgoBundle:Page:blog }
@@ -47,7 +50,7 @@ gobusgo_gobusgo_blog:
         methods:  GET|POST
 
 gobusgo_gobusgo_blog_show:
-    path:     /blog/{id}
+    path:     /blog/{id}/{url}
     defaults: { _controller: GobusgoGobusgoBundle:Page:blogShow }
     requirements:
         methods:  GET|POST
@@ -55,7 +58,15 @@ gobusgo_gobusgo_blog_show:
 
 gobusgo_gobusgo_comment_create:
     path:  /comment/{blog_id}
-    defaults: { _controller: "GobusgoGobusgoBundle:Comment:create" }
+    defaults: { _controller: GobusgoGobusgoBundle:Comment:create }
     requirements:
         methods:  POST
         blog_id: \d+
+
+
+gobusgo_gobusgo_category:
+    path:  /blog/category/{id}/{category}
+    defaults: { _controller: GobusgoGobusgoBundle:Page:category,  }
+    requirements:
+        methods:  POST
+        id: \d+

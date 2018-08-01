@@ -4,7 +4,8 @@ namespace Gobusgo\GobusgoBundle\Repository;
 
 class BlogRepository extends \Doctrine\ORM\EntityRepository
 {
-    public function getLatestBlogs($limit = null)
+
+    public function getLatestBlogs($limit = null, $id = null)
     {
         $qb = $this->createQueryBuilder('b')
             ->select('b')
@@ -13,6 +14,10 @@ class BlogRepository extends \Doctrine\ORM\EntityRepository
 
         if (false === is_null($limit))
             $qb->setMaxResults($limit);
+
+        if (false === is_null($id))
+            $qb->andWhere('b.category = :category')
+                ->setParameter('category', $id);
 
         return $qb->getQuery()
             ->getResult();

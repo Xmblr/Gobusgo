@@ -22,6 +22,13 @@ services:
             - { name: sonata.admin, manager_type: orm, label: Пользователи , group: "app.admin.group.admin" }
         public: true
 
+    admin.seo:
+        class: Gobusgo\GobusgoBundle\Admin\SeoAdmin
+        arguments: [~, Gobusgo\GobusgoBundle\Entity\Seo, ~]
+        tags:
+        - { name: sonata.admin, manager_type: orm, label: Seo , group: "app.admin.group.admin" }
+        public: true
+
     admin.blog:
         class: Gobusgo\GobusgoBundle\Admin\BlogAdmin
         arguments: [~, Gobusgo\GobusgoBundle\Entity\Blog, ~]
@@ -34,6 +41,13 @@ services:
         arguments: [~, Gobusgo\GobusgoBundle\Entity\Comment, ~]
         tags:
         - { name: sonata.admin, manager_type: orm, label: Комментарии , group: "app.admin.group.moderator" }
+        public: true
+
+    admin.category:
+        class: Gobusgo\GobusgoBundle\Admin\CategoryAdmin
+        arguments: [~, Gobusgo\GobusgoBundle\Entity\Category, ~]
+        tags:
+        - { name: sonata.admin, manager_type: orm, label: Категории , group: "app.admin.group.moderator" }
         public: true
 #    admin.news:
 #        class: Sonata\NewsBundle\Admin\PostAdmin
@@ -126,38 +140,3 @@ services:
         class: Gobusgo\GobusgoBundle\Form\ProfileFormType
         tags:
             - { name: form.type, alias: app_user_profile }
-
-#    sonata.block.service.infouser:
-#        class: Gobusgo\GobusgoBundl\Block\UserInfoBlockService
-#        arguments: { name: "sonata.block.service.infouser"}
-#        tags:
-#            - { name: sonata.block}
-
-
-#   --------------------------- Form builders ----------------------------------
-
-
-#        GobusgoGobusgoBundle
-    # makes classes in src/GobusgoBundle available to be used as services
-    # this creates a service per class whose id is the fully-qualified class name
-#    GobusgoBundle\:
-#        resource: '../../src/GobusgoBundle/*'
-#        # you can exclude directories or files
-#        # but if a service is unused, it's removed anyway
-#        exclude: '../../src/GobusgoBundle/{Entity,Repository,Tests}'
-#
-#    # controllers are imported separately to make sure they're public
-#    # and have a tag that allows actions to type-hint services
-#    GobusgoBundle\Controller\:
-#        resource: '../../src/GobusgoBundle/Controller'
-#        public: true
-#        tags: ['controller.service_arguments']
-#
-#    GobusgoBundle\Resources\:
-#        resource: '../../src/GobusgoBundle/Resources'
-#        public: true
-#        tags: ['twig.extension']
-    # add more services, or override services that need manual wiring
-    # GobusgoBundle\Service\ExampleService:
-    #     arguments:
-    #         $someArgument: 'some_value'

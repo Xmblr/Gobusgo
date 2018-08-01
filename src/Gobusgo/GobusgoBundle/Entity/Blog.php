@@ -26,7 +26,8 @@ class Blog
     protected $title;
 
     /**
-     * @ORM\Column(type="string", length=100)
+     *
+     * @ORM\ManyToOne(targetEntity="Gobusgo\GobusgoBundle\Entity\User", cascade={"persist"}, inversedBy="id")
      */
     protected $author;
 
@@ -42,10 +43,6 @@ class Blog
      */
     protected $image;
 
-//    /**
-//     * @ORM\Column(type="string", length=20)
-//     */
-//    protected $image;
 
     /**
      * @ORM\Column(type="text")
@@ -67,6 +64,22 @@ class Blog
      */
     protected $updated;
 
+    /**
+     * @ORM\Column(type="string")
+     */
+    protected $url;
+
+//    /**
+//     * @ORM\Column(type="string")
+//     */
+//    protected $slug;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Category", inversedBy="blogs")
+     * @ORM\JoinColumn(name="category_id", referencedColumnName="id")
+     */
+    protected $category;
+
     public function __construct()
     {
         $this->comments = new ArrayCollection();
@@ -77,8 +90,36 @@ class Blog
 
     public function __toString()
     {
-        return $this->getTitle();
+        return (string) $this->getTitle();
     }
+
+//    public function slugify($text)
+//    {
+//        // replace non letter or digits by -
+//        $text = preg_replace('#[^\\pL\d]+#u', '-', $text);
+//
+//        // trim
+//        $text = trim($text, '-');
+//
+//        // transliterate
+//        if (function_exists('iconv'))
+//        {
+//            $text = iconv('utf-8', 'us-ascii//TRANSLIT', $text);
+//        }
+//
+//        // lowercase
+//        $text = strtolower($text);
+//
+//        // remove unwanted characters
+//        $text = preg_replace('#[^-\w]+#', '', $text);
+//
+//        if (empty($text))
+//        {
+//            return 'n-a';
+//        }
+//
+//        return $text;
+//    }
 
     /**
      * @ORM\PreUpdate
@@ -110,7 +151,7 @@ class Blog
     {
         $this->title = $title;
 
-        return $this;
+        $this->setSlug($this->title);
     }
 
     /**
@@ -304,5 +345,75 @@ class Blog
     public function getComments()
     {
         return $this->comments;
+    }
+
+//    /**
+//     * Set slug.
+//     *
+//     * @param string $slug
+//     *
+//     * @return Blog
+//     */
+//    public function setSlug($slug)
+//    {
+//        $this->slug = $this->slugify($slug);
+//    }
+//
+//    /**
+//     * Get slug.
+//     *
+//     * @return string
+//     */
+//    public function getSlug()
+//    {
+//        return $this->slug;
+//    }
+
+    /**
+     * Set category.
+     *
+     * @param \Gobusgo\GobusgoBundle\Entity\Category|null $category
+     *
+     * @return Blog
+     */
+    public function setCategory(\Gobusgo\GobusgoBundle\Entity\Category $category = null)
+    {
+        $this->category = $category;
+
+        return $this;
+    }
+
+    /**
+     * Get category.
+     *
+     * @return \Gobusgo\GobusgoBundle\Entity\Category|null
+     */
+    public function getCategory()
+    {
+        return $this->category;
+    }
+
+    /**
+     * Set url.
+     *
+     * @param string $url
+     *
+     * @return Blog
+     */
+    public function setUrl($url)
+    {
+        $this->url = $url;
+
+        return $this;
+    }
+
+    /**
+     * Get url.
+     *
+     * @return string
+     */
+    public function getUrl()
+    {
+        return $this->url;
     }
 }
