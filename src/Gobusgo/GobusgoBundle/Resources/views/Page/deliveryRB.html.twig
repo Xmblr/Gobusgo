@@ -5,309 +5,389 @@
         <div class="row">
             <div class="col-md-10 col-md-push-1">
                 <h1>Грузоперевозки по Беларуси</h1>
-                <p class="text-center" style="font-size: 20px; line-height: 24px;">В наше время различная деятельность
-                    разных компаний
-                    не обходится без очень тесного сотрудничества с компаниями, которые занимаются грузоперевозками
-                    (транспортно-экспедиционная компания). Для многих компаний качественная, быстрая, своевременная
-                    доставка
-                    различного груза является одним из важнейших факторов, которые влияют на развитие и стабильность
-                    данной
-                    компании. Для частных компаний высокий уровень оказания транспортных услуг является не менее важным,
-                    потому
-                    что это залог уверенности и полного спокойствия во время перевозки имущества. Вследствие этого с
-                    каждым
-                    годом интерес и спрос на различные грузоперевозки растёт и растёт.</p>
+                <p class="text-center" style="font-size: 20px; line-height: 24px;">В современном ритме жизни мы постоянно сталкиваемся с необходимостью доставить груз по Беларуси, будь то товар из магазина или просто требуется передать посылку родственникам. Служба доставки GOBUSGO быстро и бережно справится с этой задачей.</p>
             </div>
         </div>
     </div>
 
-    <div class="container road-loptop" style="width: 1170px;">
-        <div class="row">
+    <div class="container road-loptop">
+        <div class="row" style="text-align: center;">
             <h2>Расчет стоимости грузоперевозки:</h2>
-            <span class="road-text-1">Клиент</span>
-            <span class="road-text-2">Габариты</span>
-            <span class="road-text-3">Город</span>
-            <span class="road-text-4">Итого</span>
-            <span class="line-1"></span>
-            <span class="line-2"></span>
-            <span class="line-3"></span>
-            <span class="line-4"></span>
-            <span class="line-55"></span>
-            <span class="line-6"></span>
-            <span class="line-7"></span>
-            <span class="line-8"></span>
-            <span class="line-9"></span>
-            <span class="line-10"></span>
-            <div class="additional-city" onclick="addCity()" id="addCity">
-                <i class="fa fa-plus fa-2x" style="vertical-align: middle; " aria-hidden="true"></i>
+            <img src="{{ asset('images/road2.png') }}" style="width: 100%;">
+            <div class="col-md-3">
+
+                <h4 style="text-align: center;">Клиент</h4>
+                <label>
+
+                Юридическое лицо
+                <input type="radio" class="option-input radio" name="example" id="legal" onchange="sum()" checked/>
+
+                </label>
+                <label>
+                Физическое лицо
+                <input type="radio" class="option-input radio" name="example" id="individual" onchange="sum()"/>
+                </label>
             </div>
-            <div class="delete-city" onclick="deleteCity()" id="deleteCity">
-                <i class="fa fa-minus fa-2x" style="vertical-align: middle; " aria-hidden="true"></i>
+            <div class="col-md-3">
+
+                <h4 style="text-align: center;">Габариты</h4>
+                <div class="Input">
+
+                    <input class="input-log" type="text" id="weight"  name="_username" value="" required="required" placeholder="Вес, кг">
+                </div>
+                <div class="Input">
+
+                    <input class="input-log" type="text" id="lenght"  name="_username" value="" required="required" placeholder="Длинна">
+                </div>
+                <div class="Input">
+
+                    <input class="input-log" type="text" id="width"  name="_username" value="" required="required" placeholder="Ширина">
+                </div>
+                <div class="Input">
+
+                    <input class="input-log" type="text" id="height"  name="_username" value="" required="required" placeholder="Высота">
+                </div>
             </div>
+            <div class="col-md-3">
+                <h4 style="text-align: center;">Направление</h4>
+                <div class="Input">
+                    <div id="city1area">
+
+                        <select class="input-log select2-hidden-accessible" onchange="city()" id="city1">
+                            <option>Откуда...</option>
+                            {% for cities in cities %}
+                                <option value="{{ cities.name }}">{{ cities.name }}</option>
+                            {% endfor %}
+                            <div class="selectize-dropdown single">
+                                <div class="selectize-dropdown-content"></div>
+                            </div>
+                        </select>
+                    </div>
+                </div>
+                <div class="Input">
+                    <div id="city2area">
+                        <select class="input-log" onchange="city()" id="city2">
+                            <option>Куда...</option>
+                            {% for cities in cities %}
+                                <option value="{{ cities.name }}">{{ cities.name }}</option>
+                            {% endfor %}
+                            <div class="selectize-dropdown single">
+                                <div class="selectize-dropdown-content"></div>
+                            </div>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="Input">
+                    <div id="city3area" style="visibility: hidden">
+                        <select class="input-log" onchange="city()" id="city3">
+                            <option>Доп. пункт</option>
+                            {% for cities in cities %}
+                                <option value="{{ cities.name }}">{{ cities.name }}</option>
+                            {% endfor %}
+                            <div class="selectize-dropdown single">
+                                <div class="selectize-dropdown-content"></div>
+                            </div>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <h4 style="text-align: center;">Сумма</h4>
+                <div class="Input">
+
+                <input id="sum" class="input-log" placeholder="Сумма">
+                </div>
+                <div class="text-center">
+                <a style="padding: 10px 20px; font-size: 18px;" class="button-log" href="#legal-form"
+                onclick="openform()">Оформление
+                заявки</a>
+                </div>
+            </div>
+        </div>
+        {#<div class="row">#}
+            {#<h2>Расчет стоимости грузоперевозки:</h2>#}
+            {#<span class="road-text-1">Клиент</span>#}
+            {#<span class="road-text-2">Габариты</span>#}
+            {#<span class="road-text-3">Город</span>#}
+            {#<span class="road-text-4">Итого</span>#}
+            {#<span class="line-1"></span>#}
+            {#<span class="line-2"></span>#}
+            {#<span class="line-3"></span>#}
+            {#<span class="line-4"></span>#}
+            {#<span class="line-55"></span>#}
+            {#<span class="line-6"></span>#}
+            {#<span class="line-7"></span>#}
+            {#<span class="line-8"></span>#}
+            {#<span class="line-9"></span>#}
+            {#<span class="line-10"></span>#}
+            {#<div class="additional-city" onclick="addCity()" id="addCity">#}
+                {#<i class="fa fa-plus fa-2x" style="vertical-align: middle; " aria-hidden="true"></i>#}
+            {#</div>#}
+            {#<div class="delete-city" onclick="deleteCity()" id="deleteCity">#}
+                {#<i class="fa fa-minus fa-2x" style="vertical-align: middle; " aria-hidden="true"></i>#}
+            {#</div>#}
 
 
-            <div class="Input-1-1">
-                <i class="fa fa-chevron-left" aria-hidden="true"
-                   style="position: absolute; margin-left: 170px; margin-top: 51px; font-size: 20px; color: #7d88ff;"></i>
+            {#<div class="Input-1-1">#}
+                {#<i class="fa fa-chevron-left" aria-hidden="true"#}
+                   {#style="position: absolute; margin-left: 170px; margin-top: 51px; font-size: 20px; color: #7d88ff;"></i>#}
                 {#<div class="Input">#}
                 {#{{ form_errors(legalCallform.weight) }}#}
                 {#{{ form_widget(legalCallform.weight, {'attr':{'class':'Input-text', 'position': 'absolute','placeholder':'Вес\, кг','readonly':''}}) }}#}
                 {#</div>#}
-                <input id="weight" class="Input-text-1" style="position: absolute" placeholder="Вес, кг"
-                       onchange="sum()">
-            </div>
-            <div class="Input-1-2">
-                <input id="height" class="Input-text-1" style="position: absolute" placeholder="Высота"
-                       onchange="sum()">
-            </div>
-            <div class="Input-1-3">
-                <input id="lenght" class="Input-text-1" style="position: absolute" placeholder="Длинна"
-                       onchange="sum()">
-            </div>
-            <div class="Input-1-4">
-                <input id="width" class="Input-text-1" style="position: absolute" placeholder="Глубина"
-                       onchange="sum()">
-            </div>
+                {#<input id="weight" class="Input-text-1" style="position: absolute" placeholder="Вес, кг"#}
+                       {#onchange="sum()">#}
+            {#</div>#}
+            {#<div class="Input-1-2">#}
+                {#<input id="height" class="Input-text-1" style="position: absolute" placeholder="Высота"#}
+                       {#onchange="sum()">#}
+            {#</div>#}
+            {#<div class="Input-1-3">#}
+                {#<input id="lenght" class="Input-text-1" style="position: absolute" placeholder="Длинна"#}
+                       {#onchange="sum()">#}
+            {#</div>#}
+            {#<div class="Input-1-4">#}
+                {#<input id="width" class="Input-text-1" style="position: absolute" placeholder="Глубина"#}
+                       {#onchange="sum()">#}
+            {#</div>#}
 
 
-            <div class="Input-2">
-                <i class="fa fa-chevron-right" aria-hidden="true"
-                   style="position: absolute; margin-left: -19px; margin-top: 16px; font-size: 20px; color: #7d88ff;"></i>
-                <div id="city1area">
-                    <select class="Input-text-3" onchange="city()" id="city1">
-                        <option>Откуда...</option>
-                        {% for cities in cities %}
-                            <option value="{{ cities.name }}">{{ cities.name }}</option>
-                        {% endfor %}
-                        <div class="selectize-dropdown single">
-                            <div class="selectize-dropdown-content"></div>
-                        </div>
-                    </select>
-                </div>
-            </div>
-            <div class="Input-3">
-                <i class="fa fa-chevron-right" aria-hidden="true"
-                   style="position: absolute; margin-left: -19px; margin-top: 15px; font-size: 20px; color: #7d88ff;"></i>
-                <div id="city2area">
-                    <select class="Input-text-3" onchange="city()" id="city2">
-                        <option>Куда...</option>
-                        {% for cities in cities %}
-                            <option value="{{ cities.name }}">{{ cities.name }}</option>
-                        {% endfor %}
-                        <div class="selectize-dropdown single">
-                            <div class="selectize-dropdown-content"></div>
-                        </div>
-                    </select>
-                </div>
-            </div>
+            {#<div class="Input-2">#}
+                {#<i class="fa fa-chevron-right" aria-hidden="true"#}
+                   {#style="position: absolute; margin-left: -19px; margin-top: 16px; font-size: 20px; color: #7d88ff;"></i>#}
+                {#<div id="city1area">#}
+                    {#<select class="Input-text-3" onchange="city()" id="city1">#}
+                        {#<option>Откуда...</option>#}
+                        {#{% for cities in cities %}#}
+                            {#<option value="{{ cities.name }}">{{ cities.name }}</option>#}
+                        {#{% endfor %}#}
+                        {#<div class="selectize-dropdown single">#}
+                            {#<div class="selectize-dropdown-content"></div>#}
+                        {#</div>#}
+                    {#</select>#}
+                {#</div>#}
+            {#</div>#}
+            {#<div class="Input-3">#}
+                {#<i class="fa fa-chevron-right" aria-hidden="true"#}
+                   {#style="position: absolute; margin-left: -19px; margin-top: 15px; font-size: 20px; color: #7d88ff;"></i>#}
+                {#<div id="city2area">#}
+                    {#<select class="Input-text-3" onchange="city()" id="city2">#}
+                        {#<option>Куда...</option>#}
+                        {#{% for cities in cities %}#}
+                            {#<option value="{{ cities.name }}">{{ cities.name }}</option>#}
+                        {#{% endfor %}#}
+                        {#<div class="selectize-dropdown single">#}
+                            {#<div class="selectize-dropdown-content"></div>#}
+                        {#</div>#}
+                    {#</select>#}
+                {#</div>#}
+            {#</div>#}
 
-            <div class="Input-3-1">
-                <div id="city3area" style="visibility: hidden">
-                    <select class="Input-text-3" onchange="city()" id="city3">
-                        <option>Доп. пункт</option>
-                        {% for cities in cities %}
-                            <option value="{{ cities.name }}">{{ cities.name }}</option>
-                        {% endfor %}
-                        <div class="selectize-dropdown single">
-                            <div class="selectize-dropdown-content"></div>
-                        </div>
-                    </select>
-                </div>
-            </div>
+            {#<div class="Input-3-1">#}
+                {#<div id="city3area" style="visibility: hidden">#}
+                    {#<select class="Input-text-3" onchange="city()" id="city3">#}
+                        {#<option>Доп. пункт</option>#}
+                        {#{% for cities in cities %}#}
+                            {#<option value="{{ cities.name }}">{{ cities.name }}</option>#}
+                        {#{% endfor %}#}
+                        {#<div class="selectize-dropdown single">#}
+                            {#<div class="selectize-dropdown-content"></div>#}
+                        {#</div>#}
+                    {#</select>#}
+                {#</div>#}
+            {#</div>#}
 
-            <div class="Input-4">
-                <i class="fa fa-chevron-left" aria-hidden="true"
-                   style="position: absolute; margin-left: 152px; margin-top: 17px; font-size: 20px; color: #7d88ff;"></i>
-                <input id="sum" class="Input-text-1" style="position: absolute" placeholder="Сумма">
-            </div>
-            <div class="radio-cargo">
-                <label>
-                    <i class="fa fa-chevron-right" aria-hidden="true"></i>
-                    Физическое лицо
-                    <input type="radio" class="option-input radio" name="example" id="individual" onchange="sum()"  />
-                </label>
-                <label>
-                    <i class="fa fa-chevron-right" aria-hidden="true"></i>
-                    Юридическое лицо
-                    <input type="radio" class="option-input radio" name="example" id="legal" onchange="sum()" />
+            {#<div class="Input-4">#}
+                {#<i class="fa fa-chevron-left" aria-hidden="true"#}
+                   {#style="position: absolute; margin-left: 152px; margin-top: 17px; font-size: 20px; color: #7d88ff;"></i>#}
+                {#<input id="sum" class="Input-text-1" style="position: absolute" placeholder="Сумма">#}
+            {#</div>#}
+            {#<div class="radio-cargo">#}
+                {#<label>#}
+                    {#<i class="fa fa-chevron-right" aria-hidden="true"></i>#}
+                    {#Юридическое лицо#}
+                    {#<input type="radio" class="option-input radio" name="example" id="legal" onchange="sum()" checked/>#}
 
-                </label>
-
-            </div>
-            <div style="text-align: center;">
-                <img src="{{ asset('images/road.png') }}" style="width: 800px;">
-            </div>
-
-
-            <a href="#x" class="overlay" id="legal-form">
-            </a>
-            <div class="popup">
-                <div class="section bg-gray-light container-fluid">
-
-                    <h2 style="margin: 20px;">Заявка</h2>
-
-                    <div style="" id="individual_form">
-                        {{ form_start(individualCallform) }}
+                {#</label>#}
+                {#<label>#}
+                    {#<i class="fa fa-chevron-right" aria-hidden="true"></i>#}
+                    {#Физическое лицо#}
+                    {#<input type="radio" class="option-input radio" name="example" id="individual" onchange="sum()"/>#}
+                {#</label>#}
+            {#</div>#}
+            {#<div style="text-align: center;">#}
+                {#<img src="{{ asset('images/road.png') }}" style="width: 800px;">#}
+            {#</div>#}
 
 
-                        <div class="Input" style="display:none;">
-                            {{ form_errors(individualCallform.weight) }}
-                            {{ form_widget(individualCallform.weight, {'attr':{'class':'input-log', 'position': 'absolute','placeholder':'Вес\, кг','readonly':''}}) }}
-                        </div>
-                        <div class="Input" style="display:none;">
-                            {{ form_errors(individualCallform.height) }}
-                            {{ form_widget(individualCallform.height, {'attr':{'class':'input-log', 'position': 'absolute','placeholder':'Высота','readonly':''}}) }}
-                        </div>
-                        <div class="Input" style="display:none;">
-                            {{ form_errors(individualCallform.lenght) }}
-                            {{ form_widget(individualCallform.lenght, {'attr':{'class':'input-log', 'position': 'absolute','placeholder':'Длинна','readonly':''}}) }}
-                        </div>
-                        <div class="Input" style="display:none;">
-                            {{ form_errors(individualCallform.width) }}
-                            {{ form_widget(individualCallform.width, {'attr':{'class':'input-log', 'position': 'absolute','placeholder':'Глубина','readonly':''}}) }}
-                        </div>
-                        <div class="Input" style="display:none;">
-                            <input class="Input-text" id="formIndividualCity1" position="absolute" readonly/>
-                        </div>
-                        <div class="Input" style="display:none;">
-                            <input class="Input-text" id="formIndividualCity2" position="absolute" readonly/>
-                        </div>
-                        <div class="Input" style="display:none;">
-                            <input class="Input-text" id="formIndividualCity3" position="absolute" readonly/>
-                        </div>
-                        <div class="Input" style="display:none;">
-                            {{ form_errors(individualCallform.sum) }}
-                            {{ form_widget(individualCallform.sum, {'attr':{'class':'input-log', 'position': 'absolute','placeholder':'Сумма','readonly':''}}) }}
-                        </div>
-                        <div class="Input">
-                            {{ form_errors(individualCallform.name) }}
-                            {{ form_widget(individualCallform.name, {'attr':{'class':'input-log', 'position': 'absolute','placeholder':'Как вас зовут?'}}) }}
-                        </div>
-                        <div class="Input">
-                            {{ form_errors(individualCallform.phone) }}
-                            {{ form_widget(individualCallform.phone, {'attr':{'class':'input-log', 'position': 'absolute','placeholder':'Номер телефона'}}) }}
-                        </div>
-                        <div class="Input">
-                            {{ form_errors(individualCallform.notice) }}
-                            {{ form_widget(individualCallform.notice, {'attr':{'class':'input-log', 'position': 'absolute','placeholder':'Примечания'}}) }}
-                        </div>
+            {#<a href="#x" class="overlay" id="legal-form">#}
+            {#</a>#}
+            {#<div class="popup">#}
+                {#<div class="section bg-gray-light container-fluid">#}
 
-                        <div style="display:none">
-                            {{ form_widget(individualCallform.cities) }}
+                    {#<h2 style="margin: 20px;">Заявка</h2>#}
 
-                            {{ form_rest(individualCallform) }}
-                        </div>
+                    {#<div style="" id="legal_form">#}
+                        {#{{ form_start(legalCallform) }}#}
+                        {#<div class="col-md-6">#}
+                            {#<div class="Input">#}
+                                {#{{ form_errors(legalCallform.organization) }}#}
+                                {#{{ form_widget(legalCallform.organization, {'attr':{'class':'input-log', 'position': 'absolute','placeholder':'Название организации'}}) }}#}
+                            {#</div>#}
+                            {#<div class="Input">#}
+                                {#{{ form_errors(legalCallform.fullName) }}#}
+                                {#{{ form_widget(legalCallform.fullName, {'attr':{'class':'input-log', 'position': 'absolute','placeholder':'Контактное лицо'}}) }}#}
+                            {#</div>#}
+                            {#<div class="Input">#}
+                                {#{{ form_errors(legalCallform.phone) }}#}
+                                {#{{ form_widget(legalCallform.phone, {'attr':{'class':'input-log', 'position': 'absolute','placeholder':'Телефон'}}) }}#}
+                            {#</div>#}
+                            {#<div class="Input">#}
+                                {#{{ form_errors(legalCallform.code) }}#}
+                                {#{{ form_widget(legalCallform.code, {'attr':{'class':'input-log', 'position': 'absolute','placeholder':'Код'}}) }}#}
+                            {#</div>#}
+                            {#<div class="Input">#}
+                                {#{{ form_errors(legalCallform.notice) }}#}
+                                {#{{ form_widget(legalCallform.notice, {'attr':{'class':'input-log', 'position': 'absolute','placeholder':'Примечания'}}) }}#}
+                            {#</div>#}
 
-                        <div class="text-center" style="margin: 20px;">
-                            <input class="button-log" value="Оформить заявку" type="submit" onclick="city()">
-                        </div>
-                        {{ form_end(individualCallform) }}
-                    </div>
+                            {#<div class="Input" style="display: none;">#}
+                            {#{{ form_errors(legalCallform.weight) }}#}
+                                {#{{ form_widget(legalCallform.weight, {'attr':{'class':'input-log', 'position': 'absolute','placeholder':'Вес\, кг','readonly':''}}) }}#}
+                            {#</div>#}
+                            {#<div class="Input" style="display: none;">#}
+                            {#{{ form_errors(legalCallform.height) }}#}
+                                {#{{ form_widget(legalCallform.height, {'attr':{'class':'input-log', 'position': 'absolute','placeholder':'Высота','readonly':''}}) }}#}
+                            {#</div>#}
+                            {#<div class="Input" style="display: none;">#}
+                            {#{{ form_errors(legalCallform.lenght) }}#}
+                                {#{{ form_widget(legalCallform.lenght, {'attr':{'class':'input-log', 'position': 'absolute','placeholder':'Длинна','readonly':''}}) }}#}
+                            {#</div>#}
+                            {#<div class="Input" style="display: none;">#}
+                            {#{{ form_errors(legalCallform.width) }}#}
+                                {#{{ form_widget(legalCallform.width, {'attr':{'class':'input-log', 'position': 'absolute','placeholder':'Глубина','readonly':''}}) }}#}
+                            {#</div>#}
+                            {#<div class="Input" style="display: none;">#}
+                            {#<input class="Input-text" id="formLegalCity1" position="absolute" readonly />#}
+                            {#</div>#}
+                            {#<div class="Input" style="display: none;">#}
+                            {#<input class="Input-text" id="formLegalCity2" position="absolute" readonly />#}
+                            {#</div>#}
+                            {#<div class="Input" style="display: none;">#}
+                            {#<input class="Input-text" id="formLegalCity3" position="absolute" readonly />#}
+                            {#</div>#}
+                            {#<div class="Input" style="display: none;">#}
+                            {#{{ form_errors(legalCallform.sum) }}#}
+                            {#{{ form_widget(legalCallform.sum, {'attr':{'class':'Input-text', 'position': 'absolute','placeholder':'Сумма', 'readonly':'true'}}) }}#}
+                            {#</div>#}
+                        {#</div>#}
+                        {#<div class="col-md-6">#}
 
-                    <div style="display: none;" id="legal_form">
-                        {{ form_start(legalCallform) }}
-                        <div class="col-md-6">
-                            <div class="Input">
-                                {{ form_errors(legalCallform.organization) }}
-                                {{ form_widget(legalCallform.organization, {'attr':{'class':'input-log', 'position': 'absolute','placeholder':'Название организации'}}) }}
-                            </div>
-                            <div class="Input">
-                                {{ form_errors(legalCallform.fullName) }}
-                                {{ form_widget(legalCallform.fullName, {'attr':{'class':'input-log', 'position': 'absolute','placeholder':'Контактное лицо'}}) }}
-                            </div>
-                            <div class="Input">
-                                {{ form_errors(legalCallform.phone) }}
-                                {{ form_widget(legalCallform.phone, {'attr':{'class':'input-log', 'position': 'absolute','placeholder':'Телефон'}}) }}
-                            </div>
-                            <div class="Input">
-                                {{ form_errors(legalCallform.code) }}
-                                {{ form_widget(legalCallform.code, {'attr':{'class':'input-log', 'position': 'absolute','placeholder':'Код'}}) }}
-                            </div>
-                            <div class="Input">
-                                {{ form_errors(legalCallform.notice) }}
-                                {{ form_widget(legalCallform.notice, {'attr':{'class':'input-log', 'position': 'absolute','placeholder':'Примечания'}}) }}
-                            </div>
-
-                            <div class="Input" style="display: none;">
-                            {{ form_errors(legalCallform.weight) }}
-                                {{ form_widget(legalCallform.weight, {'attr':{'class':'input-log', 'position': 'absolute','placeholder':'Вес\, кг','readonly':''}}) }}
-                            </div>
-                            <div class="Input" style="display: none;">
-                            {{ form_errors(legalCallform.height) }}
-                                {{ form_widget(legalCallform.height, {'attr':{'class':'input-log', 'position': 'absolute','placeholder':'Высота','readonly':''}}) }}
-                            </div>
-                            <div class="Input" style="display: none;">
-                            {{ form_errors(legalCallform.lenght) }}
-                                {{ form_widget(legalCallform.lenght, {'attr':{'class':'input-log', 'position': 'absolute','placeholder':'Длинна','readonly':''}}) }}
-                            </div>
-                            <div class="Input" style="display: none;">
-                            {{ form_errors(legalCallform.width) }}
-                                {{ form_widget(legalCallform.width, {'attr':{'class':'input-log', 'position': 'absolute','placeholder':'Глубина','readonly':''}}) }}
-                            </div>
-                            <div class="Input" style="display: none;">
-                            <input class="Input-text" id="formLegalCity1" position="absolute" readonly />
-                            </div>
-                            <div class="Input" style="display: none;">
-                            <input class="Input-text" id="formLegalCity2" position="absolute" readonly />
-                            </div>
-                            <div class="Input" style="display: none;">
-                            <input class="Input-text" id="formLegalCity3" position="absolute" readonly />
-                            </div>
-                            <div class="Input" style="display: none;">
-                            {{ form_errors(legalCallform.sum) }}
-                            {{ form_widget(legalCallform.sum, {'attr':{'class':'Input-text', 'position': 'absolute','placeholder':'Сумма', 'readonly':'true'}}) }}
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-
-                            <div class="Input">
-                                {{ form_errors(legalCallform.UNP) }}
-                                {{ form_widget(legalCallform.UNP, {'attr':{'class':'input-log', 'position': 'absolute','placeholder':'УНП'}}) }}
-                            </div>
-                            <div class="Input">
-                                {{ form_errors(legalCallform.bank) }}
-                                {{ form_widget(legalCallform.bank, {'attr':{'class':'input-log', 'position': 'absolute','placeholder':'Банк'}}) }}
-                            </div>
-                            <div class="Input">
-                                {{ form_errors(legalCallform.addressOfTheBank) }}
-                                {{ form_widget(legalCallform.addressOfTheBank, {'attr':{'class':'input-log', 'position': 'absolute','placeholder':'Адресс банка'}}) }}
-                            </div>
-                            <div class="Input">
-                                {{ form_errors(legalCallform.legalAddress) }}
-                                {{ form_widget(legalCallform.legalAddress, {'attr':{'class':'input-log', 'position': 'absolute','placeholder':'Юридический адресс'}}) }}
-                            </div>
-                            <div class="Input">
-                                {{ form_errors(legalCallform.settlementAccount) }}
-                                {{ form_widget(legalCallform.settlementAccount, {'attr':{'class':'input-log', 'position': 'absolute','placeholder':'Расчётный счёт'}}) }}
-                            </div>
+                            {#<div class="Input">#}
+                                {#{{ form_errors(legalCallform.UNP) }}#}
+                                {#{{ form_widget(legalCallform.UNP, {'attr':{'class':'input-log', 'position': 'absolute','placeholder':'УНП'}}) }}#}
+                            {#</div>#}
+                            {#<div class="Input">#}
+                                {#{{ form_errors(legalCallform.bank) }}#}
+                                {#{{ form_widget(legalCallform.bank, {'attr':{'class':'input-log', 'position': 'absolute','placeholder':'Банк'}}) }}#}
+                            {#</div>#}
+                            {#<div class="Input">#}
+                                {#{{ form_errors(legalCallform.addressOfTheBank) }}#}
+                                {#{{ form_widget(legalCallform.addressOfTheBank, {'attr':{'class':'input-log', 'position': 'absolute','placeholder':'Адресс банка'}}) }}#}
+                            {#</div>#}
+                            {#<div class="Input">#}
+                                {#{{ form_errors(legalCallform.legalAddress) }}#}
+                                {#{{ form_widget(legalCallform.legalAddress, {'attr':{'class':'input-log', 'position': 'absolute','placeholder':'Юридический адресс'}}) }}#}
+                            {#</div>#}
+                            {#<div class="Input">#}
+                                {#{{ form_errors(legalCallform.settlementAccount) }}#}
+                                {#{{ form_widget(legalCallform.settlementAccount, {'attr':{'class':'input-log', 'position': 'absolute','placeholder':'Расчётный счёт'}}) }}#}
+                            {#</div>#}
 
 
-                            <div style="display:none">
-                                {{ form_widget(legalCallform.cities) }}
+                            {#<div style="display:none">#}
+                                {#{{ form_widget(legalCallform.cities) }}#}
 
-                                {{ form_rest(legalCallform) }}
-                            </div>
-                        </div>
+                                {#{{ form_rest(legalCallform) }}#}
+                            {#</div>#}
+                        {#</div>#}
 
-                        <div class="text-center col-md-12" style="margin-bottom: 20px; margin-top: 20px; ">
-                            <input class="button-log" value="Оформить заявку" type="submit">
-                        </div>
-                        {{ form_end(legalCallform) }}
-                    </div>
-
-
+                        {#<div class="text-center col-md-12" style="margin-bottom: 20px; margin-top: 20px; ">#}
+                            {#<input class="button-log" value="Оформить заявку" type="submit">#}
+                        {#</div>#}
+                        {#{{ form_end(legalCallform) }}#}
+                    {#</div>#}
 
 
-                </div>
-                <a class="close" title="Закрыть" href="#close"></a>
+                    {#<div style="display: none;" id="individual_form">#}
+                        {#{{ form_start(individualCallform) }}#}
 
-            </div>
-            <div class="text-center" style="margin: 20px;">
-                <a style="padding: 10px 20px; font-size: 20px;" class="button-log" href="#legal-form"
-                   onclick="openform()">Оформление
-                    заявки</a>
-            </div>
-        </div>
+
+                        {#<div class="Input" style="display:none;">#}
+                            {#{{ form_errors(individualCallform.weight) }}#}
+                            {#{{ form_widget(individualCallform.weight, {'attr':{'class':'input-log', 'position': 'absolute','placeholder':'Вес\, кг','readonly':''}}) }}#}
+                        {#</div>#}
+                        {#<div class="Input" style="display:none;">#}
+                            {#{{ form_errors(individualCallform.height) }}#}
+                            {#{{ form_widget(individualCallform.height, {'attr':{'class':'input-log', 'position': 'absolute','placeholder':'Высота','readonly':''}}) }}#}
+                        {#</div>#}
+                        {#<div class="Input" style="display:none;">#}
+                            {#{{ form_errors(individualCallform.lenght) }}#}
+                            {#{{ form_widget(individualCallform.lenght, {'attr':{'class':'input-log', 'position': 'absolute','placeholder':'Длинна','readonly':''}}) }}#}
+                        {#</div>#}
+                        {#<div class="Input" style="display:none;">#}
+                            {#{{ form_errors(individualCallform.width) }}#}
+                            {#{{ form_widget(individualCallform.width, {'attr':{'class':'input-log', 'position': 'absolute','placeholder':'Глубина','readonly':''}}) }}#}
+                        {#</div>#}
+                        {#<div class="Input" style="display:none;">#}
+                            {#<input class="Input-text" id="formIndividualCity1" position="absolute" readonly/>#}
+                        {#</div>#}
+                        {#<div class="Input" style="display:none;">#}
+                            {#<input class="Input-text" id="formIndividualCity2" position="absolute" readonly/>#}
+                        {#</div>#}
+                        {#<div class="Input" style="display:none;">#}
+                            {#<input class="Input-text" id="formIndividualCity3" position="absolute" readonly/>#}
+                        {#</div>#}
+                        {#<div class="Input" style="display:none;">#}
+                            {#{{ form_errors(individualCallform.sum) }}#}
+                            {#{{ form_widget(individualCallform.sum, {'attr':{'class':'input-log', 'position': 'absolute','placeholder':'Сумма','readonly':''}}) }}#}
+                        {#</div>#}
+                        {#<div class="Input">#}
+                            {#{{ form_errors(individualCallform.name) }}#}
+                            {#{{ form_widget(individualCallform.name, {'attr':{'class':'input-log', 'position': 'absolute','placeholder':'Как вас зовут?'}}) }}#}
+                        {#</div>#}
+                        {#<div class="Input">#}
+                            {#{{ form_errors(individualCallform.phone) }}#}
+                            {#{{ form_widget(individualCallform.phone, {'attr':{'class':'input-log', 'position': 'absolute','placeholder':'Номер телефона'}}) }}#}
+                        {#</div>#}
+                        {#<div class="Input">#}
+                            {#{{ form_errors(individualCallform.notice) }}#}
+                            {#{{ form_widget(individualCallform.notice, {'attr':{'class':'input-log', 'position': 'absolute','placeholder':'Примечания'}}) }}#}
+                        {#</div>#}
+
+                        {#<div style="display:none">#}
+                            {#{{ form_widget(individualCallform.cities) }}#}
+
+                            {#{{ form_rest(individualCallform) }}#}
+                        {#</div>#}
+
+                        {#<div class="text-center" style="margin: 20px;">#}
+                            {#<input class="button-log" value="Оформить заявку" type="submit" onclick="city()">#}
+                        {#</div>#}
+                        {#{{ form_end(individualCallform) }}#}
+                    {#</div>#}
+
+                {#</div>#}
+                {#<a class="close" title="Закрыть" href="#close"></a>#}
+
+            {#</div>#}
+            {#<div class="text-center" style="margin: 20px;">#}
+                {#<a style="padding: 10px 20px; font-size: 20px;" class="button-log" href="#legal-form"#}
+                   {#onclick="openform()">Оформление#}
+                    {#заявки</a>#}
+            {#</div>#}
+        {#</div>#}
 
     </div>
 
@@ -556,53 +636,88 @@
         </div>
     </div>
 
+    <div class="container-fluid" style="background-color: #8598ff; padding: 40px 0px;">
+        <div class="row">
+            <div class="col-md-8 col-md-push-2" >
+
+                    <h2 style="color: white; margin-top: 0px;">Нет времени заполнять все поля?</h2>
+                    <p style="color: white; text-align: center;">Заполните быструю заявку и наши специалисты свяжутся с Вами в ближайшее время для обсуждения заказа.</p>
+
+                    {#TODO: Подкрутить другую форму, 1 поле - Телефон.#}
+                    {{ form_start(callform, { 'action': path('gobusgo_gobusgo_confirm'), 'method': 'POST' }) }}
+                    {{ form_errors(callform) }}
+
+                    <div class="form-group">
+                        {{ form_widget(callform.name, {'attr':{'class':'input-log','placeholder':'Как вас зовут?'}}) }}
+                    </div>
+                    <div class="form-group">
+                        {{ form_widget(callform.phone, {'attr':{'class':'input-log','placeholder':'Номер телефона'}}) }}
+                    </div>
+                <div style="text-align: center;">
+                    <input type="submit" class="button-log" value="Отправить">
+                </div>
+                    {{ form_end(callform) }}
+
+            </div>
+        </div>
+
+    </div>
+
     <div class="container">
         <div class="row">
             <div class="col-md-10 col-md-push-1">
-                <p class="text-center" style="font-size: 20px; line-height: 24px;">В наше время различная деятельность
-                    разных компаний
-                    не обходится без очень тесного сотрудничества с компаниями, которые занимаются грузоперевозками
-                    (транспортно-экспедиционная компания). Для многих компаний качественная, быстрая, своевременная
-                    доставка
-                    различного груза является одним из важнейших факторов, которые влияют на развитие и стабильность
-                    данной
-                    компании. Для частных компаний высокий уровень оказания транспортных услуг является не менее важным,
-                    потому
-                    что это залог уверенности и полного спокойствия во время перевозки имущества. Вследствие этого с
-                    каждым
-                    годом интерес и спрос на различные грузоперевозки растёт и растёт.</p>
+                <h2>Почему GoBusGo?</h2>
+                <p>Наши преимущества:</p>
+                    <ul class="list-marked">
+                        <li>осуществляем доставку в пределах РБ весом до 2 тонн,</li>
+                        <li>экспресс-доставка товаров по Беларуси - мы доставим ваш груз в течение 24 часов,</li>
+                        <li>мы ценим каждого клиента и создаем максимально простые и удобные условия доставки,</li>
+                        <li>выгодные тарифные ставки,</li>
+                        <li>скидки постоянным клиентам,</li>
+                        <li>большой собственный таксопарк и только опытные водители,</li>
+                        <li>самостоятельное отслеживание заказчиком местонахождение груза.</li>
+                    </ul>
+                <p>
+                    Наша компания предоставляет полный спектр услуг: от забора груза от клиента до доставки товара до двери. Опытные специалисты возьмут на себя все заботы по оформлению документов и решению всех возникающих вопросов. Служба доставки товаров по Беларуси GOBUSGO ценит ваше время и деньги, поэтому мы обязуемся доставить товар максимально быстро и качественно.
+                    Почему стоит заказать доставку у нас? С нами вы получите:</p>
+                    <ul class="list-marked">
+                        <li>Самые выгодные цены на доставку по Беларуси.</li>
+                        <li>Мы гарантируем сохранность перевозимого товара.</li>
+                        <li>Оперативность и качество работы.</li>
+                    </ul>
+                <p>Грузоперевозки с GOBUSGO – это просто, выгодно и надежно! Мы ценим каждого клиента!</p>
             </div>
         </div>
     </div>
-    <div class="container">
-        <div class="row">
-            <h2>Почему выбирают именно нас?</h2>
-            <div class="col-md-3" style="margin-bottom:20px;">
-                <div class="advantage-icons">
-                    <img src="{{ asset('images/advantage-1.png') }}" style="width:230px;">
-                </div>
-                <div class="advantage-title" style="margin: 10px;">Доставка любых грузов до 2-х тонн</div>
-            </div>
-            <div class="col-md-3" style="margin-bottom:20px;">
-                <div class="advantage-icons">
-                    <img src="{{ asset('images/advantage-2.png') }}" style="width:230px;">
-                </div>
-                <div class="advantage-title" style="margin: 10px;">Доставка от письма до крупногабаритного груза</div>
-            </div>
-            <div class="col-md-3" style="margin-bottom:20px;">
-                <div class="advantage-icons">
-                    <img src="{{ asset('images/advantage-3.png') }}" style="width:230px;">
-                </div>
-                <div class="advantage-title" style="margin: 10px;">Доставка в течении суток</div>
-            </div>
-            <div class="col-md-3" style="margin-bottom:20px;">
-                <div class="advantage-icons">
-                    <img src="{{ asset('images/advantage-4.png') }}" style="width:230px;">
-                </div>
-                <div class="advantage-title" style="margin: 10px;">Каждая 7-ая доставка бесплатно *</div>
-            </div>
-        </div>
-    </div>
+    {#<div class="container">#}
+        {#<div class="row">#}
+            {#<h2>Почему выбирают именно нас?</h2>#}
+            {#<div class="col-md-3" style="margin-bottom:20px;">#}
+                {#<div class="advantage-icons">#}
+                    {#<img src="{{ asset('images/advantage-1.png') }}" style="width:230px;">#}
+                {#</div>#}
+                {#<div class="advantage-title" style="margin: 10px;">Доставка любых грузов до 2-х тонн</div>#}
+            {#</div>#}
+            {#<div class="col-md-3" style="margin-bottom:20px;">#}
+                {#<div class="advantage-icons">#}
+                    {#<img src="{{ asset('images/advantage-2.png') }}" style="width:230px;">#}
+                {#</div>#}
+                {#<div class="advantage-title" style="margin: 10px;">Доставка от письма до крупногабаритного груза</div>#}
+            {#</div>#}
+            {#<div class="col-md-3" style="margin-bottom:20px;">#}
+                {#<div class="advantage-icons">#}
+                    {#<img src="{{ asset('images/advantage-3.png') }}" style="width:230px;">#}
+                {#</div>#}
+                {#<div class="advantage-title" style="margin: 10px;">Доставка в течении суток</div>#}
+            {#</div>#}
+            {#<div class="col-md-3" style="margin-bottom:20px;">#}
+                {#<div class="advantage-icons">#}
+                    {#<img src="{{ asset('images/advantage-4.png') }}" style="width:230px;">#}
+                {#</div>#}
+                {#<div class="advantage-title" style="margin: 10px;">Каждая 7-ая доставка бесплатно *</div>#}
+            {#</div>#}
+        {#</div>#}
+    {#</div>#}
 
     <script language="JavaScript">
         function sum() {

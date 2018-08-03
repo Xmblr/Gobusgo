@@ -9,77 +9,171 @@
         <div class="row">
             <div class="col-md-10 col-md-push-1">
                 <h1>Грузоперевозки по Минску</h1>
-                <p class="text-center" style="font-size: 20px; line-height: 24px;">В наше время различная деятельность
-                    разных компаний
-                    не обходится без очень тесного сотрудничества с компаниями, которые занимаются грузоперевозками
-                    (транспортно-экспедиционная компания). Для многих компаний качественная, быстрая, своевременная
-                    доставка
-                    различного груза является одним из важнейших факторов, которые влияют на развитие и стабильность
-                    данной
-                    компании. Для частных компаний высокий уровень оказания транспортных услуг является не менее важным,
-                    потому
-                    что это залог уверенности и полного спокойствия во время перевозки имущества. Вследствие этого с
-                    каждым
-                    годом интерес и спрос на различные грузоперевозки растёт и растёт.</p>
+                <p class="text-center" style="font-size: 20px; line-height: 24px;">Готовитесь к переезду? Нужна доставка
+                    по Минску, недорогая и быстрая? Компания GObusGo предоставляет услуги по транспортировке различных
+                    грузов до 2 тонн, мелких пакетов, корреспонденции на выгодных условиях, в любой район города
+                    Минска.</p>
             </div>
         </div>
     </div>
+    <div class="container road-loptop">
+    <div class="row" style="text-align: center;">
+        <h2>Расчет стоимости грузоперевозки:</h2>
+        <img src="{{ asset('images/road2.png') }}" style="width: 100%;">
+        <div class="col-md-3">
 
-    <div class="container">
+            <h4 style="text-align: center;">Клиент</h4>
+            <label>
+
+                Юридическое лицо
+                <input type="radio" class="option-input radio" name="example" id="legal" onchange="sum()" checked/>
+
+            </label>
+            <label>
+                Физическое лицо
+                <input type="radio" class="option-input radio" name="example" id="individual" onchange="sum()"/>
+            </label>
+        </div>
+        <div class="col-md-3">
+
+            <h4 style="text-align: center;">Тариф</h4>
+            <div class="Input">
+                <div id="city1area">
+
+                    <select class="input-log" id="city1">
+                        <option>Стандарт (на завтра с 9.00 до 21.00)</option>
+                        <option>Экспресс (сегодня в течении 2-3 часов)</option>
+                        <div class="selectize-dropdown single">
+                            <div class="selectize-dropdown-content"></div>
+                        </div>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <h4 style="text-align: center;">Сумма</h4>
+            <div class="Input">
+
+                <input id="sum" class="input-log" placeholder="Сумма">
+            </div>
+
+        </div>
+        <div class="col-md-3">
+            <h4 style="text-align: center;">Оформление</h4>
+            <div class="text-center">
+                <a style="padding: 10px 20px; font-size: 18px;" class="button-log" href="#legal-form"
+                   onclick="openform()">Оформление
+                    заявки</a>
+            </div>
+        </div>
+    </div>
+    </div>
+    {#<div class="container">#}
+        {#<div class="row">#}
+            {#<h2>Стоимости грузоперевозок по Минску:</h2>#}
+            {#<div class="table-services-minsk">#}
+                {#<table>#}
+                    {#<tr>#}
+                        {#<td>Тариф</td>#}
+                        {#<td>Срок доставки<br></td>#}
+                        {#<td>Стоимость (для физ. лиц)</td>#}
+                        {#<td>Стоимость (для юр. лиц)<br></td>#}
+                    {#</tr>#}
+                    {#<tr>#}
+                        {#<td>СТАНДАРТ</td>#}
+                        {#<td>На завтра с 9.00 до 21.00</td>#}
+                        {#<td>8р</td>#}
+                        {#<td>8р</td>#}
+                    {#</tr>#}
+                    {#<tr>#}
+                        {#<td>ЭКСПРЕСС</td>#}
+                        {#<td>Сегодня в течении 2-3 часов</td>#}
+                        {#<td>15р</td>#}
+                        {#<td>15р</td>#}
+                    {#</tr>#}
+                    {#<tr>#}
+                        {#<td>Доставка на наш склад лековым автомобилем</td>#}
+                        {#<td>В течении дня</td>#}
+                        {#<td colspan="2">7р (от 5 одновременных заказов бесплатно)</td>#}
+                    {#</tr>#}
+                    {#<tr>#}
+                        {#<td>Доставка на наш склад грузовым автомобилем<br></td>#}
+                        {#<td>В течении дня</td>#}
+                        {#<td>14р</td>#}
+                        {#<td>14р</td>#}
+                    {#</tr>#}
+                {#</table>#}
+            {#</div>#}
+        {#</div>#}
+    {#</div>#}
+    <div class="container-fluid" style="background-color: #8598ff; padding: 40px 0px;">
         <div class="row">
-            <h2>Стоимости грузоперевозок по Минску:</h2>
-            <div class="table-services-minsk">
-                <table>
-                    <tr>
-                        <td>Тариф</td>
-                        <td>Срок доставки<br></td>
-                        <td>Стоимость (для физ. лиц)</td>
-                        <td>Стоимость (для юр. лиц)<br></td>
-                    </tr>
-                    <tr>
-                        <td>СТАНДАРТ</td>
-                        <td>На завтра с 9.00 до 21.00</td>
-                        <td>8р</td>
-                        <td>8р</td>
-                    </tr>
-                    <tr>
-                        <td>ЭКСПРЕСС</td>
-                        <td>Сегодня в течении 2-3 часов</td>
-                        <td>15р</td>
-                        <td>15р</td>
-                    </tr>
-                    <tr>
-                        <td>Доставка на наш склад лековым автомобилем</td>
-                        <td>В течении дня</td>
-                        <td colspan="2">7р (от 5 одновременных заказов бесплатно)</td>
-                    </tr>
-                    <tr>
-                        <td>Доставка на наш склад грузовым автомобилем<br></td>
-                        <td>В течении дня</td>
-                        <td>14р</td>
-                        <td>14р</td>
-                    </tr>
-                </table>
+            <div class="col-md-8 col-md-push-2" >
+
+                <h2 style="color: white; margin-top: 0px;">Нет времени заполнять все поля?</h2>
+                <p style="color: white; text-align: center;">Заполните быструю заявку и наши специалисты свяжутся с Вами в ближайшее время для обсуждения заказа.</p>
+
+                {#TODO: Подкрутить другую форму, 1 поле - Телефон.#}
+                {{ form_start(callform, { 'action': path('gobusgo_gobusgo_confirm'), 'method': 'POST' }) }}
+                {{ form_errors(callform) }}
+
+                <div class="form-group">
+                    {{ form_widget(callform.name, {'attr':{'class':'input-log','placeholder':'Как вас зовут?'}}) }}
+                </div>
+                <div class="form-group">
+                    {{ form_widget(callform.phone, {'attr':{'class':'input-log','placeholder':'Номер телефона'}}) }}
+                </div>
+                <div style="text-align: center;">
+                    <input type="submit" class="button-log" value="Отправить">
+                </div>
+                {{ form_end(callform) }}
+
             </div>
         </div>
-    </div>
 
+    </div>
     <div class="container">
         <div class="row">
             <div class="col-md-10 col-md-push-1">
-            <h2>Зоны обслуживания:</h2>
-            <div class="col-md-5" style="padding: 0px;">
+                <h2>Почему GoBusGo?</h2>
+                <ul class="list-marked">
+                    <li>Работаем с квартирными и офисными переездами, оказываем другие услуги по доставке грузов в
+                        Минске.
+                    </li>
+                    <li>Составляем рациональный маршрут и план экспресс-доставки по Минску — конструктивно и с учетом
+                        ваших пожеланий.</li>
+                    <li>Предоставляем комфортные условия для перемещения грузов в наших автомобилях.</li>
+                    <li>Работаем на основании договора об оказании транспортных услуг.</li>
+                    <li>Организуем процесс доставки в Минске недорого и с гарантией сохранности вашего имущества.</li>
+                    <li>Наш автопарк состоит из автомобилей Renault, Volkswagen, Fiat Ducato, которые предназначены для
+                        доставки по Минску как габаритного груза, так и мелких товаров народного потребления.</li>
+                    <li>Работаем с юридическими и физическими лицами. Гарантируем качественный сервис и своевременное
+                        исполнение договорных обязательств.</li>
+                    <li>Полное сопровождение сделки — от заказа до окончания доставки по Минску.</li>
+                    <li>Отличаемся ответственным подходом к каждому клиенту, вниманием к деталям, точно следуем срокам
+                        поставки грузов по минимальным расценкам.</li>
 
-                <div class="text-title-map"><i class="fa fa-map-marker" aria-hidden="true"></i> Наш адрес в Минске:
-                </div>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 col-md-push-1">
+                <h2>Зоны обслуживания:</h2>
+                <div class="col-md-5" style="padding: 0px;">
+
+                    <div class="text-title-map"><i class="fa fa-map-marker" aria-hidden="true"></i> Наш адрес в Минске:
+                    </div>
                     <div class="text-map">Склад: Пр. Дзержинского</br>Офис: Пр. Дзержинского</div>
                     <div class="text-map">Время работы: 9.00 - 21.00</br>Телефон: +375(17)333-33-33</div>
 
+                </div>
+                <div class="col-md-7" style="padding: 0px;">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d150474.39557313913!2d27.40249134812782!3d53.89331684651622!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46dbcfd35b1e6ad3%3A0xb61b853ddb570d9!2z0JzQuNC90YHQug!5e0!3m2!1sru!2sby!4v1523641166856"
+                            width="100%" height="350" frameborder="0" style="border:0" allowfullscreen></iframe>
+                </div>
             </div>
-            <div class="col-md-7" style="padding: 0px;">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d150474.39557313913!2d27.40249134812782!3d53.89331684651622!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46dbcfd35b1e6ad3%3A0xb61b853ddb570d9!2z0JzQuNC90YHQug!5e0!3m2!1sru!2sby!4v1523641166856"
-                        width="100%" height="350" frameborder="0" style="border:0" allowfullscreen></iframe>
-            </div></div>
         </div>
     </div>
 

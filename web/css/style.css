@@ -1997,3 +1997,40 @@ address span {
 .weight-3 { font-size: 18px; }
 .weight-4 { font-size: 21px; }
 .weight-5 { font-size: 24px; }
+
+@media (min-width: 1800px) {
+    .btn-2 {
+        font-size: 22px;
+    }
+
+    .btn-3 {
+        font-size: 22px;
+    }
+
+    address span, .big-letter, .button-log {
+        font-size: 1.1vw;
+    }
+
+    #car {
+        margin-left: 449px;
+    }
+
+    .wheel-1 {
+        margin-left: 504px;
+    }
+
+    .wheel-2 {
+        margin-left: 591px;
+    }
+}
+
+.list-marked > li:before {
+    content: '\f105';
+    font-family: FontAwesome;
+    color: #566fe0;
+    margin-right: 10px;
+}
+
+.list-marked {
+    list-style: none;
+}

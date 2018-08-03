@@ -315,9 +315,9 @@ file that was distributed with this source code.
                                         <i class="fa fa-filter" aria-hidden="true"></i> {{ 'btn_filter'|trans({}, 'SonataAdminBundle') }}
                                     </a>
 
-                                    <a class="button-log" style="margin-top: 0px; padding: 5px 20px;" href="{{ admin.generateUrl('list', {filters: 'reset'}) }}">
+                                    <button class="button-log" style="margin-top: 0px; padding: 5px 20px;" href="{{ admin.generateUrl('list', {filters: 'reset'}) }}">
                                         {{ 'link_reset_filter'|trans({}, 'SonataAdminBundle') }}
-                                    </a>
+                                    </button>
                                 </div>
 
                                 {% if withAdvancedFilter %}

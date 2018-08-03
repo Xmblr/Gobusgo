@@ -37,6 +37,7 @@
                             <img src="{{ asset('images/logo.png') }}" alt="" width="150px;">
                         </a>
                     </div>
+                    {#<div class="sale-top" style="margin-top: 20px;"><div class="gradient">Добро пожаловать на сайт GoBusGo.by</div></div>#}
                     <div class="accordion-wrapper">
                         {#<a href="#" class="mobile-open"><i class="fa fa-bars" style="font-size: 34px;"></i></a>#}
                         <a href="#" class="mobile-open">
@@ -55,11 +56,12 @@
                                     <a style="margin-left: 15px;" class="btn-2"
                                        href="{{ path('sonata_admin_dashboard') }}"> {{ app.user.organization }} </a><a
                                         class="btn-3" href="{{ path('fos_user_security_logout') }}">
-                                        {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
-                                    </a>
+                                    {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
+                                </a>
                                 {% else %}
                                     <a class="btn-2"
-                                       href="{{ path('fos_user_registration_register') }}">{{ 'layout.register'|trans({}, 'FOSUserBundle') }}</a><a class="btn-3"
+                                       href="{{ path('fos_user_registration_register') }}">{{ 'layout.register'|trans({}, 'FOSUserBundle') }}</a>
+                                    <a class="btn-3"
                                        href="{{ path('sonata_admin_dashboard') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
                                 {% endif %}
 
@@ -77,19 +79,15 @@
                                 <a href="{{ path('gobusgo_gobusgo_about') }}">О нас</a></li>
                             <li class="link out-link">
 
-                                <a href="{{ path('gobusgo_gobusgo_deliveryMoscowMinsk') }}"><img
-                                            src="{{ asset('images/vfi1.png') }}" width="30px;"
-                                            style="margin-right: 10px;"/>Москва - Минск</a>
+                                <a href="{{ path('gobusgo_gobusgo_deliveryMoscowMinsk') }}">Москва - Минск</a>
+
+
                             </li>
                             <li class="link out-link">
-                                <a href="{{ path('gobusgo_gobusgo_deliveryMinsk') }}"><img
-                                            src="{{ asset('images/vfi1.png') }}" width="30px;"
-                                            style="margin-right: 10px;"/>По Минску</a>
+                                <a href="{{ path('gobusgo_gobusgo_deliveryMinsk') }}">По Минску</a>
                             </li>
                             <li class="link out-link">
-                                <a href="{{ path('gobusgo_gobusgo_deliveryRB') }}"><img
-                                            src="{{ asset('images/vfi1.png') }}" width="30px;"
-                                            style="margin-right: 10px;"/>По Беларуси</a>
+                                <a href="{{ path('gobusgo_gobusgo_deliveryRB') }}">По Беларуси</a>
                             </li>
                             <li class="link out-link">
                                 <a class="" href="{{ path('sonata_news_home') }}">Новости</a>
@@ -136,28 +134,6 @@
                                         </li>
                                     </ul>
                                 </div>
-                                {#<table class="menu-table" border="1">#}
-                                {#<tbody>#}
-                                {#<tr>#}
-                                {#<td rowspan="3">#}
-                                {#<p class="big-numbers">333 33 33</p>#}
-                                {#</td>#}
-                                {#<td>#}
-                                {#<p class="text-operator">МТС</p>#}
-                                {#</td>#}
-                                {#</tr>#}
-                                {#<tr>#}
-                                {#<td>#}
-                                {#<p class="text-operator">Velcome</p>#}
-                                {#</td>#}
-                                {#</tr>#}
-                                {#<tr>#}
-                                {#<td>#}
-                                {#<p class="text-operator">Life :)</p>#}
-                                {#</td>#}
-                                {#</tr>#}
-                                {#</tbody>#}
-                                {#</table>#}
                                 <p class="big-letter"><img src="{{ asset('images/letter.png') }}" width="30px;"
                                                            style="margin-right: 10px;"/>info@gobusgo.by</p>
                                 <div class="callback-header">
@@ -214,7 +190,7 @@
                                             data-rd-navbar-toggle="#rd-navbar-nav-wrap-1"><span></span></button>
 
                                     <div class="rd-navbar-aside-toggle toggle-original"
-                                         data-rd-navbar-toggle=".rd-navbar-aside"><span class="fa fa-info"
+                                         data-rd-navbar-toggle=".rd-navbar-aside"><span class="fa fa-phone"
                                                                                         aria-hidden="true"></span>
                                     </div>
                                     <div class="rd-navbar-aside-content">
@@ -320,7 +296,8 @@
                                                 </a>
                                             {% else %}
                                                 <a class="btn-2"
-                                                   href="{{ path('fos_user_registration_register') }}">{{ 'layout.register'|trans({}, 'FOSUserBundle') }}</a><a class="btn-3"
+                                                   href="{{ path('fos_user_registration_register') }}">{{ 'layout.register'|trans({}, 'FOSUserBundle') }}</a>
+                                                <a class="btn-3"
                                                    href="{{ path('sonata_admin_dashboard') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
 
 
@@ -340,7 +317,9 @@
                 </nav>
             </div>
         </div>
-
+        <div class="sale-top" style="margin-top: 20px;">
+            <div class="gradient">Добро пожаловать на сайт GoBusGo.by</div>
+        </div>
         <div class="container p-0">
             <div class="row">
                 <h1 class="margin-home">Куда везем груз?</h1>
@@ -380,17 +359,17 @@
                             s.style.webkitAnimationName = "shake-w";
 
                             await
-                                sleep(1500);
+                                sleep(1000);
 
-                            e.style.transform = "translate(2000px,0px)";
-                            e.style.transition = "all 5s ease-in-out";
+                            e.style.transform = "translate(2500px,0px)";
+                            e.style.transition = "all 2.5s ease-in-out";
 
-                            w.style.transform = "translate(2000px,0px) rotate(5turn)";
-                            w.style.transition = "all 5s ease-in-out";
-                            s.style.transform = "translate(2000px,0px) rotate(10turn)";
-                            s.style.transition = "all 5s ease-in-out";
+                            w.style.transform = "translate(2500px,0px) rotate(5turn)";
+                            w.style.transition = "all 2.5s ease-in-out";
+                            s.style.transform = "translate(2500px,0px) rotate(10turn)";
+                            s.style.transition = "all 2.5s ease-in-out";
 
-                            await sleep(2500);
+                            await sleep(1500);
 
                             window.location.replace(url);
                         }
@@ -476,18 +455,17 @@
     <div class="container">
         <div class="row">
             <div class="col-md-10 col-md-push-1">
-                <p class="text-center" style="font-size: 20px; line-height: 24px;">В наше время различная деятельность
-                    разных компаний
-                    не обходится без очень тесного сотрудничества с компаниями, которые занимаются грузоперевозками
-                    (транспортно-экспедиционная компания). Для многих компаний качественная, быстрая, своевременная
-                    доставка
-                    различного груза является одним из важнейших факторов, которые влияют на развитие и стабильность
-                    данной
-                    компании. Для частных компаний высокий уровень оказания транспортных услуг является не менее важным,
-                    потому
-                    что это залог уверенности и полного спокойствия во время перевозки имущества. Вследствие этого с
-                    каждым
-                    годом интерес и спрос на различные грузоперевозки растёт и растёт.</p>
+                <p class="text-center" style="font-size: 20px; line-height: 24px;">В связи с растущим спросом покупок
+                    товаров посредством Сети интернет, потребители стали чаще обращаться к компаниям, у которых налажена
+                    работа службы доставки.</br>
+                    Развитие предприятия характеризуется многими показателями. Не последнюю очередь занимает именно
+                    организованная работа доставки. Высокий уровень подачи и эффективная работа по доставке грузов и
+                    товаров отражает стабильность, внушает доверие и безопасность во время перевозки имущества.
+                    Предлагаем экспресс-доставку товаров и грузов, которая осуществляется под строгим контролем,
+                    оперативно и в срок.</br>
+                    Наша недорогая цена доставки обусловлена гибким планированием маршрутов, опытом и высоким уровнем
+                    профессионализма сотрудников компании.
+                </p>
             </div>
         </div>
     </div>

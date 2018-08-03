@@ -66,7 +66,7 @@ class AddressUserAdmin extends AbstractAdmin
     {
         $formMapper
             ->with(' ')
-            ->add('name', null,array('label'=>'ФИО получателя'))
+            ->add('name', null,array('label'=>'ФИО получателя / отправителя'))
             ->add('phone', null, array('label' => 'Контактный телефон'))
             ->add('organization', null, array('label' => 'Организация'))
             ->add('city', EntityType::class, [
@@ -81,7 +81,7 @@ class AddressUserAdmin extends AbstractAdmin
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
-            ->add('name', null,array('label'=>'ФИО получателя'))
+            ->add('name', null,array('label'=>'ФИО получателя / отправителя'))
             ->add('phone', null, array('label' => 'Контактный телефон'))
             ->add('organization', null,array('label'=>'Организация'))
             ->add('city.name', null,array('label'=>'Имя'))
@@ -101,7 +101,7 @@ class AddressUserAdmin extends AbstractAdmin
                     'delete' => ['template' => '@GobusgoGobusgo/Admin/CRUD/list__action_delete.html.twig'],
                 ]
             ])
-            ->addIdentifier('name', null,array('label'=>'ФИО получателя'))
+            ->addIdentifier('name', null,array('label'=>'ФИО получателя / отправителя'))
             ->addIdentifier('phone', null, array('label' => 'Контактный телефон'))
             ->addIdentifier('organization', null,array('label'=>'Организация'))
             ->addIdentifier('city.name', null,array('label'=>'Город'))

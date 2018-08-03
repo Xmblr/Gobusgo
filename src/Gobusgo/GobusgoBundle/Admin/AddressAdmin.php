@@ -19,29 +19,27 @@ class AddressAdmin extends AbstractAdmin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-
-            ->add('name', 'text')
-            ->add('organization')
-            ->add('city', ModelType::class, [
+            ->with(' ')
+            ->add('name', null,array('label'=>'ФИО получателя / отправителя'))
+            ->add('phone', null, array('label' => 'Контактный телефон'))
+            ->add('organization', null, array('label' => 'Организация'))
+            ->add('city', EntityType::class, [
                 'class' => City::class,
-                'property' => 'name'])
-            ->add('street')
-            ->add('userId', ModelType::class,[
-                'class'=>User::class,
-                'property'=>'fullName',
-            ])
-            ->add('phone')
+                'choice_label' => 'name',
+                'label' => 'Город'])
+            ->add('street', null,array('label'=>'Адрес'))
+            ->end()
         ;
     }
 
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
-            ->add('name')
-            ->add('organization')
-            ->add('city.name')
-            ->add('street')
-            ->add('userId.fullName')
+            ->add('name', null,array('label'=>'ФИО получателя / отправителя'))
+            ->add('phone', null, array('label' => 'Контактный телефон'))
+            ->add('organization', null,array('label'=>'Организация'))
+            ->add('city.name', null,array('label'=>'Имя'))
+            ->add('street', null, array('label' => 'Адрес'))
         ;
     }
 
@@ -56,10 +54,12 @@ class AddressAdmin extends AbstractAdmin
                     'delete' => ['template' => '@GobusgoGobusgo/Admin/CRUD/list__action_delete.html.twig'],
                 ]
             ])
-            ->addIdentifier('name')
-            ->addIdentifier('organization')
-            ->addIdentifier('city.name')
-            ->addIdentifier('street')//            ->addIdentifier('userId.fullName')
+            ->addIdentifier('name', null,array('label'=>'ФИО получателя / отправителя'))
+            ->addIdentifier('phone', null, array('label' => 'Контактный телефон'))
+            ->addIdentifier('organization', null,array('label'=>'Организация'))
+            ->addIdentifier('city.name', null,array('label'=>'Город'))
+            ->addIdentifier('street', null,array('label'=>'Адрес'))
+
         ;
     }
 }

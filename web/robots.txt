@@ -1,5 +1,30 @@
-# www.robotstxt.org/
-# www.google.com/support/webmasters/bin/answer.py?hl=en&answer=156449
-
 User-agent: *
-Disallow:
+Disallow: /*admin
+Disallow: /*profile
+Disallow: /*login
+Disallow: /*register
+Disallow: /*confirm
+Allow: /*.css
+Allow: /*.js
+Allow: /*.jpg
+Allow: /*.png
+Allow: /*.pdf
+Allow: /*.doc
+
+User-agent: Yandex
+Disallow: /*admin
+Disallow: /*profile
+Disallow: /*login
+Disallow: /*register
+Disallow: /*confirm
+Allow: /*.css
+Allow: /*.js
+Allow: /*.jpg
+Allow: /*.png
+Allow: /*.pdf
+Allow: /*.doc
+Clean-param: tracking
+
+# Sitemap
+Host: https://gobusgo.by
+Sitemap: https://gobusgo.by/sitemap.xml

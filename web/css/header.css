@@ -146,21 +146,44 @@ color: #8598ff;
     -webkit-transition: all 0.4s ease;
     -o-transition: all 0.4s ease;
     transition: all 0.4s ease;
-    margin: 10px 0px;
+    margin: 8px 0px;
 }
 
 .accordion .out-link a {
     padding: 8px 15px 8px 10%;
     color: #29293a;
-    font-size: 20px;
+    font-size: 1.1vw;
     font-family: "Trebuchet MS";
     font-weight: 500;
     text-transform: uppercase;
+    transition: all 0.2s ease-in-out;
+}
+
+.accordion .out-link a:before {
+    background-image: url('/images/vfi1.png');
+    background-size: 30px 14px;
+    display: inline-block;
+    width: 30px;
+    height: 14px;
+    content:"";
+    display: none;
+    margin-right: 5px;
+}
+
+.accordion .out-link a:hover {
+    padding-left: 35px;
+    transition: all 0.2s ease-in-out;
+}
+
+
+.accordion .out-link a:hover:before {
+    display: inline-block;
 }
 
 .logo {
     margin:20px 30px;
     display:inline-block;
+    /*float: left;*/
 }
 
 .button-active-header {
@@ -203,7 +226,7 @@ color: #8598ff;
 }
 
 .start-li {
-    margin: 25px 0px 20% 15px;
+    margin: 25px 0px 40px 15px;
     list-style-type: none;
 }
 
@@ -274,9 +297,6 @@ color: #8598ff;
     margin-left: 5px;
 }
 
-.callback-header {
-    padding: 10px 0px;
-}
 
 .header-icons {
     margin-left: 15px;
@@ -363,4 +383,27 @@ color: #8598ff;
 .menu-li {
     padding: 20px;
     text-align: center;
+}
+
+.contact-info {
+    text-align: left;
+}
+
+.icons-phone {
+    margin-bottom: 5px;
+    height: 25px;
+}
+
+.sale-top {
+    margin-top: 20px;
+    position: absolute;
+    top: 0px;
+    left: 40%;
+}
+
+.gradient {
+    padding: 10px;
+    margin: 0 auto;
+    border: 5px solid transparent;
+    border-image: 10 repeating-linear-gradient(45deg, #8598ff, #8598ff 10px, transparent 10px, transparent 20px, #ffeb89 20px, #ffeb89 30px,transparent 30px, transparent 40px);
 }
