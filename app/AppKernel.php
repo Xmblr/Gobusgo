@@ -43,6 +43,11 @@ class AppKernel extends Kernel
             new JMS\SerializerBundle\JMSSerializerBundle(),
             new Application\Sonata\MediaBundle\ApplicationSonataMediaBundle(),
 
+            //CKEditor
+//            new Knp\Bundle\MarkdownBundle\KnpMarkdownBundle(),
+//            new FOS\CKEditorBundle\FOSCKEditorBundle(),
+//            new Sonata\FormatterBundle\SonataFormatterBundle(),
+
             //BLOG
             new Ivory\CKEditorBundle\IvoryCKEditorBundle(),
             new Sonata\NewsBundle\SonataNewsBundle(),

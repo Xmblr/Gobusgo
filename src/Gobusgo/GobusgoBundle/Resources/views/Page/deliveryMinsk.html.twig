@@ -5,6 +5,7 @@
 {% endblock %}
 
 {% block body %}
+    <h1>{{ seoH1 }}</h1>
     <div class="container">
         <div class="row">
             <div class="col-md-10 col-md-push-1">
@@ -113,21 +114,7 @@
                 <h2 style="color: white; margin-top: 0px;">Нет времени заполнять все поля?</h2>
                 <p style="color: white; text-align: center;">Заполните быструю заявку и наши специалисты свяжутся с Вами в ближайшее время для обсуждения заказа.</p>
 
-                {#TODO: Подкрутить другую форму, 1 поле - Телефон.#}
-                {{ form_start(callform, { 'action': path('gobusgo_gobusgo_confirm'), 'method': 'POST' }) }}
-                {{ form_errors(callform) }}
-
-                <div class="form-group">
-                    {{ form_widget(callform.name, {'attr':{'class':'input-log','placeholder':'Как вас зовут?'}}) }}
-                </div>
-                <div class="form-group">
-                    {{ form_widget(callform.phone, {'attr':{'class':'input-log','placeholder':'Номер телефона'}}) }}
-                </div>
-                <div style="text-align: center;">
-                    <input type="submit" class="button-log" value="Отправить">
-                </div>
-                {{ form_end(callform) }}
-
+                <a href="#win3" class="button-log">Заказать обратный звонок</a>
             </div>
         </div>
 
@@ -178,7 +165,7 @@
     </div>
 
 
-    {% include 'GobusgoGobusgoBundle:Blog:blog.html.twig' %}
+    {% include 'GobusgoGobusgoBundle:Blog:blogLatest.html.twig' %}
 
 
 {% endblock %}

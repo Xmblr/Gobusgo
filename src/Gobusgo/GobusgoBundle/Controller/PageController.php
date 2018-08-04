@@ -16,141 +16,78 @@ class PageController extends Controller
 {
     public function indexAction(Request $request)
     {
-        $em = $this->getDoctrine()
-            ->getManager();
-
-        $seo = $em->getRepository('GobusgoGobusgoBundle:Seo')->findOneBy(['url'=>'homepage']);
-
-        $seoDescription = $seo->getDescription();
-        $seoPage = $this->container->get('sonata.seo.page');
-        $seoPage
-            ->setTitle($seo->getTitle())
-            ->addMeta('name', 'description', $seoDescription)
-            ->addMeta('property', 'og:description', $seoDescription)
-        ;
+        $seoH1 = $this->SetSeo('homepage');
 
         $callform = $this->Call($request);
 
-
-
-        $blogs = $em->getRepository('GobusgoGobusgoBundle:Blog')
-            ->getLatestBlogs(3);
+        $blogs = $this->GetLatestNews();
 
 
         return $this->render('@GobusgoGobusgo/Page/index.html.twig', array(
             'callform' =>$callform->createView(),
+            'seoH1' => $seoH1,
             'blogs' => $blogs
         ));
     }
 
     public function confirmAction(Request $request)
     {
-        $em = $this->getDoctrine()
-            ->getManager();
-
-        $seo = $em->getRepository('GobusgoGobusgoBundle:Seo')->findOneBy(['url'=>'confirm']);
-
-        $seoDescription = $seo->getDescription();
-        $seoPage = $this->container->get('sonata.seo.page');
-        $seoPage
-            ->setTitle($seo->getTitle())
-            ->addMeta('name', 'description', $seoDescription)
-            ->addMeta('property', 'og:description', $seoDescription)
-        ;
+        $seoH1 = $this->SetSeo('confirm');
 
         $callform = $this->Call($request);
 
         return $this->render('@GobusgoGobusgo/Page/confirm.html.twig', array(
-            'callform' =>$callform->createView()
+            'callform' =>$callform->createView(),
+            'seoH1' => $seoH1
         ));
     }
 
     public function catalogAction()
     {
-        $em = $this->getDoctrine()
-            ->getManager();
+        $seoH1 = $this->SetSeo('catalog');
 
-        $seo = $em->getRepository('GobusgoGobusgoBundle:Seo')->findOneBy(['url'=>'catalog']);
-
-        $seoDescription = $seo->getDescription();
-        $seoPage = $this->container->get('sonata.seo.page');
-        $seoPage
-            ->setTitle($seo->getTitle())
-            ->addMeta('name', 'description', $seoDescription)
-            ->addMeta('property', 'og:description', $seoDescription)
-        ;
-
-        return $this->render('@GobusgoGobusgo/Page/catalog.html.twig');
+        return $this->render('@GobusgoGobusgo/Page/catalog.html.twig', array(
+            'seoH1' => $seoH1,
+        ));
     }
 
     public function autoparkAction(Request $request)
     {
-        $em = $this->getDoctrine()
-            ->getManager();
-
-        $seo = $em->getRepository('GobusgoGobusgoBundle:Seo')->findOneBy(['url'=>'autopark']);
-
-        $seoDescription = $seo->getDescription();
-        $seoPage = $this->container->get('sonata.seo.page');
-        $seoPage
-            ->setTitle($seo->getTitle())
-            ->addMeta('name', 'description', $seoDescription)
-            ->addMeta('property', 'og:description', $seoDescription)
-        ;
+        $seoH1 = $this->SetSeo('autopark');
 
         $callform = $this->Call($request);
 
         return $this->render('@GobusgoGobusgo/Page/autopark.html.twig', array(
-            'callform' =>$callform->createView()
+            'callform' =>$callform->createView(),
+            'seoH1' => $seoH1,
         ));
     }
 
     public function aboutAction(Request $request)
     {
-        $em = $this->getDoctrine()
-            ->getManager();
-
-        $seo = $em->getRepository('GobusgoGobusgoBundle:Seo')->findOneBy(['url'=>'about']);
-
-        $seoDescription = $seo->getDescription();
-        $seoPage = $this->container->get('sonata.seo.page');
-        $seoPage
-            ->setTitle($seo->getTitle())
-            ->addMeta('name', 'description', $seoDescription)
-            ->addMeta('property', 'og:description', $seoDescription)
-        ;
+        $seoH1 = $this->SetSeo('about');
 
         $callform = $this->Call($request);
 
-        $blogs = $em->getRepository('GobusgoGobusgoBundle:Blog')
-            ->getLatestBlogs(3);
+        $blogs = $this->GetLatestNews();
 
 
         return $this->render('@GobusgoGobusgo/Page/about.html.twig', array(
             'callform' =>$callform->createView(),
+            'seoH1' => $seoH1,
             'blogs'=>$blogs
         ));
     }
 
     public function feedbackAction(Request $request)
     {
-        $em = $this->getDoctrine()
-            ->getManager();
-
-        $seo = $em->getRepository('GobusgoGobusgoBundle:Seo')->findOneBy(['url'=>'feedback']);
-
-        $seoDescription = $seo->getDescription();
-        $seoPage = $this->container->get('sonata.seo.page');
-        $seoPage
-            ->setTitle($seo->getTitle())
-            ->addMeta('name', 'description', $seoDescription)
-            ->addMeta('property', 'og:description', $seoDescription)
-        ;
+        $seoH1 = $this->SetSeo('feedback');
 
         $callform = $this->Call($request);
 
         return $this->render('@GobusgoGobusgo/Page/feedback.html.twig', array(
-            'callform' =>$callform->createView()
+            'callform' =>$callform->createView(),
+            'seoH1' => $seoH1,
         ));
     }
 
@@ -159,15 +96,7 @@ class PageController extends Controller
         $em = $this->getDoctrine()
             ->getManager();
 
-        $seo = $em->getRepository('GobusgoGobusgoBundle:Seo')->findOneBy(['url'=>'deliveryRB']);
-
-        $seoDescription = $seo->getDescription();
-        $seoPage = $this->container->get('sonata.seo.page');
-        $seoPage
-            ->setTitle($seo->getTitle())
-            ->addMeta('name', 'description', $seoDescription)
-            ->addMeta('property', 'og:description', $seoDescription)
-        ;
+        $seoH1 = $this->SetSeo('deliveryRB');
 
         $legalCallform = $this->createForm('Gobusgo\GobusgoBundle\Form\LegalCallType',null,array(
             'action' => $this->generateUrl('gobusgo_gobusgo_deliveryRB'),
@@ -219,8 +148,7 @@ class PageController extends Controller
         $em = $this->getDoctrine()
             ->getManager();
 
-        $blogs = $em->getRepository('GobusgoGobusgoBundle:Blog')
-            ->getLatestBlogs(3);
+        $blogs = $this->GetLatestNews();
 
 
         return $this->render('@GobusgoGobusgo/Page/deliveryRB.html.twig', array(
@@ -228,7 +156,8 @@ class PageController extends Controller
             'individualCallform' =>$individualCallform->createView(),
             'legalCallform' =>$legalCallform->createView(),
             'cities'=>$cities,
-            'blogs'=>$blogs
+            'blogs'=>$blogs,
+            'seoH1' => $seoH1,
         ));
     }
 
@@ -237,25 +166,17 @@ class PageController extends Controller
         $em = $this->getDoctrine()
             ->getManager();
 
-        $seo = $em->getRepository('GobusgoGobusgoBundle:Seo')->findOneBy(['url'=>'deliveryMinsk']);
-
-        $seoDescription = $seo->getDescription();
-        $seoPage = $this->container->get('sonata.seo.page');
-        $seoPage
-            ->setTitle($seo->getTitle())
-            ->addMeta('name', 'description', $seoDescription)
-            ->addMeta('property', 'og:description', $seoDescription)
-        ;
+        $seoH1 = $this->SetSeo('deliveryMinsk');
 
         $callform = $this->Call($request);
 
-        $blogs = $em->getRepository('GobusgoGobusgoBundle:Blog')
-            ->getLatestBlogs(3);
+        $blogs = $this->GetLatestNews();
 
 
 
         return $this->render('@GobusgoGobusgo/Page/deliveryMinsk.html.twig', array(
             'callform' =>$callform->createView(),
+            'seoH1' => $seoH1,
             'blogs'=>$blogs
         ));
     }
@@ -265,15 +186,7 @@ class PageController extends Controller
         $em = $this->getDoctrine()
             ->getManager();
 
-        $seo = $em->getRepository('GobusgoGobusgoBundle:Seo')->findOneBy(['url'=>'deliveryMoscowMinsk']);
-
-        $seoDescription = $seo->getDescription();
-        $seoPage = $this->container->get('sonata.seo.page');
-        $seoPage
-            ->setTitle($seo->getTitle())
-            ->addMeta('name', 'description', $seoDescription)
-            ->addMeta('property', 'og:description', $seoDescription)
-        ;
+        $seoH1 = $this->SetSeo('deliveryMoscowMinsk');
 
         $legalCallform = $this->createForm('Gobusgo\GobusgoBundle\Form\LegalCallType',null,array(
             'action' => $this->generateUrl('gobusgo_gobusgo_deliveryMoscowMinsk'),
@@ -326,80 +239,56 @@ class PageController extends Controller
 
         $callform = $this->Call($request);
 
-        $blogs = $em->getRepository('GobusgoGobusgoBundle:Blog')
-            ->getLatestBlogs(3);
+        $blogs = $this->GetLatestNews();
 
 
         return $this->render('@GobusgoGobusgo/Page/deliveryMoscowMinsk.html.twig', array(
             'callform' =>$callform->createView(),
             'individualCallform' =>$individualCallform->createView(),
             'legalCallform' =>$legalCallform->createView(),
-            'blogs'=>$blogs
+            'blogs'=>$blogs,
+            'seoH1' => $seoH1,
         ));
     }
 
     public function contactsAction(Request $request)
     {
-        $em = $this->getDoctrine()
-            ->getManager();
-
-        $seo = $em->getRepository('GobusgoGobusgoBundle:Seo')->findOneBy(['url'=>'contacts']);
-
-        $seoDescription = $seo->getDescription();
-        $seoPage = $this->container->get('sonata.seo.page');
-        $seoPage
-            ->setTitle($seo->getTitle())
-            ->addMeta('name', 'description', $seoDescription)
-            ->addMeta('property', 'og:description', $seoDescription)
-        ;
+        $seoH1 = $this->SetSeo('contacts');
 
         $callform = $this->Call($request);
 
         return $this->render('@GobusgoGobusgo/Page/contacts.html.twig', array(
-            'callform' =>$callform->createView()
+            'callform' =>$callform->createView(),
+            'seoH1' => $seoH1,
         ));
     }
 
     public function blogAction(Request $request)
     {
+
         $em = $this->getDoctrine()
             ->getManager();
 
-        $seo = $em->getRepository('GobusgoGobusgoBundle:Seo')->findOneBy(['url'=>'blog']);
-
-        $seoDescription = $seo->getDescription();
-        $seoPage = $this->container->get('sonata.seo.page');
-        $seoPage
-            ->setTitle($seo->getTitle())
-            ->addMeta('name', 'description', $seoDescription)
-            ->addMeta('property', 'og:description', $seoDescription)
-        ;
+        $seoH1 = $this->SetSeo('blog');
 
         $blogs = $em->getRepository('GobusgoGobusgoBundle:Blog')
             ->getLatestBlogs();
 
 
         return $this->render('GobusgoGobusgoBundle:Blog:index.html.twig', array(
-            'blogs' => $blogs
+            'blogs' => $blogs,
+            'seoH1' => $seoH1,
         ));
     }
 
-    public function blogShowAction($id, $url)
+    public function blogShowAction($url)
     {
         $em = $this->getDoctrine()
             ->getManager();
 
-        $seo = $em->getRepository('GobusgoGobusgoBundle:Seo')->findOneBy(['url'=>'blogShow']);
+        $seoH1 = $this->SetSeo('blogShow');
 
-        $seoDescription = $seo->getDescription();
-        $seoPage = $this->container->get('sonata.seo.page');
-        $seoPage
-            ->setTitle($seo->getTitle())
-            ->addMeta('name', 'description', $seoDescription)
-            ->addMeta('property', 'og:description', $seoDescription)
-        ;
-
-        $blog = $em->getRepository('GobusgoGobusgoBundle:Blog')->find($id);
+        $blog = $em->getRepository('GobusgoGobusgoBundle:Blog')->findOneBy(array('url'=>$url));
 
         if (!$blog) {
             throw $this->createNotFoundException('Unable to find Blog post.');
@@ -410,6 +299,7 @@ class PageController extends Controller
 
         return $this->render('GobusgoGobusgoBundle:Blog:show.html.twig', array(
             'blog'      => $blog,
+            'seoH1' => $seoH1,
             'comments'  => $comments
         ));
     }
@@ -439,27 +329,22 @@ class PageController extends Controller
         ));
     }
 
-    public function categoryAction($id, $category)
+    public function categoryAction($categoryUrl)
     {
         $em = $this->getDoctrine()
             ->getManager();
 
-        $seo = $em->getRepository('GobusgoGobusgoBundle:Seo')->findOneBy(['url'=>'category']);
+        $seoH1 = $this->SetSeo('category');
 
-        $seoDescription = $seo->getDescription();
-        $seoPage = $this->container->get('sonata.seo.page');
-        $seoPage
-            ->setTitle($seo->getTitle())
-            ->addMeta('name', 'description', $seoDescription)
-            ->addMeta('property', 'og:description', $seoDescription)
-        ;
+        $categoryId = $em->getRepository('GobusgoGobusgoBundle:Category')->findOneBy(array('url'=>$categoryUrl))->getId();
 
         $blogs = $em->getRepository('GobusgoGobusgoBundle:Blog')
-            ->getLatestBlogs(null, $id);
+            ->getLatestBlogs(null, $categoryId);
 
 
         return $this->render('GobusgoGobusgoBundle:Blog:index.html.twig', array(
-            'blogs' => $blogs
+            'blogs' => $blogs,
+            'seoH1' => $seoH1,
         ));
     }
 
@@ -535,6 +420,33 @@ class PageController extends Controller
         // Create the Mailer using your created Transport
         return $mailer = Swift_Mailer::newInstance($transport);
 
+    }
+
+    public function SetSeo($url)
+    {
+        $em = $this->getDoctrine()
+            ->getManager();
+
+        $seo = $em->getRepository('GobusgoGobusgoBundle:Seo')->findOneBy(['url'=>$url]);
+
+        $seoDescription = $seo->getDescription();
+        $seoPage = $this->container->get('sonata.seo.page');
+        $seoPage
+            ->setTitle($seo->getTitle())
+            ->addMeta('name', 'description', $seoDescription)
+            ->addMeta('property', 'og:description', $seoDescription)
+        ;
+
+        return $seoH1 = $seo->getH1();
+    }
+
+    public function GetLatestNews()
+    {
+        $em = $this->getDoctrine()
+            ->getManager();
+
+        return $em->getRepository('GobusgoGobusgoBundle:Blog')
+            ->getLatestBlogs(3);
     }
 
 }

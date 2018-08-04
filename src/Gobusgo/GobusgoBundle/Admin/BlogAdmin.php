@@ -13,6 +13,23 @@ use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Form\Type\ModelListType;
 use Sonata\AdminBundle\Form\Type\ModelType;
+use Sonata\FormatterBundle\Form\Type\FormatterType;
+
+use Knp\Menu\ItemInterface as MenuItemInterface;
+use Sonata\AdminBundle\Admin\AdminInterface;
+use Sonata\AdminBundle\Form\Type\ModelAutocompleteType;
+use Sonata\AdminBundle\Show\ShowMapper;
+use Sonata\CoreBundle\Form\Type\DateTimePickerType;
+use Sonata\DoctrineORMAdminBundle\Filter\CallbackFilter;
+use Sonata\FormatterBundle\Formatter\Pool as FormatterPool;
+use Sonata\NewsBundle\Form\Type\CommentStatusType;
+use Sonata\NewsBundle\Model\CommentInterface;
+use Sonata\NewsBundle\Permalink\PermalinkInterface;
+use Sonata\UserBundle\Model\UserManagerInterface;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+
+
 
 class BlogAdmin extends AbstractAdmin
 {
@@ -35,16 +52,31 @@ class BlogAdmin extends AbstractAdmin
 
     protected function configureFormFields(FormMapper $formMapper)
     {
+        $isHorizontal = 'horizontal' == $this->getConfigurationPool()->getOption('form_type');
         $formMapper
 //            ->add('id')
             ->add('title')
+            ->add('h1')
+            ->add('description')
+            ->add('url')
 //            ->add('author')
-            ->add('blog')
+//            ->add('blog')
+//            ->add('blog') // source content
+//            ->add('rawContent') // source content
+//            ->add('contentFormatter', FormatterType::class, [
+//                'source_field' => 'rawContent',
+//                'target_field' => 'blog',
+//            ])
 //            ->add('image', 'sonata_media_type', array(
 //                'provider' => 'sonata.media.provider.image',
 //                'context'  => 'blog',
 //                'label'=>'Главное фото'
 //            ))
+            ->add('blog', 'sonata_simple_formatter_type', array(
+                'format' => 'richhtml',
+                'ckeditor_context' => 'news', // optional
+            ))
+
             ->add('image', 'sonata_type_model_list', array(), array(
                 'link_parameters' => array(
                     'context' => 'blog',
@@ -59,7 +91,7 @@ class BlogAdmin extends AbstractAdmin
             ], array(
                 'admin_code' => 'admin.category'
             ))
-            ->add('url')
+
 
 //            ->add('comments')
 //            ->add('created')
@@ -72,6 +104,9 @@ class BlogAdmin extends AbstractAdmin
         $datagridMapper
             ->add('id')
             ->add('title')
+            ->add('h1')
+            ->add('description')
+            ->add('url')
             ->add('author')
             ->add('blog')
 //            ->add('image')
@@ -91,6 +126,9 @@ class BlogAdmin extends AbstractAdmin
         $listMapper
             ->addIdentifier('id')
             ->addIdentifier('title')
+            ->addIdentifier('h1')
+            ->addIdentifier('description')
+            ->addIdentifier('url')
             ->addIdentifier('author')
             ->addIdentifier('blog')
 //            ->addIdentifier('image')

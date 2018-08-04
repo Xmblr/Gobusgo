@@ -2034,3 +2034,8 @@ address span {
 .list-marked {
     list-style: none;
 }
+
+.select2-selection__rendered
+{
+    display: none;
+}

@@ -66,7 +66,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-            <h1 class="text-left">Новости</h1>
+            <h1 class="text-left">Последние новости</h1>
         </div>
         {% for blog in blogs %}
             <article class="blog">
@@ -74,7 +74,7 @@
                     <time datetime="{{ blog.created|date('c') }}">{{ blog.created|date('d/m/Y') }}</time>
                 </div>
                 <header>
-                    <h2><a href="{{ path('gobusgo_gobusgo_blog_show', {'url': blog.url }) }}">{{ blog.title }}</a></h2>
+                    <h2><a href="{{ path('gobusgo_gobusgo_blog_show', { 'url': blog.url }) }}">{{ blog.title }}</a></h2>
                 </header>
 
                 {#<img src="{{ asset(['images/', blog.image]|join) }}"/>#}
@@ -87,7 +87,7 @@
 
                 <footer class="meta">
                     <p>Comments: <a
-                                href="{{ path('gobusgo_gobusgo_blog_show', {'url': blog.url }) }}#comments">{{ blog.comments|length }}</a>
+                                href="{{ path('gobusgo_gobusgo_blog_show', { 'url': blog.url }) }}#comments">{{ blog.comments|length }}</a>
                     </p>
                     <p>Posted by <span class="highlight">{{ blog.author }}</span> at {{ blog.created|date('h:iA') }}
                     </p>

@@ -69,16 +69,56 @@ class Blog
      */
     protected $url;
 
-//    /**
-//     * @ORM\Column(type="string")
-//     */
-//    protected $slug;
+
 
     /**
      * @ORM\ManyToOne(targetEntity="Category", inversedBy="blogs")
      * @ORM\JoinColumn(name="category_id", referencedColumnName="id")
      */
     protected $category;
+
+    /**
+     * @ORM\Column(type="string")
+     */
+    protected $description;
+
+    /**
+     * @ORM\Column(type="string")
+     */
+    protected $h1;
+
+    /**
+     * @return mixed
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * @param mixed $description
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getH1()
+    {
+        return $this->h1;
+    }
+
+    /**
+     * @param mixed $h1
+     */
+    public function setH1($h1)
+    {
+        $this->h1 = $h1;
+    }
+
 
     public function __construct()
     {
@@ -151,7 +191,7 @@ class Blog
     {
         $this->title = $title;
 
-        $this->setSlug($this->title);
+//        $this->setSlug($this->title);
     }
 
     /**
