@@ -10,27 +10,54 @@
     {#{% endblock %}#}
     <div class="container">
         <div class="row">
-            <div class="col-md-12">
                 <div class="col-md-9">
-                    <article class="blog">
-                        <header>
-                            <div class="date"><time datetime="{{ blog.created|date('c') }}">{{ blog.created|date('l, F j, Y') }}</time></div>
-                            <h1>{{ blog.h1 }}</h1>
-                            <h2>{{ blog.title }}</h2>
-                            {{ blog.description }}
-                        </header>
-                        {% media blog.image, 'small' %}
-                        {#<img src="{{ asset(['images/', blog.image]|join) }}" alt="{{ blog.title }} image not found" class="large" />#}
-                        <div>
-                            <p>{{ blog.blog | raw }}</p>
+                    <article >
+
+                        <h1 class="text-left">{{ blog.title }}</h1>
+                        <div style="margin-bottom: 10px;">
+                        <span style="font-style: italic; color: #b1b1b1;"><i class="fa fa-clock-o" aria-hidden="true" style="color: #8598ff;"></i> {{ blog.created|date('d/m/Y') }}</span>
+                        <span class="sonata-blog-post-comments-count"><i class="fa fa-comment-o" aria-hidden="true" style="margin-left: 10px; color: #8598ff;"></i> {{ blog.comments|length }}</span>
+                        <span class="sonata-blog-post-author" style="font-style: Italic;"><i class="fa fa-user-o" aria-hidden="true" style="margin-left: 10px; color: #8598ff;"></i> {{ blog.author }}</span>
                         </div>
+
+                            {#{{ blog.description }}#}
+                        <div class="blog">
+
+                        {#<img src="{{ asset(['images/', blog.image]|join) }}" alt="{{ blog.title }} image not found" class="large" />#}
+                        <div style="margin-top: 20px;">
+                            <div class="text-center">
+                            {% media blog.image, 'small' %}
+                            </div>
+                            <p style="margin-top: 30px;">{{ blog.blog | raw }}</p>
+                        </div>
+
+                            <div class="blog-flex" style="margin-top: 30px;">
+                                <div class="sonata-blog-post-information">
+                                    <div class="sonata-blog-post-tags">
+                                        <i class="fa fa-tags" style="color: #8598ff;" aria-hidden="true"></i>
+                                        {{ blog.tags }}
+                                    </div>
+                                </div>
+                                <script src="//yastatic.net/es5-shims/0.0.2/es5-shims.min.js"></script>
+                                <script src="//yastatic.net/share2/share.js"></script>
+                                <div class="ya-share2" data-services="vkontakte,facebook,odnoklassniki,moimir,gplus,twitter"></div>
+                            </div>
+
+
+
+
+                        </div>
+
                     </article>
 
+
+
                     <section class="comments" id="comments">
-                        <section class="previous-comments">
-                            <h3>Comments</h3>
+                        <div class="sonata-blog-comment-container">
+                            <h4>Комментарии:</h4>
+
                             {% include 'GobusgoGobusgoBundle:Blog:comment.html.twig' with { 'comments': comments } %}
-                        </section>
+                        </div>
                         {% for label, messages in app.flashes %}
                             {% for message in messages %}
                                 <div class="alert alert-{{ label }}">
@@ -38,7 +65,7 @@
                                 </div>
                             {% endfor %}
                         {% endfor %}
-                        <h3>Add Comment</h3>
+                        <h4>Добавить комментарий:</h4>
                         {{ render(controller('GobusgoGobusgoBundle:Comment:new',{ 'blog_id': blog.id })) }}
                     </section>
 

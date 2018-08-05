@@ -63,39 +63,47 @@
     {#</div>#}
 {#</div>#}
 
+
 <div class="container">
-    <div class="row">
+    <div class="row" style="display: flex; flex-wrap: wrap;">
         <div class="col-md-12">
-            <h1 class="text-left">Последние новости</h1>
+            <h2>Последние новости</h2>
         </div>
         {% for blog in blogs %}
-            <article class="blog">
-                <div class="date">
-                    <time datetime="{{ blog.created|date('c') }}">{{ blog.created|date('d/m/Y') }}</time>
-                </div>
-                <header>
-                    <h2><a href="{{ path('gobusgo_gobusgo_blog_show', { 'url': blog.url }) }}">{{ blog.title }}</a></h2>
-                </header>
+            <div class="col-md-4" style="display: flex; flex-wrap: wrap;">
+                <article class="blog">
 
-                {#<img src="{{ asset(['images/', blog.image]|join) }}"/>#}
-                {% media blog.image, 'small' %}
-                <div class="snippet">
-                    <p>{{ blog.blog(500) }}</p>
-                    <p class="continue"><a href="{{ path('gobusgo_gobusgo_blog_show', {'url': blog.url }) }}">Continue
-                            reading...</a></p>
-                </div>
 
-                <footer class="meta">
-                    <p>Comments: <a
-                                href="{{ path('gobusgo_gobusgo_blog_show', { 'url': blog.url }) }}#comments">{{ blog.comments|length }}</a>
-                    </p>
-                    <p>Posted by <span class="highlight">{{ blog.author }}</span> at {{ blog.created|date('h:iA') }}
-                    </p>
-                    <p>Tags: <span class="highlight">{{ blog.tags }}</span></p>
-                </footer>
-            </article>
+                    <div class="sonata-blog-post-information" style="font-style: italic; color: #b1b1b1;">
+                        <div class="text-center">
+                            {% media blog.image, 'big' %}
+                        </div>
+                        <h4 class="sonata-blog-post-title text-left">
+                            <a style="color: #8598ff;font-style: normal;"
+                               href="{{ path('gobusgo_gobusgo_blog_show', { 'url': blog.url }) }}">{{ blog.title }}</a>
+                        </h4>
+                        <i class="fa fa-clock-o" aria-hidden="true" style="color: #8598ff;"></i>
+                        {{ blog.created|date('d/m/Y') }}
+
+                        <i class="fa fa-comment-o" aria-hidden="true" style="margin-left: 10px; color: #8598ff;"></i>
+                        <span class="sonata-blog-post-comments-count">{{ blog.comments|length }}</span>
+
+                        <div class="sonata-blog-post-tags">
+                            <i class="fa fa-tags" style="color: #8598ff;" aria-hidden="true"></i>
+                            {{ blog.tags }}
+                        </div>
+                    </div>
+                    <div class="sonata-blog-post-abtract" style="margin: 10px 0px;">
+                        {{ blog.blog(150) }}
+                    </div>
+                    <div class="sonata-blog-post-author" style="font-style: Italic;">{{ blog.author }}</div>
+                    <a href="{{ path('gobusgo_gobusgo_blog_show', {'url': blog.url }) }}"
+                       class="button-log">Подробнее</a>
+
+                </article>
+            </div>
         {% else %}
-            <p>There are no blog entries for symblog</p>
+            <p>Нет последних новостей</p>
         {% endfor %}
     </div>
 </div>

@@ -159,6 +159,12 @@ color: #8598ff;
     transition: all 0.2s ease-in-out;
 }
 
+@media (min-width: 1800px) {
+    .accordion .out-link a {
+font-size: 1.4vw;
+    }
+}
+
 .accordion .out-link a:before {
     background-image: url('/images/vfi1.png');
     background-size: 30px 14px;

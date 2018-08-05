@@ -1,10 +1,29 @@
+<ul class="sonata-blog-comment-list" style="list-style-type: none;">
 {% for comment in comments %}
-    <article class="comment {{ cycle(['odd', 'even'], loop.index0) }}" id="comment-{{ comment.id }}">
-        <header>
-            <p><span class="highlight">{{ comment.user }}</span> commented <time datetime="{{ comment.created|date('c') }}">{{ comment.created|date('l, F j, Y') }}</time></p>
-        </header>
-        <p>{{ comment.comment }}</p>
-    </article>
+    <li class="sonata-blog-comment">
+        <div>
+            <img src="{{ asset('images/man.png') }}" style="height: 75px; vertical-align: middle; display: inline-block;">
+
+            <div class="sonata-blog-comment-name" style="display: inline-block; vertical-align: middle; margin-left: 30px;">
+                <div>
+                    <a href="https://new-line.by" target="new" rel="nofollow" style="vertical-align: middle;">{{ comment.user }}</a>
+                </div>
+                <div class="sonata-blog-comment-date" style="display: inline-block; font-style:Italic; color: #b1b1b1;">
+                    {{ comment.created|date('l, F j, Y') }}
+                </div>
+                <div class="sonata-blog-comment-message">
+                    {{ comment.comment }}
+                </div>
+            </div>
+        </div>
+    {#<article class="comment {{ cycle(['odd', 'even'], loop.index0) }}" id="comment-{{ comment.id }}">#}
+        {#<header>#}
+            {#<p><span class="highlight">{{ comment.user }}</span> commented <time datetime="{{ comment.created|date('c') }}">{{ comment.created|date('l, F j, Y') }}</time></p>#}
+        {#</header>#}
+        {#<p>{{ comment.comment }}</p>#}
+    {#</article>#}
+</ul>
 {% else %}
-    <p>There are no comments for this post. Be the first to comment...</p>
+    <p>К данной новости нет комментариев. Будьте первым, кто оставит комментарий.</p>
 {% endfor %}
+

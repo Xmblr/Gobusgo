@@ -16,9 +16,14 @@ $(".accordion .closeme").on('click',function () {
 
 $(document).mouseup(function(e) {
     var $target = $(e.target);
+    var hamburgers = document.querySelectorAll(".hamburger");
     if ($target.closest(".accordion").length == 0) {
         $(".accordion").removeClass("active");
+
         e.style.transition = "all 5s ease-in-out";
+    }
+    else {
+        $(".hamburger").removeClass("is-active");
     }
 });
 
@@ -128,6 +133,7 @@ if (hamburgers.length > 0) {
         hamburger.addEventListener("click", function () {
             this.classList.toggle("is-active");
         }, false);
+
     });
 }
 /**

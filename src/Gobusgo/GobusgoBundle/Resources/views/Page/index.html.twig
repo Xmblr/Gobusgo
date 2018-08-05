@@ -1,6 +1,5 @@
 {% extends '@GobusgoGobusgo/layout.html.twig' %}
 {% block header %}
-    <h1>{{ seoH1 }}</h1>
     {% block callback %}
         <a href="#x" class="overlay" id="win3">
         </a>
@@ -111,7 +110,10 @@
                                                 </div>
                                                 <div class="unit-body inline-block vertical-middle">
                                                     <address class="contact-info"><a
-                                                                href="tel:+375(33)333-33-33"><span>+375(33)333-33-33</span></a><br><a
+                                                                href="tel:+375(33)333-33-33"><span>+375(33)333-33-33</span></a><img class="icons-phone" style="margin-left: 5px;"
+                                                                                                                                    src="{{ asset('images/whatsup.png') }}"/>
+                                                        <img class="icons-phone"
+                                                             src="{{ asset('images/telegram.png') }}"/><br><a
                                                                 href="tel:+375(25)333-33-33"><span>+375(25)333-33-33</span></a>
                                                     </address>
                                                 </div>
@@ -203,7 +205,10 @@
                                                     </div>
                                                     <div class="unit-body inline-block vertical-middle">
                                                         <address class="contact-info"><a
-                                                                    href="tel:+375(33)333-33-33"><span>+375(33)333-33-33</span></a><br><a
+                                                                    href="tel:+375(33)333-33-33"><span>+375(33)333-33-33</span></a><img class="icons-phone" style="margin-left: 5px;"
+                                                                                                                                        src="{{ asset('images/whatsup.png') }}"/>
+                                                            <img class="icons-phone"
+                                                                 src="{{ asset('images/telegram.png') }}"/><br><a
                                                                     href="tel:+375(25)333-33-33"><span>+375(25)333-33-33</span></a>
                                                         </address>
                                                     </div>
@@ -317,9 +322,17 @@
                 </nav>
             </div>
         </div>
-        <div class="sale-top" style="margin-top: 20px;">
-            <div class="gradient">Добро пожаловать на сайт GoBusGo.by</div>
-        </div>
+        {#<div class="sale-top" style="margin-top: 20px;">#}
+            {#<div class="gradient">Добро пожаловать на сайт GoBusGo.by</div>#}
+        {#</div>#}
+        {#<div class="unit unit-sm-horizontal unit-align-center unit-middle unit-spacing-xxs" style="border: 2px solid #8598ff; border-radius: 50px; padding: 2px 20px;">#}
+            {#<div class="unit-left inline-block vertical-middle"><p>7</p></div>#}
+            {#<div class="unit-body inline-block vertical-middle" style="margin-left: 0px;">#}
+                {#<address class="contact-info">#}
+                    {#<span>-ая доставка</span><br><span>БЕСПЛАТНО</span>#}
+                {#</address>#}
+            {#</div>#}
+        {#</div>#}
         <div class="container p-0">
             <div class="row">
                 <h1 class="margin-home">Куда везем груз?</h1>
@@ -455,6 +468,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-10 col-md-push-1">
+                <h1>{{ seoH1 }}</h1>
                 <p class="text-center" style="font-size: 20px; line-height: 24px;">В связи с растущим спросом покупок
                     товаров посредством Сети интернет, потребители стали чаще обращаться к компаниям, у которых налажена
                     работа службы доставки.</br>

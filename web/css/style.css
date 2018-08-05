@@ -1959,6 +1959,7 @@ address span {
     justify-content: space-between;
     align-items: stretch;
     align-content: space-between;
+    margin-bottom: 10px;
 }
 
 .sonata-blog-comment-container ul {

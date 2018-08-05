@@ -42,9 +42,6 @@
                          style="padding-left: 0px; padding-right: 0px;">
                         <div class="col-md-3" style="padding-right: 0px; padding-left: 0px;">
                             <div class="icons-top-bar" style=" margin-right: 20px;">
-                                <img class="icons-top" src="{{ asset('images/whatsup.png') }}"/>
-                                <img class="icons-top" src="{{ asset('images/telegram.png') }}"/>
-                                <img class="icons-top" src="{{ asset('images/viber.png') }}"/>
                                 <img class="icons-top" src="{{ asset('images/skype.png') }}"/>
                             </div>
                         </div>
@@ -108,7 +105,11 @@
                                                     </div>
                                                     <div class="unit-body inline-block vertical-middle">
                                                         <address class="contact-info"><a
-                                                                    href="tel:+375(33)333-33-33"><span>+375(33)333-33-33</span></a><br><a
+                                                                    href="tel:+375(33)333-33-33"><span>+375(33)333-33-33</span></a>
+                                                            <img class="icons-phone" style="margin-left: 5px;"
+                                                                 src="{{ asset('images/whatsup.png') }}"/>
+                                                            <img class="icons-phone"
+                                                                 src="{{ asset('images/telegram.png') }}"/><br><a
                                                                     href="tel:+375(25)333-33-33"><span>+375(25)333-33-33</span></a>
                                                         </address>
                                                     </div>
@@ -130,11 +131,11 @@
                                                         src="{{ asset('images/letter.png') }}" width="30px;"
                                                         style="margin-right: 10px;"/>info@gobusgo.by</p>
                                             <div class="header-icons">
-                                                <img class="icons-top" src="{{ asset('images/whatsup.png') }}"
-                                                />
-                                                <img src="{{ asset('images/telegram.png') }}"
-                                                />
-                                                <img src="{{ asset('images/viber.png') }}"/>
+                                                {#<img class="icons-top" src="{{ asset('images/whatsup.png') }}"#}
+                                                {#/>#}
+                                                {#<img src="{{ asset('images/telegram.png') }}"#}
+                                                {#/>#}
+                                                {#<img src="{{ asset('images/viber.png') }}"/>#}
                                                 <img src="{{ asset('images/skype.png') }}"/>
                                             </div>
                                         </ul>
