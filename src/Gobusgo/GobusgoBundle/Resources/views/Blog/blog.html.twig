@@ -64,7 +64,7 @@
 {#</div>#}
 
 <div class="container">
-    <div class="row" style="display: flex; flex-wrap: wrap;">
+    <div class="row blog-wrap">
         <div class="col-md-12">
             <h1>Новости</h1>
         </div>
@@ -79,7 +79,7 @@
 
                     <div class="sonata-blog-post-information" style="font-style: italic; color: #b1b1b1;">
                         <div class="text-center">
-                            {% media blog.image, 'big' %}
+                            {% media blog.image, 'big' with {'style' : 'max-height: 300px; width: auto'} %}
                         </div>
                         <h4 class="sonata-blog-post-title text-left">
                             <a style="color: #8598ff;font-style: normal;"
@@ -91,10 +91,10 @@
                         <i class="fa fa-comment-o" aria-hidden="true" style="margin-left: 10px; color: #8598ff;"></i>
                         <span class="sonata-blog-post-comments-count">{{ blog.comments|length }}</span>
 
-                        <div class="sonata-blog-post-tags">
+                        <span class="sonata-blog-post-tags" style="margin-left: 10px;">
                             <i class="fa fa-tags" style="color: #8598ff;" aria-hidden="true"></i>
                             {{ blog.tags }}
-                        </div>
+                        </span>
                     </div>
                     <div class="sonata-blog-post-abtract" style="margin: 10px 0px;">
                         {{ blog.blog(150) }}

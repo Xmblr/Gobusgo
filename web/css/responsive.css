@@ -1116,7 +1116,7 @@
 
 
     .container-fluid {
-        width: 96%;
+        width: 100%;
     }
     .hide-sm {
         display: none
@@ -1937,7 +1937,7 @@
 
 @media (max-width: 575px) {
     .container-fluid {
-        width: 96%;
+        width: 100%;
     }
 
     .top-bar span {

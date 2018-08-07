@@ -271,7 +271,7 @@ file that was distributed with this source code.
                         {{ form_errors(form) }}
 
                         <div class="row">
-                            <div class="col-sm-9">
+                            <div class="col-sm-8">
                                 {% set withAdvancedFilter = false %}
                                 {% for filter in admin.datagrid.filters %}
                                     {% set filterActive = ((filter.isActive() and filter.options['show_filter'] is null) or (filter.options['show_filter'] is same as(true))) and not admin.isDefaultFilter(filter.formName) %}
@@ -304,16 +304,16 @@ file that was distributed with this source code.
                                     {% endif %}
                                 {% endfor %}
                             </div>
-                            <div class="col-sm-3 text-center">
+                            <div class="col-sm-4 text-center">
                                 <input type="hidden" name="filter[_page]" id="filter__page" value="1">
 
                                 {% set foo = form['_page'].setRendered() %}
                                 {{ form_rest(form) }}
 
                                 <div class="form-group">
-                                    <a type="submit" class="button-log"  style="margin-top: 0px; padding: 5px 20px;">
+                                    <button type="submit" class="button-log"  style="margin-top: 0px; padding: 5px 20px;">
                                         <i class="fa fa-filter" aria-hidden="true"></i> {{ 'btn_filter'|trans({}, 'SonataAdminBundle') }}
-                                    </a>
+                                    </button>
 
                                     <button class="button-log" style="margin-top: 0px; padding: 5px 20px;" href="{{ admin.generateUrl('list', {filters: 'reset'}) }}">
                                         {{ 'link_reset_filter'|trans({}, 'SonataAdminBundle') }}

@@ -5234,3 +5234,7 @@ body {
     background: white;
     box-shadow: 0px 2px 10px 0px rgba(49, 49, 50, 0.13);
 }
+
+* {
+    outline: -webkit-focus-ring-color auto 0px;
+}

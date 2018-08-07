@@ -4,6 +4,7 @@
 
 $(".accordion-wrapper .mobile-open").on('click', function () {
     $(".accordion").toggleClass("active");
+    $(".hamburger").toggleClass("is-active");
     // $(".hamburger--spin").toggleClass("is-active");
 });
 
@@ -19,11 +20,8 @@ $(document).mouseup(function(e) {
     var hamburgers = document.querySelectorAll(".hamburger");
     if ($target.closest(".accordion").length == 0) {
         $(".accordion").removeClass("active");
-
-        e.style.transition = "all 5s ease-in-out";
-    }
-    else {
         $(".hamburger").removeClass("is-active");
+        e.style.transition = "all 5s ease-in-out";
     }
 });
 

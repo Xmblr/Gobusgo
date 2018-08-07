@@ -23,9 +23,9 @@ class SeoAdmin extends AbstractAdmin
     {
         $formMapper
             ->add('url', null,array('attr'=>array('readonly'=>'readonly')))
-            ->add('h1')
-            ->add('title')
-            ->add('description')
+            ->add('h1', null,array('label'=>'Заголовок (H1)'))
+            ->add('title', null,array('label'=>'Заголовок (Title)'))
+            ->add('description', null,array('label'=>'Описание (Description)'))
         ;
     }
 
@@ -33,9 +33,9 @@ class SeoAdmin extends AbstractAdmin
     {
         $datagridMapper
             ->add('url')
-            ->add('h1')
-            ->add('title')
-            ->add('description')
+            ->add('h1', null,array('label'=>'Заголовок (H1)'))
+            ->add('title', null,array('label'=>'Заголовок (Title)'))
+            ->add('description', null,array('label'=>'Описание (Description)'))
         ;
     }
 
@@ -45,9 +45,9 @@ class SeoAdmin extends AbstractAdmin
 
         $listMapper
             ->addIdentifier('url')
-            ->addIdentifier('h1')
-            ->addIdentifier('title')
-            ->addIdentifier('description')
+            ->addIdentifier('h1', null,array('label'=>'Заголовок (H1)'))
+            ->addIdentifier('title', null,array('label'=>'Заголовок (Title)'))
+            ->addIdentifier('description', null,array('label'=>'Описание (Description)'))
         ;
     }
 }

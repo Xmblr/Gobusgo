@@ -84,7 +84,7 @@ class AddressUserAdmin extends AbstractAdmin
             ->add('name', null,array('label'=>'ФИО получателя / отправителя'))
             ->add('phone', null, array('label' => 'Контактный телефон'))
             ->add('organization', null,array('label'=>'Организация'))
-            ->add('city.name', null,array('label'=>'Имя'))
+            ->add('city.name', null,array('label'=>'Город'))
             ->add('street', null, array('label' => 'Адрес'))
         ;
     }
@@ -96,6 +96,7 @@ class AddressUserAdmin extends AbstractAdmin
 
         $listMapper
             ->add('_action', null, [
+                'label'=>'Действия',
                 'actions' => [
                     'edit' => ['template' => '@GobusgoGobusgo/Admin/CRUD/list__action_edit.html.twig'],
                     'delete' => ['template' => '@GobusgoGobusgo/Admin/CRUD/list__action_delete.html.twig'],

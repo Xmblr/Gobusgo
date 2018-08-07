@@ -49,6 +49,7 @@ class AddressAdmin extends AbstractAdmin
 
         $listMapper
             ->add('_action', null, [
+                'label'=>'Действия',
                 'actions' => [
                     'edit' => ['template' => '@GobusgoGobusgo/Admin/CRUD/list__action_edit.html.twig'],
                     'delete' => ['template' => '@GobusgoGobusgo/Admin/CRUD/list__action_delete.html.twig'],
