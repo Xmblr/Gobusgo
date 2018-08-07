@@ -443,147 +443,147 @@
             {#</div>#}
 
 
-            {#<a href="#x" class="overlay" id="legal-form">#}
-            {#</a>#}
-            {#<div class="popup">#}
-                {#<div class="section bg-gray-light container-fluid">#}
+            <a href="#x" class="overlay" id="legal-form">
+            </a>
+            <div class="popup">
+                <div class="section bg-gray-light container-fluid">
 
-                    {#<div style="" id="individual_form">#}
-                        {#{{ form_start(individualCallform) }}#}
-                        {#<h2>Заявка для физического лица</h2>#}
+                    <div style="" id="individual_form">
+                        {{ form_start(individualCallform) }}
+                        <h2>Заявка для физического лица</h2>
 
-                        {#<div class="Input" style="display: none;">#}
-                            {#{{ form_errors(individualCallform.weight) }}#}
-                            {#{{ form_widget(individualCallform.weight, {'attr':{'class':'input-log', 'position': 'absolute','placeholder':'Вес\, кг','readonly':''}}) }}#}
-                        {#</div>#}
-                        {#<div class="Input" style="display: none;">#}
-                            {#<input class="Input-text" id="formIndividualOne" name="from"#}
-                                   {#position="absolute" value="" readonly/>#}
-                        {#</div>#}
-                        {#<div class="Input" style="display: none;">#}
-                            {#<input class="Input-text" id="formIndividualTwo" name="to"#}
-                                   {#position="absolute" value="" readonly/>#}
-                        {#</div>#}
-                        {#<div class="Input" style="display: none;">#}
-                            {#{{ form_errors(individualCallform.sum) }}#}
-                            {#{{ form_widget(individualCallform.sum, {'attr':{'class':'input-log', 'position': 'absolute','placeholder':'Сумма','readonly':''}}) }}#}
-                        {#</div>#}
-
-
-                        {#<div class="Input">#}
-                            {#{{ form_errors(individualCallform.name) }}#}
-                            {#{{ form_widget(individualCallform.name, {'attr':{'class':'input-log', 'position': 'absolute','placeholder':'Как вас зовут?'}}) }}#}
-                        {#</div>#}
-                        {#<div class="Input">#}
-                            {#{{ form_errors(individualCallform.phone) }}#}
-                            {#{{ form_widget(individualCallform.phone, {'attr':{'class':'input-log', 'position': 'absolute','placeholder':'Номер телефона'}}) }}#}
-                        {#</div>#}
-                        {#<div class="Input">#}
-                            {#{{ form_errors(individualCallform.notice) }}#}
-                            {#{{ form_widget(individualCallform.notice, {'attr':{'class':'input-log', 'position': 'absolute','placeholder':'Примечания'}}) }}#}
-                        {#</div>#}
-
-                        {#<div style="display:none">#}
-                            {#{ form_widget(legalCallform.height) }}#}
-                            {#{{ form_widget(legalCallform.lenght) }}#}
-                            {#{{ form_widget(legalCallform.width) }}#}
-                            {#{{ form_widget(individualCallform.cities) }}#}
-
-                            {#{{ form_rest(individualCallform) }}#}
-                        {#</div>#}
-
-                        {#<div class="text-center" style="margin-bottom: 30px;">#}
-                            {#<input class="button-log" value="Оформить заявку" type="submit" onclick="city()">#}
-                        {#</div>#}
-                        {#{{ form_end(individualCallform) }}#}
-                    {#</div>#}
-
-                    {#<div style="display: none;" id="legal_form">#}
-
-                        {#{{ form_start(legalCallform) }}#}
-                        {#<h2>Заявка для юридического лица</h2>#}
-                        {#<div class="col-md-6">#}
-                            {#<div class="Input" style="display:none;">#}
-                                {#{{ form_errors(legalCallform.weight) }}#}
-                                {#{{ form_widget(legalCallform.weight, {'attr':{'class':'Input-text', 'position': 'absolute','placeholder':'Вес\, кг', 'onchange':'sum()','readonly':''}}) }}#}
-                            {#</div>#}
-                            {#<div class="Input" style="display:none;">#}
-                                {#<input class="Input-text" id="formLegalOne" position="absolute" readonly/>#}
-                            {#</div>#}
-                            {#<div class="Input" style="display:none;">#}
-                                {#<input class="Input-text" id="formLegalTwo" position="absolute" readonly/>#}
-                            {#</div>#}
-
-                            {#<div class="Input" style="display:none;">#}
-                                {#{{ form_errors(legalCallform.sum) }}#}
-                                {#{{ form_widget(legalCallform.sum, {'attr':{'class':'input-log', 'position': 'absolute','placeholder':'Сумма','readonly':''}}) }}#}
-                            {#</div>#}
-                            {#<div class="Input">#}
-                                {#{{ form_errors(legalCallform.organization) }}#}
-                                {#{{ form_widget(legalCallform.organization, {'attr':{'class':'input-log', 'position': 'absolute','placeholder':'Название организации?'}}) }}#}
-                            {#</div>#}
-                            {#<div class="Input">#}
-                                {#{{ form_errors(legalCallform.fullName) }}#}
-                                {#{{ form_widget(legalCallform.fullName, {'attr':{'class':'input-log', 'position': 'absolute','placeholder':'Контактное лицо'}}) }}#}
-                            {#</div>#}
-                            {#<div class="Input">#}
-                                {#{{ form_errors(legalCallform.phone) }}#}
-                                {#{{ form_widget(legalCallform.phone, {'attr':{'class':'input-log', 'position': 'absolute','placeholder':'телефон'}}) }}#}
-                            {#</div>#}
-                            {#<div class="Input">#}
-                                {#{{ form_errors(legalCallform.code) }}#}
-                                {#{{ form_widget(legalCallform.code, {'attr':{'class':'input-log', 'position': 'absolute','placeholder':'Код'}}) }}#}
-                            {#</div>#}
-                            {#<div class="Input">#}
-                                {#{{ form_errors(legalCallform.notice) }}#}
-                                {#{{ form_widget(legalCallform.notice, {'attr':{'class':'input-log', 'position': 'absolute','placeholder':'Примечания'}}) }}#}
-                            {#</div>#}
-
-                        {#</div>#}
-                        {#<div class="col-md-6">#}
-
-                            {#<div class="Input">#}
-                                {#{{ form_errors(legalCallform.UNP) }}#}
-                                {#{{ form_widget(legalCallform.UNP, {'attr':{'class':'input-log', 'position': 'absolute','placeholder':'УНП'}}) }}#}
-                            {#</div>#}
-                            {#<div class="Input">#}
-                                {#{{ form_errors(legalCallform.bank) }}#}
-                                {#{{ form_widget(legalCallform.bank, {'attr':{'class':'input-log', 'position': 'absolute','placeholder':'Банк'}}) }}#}
-                            {#</div>#}
-                            {#<div class="Input">#}
-                                {#{{ form_errors(legalCallform.addressOfTheBank) }}#}
-                                {#{{ form_widget(legalCallform.addressOfTheBank, {'attr':{'class':'input-log', 'position': 'absolute','placeholder':'Адресс банка'}}) }}#}
-                            {#</div>#}
-                            {#<div class="Input">#}
-                                {#{{ form_errors(legalCallform.legalAddress) }}#}
-                                {#{{ form_widget(legalCallform.legalAddress, {'attr':{'class':'input-log', 'position': 'absolute','placeholder':'Юридический адресс'}}) }}#}
-                            {#</div>#}
-                            {#<div class="Input">#}
-                                {#{{ form_errors(legalCallform.settlementAccount) }}#}
-                                {#{{ form_widget(legalCallform.settlementAccount, {'attr':{'class':'input-log', 'position': 'absolute','placeholder':'Расчётный счёт'}}) }}#}
-                            {#</div>#}
+                        <div class="Input" style="display: none;">
+                            {{ form_errors(individualCallform.weight) }}
+                            {{ form_widget(individualCallform.weight, {'attr':{'class':'input-log', 'position': 'absolute','placeholder':'Вес\, кг','readonly':''}}) }}
+                        </div>
+                        <div class="Input" style="display: none;">
+                            <input class="Input-text" id="formIndividualOne" name="from"
+                                   position="absolute" value="" readonly/>
+                        </div>
+                        <div class="Input" style="display: none;">
+                            <input class="Input-text" id="formIndividualTwo" name="to"
+                                   position="absolute" value="" readonly/>
+                        </div>
+                        <div class="Input" style="display: none;">
+                            {{ form_errors(individualCallform.sum) }}
+                            {{ form_widget(individualCallform.sum, {'attr':{'class':'input-log', 'position': 'absolute','placeholder':'Сумма','readonly':''}}) }}
+                        </div>
 
 
-                            {#<div style="display:none">#}
-                                {#{{ form_widget(legalCallform.height) }}#}
-                                {#{{ form_widget(legalCallform.lenght) }}#}
-                                {#{{ form_widget(legalCallform.width) }}#}
-                                {#{{ form_widget(legalCallform.cities) }}#}
+                        <div class="Input">
+                            {{ form_errors(individualCallform.name) }}
+                            {{ form_widget(individualCallform.name, {'attr':{'class':'input-log', 'position': 'absolute','placeholder':'Как вас зовут?'}}) }}
+                        </div>
+                        <div class="Input">
+                            {{ form_errors(individualCallform.phone) }}
+                            {{ form_widget(individualCallform.phone, {'attr':{'class':'input-log', 'position': 'absolute','placeholder':'Номер телефона'}}) }}
+                        </div>
+                        <div class="Input">
+                            {{ form_errors(individualCallform.notice) }}
+                            {{ form_widget(individualCallform.notice, {'attr':{'class':'input-log', 'position': 'absolute','placeholder':'Примечания'}}) }}
+                        </div>
 
-                                {#{{ form_rest(legalCallform) }}#}
-                            {#</div>#}
-                        {#</div>#}
+                        <div style="display:none">
+                            { form_widget(legalCallform.height) }}
+                            {{ form_widget(legalCallform.lenght) }}
+                            {{ form_widget(legalCallform.width) }}
+                            {{ form_widget(individualCallform.cities) }}
 
-                        {#<div class="col-md-12 text-center" style="margin-bottom: 20px; margin-top: 20px; ">#}
-                            {#<input class="button-log" value="Оформить заявку" type="submit" onclick="city()">#}
-                        {#</div>#}
-                        {#{{ form_end(legalCallform) }}#}
-                    {#</div>#}
+                            {{ form_rest(individualCallform) }}
+                        </div>
 
-                {#</div>#}
+                        <div class="text-center" style="margin-bottom: 30px;">
+                            <input class="button-log" value="Оформить заявку" type="submit" onclick="city()">
+                        </div>
+                        {{ form_end(individualCallform) }}
+                    </div>
 
-                {#<a class="close" title="Закрыть" href="#close"></a>#}
-            {#</div>#}
+                    <div style="display: none;" id="legal_form">
+
+                        {{ form_start(legalCallform) }}
+                        <h2>Заявка для юридического лица</h2>
+                        <div class="col-md-6">
+                            <div class="Input" style="display:none;">
+                                {{ form_errors(legalCallform.weight) }}
+                                {{ form_widget(legalCallform.weight, {'attr':{'class':'Input-text', 'position': 'absolute','placeholder':'Вес\, кг', 'onchange':'sum()','readonly':''}}) }}
+                            </div>
+                            <div class="Input" style="display:none;">
+                                <input class="Input-text" id="formLegalOne" position="absolute" readonly/>
+                            </div>
+                            <div class="Input" style="display:none;">
+                                <input class="Input-text" id="formLegalTwo" position="absolute" readonly/>
+                            </div>
+
+                            <div class="Input" style="display:none;">
+                                {{ form_errors(legalCallform.sum) }}
+                                {{ form_widget(legalCallform.sum, {'attr':{'class':'input-log', 'position': 'absolute','placeholder':'Сумма','readonly':''}}) }}
+                            </div>
+                            <div class="Input">
+                                {{ form_errors(legalCallform.organization) }}
+                                {{ form_widget(legalCallform.organization, {'attr':{'class':'input-log', 'position': 'absolute','placeholder':'Название организации?'}}) }}
+                            </div>
+                            <div class="Input">
+                                {{ form_errors(legalCallform.fullName) }}
+                                {{ form_widget(legalCallform.fullName, {'attr':{'class':'input-log', 'position': 'absolute','placeholder':'Контактное лицо'}}) }}
+                            </div>
+                            <div class="Input">
+                                {{ form_errors(legalCallform.phone) }}
+                                {{ form_widget(legalCallform.phone, {'attr':{'class':'input-log', 'position': 'absolute','placeholder':'телефон'}}) }}
+                            </div>
+                            <div class="Input">
+                                {{ form_errors(legalCallform.code) }}
+                                {{ form_widget(legalCallform.code, {'attr':{'class':'input-log', 'position': 'absolute','placeholder':'Код'}}) }}
+                            </div>
+                            <div class="Input">
+                                {{ form_errors(legalCallform.notice) }}
+                                {{ form_widget(legalCallform.notice, {'attr':{'class':'input-log', 'position': 'absolute','placeholder':'Примечания'}}) }}
+                            </div>
+
+                        </div>
+                        <div class="col-md-6">
+
+                            <div class="Input">
+                                {{ form_errors(legalCallform.UNP) }}
+                                {{ form_widget(legalCallform.UNP, {'attr':{'class':'input-log', 'position': 'absolute','placeholder':'УНП'}}) }}
+                            </div>
+                            <div class="Input">
+                                {{ form_errors(legalCallform.bank) }}
+                                {{ form_widget(legalCallform.bank, {'attr':{'class':'input-log', 'position': 'absolute','placeholder':'Банк'}}) }}
+                            </div>
+                            <div class="Input">
+                                {{ form_errors(legalCallform.addressOfTheBank) }}
+                                {{ form_widget(legalCallform.addressOfTheBank, {'attr':{'class':'input-log', 'position': 'absolute','placeholder':'Адресс банка'}}) }}
+                            </div>
+                            <div class="Input">
+                                {{ form_errors(legalCallform.legalAddress) }}
+                                {{ form_widget(legalCallform.legalAddress, {'attr':{'class':'input-log', 'position': 'absolute','placeholder':'Юридический адресс'}}) }}
+                            </div>
+                            <div class="Input">
+                                {{ form_errors(legalCallform.settlementAccount) }}
+                                {{ form_widget(legalCallform.settlementAccount, {'attr':{'class':'input-log', 'position': 'absolute','placeholder':'Расчётный счёт'}}) }}
+                            </div>
+
+
+                            <div style="display:none">
+                                {{ form_widget(legalCallform.height) }}
+                                {{ form_widget(legalCallform.lenght) }}
+                                {{ form_widget(legalCallform.width) }}
+                                {{ form_widget(legalCallform.cities) }}
+
+                                {{ form_rest(legalCallform) }}
+                            </div>
+                        </div>
+
+                        <div class="col-md-12 text-center" style="margin-bottom: 20px; margin-top: 20px; ">
+                            <input class="button-log" value="Оформить заявку" type="submit" onclick="city()">
+                        </div>
+                        {{ form_end(legalCallform) }}
+                    </div>
+
+                </div>
+
+                <a class="close" title="Закрыть" href="#close"></a>
+            </div>
 
             {#<div class="text-center" style="margin: 20px;">#}
                 {#<a style="padding: 10px 20px; font-size: 20px;" class="button-log" href="#legal-form"#}
@@ -838,7 +838,7 @@
                 <div class="Input">
                     <div id="city1area">
 
-                        <select class="input-log" id="city1">
+                        <select class="input-log" id="Sum_weight" >
                             <option>0-2 кг</option>
                             <option>3-9 кг</option>
                             <option>10-29 кг</option>
@@ -860,7 +860,7 @@
                 <div class="Input">
                     <div id="city1area">
 
-                        <select class="input-log" id="city1">
+                        <select class="input-log" id="Sum_city" onchange="sumWeight()">
                             <option>По Минску</option>
                             <option>По Беларуси</option>
 
@@ -877,7 +877,7 @@
                 <div class="Input">
                     <div class="Input">
 
-                        <input id="sum" class="input-log" placeholder="Сумма">
+                        <input id="Sum_sum" class="input-log" placeholder="Сумма" value="8">
                     </div>
                 </div>
             </div>
@@ -1035,9 +1035,9 @@
             var type, form, form2;
             if (document.getElementById('legal').checked) {
                 type = 2;
-                form = document.getElementById('legal_form')
+                form = document.getElementById('legal_form');
                 form.style.display = 'block';
-                form2 = document.getElementById('individual_form')
+                form2 = document.getElementById('individual_form');
                 form2.style.display = 'none';
             }
             else {
@@ -1071,6 +1071,15 @@
             document.getElementById('formIndividualTwo').value = document.getElementById('two').value;
             document.getElementById('individual_call_sum').value = document.getElementById('sum').value;
         }
+
+        function sumWeight() {
+            var val = document.getElementById('Sum_city').value;
+            if (val === 'По Минску')
+                document.getElementById('Sum_sum').value = 8;
+            else
+                document.getElementById('Sum_sum').value = 20;
+        }
+
     </script>
 
     {% include 'GobusgoGobusgoBundle:Blog:blogLatest.html.twig' %}

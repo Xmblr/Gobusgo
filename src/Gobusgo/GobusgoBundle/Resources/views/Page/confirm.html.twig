@@ -1,9 +1,26 @@
-{% extends '@GobusgoGobusgo/layout.html.twig' %}
+{#{% extends '::base.html.twig' %}#}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
 
-{#{% block title %}Confirm{% endblock %}#}
+    <link type="text/css" rel="stylesheet" href="{{ asset('css/bootstrap-1.css') }}">
+    <link type="text/css" rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <link type="text/css" rel="stylesheet" href="{{ asset('css/style-1.css') }}">
+    <link type="text/css" rel="stylesheet" href="{{ asset('css/font-awesome/css/font-awesome.css') }}">
+    <link type="text/css" rel="stylesheet" href="{{ asset('css/header.css') }}">
+    <link type="text/css" rel="stylesheet" href="{{ asset('css/responsive.css') }}">
+    <link type="text/css" rel="stylesheet" href="{{ asset('css/swiper.min.css') }}">
+    <link type="text/css" rel="stylesheet" href="{{ asset('css/header-second.css') }}">
+    <link type="text/css" rel="stylesheet" href="{{ asset('css/popup.css') }}">
+    <link type="text/css" rel="stylesheet" href="{{ asset('css/zero-5.css') }}">
+    <link type="text/css" rel="stylesheet" href="{{ asset('css/phone-call.css') }}">
+    <link type="text/css" rel="stylesheet" href="{{ asset('css/hamburgers.css') }}">
+</head>
+<body>
 
 {% block body %}
-    <h1>{{ seoH1 }}</h1>
+    {#<h1>{{ seoH1 }}</h1>#}
     <div class="row" style="padding-bottom: 3%;">
         <div class="container-fluid" style="margin-top: 3%;">
 
@@ -519,3 +536,11 @@
     </div>
 
 {% endblock %}
+
+<script type="text/javascript" src="{{ asset('js/popper.min.js') }}"></script>
+{#{% javascripts '@jquery' '@bootstrap_js' %}#}
+{#<script type="text/javascript" src="{{ asset_url }}"></script>#}
+{#{% endjavascripts %}#}
+<script type="text/javascript" src="{{ asset('js/core.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/scripts.js') }}"></script>
+</body>
