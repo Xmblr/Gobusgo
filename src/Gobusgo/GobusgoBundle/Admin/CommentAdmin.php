@@ -2,7 +2,6 @@
 
 namespace Gobusgo\GobusgoBundle\Admin;
 
-use Gobusgo\GobusgoBundle\Entity\Comment;
 use Sonata\AdminBundle\Admin\AbstractAdmin;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;

@@ -44,10 +44,10 @@ class Blog
     protected $image;
 
 
-    /**
-     * @ORM\Column(type="text")
-     */
-    protected $tags;
+//    /**
+//     * @ORM\Column(type="text")
+//     */
+//    protected $tags;
 
     /**
      * @ORM\OneToMany(targetEntity="Comment", mappedBy="blog")
@@ -279,29 +279,29 @@ class Blog
         return $this->image;
     }
 
-    /**
-     * Set tags.
-     *
-     * @param string $tags
-     *
-     * @return Blog
-     */
-    public function setTags($tags)
-    {
-        $this->tags = $tags;
-
-        return $this;
-    }
-
-    /**
-     * Get tags.
-     *
-     * @return string
-     */
-    public function getTags()
-    {
-        return $this->tags;
-    }
+//    /**
+//     * Set tags.
+//     *
+//     * @param string $tags
+//     *
+//     * @return Blog
+//     */
+//    public function setTags($tags)
+//    {
+//        $this->tags = $tags;
+//
+//        return $this;
+//    }
+//
+//    /**
+//     * Get tags.
+//     *
+//     * @return string
+//     */
+//    public function getTags()
+//    {
+//        return $this->tags;
+//    }
 
     /**
      * Set created.

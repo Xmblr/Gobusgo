@@ -3,6 +3,8 @@
 namespace Gobusgo\GobusgoBundle\Controller;
 
 use Sonata\AdminBundle\Controller\CRUDController as Controller;
+use Sonata\AdminBundle\Datagrid\ProxyQueryInterface;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 
@@ -51,4 +53,5 @@ class CRUDController extends Controller
         // return new RedirectResponse($this->admin->generateUrl('list', ['filter' => $this->admin->getFilterParameters()]));
 
     }
+
 }

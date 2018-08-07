@@ -10,11 +10,8 @@ use Sonata\AdminBundle\Admin\AbstractAdmin;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
-use Sonata\AdminBundle\Form\Type\Filter\ChoiceType;
 use Sonata\AdminBundle\Form\Type\ModelType;
-use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
-use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Sonata\AdminBundle\Show\ShowMapper;
 
 class OrderAdmin extends AbstractAdmin
@@ -62,30 +59,6 @@ class OrderAdmin extends AbstractAdmin
             ], array(
                 'admin_code' => 'admin.address'
             ))
-//            ->add('additionalAddress2', ModelType::class, [
-//                'class'=>Address::class,
-//                'property' => 'name'
-//            ],array(
-//                'admin_code' => 'admin.address'
-//            ))
-//            ->add('additionalAddress3', ModelType::class, [
-//                'class'=>Address::class,
-//                'property' => 'name'
-//            ],array(
-//                'admin_code' => 'admin.address'
-//            ))
-//            ->add('additionalAddress4', ModelType::class, [
-//                'class'=>Address::class,
-//                'property' => 'name'
-//            ],array(
-//                'admin_code' => 'admin.address'
-//            ))
-//            ->add('additionalAddress5', ModelType::class, [
-//                'class'=>Address::class,
-//                'property' => 'name'
-//            ],array(
-//                'admin_code' => 'admin.address'
-//            ))
             ->add('dateOfOrder', DateTimeType::DATETIME, array('label' => 'Дата заявки'))
             ->add('status', 'choice', array(
                 'choices' => array(
@@ -110,10 +83,6 @@ class OrderAdmin extends AbstractAdmin
             ->add('shippingAddress.city.name', null, array('label' => 'Адрес отправки'))
             ->add('deliveryAddress.city.name', null, array('label' => 'Адрес доставки'))
             ->add('additionalAddress.city.name', null, array('label' => 'Дополнительный адрес'))
-//            ->add('additionalAddress2.name')
-//            ->add('additionalAddress3.name')
-//            ->add('additionalAddress4.name')
-//            ->add('additionalAddress5.name')
         ;
     }
 
@@ -136,14 +105,9 @@ class OrderAdmin extends AbstractAdmin
                 'label' => 'Действия',
                 'actions' => [
                     'show' => ['template' => '@GobusgoGobusgo/Admin/CRUD/list__action_show.html.twig'],
-//                    'edit' => ['template' => '@GobusgoGobusgo/Admin/CRUD/list__action_edit.html.twig'],
                     'delete' => ['template' => '@GobusgoGobusgo/Admin/CRUD/list__action_delete.html.twig'],
                 ]
             ])
-//            ->addIdentifier('additionalAddress2.name')
-//            ->addIdentifier('additionalAddress3.name')
-//            ->addIdentifier('additionalAddress4.name')
-//            ->addIdentifier('additionalAddress5.name')
         ;
     }
 

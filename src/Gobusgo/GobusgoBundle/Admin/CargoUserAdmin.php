@@ -6,9 +6,6 @@ use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Admin\AbstractAdmin;
-use Sonata\AdminBundle\Route\RouteCollection;
-use Symfony\Bridge\Doctrine\Form\Type\EntityType;
-use Doctrine\ORM\EntityRepository;
 use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 
 class CargoUserAdmin extends AbstractAdmin
@@ -46,10 +43,6 @@ class CargoUserAdmin extends AbstractAdmin
     }
 
 
-    public function preEdit($address)
-    {
-        throw new AccessDeniedException();
-    }
 
     protected function configureFormFields(FormMapper $formMapper)
     {

@@ -10,6 +10,10 @@
                 <source>Order Create</source>
                 <target>Создание заявки</target>
             </trans-unit>
+            <trans-unit id="title_show">
+                <source>title_show</source>
+                <target>Просмотр записи</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

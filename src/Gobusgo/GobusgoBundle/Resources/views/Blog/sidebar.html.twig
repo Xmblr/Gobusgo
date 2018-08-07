@@ -1,51 +1,53 @@
 {% block sidebar %}
-    <div class="col-md-3">
-    <section class="section">
-        <header>
-            <h3>Tag Cloud</h3>
-        </header>
-        <p class="tags">
-            {% for tag, weight in tags %}
-                <span class="weight-{{ weight }}">{{ tag }}</span>
-            {% else %}
-        <p>There are no tags</p>
-        {% endfor %}
-        </p>
-    </section>
+    <div class="sidebar-user">
+        {#<section class="section">#}
+        {#<header>#}
+        {#<h3>Tag Cloud</h3>#}
+        {#</header>#}
+        {#<p class="tags">#}
+        {#{% for tag, weight in tags %}#}
+        {#<span class="weight-{{ weight }}">{{ tag }}</span>#}
+        {#{% else %}#}
+        {#<p>There are no tags</p>#}
+        {#{% endfor %}#}
+        {#</p>#}
+        {#</section>#}
 
-    <section class="section">
-        <header>
-            <h3>Latest Comments</h3>
-        </header>
-        {% for comment in latestComments %}
-            <article class="comment">
-                <header>
-                    <p class="small"><span class="highlight">{{ comment.user }}</span> commented on
-                        <a href="{{ path('gobusgo_gobusgo_blog_show', { 'id': comment.blog.id, 'url': comment.blog.url }) }}#comment-{{ comment.id }}">
-                            {{ comment.blog.title }}
-                        </a>
-                        [<em><time datetime="{{ comment.created|date('c') }}">{{ comment.created|date('Y-m-d h:iA') }}</time></em>]
+        <section class="section">
+            <header>
+                <h3>Latest Comments</h3>
+            </header>
+            {% for comment in latestComments %}
+                <article class="comment">
+                    <header>
+                        <p class="small"><span class="highlight">{{ comment.user }}</span> commented on
+                            <a href="{{ path('gobusgo_gobusgo_blog_show', { 'id': comment.blog.id, 'url': comment.blog.url, 'categoryUrl' : comment.blog.category }) }}#comment-{{ comment.id }}">
+                                {{ comment.blog.title }}
+                            </a>
+                            [<em>
+                                <time datetime="{{ comment.created|date('c') }}">{{ comment.created|date('Y-m-d h:iA') }}</time>
+                            </em>]
+                        </p>
+                    </header>
+                    <p>{{ comment.comment }}</p>
                     </p>
-                </header>
-                <p>{{ comment.comment }}</p>
-                </p>
-            </article>
-        {% else %}
-            <p>There are no recent comments</p>
-        {% endfor %}
-    </section>
-
-    <section class="section">
-        <header>
-            <h3>Category</h3>
-        </header>
-        <p class="category">
-            {% for category in category %}
-                <a href="{{ path('gobusgo_gobusgo_category', {'categoryUrl': category.url}) }}"> {{ category.name }}</a>
+                </article>
             {% else %}
-        <p>There are no category</p>
-        {% endfor %}
-        </p>
-    </section>
+                <p>There are no recent comments</p>
+            {% endfor %}
+        </section>
+
+        <section class="section">
+            <header>
+                <h3>Category</h3>
+            </header>
+            <p class="category">
+                {% for category in category %}
+                <a href="{{ path('gobusgo_gobusgo_category', {'categoryUrl': category.url}) }}"> {{ category.name }}</a>
+                {% else %}
+            <p>There are no category</p>
+            {% endfor %}
+            </p>
+        </section>
     </div>
 {% endblock %}

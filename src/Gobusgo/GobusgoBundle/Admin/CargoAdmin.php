@@ -1,6 +1,5 @@
 <?php
 
-// src/AppBundle/Admin/CategoryAdmin.php
 namespace Gobusgo\GobusgoBundle\Admin;
 
 use Sonata\AdminBundle\Admin\Admin;

@@ -281,14 +281,22 @@ class PageController extends Controller
         ));
     }
 
-    public function blogShowAction($url)
+    public function blogShowAction($categoryUrl,$url)
     {
         $em = $this->getDoctrine()
             ->getManager();
 
-        $seoH1 = $this->SetSeo('blogShow');
-
+        $category = $em->getRepository('GobusgoGobusgoBundle:Category')->findOneBy(array('url'=>$categoryUrl));
         $blog = $em->getRepository('GobusgoGobusgoBundle:Blog')->findOneBy(array('url'=>$url));
+
+        $seoH1 = $blog->getH1();
+        $seoDescription = $blog->getDescription();
+        $seoPage = $this->container->get('sonata.seo.page');
+        $seoPage
+            ->setTitle($blog->getTitle())
+            ->addMeta('name', 'description', $seoDescription)
+            ->addMeta('property', 'og:description', $seoDescription)
+        ;
 
         if (!$blog) {
             throw $this->createNotFoundException('Unable to find Blog post.');
@@ -300,6 +308,7 @@ class PageController extends Controller
         return $this->render('GobusgoGobusgoBundle:Blog:show.html.twig', array(
             'blog'      => $blog,
             'seoH1' => $seoH1,
+            'category'=>$category,
             'comments'  => $comments
         ));
     }
@@ -309,13 +318,13 @@ class PageController extends Controller
         $em = $this->getDoctrine()
             ->getManager();
 
-        $tags = $em->getRepository('GobusgoGobusgoBundle:Blog')
-            ->getTags();
+//        $tags = $em->getRepository('GobusgoGobusgoBundle:Blog')
+//            ->getTags();
 
-        $tagWeights = $em->getRepository('GobusgoGobusgoBundle:Blog')
-            ->getTagWeights($tags);
+//        $tagWeights = $em->getRepository('GobusgoGobusgoBundle:Blog')
+//            ->getTagWeights($tags);
 
-        $commentLimit   = 10;
+        $commentLimit   = 5;
         $latestComments = $em->getRepository('GobusgoGobusgoBundle:Comment')
             ->getLatestComments($commentLimit);
 
@@ -324,7 +333,7 @@ class PageController extends Controller
 
         return $this->render('GobusgoGobusgoBundle:Blog:sidebar.html.twig', array(
             'latestComments'    => $latestComments,
-            'tags'              => $tagWeights,
+//            'tags'              => $tagWeights,
             'category'=>$category
         ));
     }
@@ -334,12 +343,19 @@ class PageController extends Controller
         $em = $this->getDoctrine()
             ->getManager();
 
-        $seoH1 = $this->SetSeo('category');
+        $category = $em->getRepository('GobusgoGobusgoBundle:Category')->findOneBy(array('url'=>$categoryUrl));
 
-        $categoryId = $em->getRepository('GobusgoGobusgoBundle:Category')->findOneBy(array('url'=>$categoryUrl))->getId();
+        $seoH1 = $category->getH1();
+        $seoDescription = $category->getDescription();
+        $seoPage = $this->container->get('sonata.seo.page');
+        $seoPage
+            ->setTitle($category->getTitle())
+            ->addMeta('name', 'description', $seoDescription)
+            ->addMeta('property', 'og:description', $seoDescription)
+        ;
 
         $blogs = $em->getRepository('GobusgoGobusgoBundle:Blog')
-            ->getLatestBlogs(null, $categoryId);
+            ->getLatestBlogs(null, $category->getId());
 
 
         return $this->render('GobusgoGobusgoBundle:Blog:index.html.twig', array(

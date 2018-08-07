@@ -1,14 +1,8 @@
 {% extends '@GobusgoGobusgo/Blog/layout.html.twig' %}
 
 {% block body %}
-    {#{% sonata_template_box 'This is the post template. Feel free to override it.' %}#}
 
-    {#{% block sonata_page_breadcrumb %}#}
-        {#<div class="row-fluid clearfix">#}
-            {#{{ sonata_block_render_event('breadcrumb', { 'context': 'news_post', 'post': post, 'current_uri': app.request.requestUri }) }}#}
-        {#</div>#}
-    {#{% endblock %}#}
-    <div class="container">
+    <div class="container col-md-6">
         <div class="row">
                 <div class="col-md-9">
                     <article >
@@ -35,7 +29,7 @@
                                 <div class="sonata-blog-post-information">
                                     <div class="sonata-blog-post-tags">
                                         <i class="fa fa-tags" style="color: #8598ff;" aria-hidden="true"></i>
-                                        {{ blog.tags }}
+                                        {#{{ blog.tags }}#}
                                     </div>
                                 </div>
                                 <script src="//yastatic.net/es5-shims/0.0.2/es5-shims.min.js"></script>
@@ -127,4 +121,6 @@
             </div>
         </div>
     </div>
+
+    {{ parent() }}
 {% endblock %}

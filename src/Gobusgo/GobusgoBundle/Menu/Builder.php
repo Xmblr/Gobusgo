@@ -12,6 +12,11 @@ class Builder implements ContainerAwareInterface
 
     public function mainMenu(FactoryInterface $factory, array $options)
     {
+        //        // access services from the container!
+//        $em = $this->container->get('doctrine')->getManager();
+////        // findMostRecent and Blog are just imaginary examples
+//        $category = $em->getRepository('GobusgoGobusgoBundle:Category')->find(1)->getId();
+
 //        $menu = $factory->createItem('root');
         $menu = $factory->createItem('Главная', array('route' => 'gobusgo_gobusgo_homepage'));
         $menu->addChild('О нас', array('route' => 'gobusgo_gobusgo_about'));
@@ -19,12 +24,10 @@ class Builder implements ContainerAwareInterface
         $menu->addChild('Грезоперевозки Москва-Минск', array('route' => 'gobusgo_gobusgo_deliveryMoscowMinsk'));
         $menu->addChild('Грузоперевозки по Минску', array('route' => 'gobusgo_gobusgo_deliveryMinsk'));
         $menu->addChild('Контакты', array('route' => 'gobusgo_gobusgo_contacts'));
-
-
 //        // access services from the container!
 //        $em = $this->container->get('doctrine')->getManager();
-//        // findMostRecent and Blog are just imaginary examples
-//        $blog = $em->getRepository('AppBundle:Blog')->findMostRecent();
+        // findMostRecent and Blog are just imaginary examples
+//        $category = $em->getRepository('GobusgoGobusgoBundle:Category')->findAll();
 //
 //        $menu->addChild('Latest Blog Post', array(
 //            'route' => 'blog_show',

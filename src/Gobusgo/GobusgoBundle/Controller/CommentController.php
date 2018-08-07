@@ -7,7 +7,6 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Gobusgo\GobusgoBundle\Entity\Comment;
 use Gobusgo\GobusgoBundle\Form\CommentType;
 use Symfony\Component\HttpFoundation\Request;
-use Gobusgo\GobusgoBundle\Controller\PageController;
 
 /**
  * Comment controller.

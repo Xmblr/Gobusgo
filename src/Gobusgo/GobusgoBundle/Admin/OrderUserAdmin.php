@@ -2,15 +2,8 @@
 
 namespace Gobusgo\GobusgoBundle\Admin;
 
-use Doctrine\DBAL\Types\DateTimeType;
-use Doctrine\ORM\EntityRepository;
 use Gobusgo\GobusgoBundle\Entity\Address;
 use Gobusgo\GobusgoBundle\Entity\Cargo;
-use Gobusgo\GobusgoBundle\Entity\User;
-use Gobusgo\GobusgoBundle\Form\CargoType;
-use Knp\Bundle\MenuBundle\KnpMenuBundle;
-use Knp\Menu\ItemInterface;
-use Knp\Menu\MenuItem;
 use Sonata\AdminBundle\Admin\AbstractAdmin;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
@@ -18,15 +11,8 @@ use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Form\Type\ModelListType;
 use Sonata\AdminBundle\Route\RouteCollection;
 use Sonata\AdminBundle\Show\ShowMapper;
-use Sonata\CoreBundle\Form\Type\CollectionType;
-use Symfony\Bridge\Doctrine\Form\Type\EntityType;
-use Symfony\Bundle\SwiftmailerBundle\DependencyInjection\SwiftmailerTransportFactory;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
-use Symfony\Component\Validator\Constraints\DateTime;
-
-
-
 
 class OrderUserAdmin extends AbstractAdmin
 {
@@ -79,7 +65,7 @@ class OrderUserAdmin extends AbstractAdmin
         $message = (new \Swift_Message($subject))
             ->setFrom($from)
             ->setTo($to)
-            ->setBody($message, 'text/html')//            ->setBody($this->setTemplates(array('template'=>'@GobusgoGobusgo/Page/callEmail.txt.twig', 'order' => $order)))
+            ->setBody($message, 'text/html')
         ;
 
         $mailer->send($message);
@@ -103,17 +89,9 @@ class OrderUserAdmin extends AbstractAdmin
 
     public function prePersist($order)
     {
-
-//        $this->sendEmail(array('name'=>$this->getUserId(),'date'=>'new \DateTime()'));
-
         $order->setUserId($this->getUserId());
         $order->setDateOfOrder(new \DateTime());
         $order->setStatus(0);
-    }
-
-    public function preEdit($order)
-    {
-        throw new AccessDeniedException();
     }
 
     protected function configureRoutes(RouteCollection $collection)
@@ -125,21 +103,14 @@ class OrderUserAdmin extends AbstractAdmin
             ;
     }
 
-
     protected function configureFormFields(FormMapper $formMapper)
     {
-
-
-
         $formMapper
             ->with('Создание заявки', ['class' => 'col-md-12'])
-//
             ->add('cargoId', ModelListType::class, [
                 'class'=>Cargo::class,
                 'label' => 'Шаблон груза',
                 'btn_delete' => false,
-//                'property'=>'name',
-//                'choices' => $cargo_available_choices
             ],array(
                 'admin_code' => 'admin.user.cargo',
 
@@ -161,8 +132,6 @@ class OrderUserAdmin extends AbstractAdmin
             ],array(
                 'admin_code' => 'admin.user.address'
             ))
-//            ->end()
-//            ->with('Дополнителный адрес', ['class' => 'collapse'])
             ->add('additionalAddress', ModelListType::class, [
                 'class' => Address::class,
                 'label' => 'Дополнительный адрес',
@@ -188,17 +157,12 @@ class OrderUserAdmin extends AbstractAdmin
             ->add('id', null, array('label' => 'Номер заказа'))
             ->add('status', null, array('label' => 'Статус'))
             ->add('dateOfOrder', null, array('label' => 'Дата заявки'))
-//            ->add('userId.fullName', null, array('label' => 'Пользователь'))
             ->add('cargoId.name', null, array('label' => 'Груз'))
             ->add('quantityOfCargo', null, array('label' => 'Кол-во груза'))
             ->add('price', null, array('label' => 'Оценочная стоимость'))
             ->add('shippingAddress.name', null, array('label' => 'Адрес отправки'))
             ->add('deliveryAddress.name', null, array('label' => 'Адрес доставки'))
             ->add('additionalAddress.name', null, array('label' => 'Дополнительный адрес'))
-//            ->add('additionalAddress2.name')
-//            ->add('additionalAddress3.name')
-//            ->add('additionalAddress4.name')
-//            ->add('additionalAddress5.name')
         ;
     }
 
@@ -210,7 +174,6 @@ class OrderUserAdmin extends AbstractAdmin
             ->addIdentifier('id', null, array('label' => 'Номер заказа'))
             ->addIdentifier('status', null, array('template' => '@GobusgoGobusgo/Admin/CRUD/list_boolean.html.twig', 'label' => 'Статус'))
             ->add('dateOfOrder', null, array('label' => 'Дата заявки'))
-//            ->add('userId.fullName', null, array('label' => 'Пользователь'))
             ->add('cargoId.name', null, array('label' => 'Груз'))
             ->add('quantityOfCargo', null, array('label' => 'Кол-во груза'))
             ->add('price', null, array('label' => 'Оценочная стоимость'))
@@ -222,10 +185,6 @@ class OrderUserAdmin extends AbstractAdmin
                     'cancel' => ['template' => '@GobusgoGobusgo/Admin/CRUD/list__action_cancel.html.twig'],
                 ],'label'=>'Действия'
             ])
-//            ->addIdentifier('additionalAddress2.name')
-//            ->addIdentifier('additionalAddress3.name')
-//            ->addIdentifier('additionalAddress4.name')
-//            ->addIdentifier('additionalAddress5.name')
         ;
     }
 

@@ -13,12 +13,6 @@ class   UserAdmin extends AbstractAdmin
     protected $baseRoutePattern = 'users';
     protected $classnameLabel = 'Пользователь';
 
-//    public function configure()
-//    {
-//        parent::configure();
-//        $this->classnameLabel = 'Пользователь';
-//    }
-
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper

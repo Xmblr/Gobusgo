@@ -30,9 +30,74 @@ class Category
     protected $url;
 
     /**
+     * @ORM\Column(type="string")
+     */
+    protected $h1;
+
+    /**
+     * @ORM\Column(type="string")
+     */
+    protected $title;
+
+    /**
+     * @ORM\Column(type="string")
+     */
+    protected $description;
+
+    /**
      * @ORM\OneToMany(targetEntity="Blog", mappedBy="category")
      */
     protected $blogs;
+
+    /**
+     * @return mixed
+     */
+    public function getH1()
+    {
+        return $this->h1;
+    }
+
+    /**
+     * @param mixed $h1
+     */
+    public function setH1($h1)
+    {
+        $this->h1 = $h1;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getTitle()
+    {
+        return $this->title;
+    }
+
+    /**
+     * @param mixed $title
+     */
+    public function setTitle($title)
+    {
+        $this->title = $title;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * @param mixed $description
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+    }
+
+
     /**
      * Constructor
      */

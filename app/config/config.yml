@@ -4,7 +4,6 @@ imports:
     - { resource: services.yml }
     - { resource: "@GobusgoGobusgoBundle/Resources/config/services.yml" }
     - { resource: "@GobusgoGobusgoBundle/Resources/config/config.yml" }
-    - { resource: sonata_news.yml }
     - { resource: "@SonataClassificationBundle/Resources/config/admin.xml"}
 
 
@@ -183,7 +182,7 @@ sonata_admin:
 
 #            app.admin.group.user:
 #                label: Пользователь
-#                roles: [ ROLE_USER, ROLE_ADMIN ]
+#                roles: [ ROLE_USER ]
 
         blocks:
 #            - { position: center,type: sonata.block.service.text, settings: { content: '<h2>HELLO WORLD!</h2>' } }

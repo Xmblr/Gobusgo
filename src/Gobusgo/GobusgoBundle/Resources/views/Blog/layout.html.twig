@@ -1,14 +1,40 @@
 {% extends '::base.html.twig' %}
 
-{% block body %}
+{% block breadcrumb %}
+    {#TODO: сделать брейдкрамбы#}
+    <div class="col-md-12" style="background-color: #f5f5f5;">
+        <ol class="breadcrumb col-md-push-1 col-md-10" style="margin-bottom: 0px; padding-left: 0px;">
+            <li typeof="v:Breadcrumb">
+                <a href="{{ path('gobusgo_gobusgo_homepage') }}" rel="v:url" property="v:title">Главная</a>
+            </li>
+            {% set array = app.request.pathinfo|split('/') %}
+            {% if array|length == 2 %}
+                <li class="active">Блог</li>
+            {% elseif array|length == 3 %}
+                <li typeof="v:Breadcrumb">
+                    <a href="{{ path('gobusgo_gobusgo_blog') }}" rel="v:url" property="v:title">Блог</a>
+                </li>
+                <li class="active">{{ seoH1 }}</li>
+            {% elseif array|length == 4 %}
+                <li typeof="v:Breadcrumb">
+                    <a href="{{ path('gobusgo_gobusgo_blog') }}" rel="v:url" property="v:title">Блог</a>
+                </li>
+                <li typeof="v:Breadcrumb">
+                    <a href="{{ path('gobusgo_gobusgo_category', {'categoryUrl': category.url}) }}" rel="v:url" property="v:title">{{ category.h1 }}</a>
+                </li>
+                <li class="active">{{ blog.h1 }}</li>
+            {% else %}
+            {{ app.request.pathinfo }}
+            {% endif %}
+            {#{% if  is defined %}#}
+            {#<li class="active">{{ breadcrumb_item.label }}</li>#}
+        </ol>
+    </div>
+{% endblock %}
 
+{% block body %}
 
     {% block sidebar %}
         {{ render(controller('GobusgoGobusgoBundle:Page:sidebar' ))}}
     {% endblock %}
 {% endblock %}
-
-
-
-
-

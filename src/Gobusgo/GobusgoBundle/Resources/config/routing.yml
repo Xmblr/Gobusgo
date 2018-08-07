@@ -50,7 +50,7 @@ gobusgo_gobusgo_blog:
         methods:  GET|POST
 
 gobusgo_gobusgo_blog_show:
-    path:     /blog/{url}
+    path:     /blog/{categoryUrl}/{url}
     defaults: { _controller: GobusgoGobusgoBundle:Page:blogShow }
     requirements:
         methods:  GET|POST
@@ -65,7 +65,7 @@ gobusgo_gobusgo_comment_create:
 
 
 gobusgo_gobusgo_category:
-    path:  /blog/category/{categoryUrl}
+    path:  /blog/{categoryUrl}
     defaults: { _controller: GobusgoGobusgoBundle:Page:category  }
     requirements:
         methods:  POST

@@ -1,69 +1,3 @@
-{#<div class="container">#}
-    {#<div class="row">#}
-        {#<div class="col-md-12">#}
-            {#<h2 class="text-left">Новости</h2>#}
-        {#</div>#}
-        {#{% for blog in blogs %}#}
-            {#<div class="col-md-4">#}
-                {#<article class="blog">#}
-                    {#<div class="date">#}
-                    {#<time datetime="{{ blog.created|date('c') }}">{{ blog.created|date('l, F j, Y') }}</time>#}
-                    {#</div>#}
-                    {#<a href="{{ path('gobusgo_gobusgo_blog_show', { 'id': blog.id }) }}"><h4>{{ blog.title }}</h4></a>#}
-
-
-                    {#<div class="sonata-blog-post-information" style="font-style: italic; color: #b1b1b1;">#}
-
-                        {#{% media blog.image, 'small' %}#}
-
-                        {#<h4 class="sonata-blog-post-title text-left">#}
-                            {#<a style="color: #8598ff;font-style: normal;" href="{{ path('gobusgo_gobusgo_blog_show', { 'id': blog.id }) }}">#}
-                                {#{{ blog.title }}</a>#}
-                        {#</h4>#}
-                        {#<i class="fa fa-clock-o" aria-hidden="true" style="color: #8598ff;"></i>#}
-                        {#{{ blog.created|date('l, F j, Y') }}#}
-
-                        {#<i class="fa fa-comment-o" aria-hidden="true" style="margin-left: 10px; color: #8598ff;"></i>#}
-                        {#<span class="sonata-blog-post-comments-count">{{ blog.comments|length }}</span>#}
-
-                        {#<div class="sonata-blog-post-tags">#}
-                            {#<i class="fa fa-tags" style="color: #8598ff;" aria-hidden="true"></i>#}
-                            {#{{ blog.tags }}#}
-                        {#</div>#}
-                    {#</div>#}
-                    {#<div class="sonata-blog-post-abtract" style="margin: 10px 0px;">#}
-                        {#{{ blog.blog(150) }}#}
-                    {#</div>#}
-                    {#<div class="sonata-blog-post-author" style="font-style: Italic;">{{ blog.author }}</div>#}
-                    {#<a href="{{ path('gobusgo_gobusgo_blog_show', { 'id': blog.id }) }}" class="button-log">Подробнее</a>#}
-
-
-
-                    {#<img src="{{ asset(['images/', blog.image]|join) }}"/>#}
-                    {#{% media blog.image, 'small' %}#}
-                    {#<div class="snippet">#}
-                    {#<p>{{ blog.blog(150) }}</p>#}
-                    {#<p class="continue"><a href="{{ path('gobusgo_gobusgo_blog_show', { 'id': blog.id }) }}">Continue#}
-                    {#reading...</a></p>#}
-                    {#</div>#}
-
-                    {#<footer class="meta">#}
-                    {#<p>Comments: <a#}
-                    {#href="{{ path('gobusgo_gobusgo_blog_show', { 'id': blog.id }) }}#comments">{{ blog.comments|length }}</a>#}
-                    {#</p>#}
-                    {#<p>Posted by <span class="highlight">{{ blog.author }}</span> at {{ blog.created|date('h:iA') }}#}
-                    {#</p>#}
-                    {#<p>Tags: <span class="highlight">{{ blog.tags }}</span></p>#}
-                    {#</footer>#}
-                {#</article>#}
-            {#</div>#}
-        {#{% else %}#}
-            {#<p>Нет новостей</p>#}
-        {#{% endfor %}#}
-    {#</div>#}
-{#</div>#}
-
-
 <div class="container">
     <div class="row blog-wrap">
         <div class="col-md-12 col-sm-12">
@@ -80,7 +14,7 @@
                         </div>
                         <h4 class="sonata-blog-post-title text-left">
                             <a style="color: #8598ff;font-style: normal;"
-                               href="{{ path('gobusgo_gobusgo_blog_show', { 'url': blog.url }) }}">{{ blog.title }}</a>
+                               href="{{ path('gobusgo_gobusgo_blog_show', { 'url': blog.url, 'categoryUrl' : blog.category.url }) }}">{{ blog.title }}</a>
                         </h4>
                         <i class="fa fa-clock-o" aria-hidden="true" style="color: #8598ff;"></i>
                         {{ blog.created|date('d/m/Y') }}
@@ -97,7 +31,7 @@
                         {{ blog.blog(150) }}
                     </div>
                     <div class="sonata-blog-post-author" style="font-style: Italic;">{{ blog.author }}</div>
-                    <a href="{{ path('gobusgo_gobusgo_blog_show', {'url': blog.url }) }}"
+                    <a href="{{ path('gobusgo_gobusgo_blog_show', {'url': blog.url, 'categoryUrl' : blog.category.url }) }}"
                        class="button-log">Подробнее</a>
 
                 </article>

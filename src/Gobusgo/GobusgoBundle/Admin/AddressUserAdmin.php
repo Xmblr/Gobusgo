@@ -2,31 +2,28 @@
 
 namespace Gobusgo\GobusgoBundle\Admin;
 
-use Couchbase\Exception;
-use Gobusgo\GobusgoBundle\Entity\Address;
 use Gobusgo\GobusgoBundle\Entity\City;
 use Sonata\AdminBundle\Admin\AbstractAdmin;
-use Sonata\AdminBundle\Admin\Admin;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
-use Sonata\AdminBundle\Form\Type\ModelType;
-use Sonata\AdminBundle\Route\RouteCollection;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Finder\Exception\AccessDeniedException;
+use Symfony\Component\HttpFoundation\RedirectResponse;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 
 class AddressUserAdmin extends AbstractAdmin
 {
     protected $baseRouteName = 'address_user';
     protected $baseRoutePattern = 'address_user';
-//    protected $classnameLabel = 'Адреса';
-//
+
     public function configure()
     {
         parent::configure();
         $this->classnameLabel = 'Адреса';
     }
+
 
     public function getUserId ()
     {
@@ -52,14 +49,15 @@ class AddressUserAdmin extends AbstractAdmin
     }
 
 
-    public function preEdit($address)
-    {
-        throw new AccessDeniedException();
-    }
-
     public function preRemove($object)
     {
-
+//TODO: Сделать проверку, используется ли объект
+        $this->getConfigurationPool()->getContainer()->get('session')->getFlashBag()->add(
+            'warning',
+            'Неовозможно удалить этот элемент, он используется.'
+        );
+        $redirection = new RedirectResponse($this->getConfigurationPool()->getContainer()->get('router')->generate('address_user_list'));
+        $redirection->send();
     }
 
     protected function configureFormFields(FormMapper $formMapper)

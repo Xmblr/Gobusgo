@@ -1,6 +1,21 @@
 {{ form_start(form, { 'action': path('gobusgo_gobusgo_comment_create' , { 'blog_id' : comment.blog.id }), 'method': 'POST', 'attr': {'class': 'form'} }) }}
 
-    {{ form_widget(form) }}
+<div>
+    {{ form_label(form.user) }}
+    {{ form_errors(form.user) }}
+    {{ form_widget(form.user) }}
+</div>
+
+<div>
+    {{ form_label(form.comment) }}
+    {{ form_errors(form.comment) }}
+    {{ form_widget(form.comment) }}
+</div>
+
+
+
 <p>
     <input type="submit" value="Submit">
 </p>
+
+{{ form_end(form) }}
