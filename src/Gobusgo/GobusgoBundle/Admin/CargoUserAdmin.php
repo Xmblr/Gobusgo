@@ -13,11 +13,11 @@ class CargoUserAdmin extends AbstractAdmin
     protected $baseRouteName = 'cargo_user';
     protected $baseRoutePattern = 'cargo_user';
 
-    public function configure()
-    {
-        parent::configure();
-        $this->classnameLabel = 'Груз';
-    }
+//    public function configure()
+//    {
+//        parent::configure();
+//        $this->classnameLabel = 'Груз';
+//    }
 
     public function getUserId ()
     {

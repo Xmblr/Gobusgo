@@ -22,19 +22,19 @@
             <img src="{{ asset('images/road2.png') }}" style="width: 100%;">
             <div class="col-md-3">
 
-                <h4 style="text-align: center;">Клиент</h4>
-                <label>
+            <h4 style="text-align: center;">Клиент</h4>
+            <label>
+                Физическое лицо
+                <input type="radio" class="option-input radio" name="example" id="individual" onchange="sum()"/>
+            </label>
+            <label>
 
-                    Юридическое лицо
-                    <input type="radio" class="option-input radio" name="example" id="legal" onchange="sum()" checked/>
+                Юридическое лицо
+                <input type="radio" class="option-input radio" name="example" id="legal" onchange="sum()" checked/>
 
-                </label>
-                <label>
-                    Физическое лицо
-                    <input type="radio" class="option-input radio" name="example" id="individual" onchange="sum()"/>
-                </label>
-            </div>
-            <div class="col-md-3">
+            </label>
+        </div>
+        <div class="col-md-3">
 
                 <h4 style="text-align: center;">Тариф</h4>
                 <div class="Input">

@@ -22,10 +22,10 @@
                         <i class="fa fa-comment-o" aria-hidden="true" style="margin-left: 10px; color: #8598ff;"></i>
                         <span class="sonata-blog-post-comments-count">{{ blog.comments|length }}</span>
 
-                        <span class="sonata-blog-post-tags" style="margin-left: 10px;">
-                            <i class="fa fa-tags" style="color: #8598ff;" aria-hidden="true"></i>
+                        {#<span class="sonata-blog-post-tags" style="margin-left: 10px;">#}
+                            {#<i class="fa fa-tags" style="color: #8598ff;" aria-hidden="true"></i>#}
                             {#{{ blog.tags }}#}
-                        </span>
+                        {#</span>#}
                     </div>
                     <div class="sonata-blog-post-abtract" style="margin: 10px 0px;">
                         {{ blog.blog(150)|striptags }}

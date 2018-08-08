@@ -16,12 +16,12 @@ class CommentAdmin extends AbstractAdmin
     {
         $formMapper
             ->add('id')
-            ->add('user')
-            ->add('comment')
-            ->add('approved')
-            ->add('blog')
-            ->add('created')
-            ->add('updated')
+            ->add('user', null,array('label'=>'Пользователь'))
+            ->add('comment', null,array('label'=>'Комментарий'))
+            ->add('approved', null,array('label'=>'Одобрено'))
+            ->add('blog', null,array('label'=>'Новость'))
+            ->add('created', null,array('label'=>'Создано'))
+            ->add('updated', null,array('label'=>'Обновлено'))
         ;
     }
 
@@ -29,12 +29,12 @@ class CommentAdmin extends AbstractAdmin
     {
         $datagridMapper
             ->add('id')
-            ->add('user')
-            ->add('comment')
-            ->add('approved')
-            ->add('blog')
-            ->add('created')
-            ->add('updated')
+            ->add('user', null,array('label'=>'Пользователь'))
+            ->add('comment', null,array('label'=>'Комментарий'))
+            ->add('approved', null,array('label'=>'Одобрено'))
+            ->add('blog', null,array('label'=>'Новость'))
+            ->add('created', null,array('label'=>'Создано'))
+            ->add('updated', null,array('label'=>'Обновлено'))
         ;
     }
 
@@ -44,12 +44,12 @@ class CommentAdmin extends AbstractAdmin
 
         $listMapper
             ->addIdentifier('id')
-            ->addIdentifier('user')
-            ->addIdentifier('comment')
-            ->addIdentifier('approved')
-            ->addIdentifier('blog')
-            ->addIdentifier('created')
-            ->addIdentifier('updated')
+            ->add('user', null,array('label'=>'Пользователь'))
+            ->add('comment', null,array('label'=>'Комментарий'))
+            ->add('approved', null,array('label'=>'Одобрено'))
+            ->add('blog', null,array('label'=>'Новость'))
+            ->add('created', null,array('label'=>'Создано'))
+            ->add('updated', null,array('label'=>'Обновлено'))
         ;
     }
 }

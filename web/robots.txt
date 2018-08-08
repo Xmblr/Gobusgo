@@ -1,4 +1,5 @@
 User-agent: *
+Disallow: /
 Disallow: /*admin
 Disallow: /*profile
 Disallow: /*login
@@ -12,6 +13,7 @@ Allow: /*.pdf
 Allow: /*.doc
 
 User-agent: Yandex
+Disallow: /
 Disallow: /*admin
 Disallow: /*profile
 Disallow: /*login

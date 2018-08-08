@@ -1,53 +1,62 @@
 {% block sidebar %}
-    <div class="sidebar-user">
-        {#<section class="section">#}
-        {#<header>#}
-        {#<h3>Tag Cloud</h3>#}
-        {#</header>#}
-        {#<p class="tags">#}
-        {#{% for tag, weight in tags %}#}
-        {#<span class="weight-{{ weight }}">{{ tag }}</span>#}
-        {#{% else %}#}
-        {#<p>There are no tags</p>#}
-        {#{% endfor %}#}
-        {#</p>#}
-        {#</section>#}
+    <div class="col-md-4">
+        <div class="sidebar-user">
+            {#<section class="section">#}
+            {#<header>#}
+            {#<h3>Tag Cloud</h3>#}
+            {#</header>#}
+            {#<p class="tags">#}
+            {#{% for tag, weight in tags %}#}
+            {#<span class="weight-{{ weight }}">{{ tag }}</span>#}
+            {#{% else %}#}
+            {#<p>There are no tags</p>#}
+            {#{% endfor %}#}
+            {#</p>#}
+            {#</section>#}
 
-        <section class="section">
-            <header>
-                <h3>Latest Comments</h3>
-            </header>
-            {% for comment in latestComments %}
-                <article class="comment">
-                    <header>
-                        <p class="small"><span class="highlight">{{ comment.user }}</span> commented on
-                            <a href="{{ path('gobusgo_gobusgo_blog_show', { 'id': comment.blog.id, 'url': comment.blog.url, 'categoryUrl' : comment.blog.category }) }}#comment-{{ comment.id }}">
-                                {{ comment.blog.title }}
-                            </a>
-                            [<em>
+
+            <section class="section-sidebar">
+                <header>
+                    <h4>Категории</h4>
+                </header>
+                <ul class="list-marked">
+                    {% for category in category %}
+                        <li style="margin-top: 10px;"><a
+                                    href="{{ path('gobusgo_gobusgo_category', {'categoryUrl': category.url}) }}"> {{ category.name }}</a>
+                        </li>
+
+                    {% else %}
+                        <p>Нет категорий</p>
+                    {% endfor %}
+                </ul>
+            </section>
+
+            <section class="section-sidebar">
+                <header>
+                    <h4>Последние комментарии</h4>
+                </header>
+                {% for comment in latestComments %}
+                    <article class="comment">
+                        <header>
+                            <div class="small sonata-blog-post-information" style="font-style: Italic;">
+                                <i class="fa fa-user-o" aria-hidden="true"
+                                        style="color: #8598ff;"></i> {{ comment.user }}
+                                <i class="fa fa-clock-o" aria-hidden="true" style="color: #8598ff; margin-left: 10px;"></i>
                                 <time datetime="{{ comment.created|date('c') }}">{{ comment.created|date('Y-m-d h:iA') }}</time>
-                            </em>]
+                            </div>
+                            Комментарий к статье:
+                            <a href="{{ path('gobusgo_gobusgo_blog_show', { 'id': comment.blog.id, 'url': comment.blog.url, 'categoryUrl' : comment.blog.category }) }}#comment-{{ comment.id }}">
+                                 {{ comment.blog.title }}
+                            </a>
+                        </header>
+                        <p style="font-style: Italic; margin: 10px 0px 20px 0px;">"{{ comment.comment }}"</p>
                         </p>
-                    </header>
-                    <p>{{ comment.comment }}</p>
-                    </p>
-                </article>
-            {% else %}
-                <p>There are no recent comments</p>
-            {% endfor %}
-        </section>
-
-        <section class="section">
-            <header>
-                <h3>Category</h3>
-            </header>
-            <p class="category">
-                {% for category in category %}
-                <a href="{{ path('gobusgo_gobusgo_category', {'categoryUrl': category.url}) }}"> {{ category.name }}</a>
+                    </article>
                 {% else %}
-            <p>There are no category</p>
-            {% endfor %}
-            </p>
-        </section>
+                    <p>Нет комментариев</p>
+                {% endfor %}
+            </section>
+
+        </div>
     </div>
 {% endblock %}

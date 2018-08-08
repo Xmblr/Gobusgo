@@ -1,21 +1,20 @@
 {{ form_start(form, { 'action': path('gobusgo_gobusgo_comment_create' , { 'blog_id' : comment.blog.id }), 'method': 'POST', 'attr': {'class': 'form'} }) }}
-
 <div>
-    {{ form_label(form.user) }}
+<div style="display: inline-block; margin-bottom: 15px;">
     {{ form_errors(form.user) }}
-    {{ form_widget(form.user) }}
+    {{ form_widget(form.user, {'attr':{'class':'input-log', 'placeholder':'Ваше имя?'}}) }}
 </div>
-
+</div>
 <div>
-    {{ form_label(form.comment) }}
+<div style="display: inline-block; margin-bottom: 15px; height: 200px;">
     {{ form_errors(form.comment) }}
-    {{ form_widget(form.comment) }}
+    {{ form_widget(form.comment, {'attr':{'class':'input-log','placeholder':'Комментарий'}}) }}
 </div>
-
+</div>
 
 
 <p>
-    <input type="submit" value="Submit">
+    <input class="button-log" type="submit" value="Отправить">
 </p>
 
 {{ form_end(form) }}

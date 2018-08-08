@@ -18,11 +18,11 @@ class AddressUserAdmin extends AbstractAdmin
     protected $baseRouteName = 'address_user';
     protected $baseRoutePattern = 'address_user';
 
-    public function configure()
-    {
-        parent::configure();
-        $this->classnameLabel = 'Адреса';
-    }
+//    public function configure()
+//    {
+//        parent::configure();
+//        $this->classnameLabel = 'Адреса';
+//    }
 
 
     public function getUserId ()

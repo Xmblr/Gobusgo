@@ -1,29 +1,14 @@
+{% block body %}
 <div class="container">
+
+    <div class="col-md-12">
+        <h1>Новости</h1>
+    </div>
+
+    <div class="col-md-8" style="padding: 0px;">
     <div class="row blog-wrap">
-        <div class="col-md-12">
-            <h1>Новости</h1>
-        </div>
         {% for blog in blogs %}
-
-            <article class="blog">
-                <div class="date">
-                    <time datetime="{{ blog.created|date('c') }}">{{ blog.created|date('d/m/Y') }}</time>
-                </div>
-                <header>
-                    <h2><a href="{{ path('gobusgo_gobusgo_blog_show', {'url': blog.url, 'categoryUrl' : blog.category.url }) }}">{{ blog.title }}</a></h2>
-                </header>
-
-                {% media blog.image, 'small' %}
-                <div class="snippet">
-                    <p>{{ blog.blog(150)|striptags   }}</p>
-                    <p class="continue"><a href="{{ path('gobusgo_gobusgo_blog_show', {'url': blog.url, 'categoryUrl' : blog.category.url }) }}">Continue
-                            reading...</a></p>
-                </div>
-
-
-
-
-            <div class="col-md-4" style="display: flex; flex-wrap: wrap;">
+            <div class="col-md-6 col-sm-6" style="display: flex; flex-wrap: wrap;">
                 <article class="blog">
 
 
@@ -41,10 +26,10 @@
                         <i class="fa fa-comment-o" aria-hidden="true" style="margin-left: 10px; color: #8598ff;"></i>
                         <span class="sonata-blog-post-comments-count">{{ blog.comments|length }}</span>
 
-                        <span class="sonata-blog-post-tags" style="margin-left: 10px;">
-                            <i class="fa fa-tags" style="color: #8598ff;" aria-hidden="true"></i>
+                        {#<span class="sonata-blog-post-tags" style="margin-left: 10px;">#}
+                            {#<i class="fa fa-tags" style="color: #8598ff;" aria-hidden="true"></i>#}
                             {#{{ blog.tags }}#}
-                        </span>
+                        {#</span>#}
                     </div>
                     <div class="sonata-blog-post-abtract" style="margin: 10px 0px;">
                         {{ blog.blog(150)|striptags   }}
@@ -59,7 +44,11 @@
             <p>Сейчас нет новостей</p>
         {% endfor %}
 
-    </div>
+    </div></div>
+    {% block sidebar %}
+        {{ render(controller('GobusgoGobusgoBundle:Page:sidebar' ))}}
+    {% endblock %}
 </div>
 
+{% endblock %}
 

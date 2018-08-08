@@ -14,6 +14,22 @@
                 <source>title_show</source>
                 <target>Просмотр записи</target>
             </trans-unit>
+            <trans-unit id="city_list">
+                            <source>City List</source>
+                            <target>Список городов</target>
+            </trans-unit>
+            <trans-unit id="sonata_address_list">
+                 <source>Address List</source>
+                 <target>Шаблоны адресов</target>
+            </trans-unit>
+            <trans-unit id="seo_list">
+                 <source>Seo List</source>
+                 <target>SEO</target>
+            </trans-unit>
+            <trans-unit id="cargo_list">
+                 <source>Cargo List</source>
+                 <target>Шаблоны грузов</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

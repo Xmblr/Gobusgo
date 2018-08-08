@@ -23,15 +23,16 @@
 
                 <h4 style="text-align: center;">Клиент</h4>
                 <label>
+                    Физическое лицо
+                    <input type="radio" class="option-input radio" name="example" id="individual" onchange="sum()"/>
+                </label>
+                <label>
 
                     Юридическое лицо
                     <input type="radio" class="option-input radio" name="example" id="legal" onchange="sum()" checked/>
 
                 </label>
-                <label>
-                    Физическое лицо
-                    <input type="radio" class="option-input radio" name="example" id="individual" onchange="sum()"/>
-                </label>
+
             </div>
             <div class="col-md-3">
 
@@ -47,8 +48,8 @@
             <div class="col-md-3">
                 <h4 style="text-align: center;">Направление</h4>
                 <div class="inline-block" style="width: 80%;">
-                    <div class="Input">
-                        <div id="city1area">
+                <div class="Input" style="margin-top: 0px;">
+                    <div id="city1area">
 
                             <input class="input-log select2-hidden-accessible" onchange="city()" id="one"
                                    value="Москва" contenteditable="false"/>
@@ -441,9 +442,9 @@
     <div class="popup">
         <div class="section bg-gray-light container-fluid">
 
-            <div style="" id="individual_form">
-                {{ form_start(individualCallform) }}
-                <h2>Заявка для физического лица</h2>
+                    <div style="" id="individual_form">
+                        {{ form_start(individualCallform) }}
+                        <h2 style="margin-bottom: 30px;">Заявка для физического лица</h2>
 
                 <div class="Input" style="display: none;">
                     {{ form_errors(individualCallform.weight) }}
