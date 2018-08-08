@@ -87,6 +87,7 @@ class Blog
      */
     protected $h1;
 
+
     /**
      * @return mixed
      */

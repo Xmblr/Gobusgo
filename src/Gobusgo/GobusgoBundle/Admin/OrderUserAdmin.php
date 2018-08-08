@@ -75,13 +75,13 @@ class OrderUserAdmin extends AbstractAdmin
     {
         $this->sendEmail(
             'Новая заявка',
-            'На сайте оставили заявку. Для просмотра перейдите по /admin/order_admin/' . $order->getId() . '/edit Ссылке', //<a href="http://gobusgo.by/admin/order_admin/' . $order->getId() . '/edit">Ссылке</a>
+            'На сайте оставили заявку. Для просмотра перейдите по <a href="http://gobusgo.by/admin/order_admin/' . $order->getId() . '/edit">Ссылке</a>',
             $this->getConfigurationPool()->getContainer()->getParameter('mailer_user'),
             $this->getConfigurationPool()->getContainer()->getParameter('mailer_user')
         );
         $this->sendEmail(
             'Ваша заявка на Gobusgo.by',
-            'Спасибо за заявку. В ближайшее время с Вами свяжутся наши консультанты для обсуждения деталей заказа. Для просмотра перейдите по /admin/order_user/' . $order->getId() . '/edit Ссылке', //<a href="http://gobusgo.by/admin/order_user/' . $order->getId() . '/show">Ссылке</a>
+            'Спасибо за заявку. В ближайшее время с Вами свяжутся наши консультанты для обсуждения деталей заказа. Для просмотра перейдите по <a href="http://gobusgo.by/admin/order_user/' . $order->getId() . '/show">Ссылке</a>',
             $this->getConfigurationPool()->getContainer()->getParameter('mailer_user'),
             $this->getUserId()->getEmail()
         );
