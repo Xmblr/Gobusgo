@@ -4,6 +4,7 @@ namespace Gobusgo\GobusgoBundle\Admin;
 
 use Gobusgo\GobusgoBundle\Entity\Address;
 use Gobusgo\GobusgoBundle\Entity\Cargo;
+use Gobusgo\GobusgoBundle\Entity\Order;
 use Sonata\AdminBundle\Admin\AbstractAdmin;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
@@ -26,6 +27,13 @@ class OrderUserAdmin extends AbstractAdmin
         '_sort_by' => 'id',
     ];
 
+    public function toString($object)
+    {
+        return 'Просмотр заказа номер '.$object->getId();
+//        return $object instanceof Order
+//            ? $object->getId()
+//            : 'Заказ'; // shown in the breadcrumb on the create view
+    }
 
     public function getUserId ()
     {

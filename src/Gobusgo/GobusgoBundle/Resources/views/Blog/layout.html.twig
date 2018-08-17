@@ -19,7 +19,7 @@
                     <a href="{{ path('gobusgo_gobusgo_blog') }}" rel="v:url" property="v:title">Блог</a>
                 </li>
                 <li typeof="v:Breadcrumb">
-                    <a href="{{ path('gobusgo_gobusgo_category', {'categoryUrl': category.url}) }}" rel="v:url" property="v:title">{{ category.h1 }}</a>
+                    <a href="{{ path('gobusgo_gobusgo_category', {'categoryUrl': blog.category.url}) }}" rel="v:url" property="v:title">{{ blog.category.h1 }}</a>
                 </li>
                 <li class="active">{{ blog.h1 }}</li>
             {% endif %}

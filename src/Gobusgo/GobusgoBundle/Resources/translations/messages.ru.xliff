@@ -10,13 +10,13 @@
                 <source>Order Create</source>
                 <target>Создание заявки</target>
             </trans-unit>
-            <trans-unit id="title_show">
-                <source>title_show</source>
-                <target>Просмотр записи</target>
-            </trans-unit>
+            <!--<trans-unit id="title_show">-->
+                <!--<source>Показать "23"</source>-->
+                <!--<target>Просмотр записи</target>-->
+            <!--</trans-unit>-->
             <trans-unit id="city_list">
-                            <source>City List</source>
-                            <target>Список городов</target>
+                <source>City List</source>
+                <target>Список городов</target>
             </trans-unit>
             <trans-unit id="sonata_address_list">
                  <source>Address List</source>

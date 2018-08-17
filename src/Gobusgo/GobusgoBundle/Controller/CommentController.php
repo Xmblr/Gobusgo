@@ -7,6 +7,9 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Gobusgo\GobusgoBundle\Entity\Comment;
 use Gobusgo\GobusgoBundle\Form\CommentType;
 use Symfony\Component\HttpFoundation\Request;
+use Swift_SmtpTransport;
+use Swift_Mailer;
+use Swift_Message;
 
 /**
  * Comment controller.
@@ -27,7 +30,7 @@ class CommentController extends Controller
         ));
     }
 
-    public function createAction(Request $request, $blog_id)
+    public function createAction(Request $request, $blog_id, $categoryUrl)
     {
         $blog = $this->getBlog($blog_id);
 
@@ -41,40 +44,46 @@ class CommentController extends Controller
         $form->handleRequest($request);
 
         if ($form->isValid()) {
+            try
+            {
+                $mailer = new Swift_Mailer(Swift_SmtpTransport::newInstance(
+                    $this->container->getParameter('mailer_host'),
+                    $this->container->getParameter('mailer_port'),
+                    $this->container->getParameter('mailer_encryption')
+                )
+                    ->setUsername($this->container->getParameter('mailer_user'))
+                    ->setPassword($this->container->getParameter('mailer_password')));
+                $message = (new \Swift_Message('Новый комментарий в блоге'))
+                    ->setFrom('seo-newline@mail.ru')
+                    ->setTo('seo-newline@mail.ru')
+                    ->setBody('Новый комментарий в блоге')
+                ;
+
+                $mailer->send($message);
+
+                $this->addFlash('info', 'Ваш коментарий отправлен, он появится после модерации.');
+            }
+            catch (\Exception $ex)
+            {
+                $this->addFlash('info', $ex);
+            }
+
             $em = $this->getDoctrine()
                 ->getManager();
             $em->persist($comment);
             $em->flush();
 
-            $this->addFlash('info', 'Ваш коментарий отправлен, он появится после модерации.');
-
-            $transport = \Swift_SmtpTransport::newInstance(
-                $this->container->getParameter('mailer_host'),
-                $this->container->getParameter('mailer_port'),
-                $this->container->getParameter('mailer_encryption')
-            )
-                ->setUsername($this->container->getParameter('mailer_user'))
-                ->setPassword($this->container->getParameter('mailer_password'))
-            ;
-
-            $message = \Swift_Message::newInstance('Новый комментарий в блоге')
-                ->setFrom(array('seo-newline@mail.ru' => 'Блог'))
-                ->setTo($this->container->getParameter('gobusgo.emails.contact_email'))
-                ->setBody('Новый комментарий в блоге');
-            ;
-
-            $transport->send($message);
-
-
             return $this->redirect($this->generateUrl('gobusgo_gobusgo_blog_show', array(
                     'id'    => $comment->getBlog()->getId(),
+                    'categoryUrl' => $categoryUrl,
                     'url'  => $comment->getBlog()->getUrl())) .
-                '#comment-' . $comment->getId()
+                    '#comment-' . $comment->getId()
             );
         }
 
         return $this->render('GobusgoGobusgoBundle:Blog:create.html.twig', array(
             'comment' => $comment,
+            'categoryUrl' => $categoryUrl,
             'form'    => $form->createView()
         ));
     }

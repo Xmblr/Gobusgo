@@ -45,7 +45,7 @@
                                 <time datetime="{{ comment.created|date('c') }}">{{ comment.created|date('Y-m-d h:iA') }}</time>
                             </div>
                             Комментарий к статье:
-                            <a href="{{ path('gobusgo_gobusgo_blog_show', { 'id': comment.blog.id, 'url': comment.blog.url, 'categoryUrl' : comment.blog.category }) }}#comment-{{ comment.id }}">
+                            <a href="{{ path('gobusgo_gobusgo_blog_show', { 'id': comment.blog.id, 'url': comment.blog.url, 'categoryUrl' : comment.blog.category.url }) }}#comment-{{ comment.id }}">
                                  {{ comment.blog.title }}
                             </a>
                         </header>

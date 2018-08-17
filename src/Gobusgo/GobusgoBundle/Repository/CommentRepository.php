@@ -27,6 +27,7 @@ class CommentRepository extends EntityRepository
     {
         $qb = $this->createQueryBuilder('c')
             ->select('c')
+            ->where('c.approved = 1')
             ->addOrderBy('c.id', 'DESC');
 
         if (false === is_null($limit))

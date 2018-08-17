@@ -57,7 +57,7 @@ gobusgo_gobusgo_blog_show:
         id: \d+
 
 gobusgo_gobusgo_comment_create:
-    path:  /comment/{blog_id}
+    path:  /comment/{categoryUrl}/{blog_id}
     defaults: { _controller: GobusgoGobusgoBundle:Comment:create }
     requirements:
         methods:  POST

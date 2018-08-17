@@ -4,8 +4,6 @@ namespace Gobusgo\GobusgoBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-use Gobusgo\GobusgoBundle\Entity\Enquiry;
-use Gobusgo\GobusgoBundle\Form\EnquiryType;
 use Gobusgo\GobusgoBundle\Form\CallType;
 use Gobusgo\GobusgoBundle\Entity\Call;
 use Swift_SmtpTransport;

@@ -5,6 +5,7 @@ namespace Gobusgo\GobusgoBundle\Admin;
 use Doctrine\DBAL\Types\DateTimeType;
 use Gobusgo\GobusgoBundle\Entity\Address;
 use Gobusgo\GobusgoBundle\Entity\Cargo;
+use Gobusgo\GobusgoBundle\Entity\Order;
 use Gobusgo\GobusgoBundle\Entity\User;
 use Sonata\AdminBundle\Admin\AbstractAdmin;
 use Sonata\AdminBundle\Datagrid\ListMapper;
@@ -20,7 +21,13 @@ class OrderAdmin extends AbstractAdmin
     protected $baseRouteName = 'order_admin';
     protected $baseRoutePattern = 'order_admin';
 
-
+    public function toString($object)
+    {
+        return 'Просмотр заказа номер '.$object->getId();
+//        return $object instanceof Order
+//            ? $object->getId()
+//            : 'Заказ'; // shown in the breadcrumb on the create view
+    }
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
