@@ -53,7 +53,7 @@
                             <li class="start-li">
                                 {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
                                     <a style="margin-left: 15px;" class="btn-2"
-                                       href="{{ path('sonata_admin_dashboard') }}"> {{ app.user.organization }} </a><a
+                                       href="{{ path('sonata_admin_dashboard') }}"> {{ app.user.organization|slice(0,10) }} {% if app.user.organization|length > 10  %}...{% endif %}</a><a
                                         class="btn-3" href="{{ path('fos_user_security_logout') }}">
                                     {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
                                 </a>
@@ -294,7 +294,7 @@
 
                                             {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
                                                 <a style="margin-left: 15px;" class="btn-2"
-                                                   href="{{ path('sonata_admin_dashboard') }}"> {{ app.user.organization }} </a><a class="btn-3" href="{{ path('fos_user_security_logout') }}">
+                                                   href="{{ path('sonata_admin_dashboard') }}"> {{ app.user.organization|slice(0,10) }} {% if app.user.organization|length > 10  %}...{% endif %} </a><a class="btn-3" href="{{ path('fos_user_security_logout') }}">
                                                     {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
                                                 </a>
                                             {% else %}
@@ -465,18 +465,20 @@
     <div class="container">
         <div class="row">
             <div class="col-md-10 col-md-push-1">
-                <h1>{{ seoH1 }}</h1>
-                <p class="text-center" style="font-size: 20px; line-height: 24px;">В связи с растущим спросом покупок
-                    товаров посредством Сети интернет, потребители стали чаще обращаться к компаниям, у которых налажена
-                    работа службы доставки.</br>
-                    Развитие предприятия характеризуется многими показателями. Не последнюю очередь занимает именно
-                    организованная работа доставки. Высокий уровень подачи и эффективная работа по доставке грузов и
-                    товаров отражает стабильность, внушает доверие и безопасность во время перевозки имущества.
-                    Предлагаем экспресс-доставку товаров и грузов, которая осуществляется под строгим контролем,
-                    оперативно и в срок.</br>
-                    Наша недорогая цена доставки обусловлена гибким планированием маршрутов, опытом и высоким уровнем
-                    профессионализма сотрудников компании.
-                </p>
+                <h1>{{ seo.h1 }}</h1>
+                {#<p class="text-center" style="font-size: 20px; line-height: 24px;">В связи с растущим спросом покупок#}
+                    {#товаров посредством Сети интернет, потребители стали чаще обращаться к компаниям, у которых налажена#}
+                    {#работа службы доставки.</br>#}
+                    {#Развитие предприятия характеризуется многими показателями. Не последнюю очередь занимает именно#}
+                    {#организованная работа доставки. Высокий уровень подачи и эффективная работа по доставке грузов и#}
+                    {#товаров отражает стабильность, внушает доверие и безопасность во время перевозки имущества.#}
+                    {#Предлагаем экспресс-доставку товаров и грузов, которая осуществляется под строгим контролем,#}
+                    {#оперативно и в срок.</br>#}
+                    {#Наша недорогая цена доставки обусловлена гибким планированием маршрутов, опытом и высоким уровнем#}
+                    {#профессионализма сотрудников компании.#}
+                {#</p>#}
+                {% if seo.intro is not empty %} {{ seo.intro }} {% endif %}
+                {#{{ seo.text }}#}
             </div>
         </div>
     </div>

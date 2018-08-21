@@ -6,10 +6,11 @@
         <div class="row">
             <div class="col-md-10 col-md-push-1">
                 <h1>{{ seoH1 }}</h1>
-                <p class="text-center" style="font-size: 20px; line-height: 24px;">У вас возникла необходимость в
-                    доставке товара из Москвы в Минск? Компания GObusGO знает, как решить вопрос! Для экономии времени и
-                    средств мы предложим индивидуальное логистическое решение по доставке вашего груза согласно личным
-                    предпочтениям и четко поставленным целям.</p>
+                {#<p class="text-center" style="font-size: 20px; line-height: 24px;">У вас возникла необходимость в#}
+                {#доставке товара из Москвы в Минск? Компания GObusGO знает, как решить вопрос! Для экономии времени и#}
+                {#средств мы предложим индивидуальное логистическое решение по доставке вашего груза согласно личным#}
+                {#предпочтениям и четко поставленным целям.</p>#}
+                {% if seo.intro is not empty %} {{ seo.intro }} {% endif %}
             </div>
         </div>
     </div>
@@ -48,8 +49,8 @@
             <div class="col-md-3">
                 <h4 style="text-align: center;">Направление</h4>
                 <div class="inline-block" style="width: 80%;">
-                <div class="Input" style="margin-top: 0px;">
-                    <div id="city1area">
+                    <div class="Input" style="margin-top: 0px;">
+                        <div id="city1area">
 
                             <input class="input-log select2-hidden-accessible" onchange="city()" id="one"
                                    value="Москва" contenteditable="false"/>
@@ -82,369 +83,15 @@
                 </div>
             </div>
         </div>
-        {#<div class="row">#}
-        {#<h2>Расчет стоимости грузоперевозки:</h2>#}
-        {#<span class="road-text-1">Клиент</span>#}
-        {#<span class="road-text-2">Габариты</span>#}
-        {#<span class="road-text-3">Город</span>#}
-        {#<span class="road-text-4">Итого</span>#}
-        {#<span class="line-1"></span>#}
-        {#<span class="line-2"></span>#}
-        {#<span class="line-3"></span>#}
-        {#<span class="line-4"></span>#}
-        {#<span class="line-55"></span>#}
-        {#<span class="line-6"></span>#}
-        {#<span class="line-7"></span>#}
-        {#<span class="line-8"></span>#}
-        {#<span class="line-9"></span>#}
-        {#<span class="line-10"></span>#}
-        {#<div class="additional-city" onclick="addCity()" id="addCity">#}
-        {#<i class="fa fa-plus fa-2x" style="vertical-align: middle; " aria-hidden="true"></i>#}
-        {#</div>#}
-        {#<div class="delete-city" onclick="deleteCity()" id="deleteCity">#}
-        {#<i class="fa fa-minus fa-2x" style="vertical-align: middle; " aria-hidden="true"></i>#}
-        {#</div>#}
-
-
-        {#<div class="Input-1-1">#}
-        {#<i class="fa fa-chevron-left" aria-hidden="true"#}
-        {#style="position: absolute; margin-left: 170px; margin-top: 51px; font-size: 20px; color: #7d88ff;"></i>#}
-        {#<div class="Input">#}
-        {#{{ form_errors(legalCallform.weight) }}#}
-        {#{{ form_widget(legalCallform.weight, {'attr':{'class':'Input-text', 'position': 'absolute','placeholder':'Вес\, кг','readonly':''}}) }}#}
-        {#</div>#}
-        {#<input id="weight" class="Input-text-1" style="position: absolute" placeholder="Вес, кг"#}
-        {#onchange="sum()">#}
-        {#</div>#}
-        {#<div class="Input-1-2">#}
-        {#<input id="height" class="Input-text-1" style="position: absolute" placeholder="Высота"#}
-        {#onchange="sum()">#}
-        {#</div>#}
-        {#<div class="Input-1-3">#}
-        {#<input id="lenght" class="Input-text-1" style="position: absolute" placeholder="Длинна"#}
-        {#onchange="sum()">#}
-        {#</div>#}
-        {#<div class="Input-1-4">#}
-        {#<input id="width" class="Input-text-1" style="position: absolute" placeholder="Глубина"#}
-        {#onchange="sum()">#}
-        {#</div>#}
-
-
-        {#<div class="Input-2">#}
-        {#<i class="fa fa-chevron-right" aria-hidden="true"#}
-        {#style="position: absolute; margin-left: -19px; margin-top: 16px; font-size: 20px; color: #7d88ff;"></i>#}
-        {#<div id="city1area">#}
-        {#<select class="Input-text-3" onchange="city()" id="city1">#}
-        {#<option>Откуда...</option>#}
-        {#{% for cities in cities %}#}
-        {#<option value="{{ cities.name }}">{{ cities.name }}</option>#}
-        {#{% endfor %}#}
-        {#<div class="selectize-dropdown single">#}
-        {#<div class="selectize-dropdown-content"></div>#}
-        {#</div>#}
-        {#</select>#}
-        {#</div>#}
-        {#</div>#}
-        {#<div class="Input-3">#}
-        {#<i class="fa fa-chevron-right" aria-hidden="true"#}
-        {#style="position: absolute; margin-left: -19px; margin-top: 15px; font-size: 20px; color: #7d88ff;"></i>#}
-        {#<div id="city2area">#}
-        {#<select class="Input-text-3" onchange="city()" id="city2">#}
-        {#<option>Куда...</option>#}
-        {#{% for cities in cities %}#}
-        {#<option value="{{ cities.name }}">{{ cities.name }}</option>#}
-        {#{% endfor %}#}
-        {#<div class="selectize-dropdown single">#}
-        {#<div class="selectize-dropdown-content"></div>#}
-        {#</div>#}
-        {#</select>#}
-        {#</div>#}
-        {#</div>#}
-
-        {#<div class="Input-3-1">#}
-        {#<div id="city3area" style="visibility: hidden">#}
-        {#<select class="Input-text-3" onchange="city()" id="city3">#}
-        {#<option>Доп. пункт</option>#}
-        {#{% for cities in cities %}#}
-        {#<option value="{{ cities.name }}">{{ cities.name }}</option>#}
-        {#{% endfor %}#}
-        {#<div class="selectize-dropdown single">#}
-        {#<div class="selectize-dropdown-content"></div>#}
-        {#</div>#}
-        {#</select>#}
-        {#</div>#}
-        {#</div>#}
-
-        {#<div class="Input-4">#}
-        {#<i class="fa fa-chevron-left" aria-hidden="true"#}
-        {#style="position: absolute; margin-left: 152px; margin-top: 17px; font-size: 20px; color: #7d88ff;"></i>#}
-        {#<input id="sum" class="Input-text-1" style="position: absolute" placeholder="Сумма">#}
-        {#</div>#}
-        {#<div class="radio-cargo">#}
-        {#<label>#}
-        {#<i class="fa fa-chevron-right" aria-hidden="true"></i>#}
-        {#Юридическое лицо#}
-        {#<input type="radio" class="option-input radio" name="example" id="legal" onchange="sum()" checked/>#}
-
-        {#</label>#}
-        {#<label>#}
-        {#<i class="fa fa-chevron-right" aria-hidden="true"></i>#}
-        {#Физическое лицо#}
-        {#<input type="radio" class="option-input radio" name="example" id="individual" onchange="sum()"/>#}
-        {#</label>#}
-        {#</div>#}
-        {#<div style="text-align: center;">#}
-        {#<img src="{{ asset('images/road.png') }}" style="width: 800px;">#}
-        {#</div>#}
-
-
-        {#<a href="#x" class="overlay" id="legal-form">#}
-        {#</a>#}
-        {#<div class="popup">#}
-        {#<div class="section bg-gray-light container-fluid">#}
-
-        {#<h2 style="margin: 20px;">Заявка</h2>#}
-
-        {#<div style="" id="legal_form">#}
-        {#{{ form_start(legalCallform) }}#}
-        {#<div class="col-md-6">#}
-        {#<div class="Input">#}
-        {#{{ form_errors(legalCallform.organization) }}#}
-        {#{{ form_widget(legalCallform.organization, {'attr':{'class':'input-log', 'position': 'absolute','placeholder':'Название организации'}}) }}#}
-        {#</div>#}
-        {#<div class="Input">#}
-        {#{{ form_errors(legalCallform.fullName) }}#}
-        {#{{ form_widget(legalCallform.fullName, {'attr':{'class':'input-log', 'position': 'absolute','placeholder':'Контактное лицо'}}) }}#}
-        {#</div>#}
-        {#<div class="Input">#}
-        {#{{ form_errors(legalCallform.phone) }}#}
-        {#{{ form_widget(legalCallform.phone, {'attr':{'class':'input-log', 'position': 'absolute','placeholder':'Телефон'}}) }}#}
-        {#</div>#}
-        {#<div class="Input">#}
-        {#{{ form_errors(legalCallform.code) }}#}
-        {#{{ form_widget(legalCallform.code, {'attr':{'class':'input-log', 'position': 'absolute','placeholder':'Код'}}) }}#}
-        {#</div>#}
-        {#<div class="Input">#}
-        {#{{ form_errors(legalCallform.notice) }}#}
-        {#{{ form_widget(legalCallform.notice, {'attr':{'class':'input-log', 'position': 'absolute','placeholder':'Примечания'}}) }}#}
-        {#</div>#}
-
-        {#<div class="Input" style="display: none;">#}
-        {#{{ form_errors(legalCallform.weight) }}#}
-        {#{{ form_widget(legalCallform.weight, {'attr':{'class':'input-log', 'position': 'absolute','placeholder':'Вес\, кг','readonly':''}}) }}#}
-        {#</div>#}
-        {#<div class="Input" style="display: none;">#}
-        {#{{ form_errors(legalCallform.height) }}#}
-        {#{{ form_widget(legalCallform.height, {'attr':{'class':'input-log', 'position': 'absolute','placeholder':'Высота','readonly':''}}) }}#}
-        {#</div>#}
-        {#<div class="Input" style="display: none;">#}
-        {#{{ form_errors(legalCallform.lenght) }}#}
-        {#{{ form_widget(legalCallform.lenght, {'attr':{'class':'input-log', 'position': 'absolute','placeholder':'Длинна','readonly':''}}) }}#}
-        {#</div>#}
-        {#<div class="Input" style="display: none;">#}
-        {#{{ form_errors(legalCallform.width) }}#}
-        {#{{ form_widget(legalCallform.width, {'attr':{'class':'input-log', 'position': 'absolute','placeholder':'Глубина','readonly':''}}) }}#}
-        {#</div>#}
-        {#<div class="Input" style="display: none;">#}
-        {#<input class="Input-text" id="formLegalCity1" position="absolute" readonly />#}
-        {#</div>#}
-        {#<div class="Input" style="display: none;">#}
-        {#<input class="Input-text" id="formLegalCity2" position="absolute" readonly />#}
-        {#</div>#}
-        {#<div class="Input" style="display: none;">#}
-        {#<input class="Input-text" id="formLegalCity3" position="absolute" readonly />#}
-        {#</div>#}
-        {#<div class="Input" style="display: none;">#}
-        {#{{ form_errors(legalCallform.sum) }}#}
-        {#{{ form_widget(legalCallform.sum, {'attr':{'class':'Input-text', 'position': 'absolute','placeholder':'Сумма', 'readonly':'true'}}) }}#}
-        {#</div>#}
-        {#</div>#}
-        {#<div class="col-md-6">#}
-
-        {#<div class="Input">#}
-        {#{{ form_errors(legalCallform.UNP) }}#}
-        {#{{ form_widget(legalCallform.UNP, {'attr':{'class':'input-log', 'position': 'absolute','placeholder':'УНП'}}) }}#}
-        {#</div>#}
-        {#<div class="Input">#}
-        {#{{ form_errors(legalCallform.bank) }}#}
-        {#{{ form_widget(legalCallform.bank, {'attr':{'class':'input-log', 'position': 'absolute','placeholder':'Банк'}}) }}#}
-        {#</div>#}
-        {#<div class="Input">#}
-        {#{{ form_errors(legalCallform.addressOfTheBank) }}#}
-        {#{{ form_widget(legalCallform.addressOfTheBank, {'attr':{'class':'input-log', 'position': 'absolute','placeholder':'Адресс банка'}}) }}#}
-        {#</div>#}
-        {#<div class="Input">#}
-        {#{{ form_errors(legalCallform.legalAddress) }}#}
-        {#{{ form_widget(legalCallform.legalAddress, {'attr':{'class':'input-log', 'position': 'absolute','placeholder':'Юридический адресс'}}) }}#}
-        {#</div>#}
-        {#<div class="Input">#}
-        {#{{ form_errors(legalCallform.settlementAccount) }}#}
-        {#{{ form_widget(legalCallform.settlementAccount, {'attr':{'class':'input-log', 'position': 'absolute','placeholder':'Расчётный счёт'}}) }}#}
-        {#</div>#}
-
-
-        {#<div style="display:none">#}
-        {#{{ form_widget(legalCallform.cities) }}#}
-
-        {#{{ form_rest(legalCallform) }}#}
-        {#</div>#}
-        {#</div>#}
-
-        {#<div class="text-center col-md-12" style="margin-bottom: 20px; margin-top: 20px; ">#}
-        {#<input class="button-log" value="Оформить заявку" type="submit">#}
-        {#</div>#}
-        {#{{ form_end(legalCallform) }}#}
-        {#</div>#}
-
-
-        {#<div style="display: none;" id="individual_form">#}
-        {#{{ form_start(individualCallform) }}#}
-
-
-        {#<div class="Input" style="display:none;">#}
-        {#{{ form_errors(individualCallform.weight) }}#}
-        {#{{ form_widget(individualCallform.weight, {'attr':{'class':'input-log', 'position': 'absolute','placeholder':'Вес\, кг','readonly':''}}) }}#}
-        {#</div>#}
-        {#<div class="Input" style="display:none;">#}
-        {#{{ form_errors(individualCallform.height) }}#}
-        {#{{ form_widget(individualCallform.height, {'attr':{'class':'input-log', 'position': 'absolute','placeholder':'Высота','readonly':''}}) }}#}
-        {#</div>#}
-        {#<div class="Input" style="display:none;">#}
-        {#{{ form_errors(individualCallform.lenght) }}#}
-        {#{{ form_widget(individualCallform.lenght, {'attr':{'class':'input-log', 'position': 'absolute','placeholder':'Длинна','readonly':''}}) }}#}
-        {#</div>#}
-        {#<div class="Input" style="display:none;">#}
-        {#{{ form_errors(individualCallform.width) }}#}
-        {#{{ form_widget(individualCallform.width, {'attr':{'class':'input-log', 'position': 'absolute','placeholder':'Глубина','readonly':''}}) }}#}
-        {#</div>#}
-        {#<div class="Input" style="display:none;">#}
-        {#<input class="Input-text" id="formIndividualCity1" position="absolute" readonly/>#}
-        {#</div>#}
-        {#<div class="Input" style="display:none;">#}
-        {#<input class="Input-text" id="formIndividualCity2" position="absolute" readonly/>#}
-        {#</div>#}
-        {#<div class="Input" style="display:none;">#}
-        {#<input class="Input-text" id="formIndividualCity3" position="absolute" readonly/>#}
-        {#</div>#}
-        {#<div class="Input" style="display:none;">#}
-        {#{{ form_errors(individualCallform.sum) }}#}
-        {#{{ form_widget(individualCallform.sum, {'attr':{'class':'input-log', 'position': 'absolute','placeholder':'Сумма','readonly':''}}) }}#}
-        {#</div>#}
-        {#<div class="Input">#}
-        {#{{ form_errors(individualCallform.name) }}#}
-        {#{{ form_widget(individualCallform.name, {'attr':{'class':'input-log', 'position': 'absolute','placeholder':'Как вас зовут?'}}) }}#}
-        {#</div>#}
-        {#<div class="Input">#}
-        {#{{ form_errors(individualCallform.phone) }}#}
-        {#{{ form_widget(individualCallform.phone, {'attr':{'class':'input-log', 'position': 'absolute','placeholder':'Номер телефона'}}) }}#}
-        {#</div>#}
-        {#<div class="Input">#}
-        {#{{ form_errors(individualCallform.notice) }}#}
-        {#{{ form_widget(individualCallform.notice, {'attr':{'class':'input-log', 'position': 'absolute','placeholder':'Примечания'}}) }}#}
-        {#</div>#}
-
-        {#<div style="display:none">#}
-        {#{{ form_widget(individualCallform.cities) }}#}
-
-        {#{{ form_rest(individualCallform) }}#}
-        {#</div>#}
-
-        {#<div class="text-center" style="margin: 20px;">#}
-        {#<input class="button-log" value="Оформить заявку" type="submit" onclick="city()">#}
-        {#</div>#}
-        {#{{ form_end(individualCallform) }}#}
-        {#</div>#}
-
-        {#</div>#}
-        {#<a class="close" title="Закрыть" href="#close"></a>#}
-
-        {#</div>#}
-        {#<div class="text-center" style="margin: 20px;">#}
-        {#<a style="padding: 10px 20px; font-size: 20px;" class="button-log" href="#legal-form"#}
-        {#onclick="openform()">Оформление#}
-        {#заявки</a>#}
-        {#</div>#}
-        {#</div>#}
-
     </div>
-
-    {#<div class="container" style="width: 1170px;">#}
-    {#<div class="row">#}
-    {#<h2>Расчет стоимости грузоперевозки:</h2>#}
-    {#<span class="road-text-1">Клиент</span>#}
-    {#<span class="road-text-2">Габариты</span>#}
-    {#<span class="road-text-3">Город</span>#}
-    {#<span class="road-text-4">Итого</span>#}
-    {#<img class="reload-img" src="{{ asset('images/reload-double.png') }}" onclick="reload();">#}
-    {#<span class="line-1"></span>#}
-    {#<span class="line-2"></span>#}
-    {#<span class="line-3"></span>#}
-    {#<span class="line-4"></span>#}
-    {#<span class="line-5"></span>#}
-    {#<span class="line-6"></span>#}
-    {#<span class="line-7"></span>#}
-    {#<span class="line-8"></span>#}
-    {#<span class="line-9"></span>#}
-    {#<span class="line-10"></span>#}
-
-
-    {#<div class="Input-1">#}
-    {#<i class="fa fa-chevron-left" aria-hidden="true"#}
-    {#style="position: absolute; margin-left: 160px; margin-top: 17px; font-size: 20px; color: #7d88ff;"></i>#}
-    {#<input id="weight" class="Input-text-1" style="position: absolute" placeholder="Вес, кг"#}
-    {#onchange="sum()">#}
-    {#</div>#}
-    {#<div>#}
-    {#<div class="Input-2">#}
-    {#<i class="fa fa-chevron-right" aria-hidden="true"#}
-    {#style="position: absolute; margin-left: -19px; margin-top: 16px; font-size: 20px; color: #7d88ff;"></i>#}
-
-    {#<input class="Input-text-3" id="one" name="from"#}
-    {#style="position: absolute;" value="Москва" readonly/>#}
-    {#</div>#}
-    {#<div class="Input-3">#}
-    {#<i class="fa fa-chevron-right" aria-hidden="true"#}
-    {#style="position: absolute; margin-left: -19px; margin-top: 15px; font-size: 20px; color: #7d88ff;"></i>#}
-
-    {#<input class="Input-text-3" id="two" name="to"#}
-    {#style="position: absolute;" value="Минск" readonly/>#}
-    {#</div>#}
-    {#</div>#}
-
-    {#<div class="Input-4">#}
-    {#<i class="fa fa-chevron-left" aria-hidden="true"#}
-    {#style="position: absolute; margin-left: 152px; margin-top: 17px; font-size: 20px; color: #7d88ff;"></i>#}
-    {#<input id="sum" class="Input-text-1" style="position: absolute" placeholder="Сумма" readonly>#}
-    {#</div>#}
-    {#<div class="radio-cargo">#}
-
-    {#<label>#}
-    {#<i class="fa fa-chevron-right" aria-hidden="true"></i>#}
-    {#Физическое лицо#}
-    {#<input type="radio" class="option-input radio" name="example" id="individual" onchange="sum()"#}
-    {#checked/>#}
-    {#</label>#}
-
-    {#<label>#}
-    {#<i class="fa fa-chevron-right" aria-hidden="true"></i>#}
-    {#Юридическое лицо#}
-    {#<input type="radio" class="option-input radio" name="example" id="legal" onchange="sum()"/>#}
-
-    {#</label>#}
-    {#</div>#}
-    {#<div style="text-align: center;">#}
-    {#<img src="{{ asset('images/road.png') }}" style="width: 800px;">#}
-    {#</div>#}
-
-
     <a href="#x" class="overlay" id="legal-form">
     </a>
     <div class="popup">
         <div class="section bg-gray-light container-fluid">
 
-                    <div style="" id="individual_form">
-                        {{ form_start(individualCallform) }}
-                        <h2 style="margin-bottom: 30px;">Заявка для физического лица</h2>
+            <div style="" id="individual_form">
+                {{ form_start(individualCallform) }}
+                <h2 style="margin-bottom: 30px;">Заявка для физического лица</h2>
 
                 <div class="Input" style="display: none;">
                     {{ form_errors(individualCallform.weight) }}
@@ -579,13 +226,6 @@
         <a class="close" title="Закрыть" href="#close"></a>
     </div>
 
-    {#<div class="text-center" style="margin: 20px;">#}
-    {#<a style="padding: 10px 20px; font-size: 20px;" class="button-log" href="#legal-form"#}
-    {#onclick="openform()">Оформление#}
-    {#заявки</a>#}
-    {#</div> #}{#<img src="{{ asset('images/tablet.png') }}" width="800px;">#}
-    {#</div>#}
-    {#</div>#}
 
     <div class="container-fluid road-tablet">
         <div class="row">
@@ -658,42 +298,7 @@
                 </div>
 
                 <div style="padding-top: 8px;">
-                    {#<div style="padding-bottom: 10px;">#}
-                    {#<input class="input-tablet-form" type="text" id="weight" name="weight"#}
-                    {#required="required" placeholder="Название организации"/>#}
-                    {#</div>#}
-                    {#<div style="padding-bottom: 10px;">#}
-                    {#<input class="input-tablet-form" type="text" id="weight" name="weight"#}
-                    {#required="required" placeholder="УНП"/>#}
-                    {#</div>#}
-                    {#<div style="padding-bottom: 10px;">#}
-                    {#<input class="input-tablet-form" type="text" id="weight" name="weight"#}
-                    {#required="required" placeholder="Банк"/>#}
-                    {#</div>#}
-                    {#<div style="padding-bottom: 10px;">#}
-                    {#<input class="input-tablet-form" type="text" id="weight" name="weight"#}
-                    {#required="required" placeholder="Адрес банка"/>#}
-                    {#</div>#}
-                    {#<div style="padding-bottom: 10px;">#}
-                    {#<input class="input-tablet-form" type="text" id="weight" name="weight"#}
-                    {#required="required" placeholder="Юридический адрес"/>#}
-                    {#</div>#}
-                    {#<div style="padding-bottom: 10px;">#}
-                    {#<input class="input-tablet-form" type="text" id="weight" name="weight"#}
-                    {#required="required" placeholder="Расчетный счет"/>#}
-                    {#</div>#}
-                    {#<div style="padding-bottom: 10px;">#}
-                    {#<input class="input-tablet-form" type="text" id="weight" name="weight"#}
-                    {#required="required" placeholder="Код"/>#}
-                    {#</div>#}
-                    {#<div style="padding-bottom: 10px;">#}
-                    {#<input class="input-tablet-form" type="text" id="weight" name="weight"#}
-                    {#required="required" placeholder="Контактное лицо"/>#}
-                    {#</div>#}
-                    {#<div style="padding-bottom: 10px;">#}
-                    {#<input class="input-tablet-form" type="text" id="weight" name="weight"#}
-                    {#required="required" placeholder="Номер телефона для связи"/>#}
-                    {#</div>#}
+
                     <input class="button-log" value="Отправить заявку" type="submit">
                 </div>
             </div>
@@ -780,50 +385,51 @@
     <div class="container">
         <div class="row">
             <div class="col-md-10 col-md-push-1">
-                <p style="text-align: justify;">Для своевременной транспортировки и сохранности грузов по маршруту
-                    Москва-Минск GObusGO предлагает:</p>
-                <ul class="list-marked">
-                    <li>доставку любых грузов до 2 т;</li>
-                    <li>предоставление полной информации по направлению Москва-Минск;</li>
-                    <li>согласованный перечень работ и услуг профессиональных водителей, грузчиков, специалистов;</li>
-                    <li>полное сопровождение груза;</li>
-                    <li>точное соблюдение договорных сроков;</li>
-                    <li>грамотную организацию процесса перевозки.</li>
-                </ul>
-                <p style="text-align: justify;">Предоставляем услуги по доставке из Москвы в Минск — от писем до
-                    крупногабаритных грузов. Работаем как физическими, так и юридическими лицами. Цена перевозки и
-                    доставки по данному направлению зависит от многих факторов и складывается из отдельных составляющих.
-                    На конечную стоимость доставки по маршруту Минск-Москва напрямую влияют удаленность, вес груза и
-                    габариты.
-                    Виды доставки грузов Москва-Минск, предоставляемые компанией GObusGO</p>
-                <ul class="list-marked">
-                    <li>курьерская доставка из Москвы в Минск;</li>
-                    <li>срочная доставка по маршруту «Москва-Минск»;</li>
-                    <li>экспресс-доставка Москва-Минск.</li>
-                </ul>
-                <p style="text-align: justify;">Воспользовавшись курьерской доставкой из Москвы в Минск, решается вопрос
-                    с оперативной транспортировкой в Минск купленного товара в Москве, груза, посылки либо пакета
-                    документов. Гарантируем индивидуальный подход, конфиденциальность, передачу ценных бумаг лично в
-                    руки.</br>
-                    Срочная доставка «Москва-Минск» осуществляется в течение суток, что крайне удобно для ведения
-                    совместного российско-белорусского бизнеса. В зависимости от специфики товаров срок доставки может
-                    варьироваться. Мы прислушиваемся к каждому клиенту, предварительно обговаривается каждый нюанс,
-                    заключается договор.</br>
-                    В комплекс предоставляемых нами услуг входит экспресс-доставка из Москвы в Минск. Современную услугу
-                    по достоинству оценят клиенты, целью которых является бережная и оперативная доставка грузов и
-                    корреспонденции. Экспресс-доставка выполняется в самый короткий промежуток времени, с точным
-                    соблюдением установленных заказчиком сроков.</br>
-                    Воспользуйтесь сервисом на сайте, чтобы самостоятельно произвести расчет стоимости грузоперевозки.
-                    Благодаря такому удобному функционалу, оформить онлайн-заявку на грузоперевозку не составит труда.
-                    Для уточнения деталей менеджеры компании GObusGO свяжутся без промедления, как только ваша заявка
-                    поступит на обработку.</br>
-                    Обратите внимание на дополнительные услуги по доставке и получению посылки по определенному адресу в
-                    Минске, Беларуси, Москве (в пределах МКАД), в любом месте Московской области.</br>
-                    Доставка и перевозка грузов из Москвы в Минск — ключевое направление нашей компании. Мы несем полную
-                    ответственность за безопасную доставку товаров, обеспечиваем полную информационную поддержку на всех
-                    этапах сотрудничества.
+                {#<p style="text-align: justify;">Для своевременной транспортировки и сохранности грузов по маршруту#}
+                {#Москва-Минск GObusGO предлагает:</p>#}
+                {#<ul class="list-marked">#}
+                {#<li>доставку любых грузов до 2 т;</li>#}
+                {#<li>предоставление полной информации по направлению Москва-Минск;</li>#}
+                {#<li>согласованный перечень работ и услуг профессиональных водителей, грузчиков, специалистов;</li>#}
+                {#<li>полное сопровождение груза;</li>#}
+                {#<li>точное соблюдение договорных сроков;</li>#}
+                {#<li>грамотную организацию процесса перевозки.</li>#}
+                {#</ul>#}
+                {#<p style="text-align: justify;">Предоставляем услуги по доставке из Москвы в Минск — от писем до#}
+                {#крупногабаритных грузов. Работаем как физическими, так и юридическими лицами. Цена перевозки и#}
+                {#доставки по данному направлению зависит от многих факторов и складывается из отдельных составляющих.#}
+                {#На конечную стоимость доставки по маршруту Минск-Москва напрямую влияют удаленность, вес груза и#}
+                {#габариты.#}
+                {#Виды доставки грузов Москва-Минск, предоставляемые компанией GObusGO</p>#}
+                {#<ul class="list-marked">#}
+                {#<li>курьерская доставка из Москвы в Минск;</li>#}
+                {#<li>срочная доставка по маршруту «Москва-Минск»;</li>#}
+                {#<li>экспресс-доставка Москва-Минск.</li>#}
+                {#</ul>#}
+                {#<p style="text-align: justify;">Воспользовавшись курьерской доставкой из Москвы в Минск, решается вопрос#}
+                {#с оперативной транспортировкой в Минск купленного товара в Москве, груза, посылки либо пакета#}
+                {#документов. Гарантируем индивидуальный подход, конфиденциальность, передачу ценных бумаг лично в#}
+                {#руки.</br>#}
+                {#Срочная доставка «Москва-Минск» осуществляется в течение суток, что крайне удобно для ведения#}
+                {#совместного российско-белорусского бизнеса. В зависимости от специфики товаров срок доставки может#}
+                {#варьироваться. Мы прислушиваемся к каждому клиенту, предварительно обговаривается каждый нюанс,#}
+                {#заключается договор.</br>#}
+                {#В комплекс предоставляемых нами услуг входит экспресс-доставка из Москвы в Минск. Современную услугу#}
+                {#по достоинству оценят клиенты, целью которых является бережная и оперативная доставка грузов и#}
+                {#корреспонденции. Экспресс-доставка выполняется в самый короткий промежуток времени, с точным#}
+                {#соблюдением установленных заказчиком сроков.</br>#}
+                {#Воспользуйтесь сервисом на сайте, чтобы самостоятельно произвести расчет стоимости грузоперевозки.#}
+                {#Благодаря такому удобному функционалу, оформить онлайн-заявку на грузоперевозку не составит труда.#}
+                {#Для уточнения деталей менеджеры компании GObusGO свяжутся без промедления, как только ваша заявка#}
+                {#поступит на обработку.</br>#}
+                {#Обратите внимание на дополнительные услуги по доставке и получению посылки по определенному адресу в#}
+                {#Минске, Беларуси, Москве (в пределах МКАД), в любом месте Московской области.</br>#}
+                {#Доставка и перевозка грузов из Москвы в Минск — ключевое направление нашей компании. Мы несем полную#}
+                {#ответственность за безопасную доставку товаров, обеспечиваем полную информационную поддержку на всех#}
+                {#этапах сотрудничества.#}
 
-                </p>
+                {#</p>#}
+                {{ seo.text }}
             </div>
         </div>
     </div>
@@ -882,104 +488,6 @@
                     </div>
                 </div>
             </div>
-            {#<div class="table-services-minsk">#}
-            {#<table>#}
-            {#<tr>#}
-            {#<td colspan="5">Добавить или забрать, направление по адресу:<br></td>#}
-            {#</tr>#}
-            {#<tr>#}
-            {#<td>Вес посылки, кг<br></td>#}
-            {#<td>Минск<br></td>#}
-            {#<td>По беларуси<br></td>#}
-            {#<td>Москва (в пределах мкад)<br></td>#}
-            {#<td>В любой точку московской области<br></td>#}
-            {#</tr>#}
-            {#<tr>#}
-            {#<td>0-2 кг</td>#}
-            {#<td>8р</td>#}
-            {#<td>12р</td>#}
-            {#<td>30р</td>#}
-            {#<td>45р</td>#}
-            {#</tr>#}
-            {#<tr>#}
-            {#<td>3-9 кг</td>#}
-            {#<td>8р</td>#}
-            {#<td>12р</td>#}
-            {#<td>30р</td>#}
-            {#<td>45р</td>#}
-            {#</tr>#}
-            {#<tr>#}
-            {#<td>10-19 кг</td>#}
-            {#<td>8р</td>#}
-            {#<td>12р</td>#}
-            {#<td>30р</td>#}
-            {#<td>45р</td>#}
-            {#</tr>#}
-            {#<tr>#}
-            {#<td>10-29 кг<br></td>#}
-            {#<td>8р</td>#}
-            {#<td>12р</td>#}
-            {#<td>30р</td>#}
-            {#<td>45р</td>#}
-            {#</tr>#}
-            {#<tr>#}
-            {#<td>30-49 кг<br></td>#}
-            {#<td>8р</td>#}
-            {#<td>12р</td>#}
-            {#<td>30р</td>#}
-            {#<td>45р</td>#}
-            {#</tr>#}
-            {#<tr>#}
-            {#<td>50-100 кг<br></td>#}
-            {#<td>8р</td>#}
-            {#<td>12р</td>#}
-            {#<td>30р</td>#}
-            {#<td>45р</td>#}
-            {#</tr>#}
-            {#<tr>#}
-            {#<td>за послед. кг<br></td>#}
-            {#<td></td>#}
-            {#<td></td>#}
-            {#<td></td>#}
-            {#<td></td>#}
-            {#</tr>#}
-            {#<tr>#}
-            {#<td>200 кг<br></td>#}
-            {#<td>20р<br></td>#}
-            {#<td>50р<br></td>#}
-            {#<td></td>#}
-            {#<td></td>#}
-            {#</tr>#}
-            {#<tr>#}
-            {#<td>за послед. кг</td>#}
-            {#<td></td>#}
-            {#<td></td>#}
-            {#<td></td>#}
-            {#<td></td>#}
-            {#</tr>#}
-            {#<tr>#}
-            {#<td>500 кг<br></td>#}
-            {#<td>20р</td>#}
-            {#<td>50р</td>#}
-            {#<td></td>#}
-            {#<td></td>#}
-            {#</tr>#}
-            {#<tr>#}
-            {#<td>за послед. кг</td>#}
-            {#<td></td>#}
-            {#<td></td>#}
-            {#<td></td>#}
-            {#<td></td>#}
-            {#</tr>#}
-            {#<tr>#}
-            {#<td>700 кг<br></td>#}
-            {#<td></td>#}
-            {#<td></td>#}
-            {#<td></td>#}
-            {#<td></td>#}
-            {#</tr>#}
-            {#</table>#}
-            {#</div>#}
         </div>
     </div>
 

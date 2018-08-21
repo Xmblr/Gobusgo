@@ -3,7 +3,8 @@
 {% block body %}
     <div class="container">
         <div class="row">
-            <h1 style="text-align:left;">{{ seoH1 }}</h1>
+            <h1 style="text-align:left;">{{ seo.h1 }}</h1>
+            {% if seo.intro is not empty %} {{ seo.intro }} {% endif %}
         <div class="col-md-8 col-xs-12" style="padding-left: 0px;">
 
             <h4 style="border-bottom: 1px solid #ccc; display: inline-block;">Юридические данные:</h4>

@@ -40,6 +40,49 @@ class Seo
     protected $description;
 
     /**
+     * @ORM\Column(type="string")
+     */
+    protected $intro;
+
+    /**
+     * @ORM\Column(type="string")
+     */
+    protected $text;
+
+    /**
+     * @return mixed
+     */
+    public function getText()
+    {
+        return $this->text;
+    }
+
+    /**
+     * @param mixed $text
+     */
+    public function setText($text)
+    {
+        $this->text = $text;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getIntro()
+    {
+        return $this->intro;
+    }
+
+    /**
+     * @param mixed $intro
+     */
+    public function setIntro($intro)
+    {
+        $this->intro = $intro;
+    }
+
+
+    /**
      * @return mixed
      */
     public function getId()

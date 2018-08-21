@@ -14,7 +14,7 @@ class PageController extends Controller
 {
     public function indexAction(Request $request)
     {
-        $seoH1 = $this->SetSeo('homepage');
+        $seo = $this->SetSeo('homepage');
 
         $callform = $this->Call($request);
 
@@ -23,47 +23,47 @@ class PageController extends Controller
 
         return $this->render('@GobusgoGobusgo/Page/index.html.twig', array(
             'callform' =>$callform->createView(),
-            'seoH1' => $seoH1,
+            'seo' => $seo,
             'blogs' => $blogs
         ));
     }
 
     public function confirmAction(Request $request)
     {
-        $seoH1 = $this->SetSeo('confirm');
+        $seo = $this->SetSeo('confirm');
 
         $callform = $this->Call($request);
 
         return $this->render('@GobusgoGobusgo/Page/confirm.html.twig', array(
             'callform' =>$callform->createView(),
-            'seoH1' => $seoH1
+            'seo' => $seo
         ));
     }
 
     public function catalogAction()
     {
-        $seoH1 = $this->SetSeo('catalog');
+        $seo = $this->SetSeo('catalog');
 
         return $this->render('@GobusgoGobusgo/Page/catalog.html.twig', array(
-            'seoH1' => $seoH1,
+            'seo' => $seo,
         ));
     }
 
     public function autoparkAction(Request $request)
     {
-        $seoH1 = $this->SetSeo('autopark');
+        $seo = $this->SetSeo('autopark');
 
         $callform = $this->Call($request);
 
         return $this->render('@GobusgoGobusgo/Page/autopark.html.twig', array(
             'callform' =>$callform->createView(),
-            'seoH1' => $seoH1,
+            'seo' => $seo,
         ));
     }
 
     public function aboutAction(Request $request)
     {
-        $seoH1 = $this->SetSeo('about');
+        $seo = $this->SetSeo('about');
 
         $callform = $this->Call($request);
 
@@ -72,20 +72,20 @@ class PageController extends Controller
 
         return $this->render('@GobusgoGobusgo/Page/about.html.twig', array(
             'callform' =>$callform->createView(),
-            'seoH1' => $seoH1,
+            'seo' => $seo,
             'blogs'=>$blogs
         ));
     }
 
     public function feedbackAction(Request $request)
     {
-        $seoH1 = $this->SetSeo('feedback');
+        $seo = $this->SetSeo('feedback');
 
         $callform = $this->Call($request);
 
         return $this->render('@GobusgoGobusgo/Page/feedback.html.twig', array(
             'callform' =>$callform->createView(),
-            'seoH1' => $seoH1,
+            'seo' => $seo,
         ));
     }
 
@@ -94,7 +94,7 @@ class PageController extends Controller
         $em = $this->getDoctrine()
             ->getManager();
 
-        $seoH1 = $this->SetSeo('deliveryRB');
+        $seo = $this->SetSeo('deliveryRB');
 
         $legalCallform = $this->createForm('Gobusgo\GobusgoBundle\Form\LegalCallType',null,array(
             'action' => $this->generateUrl('gobusgo_gobusgo_deliveryRB'),
@@ -155,7 +155,7 @@ class PageController extends Controller
             'legalCallform' =>$legalCallform->createView(),
             'cities'=>$cities,
             'blogs'=>$blogs,
-            'seoH1' => $seoH1,
+            'seo' => $seo,
         ));
     }
 
@@ -164,7 +164,7 @@ class PageController extends Controller
         $em = $this->getDoctrine()
             ->getManager();
 
-        $seoH1 = $this->SetSeo('deliveryMinsk');
+        $seo = $this->SetSeo('deliveryMinsk');
 
         $legalCallform = $this->createForm('Gobusgo\GobusgoBundle\Form\LegalCallType',null,array(
             'action' => $this->generateUrl('gobusgo_gobusgo_deliveryMinsk'),
@@ -224,7 +224,7 @@ class PageController extends Controller
             'callform' =>$callform->createView(),
             'individualCallform' =>$individualCallform->createView(),
             'legalCallform' =>$legalCallform->createView(),
-            'seoH1' => $seoH1,
+            'seo' => $seo,
             'blogs'=>$blogs
         ));
     }
@@ -234,7 +234,7 @@ class PageController extends Controller
         $em = $this->getDoctrine()
             ->getManager();
 
-        $seoH1 = $this->SetSeo('deliveryMoscowMinsk');
+        $seo = $this->SetSeo('deliveryMoscowMinsk');
 
         $legalCallform = $this->createForm('Gobusgo\GobusgoBundle\Form\LegalCallType',null,array(
             'action' => $this->generateUrl('gobusgo_gobusgo_deliveryMoscowMinsk'),
@@ -295,19 +295,19 @@ class PageController extends Controller
             'individualCallform' =>$individualCallform->createView(),
             'legalCallform' =>$legalCallform->createView(),
             'blogs'=>$blogs,
-            'seoH1' => $seoH1,
+            'seo' => $seo,
         ));
     }
 
     public function contactsAction(Request $request)
     {
-        $seoH1 = $this->SetSeo('contacts');
+        $seo = $this->SetSeo('contacts');
 
         $callform = $this->Call($request);
 
         return $this->render('@GobusgoGobusgo/Page/contacts.html.twig', array(
             'callform' =>$callform->createView(),
-            'seoH1' => $seoH1,
+            'seo' => $seo,
         ));
     }
 
@@ -501,7 +501,7 @@ class PageController extends Controller
             ->addMeta('property', 'og:description', $seoDescription)
         ;
 
-        return $seoH1 = $seo->getH1();
+        return $seo;
     }
 
     public function GetLatestNews()

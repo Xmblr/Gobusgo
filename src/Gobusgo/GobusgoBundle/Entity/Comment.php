@@ -51,6 +51,11 @@ class Comment
      */
     protected $updated;
 
+    public function __toString()
+    {
+        return (string) $this->getBlog();
+    }
+
     public function __construct()
     {
         $this->setCreated(new \DateTime());

@@ -10,10 +10,6 @@
                 <source>Order Create</source>
                 <target>Создание заявки</target>
             </trans-unit>
-            <!--<trans-unit id="title_show">-->
-                <!--<source>Показать "23"</source>-->
-                <!--<target>Просмотр записи</target>-->
-            <!--</trans-unit>-->
             <trans-unit id="city_list">
                 <source>City List</source>
                 <target>Список городов</target>
@@ -29,6 +25,14 @@
             <trans-unit id="cargo_list">
                  <source>Cargo List</source>
                  <target>Шаблоны грузов</target>
+            </trans-unit>
+            <trans-unit id="user_list">
+                <source>User List</source>
+                <target>Список пользователей</target>
+            </trans-unit>
+            <trans-unit id="comment_list">
+                <source>Comment List</source>
+                <target>Список комментариев</target>
             </trans-unit>
         </body>
     </file>

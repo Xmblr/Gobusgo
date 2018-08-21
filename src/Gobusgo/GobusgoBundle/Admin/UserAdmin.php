@@ -11,7 +11,7 @@ class   UserAdmin extends AbstractAdmin
 {
     protected $baseRouteName = 'users';
     protected $baseRoutePattern = 'users';
-    protected $classnameLabel = 'Пользователь';
+
 
     protected function configureFormFields(FormMapper $formMapper)
     {

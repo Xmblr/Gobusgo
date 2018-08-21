@@ -8,11 +8,12 @@
     <div class="container">
         <div class="row">
             <div class="col-md-10 col-md-push-1">
-                <h1>{{ seoH1 }}</h1>
-                <p class="text-center" style="font-size: 20px; line-height: 24px;">Готовитесь к переезду? Нужна доставка
-                    по Минску, недорогая и быстрая? Компания GObusGo предоставляет услуги по транспортировке различных
-                    грузов до 2 тонн, мелких пакетов, корреспонденции на выгодных условиях, в любой район города
-                    Минска.</p>
+                <h1>{{ seo.h1 }}</h1>
+                {#<p class="text-center" style="font-size: 20px; line-height: 24px;">Готовитесь к переезду? Нужна доставка#}
+                    {#по Минску, недорогая и быстрая? Компания GObusGo предоставляет услуги по транспортировке различных#}
+                    {#грузов до 2 тонн, мелких пакетов, корреспонденции на выгодных условиях, в любой район города#}
+                    {#Минска.</p>#}
+                {% if seo.intro is not empty %} {{ seo.intro }} {% endif %}
             </div>
         </div>
     </div>
@@ -70,73 +71,7 @@
         </div>
     </div>
 
-    {#<div class="container road-loptop">#}
-        {#<div class="row" style="text-align: center;">#}
-            {#<h2>Расчет стоимости грузоперевозки:</h2>#}
-            {#<img src="{{ asset('images/road2.png') }}" style="width: 100%;">#}
-            {#<div class="col-md-3">#}
 
-                {#<h4 style="text-align: center;">Клиент</h4>#}
-                {#<label>#}
-
-                    {#Юридическое лицо#}
-                    {#<input type="radio" class="option-input radio" name="example" id="legal" onchange="sum()" checked/>#}
-
-                {#</label>#}
-                {#<label>#}
-                    {#Физическое лицо#}
-                    {#<input type="radio" class="option-input radio" name="example" id="individual" onchange="sum()"/>#}
-                {#</label>#}
-            {#</div>#}
-            {#<div class="col-md-3">#}
-
-                {#<h4 style="text-align: center;">Габариты</h4>#}
-                {#<div class="Input">#}
-
-                    {#<input class="input-log" type="text" id="weight" name="_username" value="" required="required"#}
-                           {#placeholder="Вес, кг">#}
-                {#</div>#}
-
-
-            {#</div>#}
-            {#<div class="col-md-3">#}
-                {#<h4 style="text-align: center;">Направление</h4>#}
-                {#<div class="inline-block" style="width: 80%;">#}
-                    {#<div class="Input">#}
-                        {#<div id="city1area">#}
-
-                            {#<input class="input-log select2-hidden-accessible" onchange="city()" id="one"#}
-                                   {#value="Москва" contenteditable="false"/>#}
-
-                        {#</div>#}
-                    {#</div>#}
-                    {#<div class="Input">#}
-                        {#<div id="city2area">#}
-                            {#<input class="input-log" onchange="city()" id="two" value="Минск" contenteditable="false"/>#}
-
-                        {#</div>#}
-                    {#</div>#}
-                {#</div>#}
-                {#<div class="inline-block">#}
-                    {#<img class="reload-img-tablet" style="height: 50px;" src="{{ asset('images/reload-double.png') }}"#}
-                         {#onclick="reload();">#}
-                {#</div>#}
-
-            {#</div>#}
-            {#<div class="col-md-3">#}
-                {#<h4 style="text-align: center;">Сумма</h4>#}
-                {#<div class="Input">#}
-
-                    {#<input id="sum" class="input-log" placeholder="Сумма">#}
-                {#</div>#}
-                {#<div class="text-center">#}
-                    {#<a style="padding: 10px 20px; font-size: 18px;" class="button-log" href="#legal-form"#}
-                       {#onclick="openform()">Оформление#}
-                        {#заявки</a>#}
-                {#</div>#}
-            {#</div>#}
-        {#</div>#}
-    {#</div>#}
 
     <a href="#x" class="overlay" id="legal-form">
     </a>
@@ -351,42 +286,6 @@
                 </div>
 
                 <div style="padding-top: 8px;">
-                    {#<div style="padding-bottom: 10px;">#}
-                    {#<input class="input-tablet-form" type="text" id="weight" name="weight"#}
-                    {#required="required" placeholder="Название организации"/>#}
-                    {#</div>#}
-                    {#<div style="padding-bottom: 10px;">#}
-                    {#<input class="input-tablet-form" type="text" id="weight" name="weight"#}
-                    {#required="required" placeholder="УНП"/>#}
-                    {#</div>#}
-                    {#<div style="padding-bottom: 10px;">#}
-                    {#<input class="input-tablet-form" type="text" id="weight" name="weight"#}
-                    {#required="required" placeholder="Банк"/>#}
-                    {#</div>#}
-                    {#<div style="padding-bottom: 10px;">#}
-                    {#<input class="input-tablet-form" type="text" id="weight" name="weight"#}
-                    {#required="required" placeholder="Адрес банка"/>#}
-                    {#</div>#}
-                    {#<div style="padding-bottom: 10px;">#}
-                    {#<input class="input-tablet-form" type="text" id="weight" name="weight"#}
-                    {#required="required" placeholder="Юридический адрес"/>#}
-                    {#</div>#}
-                    {#<div style="padding-bottom: 10px;">#}
-                    {#<input class="input-tablet-form" type="text" id="weight" name="weight"#}
-                    {#required="required" placeholder="Расчетный счет"/>#}
-                    {#</div>#}
-                    {#<div style="padding-bottom: 10px;">#}
-                    {#<input class="input-tablet-form" type="text" id="weight" name="weight"#}
-                    {#required="required" placeholder="Код"/>#}
-                    {#</div>#}
-                    {#<div style="padding-bottom: 10px;">#}
-                    {#<input class="input-tablet-form" type="text" id="weight" name="weight"#}
-                    {#required="required" placeholder="Контактное лицо"/>#}
-                    {#</div>#}
-                    {#<div style="padding-bottom: 10px;">#}
-                    {#<input class="input-tablet-form" type="text" id="weight" name="weight"#}
-                    {#required="required" placeholder="Номер телефона для связи"/>#}
-                    {#</div>#}
                     <input class="button-log" value="Отправить заявку" type="submit">
                 </div>
             </div>
@@ -472,29 +371,30 @@
     <div class="container">
         <div class="row">
             <div class="col-md-10 col-md-push-1">
-                <h2>Почему GoBusGo?</h2>
-                <ul class="list-marked">
-                    <li>Работаем с квартирными и офисными переездами, оказываем другие услуги по доставке грузов в
-                        Минске.
-                    </li>
-                    <li>Составляем рациональный маршрут и план экспресс-доставки по Минску — конструктивно и с учетом
-                        ваших пожеланий.
-                    </li>
-                    <li>Предоставляем комфортные условия для перемещения грузов в наших автомобилях.</li>
-                    <li>Работаем на основании договора об оказании транспортных услуг.</li>
-                    <li>Организуем процесс доставки в Минске недорого и с гарантией сохранности вашего имущества.</li>
-                    <li>Наш автопарк состоит из автомобилей Renault, Volkswagen, Fiat Ducato, которые предназначены для
-                        доставки по Минску как габаритного груза, так и мелких товаров народного потребления.
-                    </li>
-                    <li>Работаем с юридическими и физическими лицами. Гарантируем качественный сервис и своевременное
-                        исполнение договорных обязательств.
-                    </li>
-                    <li>Полное сопровождение сделки — от заказа до окончания доставки по Минску.</li>
-                    <li>Отличаемся ответственным подходом к каждому клиенту, вниманием к деталям, точно следуем срокам
-                        поставки грузов по минимальным расценкам.
-                    </li>
+                {#<h2>Почему GoBusGo?</h2>#}
+                {#<ul class="list-marked">#}
+                    {#<li>Работаем с квартирными и офисными переездами, оказываем другие услуги по доставке грузов в#}
+                        {#Минске.#}
+                    {#</li>#}
+                    {#<li>Составляем рациональный маршрут и план экспресс-доставки по Минску — конструктивно и с учетом#}
+                        {#ваших пожеланий.#}
+                    {#</li>#}
+                    {#<li>Предоставляем комфортные условия для перемещения грузов в наших автомобилях.</li>#}
+                    {#<li>Работаем на основании договора об оказании транспортных услуг.</li>#}
+                    {#<li>Организуем процесс доставки в Минске недорого и с гарантией сохранности вашего имущества.</li>#}
+                    {#<li>Наш автопарк состоит из автомобилей Renault, Volkswagen, Fiat Ducato, которые предназначены для#}
+                        {#доставки по Минску как габаритного груза, так и мелких товаров народного потребления.#}
+                    {#</li>#}
+                    {#<li>Работаем с юридическими и физическими лицами. Гарантируем качественный сервис и своевременное#}
+                        {#исполнение договорных обязательств.#}
+                    {#</li>#}
+                    {#<li>Полное сопровождение сделки — от заказа до окончания доставки по Минску.</li>#}
+                    {#<li>Отличаемся ответственным подходом к каждому клиенту, вниманием к деталям, точно следуем срокам#}
+                        {#поставки грузов по минимальным расценкам.#}
+                    {#</li>#}
 
-                </ul>
+                {#</ul>#}
+                {{ seo.text }}
             </div>
         </div>
     </div>

@@ -26,6 +26,14 @@ class SeoAdmin extends AbstractAdmin
             ->add('h1', null,array('label'=>'Заголовок (H1)'))
             ->add('title', null,array('label'=>'Заголовок (Title)'))
             ->add('description', null,array('label'=>'Описание (Description)'))
+            ->add('intro', 'sonata_simple_formatter_type', array(
+                'format' => 'richhtml',
+                'ckeditor_context' => 'news', // optional
+            ))
+            ->add('text', 'sonata_simple_formatter_type', array(
+                'format' => 'richhtml',
+                'ckeditor_context' => 'news', // optional
+            ))
         ;
     }
 
@@ -36,6 +44,8 @@ class SeoAdmin extends AbstractAdmin
             ->add('h1', null,array('label'=>'Заголовок (H1)'))
             ->add('title', null,array('label'=>'Заголовок (Title)'))
             ->add('description', null,array('label'=>'Описание (Description)'))
+            ->add('intro', null,array('label'=>'Интро (Intro_text)'))
+            ->add('text', null,array('label'=>'Текст (Text)'))
         ;
     }
 
@@ -48,6 +58,8 @@ class SeoAdmin extends AbstractAdmin
             ->addIdentifier('h1', null,array('label'=>'Заголовок (H1)'))
             ->addIdentifier('title', null,array('label'=>'Заголовок (Title)'))
             ->addIdentifier('description', null,array('label'=>'Описание (Description)'))
+            ->add('intro', null,array('label'=>'Интро (Intro_text)'))
+            ->add('text', null,array('label'=>'Текст (Text)'))
         ;
     }
 }

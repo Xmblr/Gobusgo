@@ -164,7 +164,7 @@ file that was distributed with this source code.
                     <div class="inline-block admin-header" style="float: right; margin-right: 5px;">
                         {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
                             <a class="btn-2"
-                               href="{{ path('sonata_admin_dashboard') }}"> {{ app.user.organization }} </a>
+                               href="{{ path('sonata_admin_dashboard') }}"> {{ app.user.organization|slice(0,10) }} {% if app.user.organization|length > 10  %}...{% endif %} </a>
                             <a class="btn-3" href="{{ path('fos_user_security_logout') }}">
                                 {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
                             </a>
