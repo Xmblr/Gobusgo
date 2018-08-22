@@ -465,7 +465,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-10 col-md-push-1">
-                <h1>{{ seo.h1 }}</h1>
+                <h1>{{ seo.h1|raw }}</h1>
                 {#<p class="text-center" style="font-size: 20px; line-height: 24px;">В связи с растущим спросом покупок#}
                     {#товаров посредством Сети интернет, потребители стали чаще обращаться к компаниям, у которых налажена#}
                     {#работа службы доставки.</br>#}
@@ -477,7 +477,7 @@
                     {#Наша недорогая цена доставки обусловлена гибким планированием маршрутов, опытом и высоким уровнем#}
                     {#профессионализма сотрудников компании.#}
                 {#</p>#}
-                {% if seo.intro is not empty %} {{ seo.intro }} {% endif %}
+                {% if seo.intro is not empty %} {{ seo.intro|raw }} {% endif %}
                 {#{{ seo.text }}#}
             </div>
         </div>

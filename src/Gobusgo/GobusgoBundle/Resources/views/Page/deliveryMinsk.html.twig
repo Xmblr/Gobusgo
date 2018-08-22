@@ -8,12 +8,12 @@
     <div class="container">
         <div class="row">
             <div class="col-md-10 col-md-push-1">
-                <h1>{{ seo.h1 }}</h1>
+                <h1>{{ seo.h1|raw }}</h1>
                 {#<p class="text-center" style="font-size: 20px; line-height: 24px;">Готовитесь к переезду? Нужна доставка#}
                     {#по Минску, недорогая и быстрая? Компания GObusGo предоставляет услуги по транспортировке различных#}
                     {#грузов до 2 тонн, мелких пакетов, корреспонденции на выгодных условиях, в любой район города#}
                     {#Минска.</p>#}
-                {% if seo.intro is not empty %} {{ seo.intro }} {% endif %}
+                {% if seo.intro is not empty %} {{ seo.intro|raw }} {% endif %}
             </div>
         </div>
     </div>
@@ -394,7 +394,7 @@
                     {#</li>#}
 
                 {#</ul>#}
-                {{ seo.text }}
+                {{ seo.text|raw }}
             </div>
         </div>
     </div>
