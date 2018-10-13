@@ -40,6 +40,11 @@ gobusgo_gobusgo_confirm:
     path:     /confirm
     defaults: { _controller: GobusgoGobusgoBundle:Page:confirm }
 
+gobusgo_gobusgo_deliveryMinskMoscow:
+    path:     /delivery-Minsk-Moscow
+    defaults: { _controller: GobusgoGobusgoBundle:Page:deliveryMinskMoscow }
+    requirements:
+        methods:  GET|POST
 
 #    ------------------------------blog
 

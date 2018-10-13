@@ -299,6 +299,76 @@ class PageController extends Controller
         ));
     }
 
+    public function deliveryMinskMoscowAction(Request $request)
+    {
+        $em = $this->getDoctrine()
+            ->getManager();
+
+        $seo = $this->SetSeo('deliveryMinskMoscow');
+
+        $legalCallform = $this->createForm('Gobusgo\GobusgoBundle\Form\LegalCallType',null,array(
+            'action' => $this->generateUrl('gobusgo_gobusgo_deliveryMoscowMinsk'),
+            'method' => 'POST'
+        ));
+        $legalCallform->get('height')->setData('Не задано');
+        $legalCallform->get('lenght')->setData('Не задано');
+        $legalCallform->get('width')->setData('Не задано');
+
+        if ($request->isMethod('POST')) {
+            $legalCallform->handleRequest($request);
+
+            if($legalCallform->isValid()){
+                // Send mail
+                $data = $legalCallform->getData();
+                $this->Mailer($data);
+                $this->addFlash(
+                    'info',
+                    $data
+                );
+                return $this->redirectToRoute('gobusgo_gobusgo_confirm');
+
+            }
+        }
+
+        $individualCallform = $this->createForm('Gobusgo\GobusgoBundle\Form\IndividualCallType',null,array(
+            'action' => $this->generateUrl('gobusgo_gobusgo_deliveryMinskMoscow'),
+            'method' => 'POST'
+        ));
+        $individualCallform->get('height')->setData('Не задано');
+        $individualCallform->get('lenght')->setData('Не задано');
+        $individualCallform->get('width')->setData('Не задано');
+
+
+        if ($request->isMethod('POST')) {
+            $individualCallform->handleRequest($request);
+
+            if($individualCallform->isValid()){
+                // Send mail
+                $data = $individualCallform->getData();
+                $this->Mailer($data);
+                $this->addFlash(
+                    'info',
+                    $data
+                );
+                return $this->redirectToRoute('gobusgo_gobusgo_confirm');
+
+            }
+        }
+
+        $callform = $this->Call($request);
+
+        $blogs = $this->GetLatestNews();
+
+
+        return $this->render('@GobusgoGobusgo/Page/deliveryMinskMoscow.html.twig', array(
+            'callform' =>$callform->createView(),
+            'individualCallform' =>$individualCallform->createView(),
+            'legalCallform' =>$legalCallform->createView(),
+            'blogs'=>$blogs,
+            'seo' => $seo,
+        ));
+    }
+
     public function contactsAction(Request $request)
     {
         $seo = $this->SetSeo('contacts');

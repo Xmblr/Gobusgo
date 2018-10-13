@@ -174,9 +174,9 @@ p {
 }
 
 .footer-text {
-    font-family: MyWebFont;
-    font-size: 18px;
-    color: #8598ff;
+    font-family: Trebuchet MS;
+    font-size: 16px;
+    color: #566fe0;
     line-height: 22px;
     font-weight: 400;
 }
@@ -223,6 +223,37 @@ footer {
     text-transform: uppercase;
     font-weight: 600;
     line-height: 22px;
+}
+
+.bg-blue {
+    background: #8598ff;
+}
+
+.bg-blue h2, .bg-blue p {
+    color: white;
+}
+
+@media (min-width: 480px) {
+    .big {
+        font-size: 16px;
+        line-height: 1.5;
+    }
+}
+
+@media (min-width: 768px) {
+    .big {
+        font-size: 18px;
+        line-height: 23px;
+    }
+}
+
+
+* + .big {
+    margin-top: 20px;
+}
+
+p + .button-log {
+    margin-top: 30px;
 }
 
 .footer-icons {
@@ -1082,6 +1113,10 @@ footer {
 
 .button-log:focus {
     color: white;
+}
+
+.bg-blue .button-log {
+    border: 3px solid #fff;
 }
 
 .road-tablet .button-log, .road-mobile .button-log {
@@ -2063,3 +2098,9 @@ address span {
     background-color: #fff;
     margin-bottom: 30px;
 }
+
+.section-60 {
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+

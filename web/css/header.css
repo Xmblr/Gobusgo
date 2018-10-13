@@ -271,8 +271,9 @@ font-size: 1.4vw;
 }
 
 .icons-top {
-    height: 35px;
+    font-size: 30px;
     margin-right: 8px;
+    color: #8598ff;
 }
 
 @media (max-width: 768px) {
@@ -396,8 +397,8 @@ font-size: 1.4vw;
 }
 
 .icons-phone {
-    margin-bottom: 5px;
     height: 25px;
+    margin-bottom: 5px;
 }
 
 .sale-top {

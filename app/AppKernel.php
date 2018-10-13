@@ -51,7 +51,7 @@ class AppKernel extends Kernel
             //BLOG
             new Ivory\CKEditorBundle\IvoryCKEditorBundle(),
 
-            new Sonata\IntlBundle\SonataIntlBundle(),
+//            new Sonata\IntlBundle\SonataIntlBundle(),
             new Sonata\FormatterBundle\SonataFormatterBundle(),
             new Sonata\ClassificationBundle\SonataClassificationBundle(),
             new Knp\Bundle\MarkdownBundle\KnpMarkdownBundle(),

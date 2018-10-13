@@ -23,6 +23,12 @@
     margin: 10px 0px;
 }
 
+@media (min-width: 1024px) {
+    .top-bar {
+        text-align: right;
+    }
+}
+
 .top-bar-menu a {
     color: #8598ff;
 }
@@ -33,7 +39,6 @@
 
 .icons-top-bar {
     display: inline-block;
-    margin-top: 8px;
 }
 
 .top-bar-right {
@@ -57,16 +62,16 @@
     margin-right: 10px;
 }
 
-.header-menu li a {
-    font-family: "Trebuchet MS";
-    font-size: 1.1vw;
-    line-height: 32px;
-    color: white;
-    text-transform: uppercase;
-    font-weight: 600;
-    vertical-align: middle;
-    position: relative;
-}
+/*.header-menu li a {*/
+    /*font-family: "Trebuchet MS";*/
+    /*font-size: 1.1vw;*/
+    /*line-height: 32px;*/
+    /*color: white;*/
+    /*text-transform: uppercase;*/
+    /*font-weight: 600;*/
+    /*vertical-align: middle;*/
+    /*position: relative;*/
+/*}*/
 
 .header-menu > li > a:before {
     content: '';
@@ -88,7 +93,7 @@
 .header-menu {
     display: flex;
     justify-content: space-between;
-    padding: 10px 0px;
+    padding: 4px 0px;
 }
 
 .header-menu li {
@@ -98,8 +103,8 @@
     /*height: 120px;*/
     /*vertical-align:middle;*/
     /*display:table-cell;*/
-    list-style-type: none;
-    text-align: center;
+    /*list-style-type: none;*/
+    /*text-align: center;*/
 }
 
 .inline-block {
@@ -107,10 +112,11 @@
 }
 
 .logo-header {
-    padding: 15px 10px;
+    padding: 5px 0px;
     float: left;
     text-align: center;
-    height: 108px;
+    height: 88px;
+    width: auto;
 }
 
 .logo-text-header {

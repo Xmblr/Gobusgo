@@ -3,7 +3,7 @@
 {% block breadcrumb %}
     {#{{ knp_menu_render('BloggerBlogBundle:Builder:mainMenu') }}#}
     <div class="col-md-12" style="background-color: #f5f5f5;">
-        <ol class="breadcrumb col-md-push-1 col-md-10" style="margin-bottom: 0px; padding-left: 0px;">
+        <ol class="breadcrumb rd-navbar-inner-header" style="margin-bottom: 0px;">
             {% for breadcrumb_item in knp_menu_get_breadcrumbs_array(knp_menu_get_current_item('GobusgoGobusgoBundle:Builder:mainMenu')) %}
                 {% if not loop.last %}
                     <li typeof="v:Breadcrumb"><a href="{{ breadcrumb_item.uri }}" rel="v:url"
@@ -63,7 +63,44 @@
                 * Текст *
             </div>
         </div>
-        
+        <a class="close" title="Закрыть" href="#close"></a>
+    </div>
+    <a href="#x" class="overlay" id="contact">
+    </a>
+    <div class="popup" style="max-width: 500px;">
+        <div class="section bg-gray-light container-fluid">
+            <div class="rd-navbar-aside-content">
+                <ul class="block-wrap-list">
+                    <li class="block-wrap">
+                        <div class="unit unit-sm-horizontal unit-align-center unit-middle unit-spacing-xxs">
+                            <div class="unit-left inline-block vertical-middle">
+                                <img src="/images/phone.png" width="20px;">
+                            </div>
+                            <div class="unit-body inline-block vertical-middle">
+                                <address class="contact-info"><a href="tel:+375(29)612-11-88"><span>+375(29)612-11-88</span></a>
+                                    <img class="icons-phone" style="margin-left: 5px;" src="/images/whatsup.png">
+                                    <img class="icons-phone" src="/images/telegram.png"><br><a href="tel:+375(29)838-12-88"><span>+375(29)838-12-88</span></a>
+                                </address>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="block-wrap" style="margin-bottom: 10px;">
+                        <div class="unit unit-sm-horizontal unit-align-center unit-middle unit-spacing-xxs">
+                            <div class="unit-left inline-block vertical-middle"><img src="/images/time.png" width="30px;"></div>
+                            <div class="unit-body inline-block vertical-middle">
+                                <address class="contact-info" style="margin-bottom: 5px;"><span>Пн-пт: c 9.00 до 18.00</span><br><span>Сб-Вс: c 9.00 до 16.00</span>
+                                </address>
+                            </div>
+                        </div>
+                    </li>
+                    <p class="big-letter" style="margin-bottom: 10px;"><img src="/images/letter.png" width="30px;" style="margin-right: 10px;">info@gobusgo.by</p>
+                    <div class="header-icons">
+                        <img src="/images/skype.png">
+                    </div>
+                </ul>
+            </div>
+        </div>
+        <a class="close" title="Закрыть" href="#close"></a>
     </div>
 {% endblock %}
 
