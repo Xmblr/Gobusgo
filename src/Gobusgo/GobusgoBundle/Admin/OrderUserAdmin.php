@@ -148,7 +148,7 @@ class OrderUserAdmin extends AbstractAdmin
             ], array(
                 'admin_code' => 'admin.user.address'
             ))
-            ->add('price',null,array('label'=>'Цена'))
+            ->add('price',null,array('label'=>'Цена', 'attr'=> array('readonly'=>'readonly')))
             ->add('notice', TextareaType::class, array('label' => 'Примечание', 'required' => false))
             ->end()
             ->with('Пользователь', ['class' => 'col-md-6'])

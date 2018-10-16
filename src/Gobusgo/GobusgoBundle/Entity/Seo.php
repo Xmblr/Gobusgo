@@ -40,12 +40,12 @@ class Seo
     protected $description;
 
     /**
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", length=10000, nullable=true)
      */
     protected $intro;
 
     /**
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", length=10000)
      */
     protected $text;
 

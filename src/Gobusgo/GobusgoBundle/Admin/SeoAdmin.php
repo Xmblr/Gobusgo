@@ -13,6 +13,14 @@ class SeoAdmin extends AbstractAdmin
     protected $baseRouteName = 'seo_admin';
     protected $baseRoutePattern = 'seo_admin';
 
+    public function toString($object)
+    {
+        return 'Редактирование SEO страницы '.$object->getUrl();
+//        return $object instanceof Order
+//            ? $object->getId()
+//            : 'Заказ'; // shown in the breadcrumb on the create view
+    }
+
     protected function configureRoutes(RouteCollection $collection)
     {
         $collection

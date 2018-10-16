@@ -488,5 +488,59 @@ file that was distributed with this source code.
     {% endblock %}
 {% endif %}
 
+<script type="text/javascript">
+    window.onload= function () {
+        if(window.addEventListener) {
+            document.getElementById('s4288865066_quantityOfCargo').addEventListener('change', changePrice, false);
+        } else if (window.attachEvent){
+            document.getElementById('s4288865066_quantityOfCargo').attachEvent("onchange", changePrice);
+        }
+        //s4288865066_price
+        function changePrice(){
+            var quantity = document.getElementById('s4288865066_quantityOfCargo').value;
+            if (quantity <=1 )
+            {
+                document.getElementById('s4288865066_price').value = 25;
+            }
+            else if (quantity >= 2 && quantity <= 10)
+            {
+                document.getElementById('s4288865066_price').value = 35;
+            }
+            else if (quantity >= 11 && quantity <= 20)
+            {
+                document.getElementById('s4288865066_price').value = 42;
+            }
+            else if (quantity >= 21 && quantity <= 40)
+            {
+                document.getElementById('s4288865066_price').value = 51;
+            }
+            else if (quantity >= 41 && quantity <= 60)
+            {
+                document.getElementById('s4288865066_price').value = 60;
+            }
+            else if (quantity >= 61 && quantity <= 80)
+            {
+                document.getElementById('s4288865066_price').value = 68;
+            }
+            else if (quantity >= 81 && quantity <= 100)
+            {
+                document.getElementById('s4288865066_price').value = 85;
+            }
+            else if (quantity >= 101 && quantity <= 150)
+            {
+                document.getElementById('s4288865066_price').value = 110;
+            }
+            else if (quantity >= 151 && quantity <= 200)
+            {
+                document.getElementById('s4288865066_price').value = 150;
+            }
+            else
+            {
+                document.getElementById('s4288865066_price').value = 200;
+            }
+        }
+    }
+</script>
+
 </body>
 </html>
