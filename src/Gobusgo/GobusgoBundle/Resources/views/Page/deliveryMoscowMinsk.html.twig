@@ -39,7 +39,7 @@
                     <div class="Input">
 
                         <input class="input-log" type="text" id="weight" name="_username" value="" required="required"
-                               placeholder="Вес, кг">
+                               placeholder="Вес, кг" onchange="sum()">
                     </div>
 
 
@@ -508,9 +508,39 @@
                 form2 = document.getElementById('legal_form');
                 form2.style.display = 'none';
             }
-            var weight = document.getElementById('weight');
+            var weight = parseInt(document.getElementById('weight').value);
             var sum = document.getElementById('sum');
-            sum.value = 5 * type + parseInt(weight.value) + ' BYN';
+            // sum.value = 5 * type + parseInt(weight.value) + ' BYN';
+            if (weight <= 1) {
+                sum.value = 25;
+            }
+            else if (weight >= 2 && weight <= 10) {
+                sum.value = 35;
+            }
+            else if (weight >= 11 && weight <= 20) {
+                sum.value = 42;
+            }
+            else if (weight >= 21 && weight <= 40) {
+                sum.value = 51;
+            }
+            else if (weight >= 41 && weight <= 60) {
+                sum.value = 60;
+            }
+            else if (weight >= 61 && weight <= 80) {
+                sum.value = 68;
+            }
+            else if (weight >= 81 && weight <= 100) {
+                sum.value = 85;
+            }
+            else if (weight >= 101 && weight <= 150) {
+                sum.value = 110;
+            }
+            else if (weight >= 151 && weight <= 200) {
+                sum.value = 150;
+            }
+            else {
+                sum.value = 200;
+            }
         }
 
         function city() {

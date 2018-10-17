@@ -3,6 +3,7 @@
 namespace Gobusgo\GobusgoBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Order
@@ -28,7 +29,7 @@ class Order
     protected $userId;
 
     /**
-     *
+     * @Assert\NotBlank()
      * @ORM\ManyToOne(targetEntity="Gobusgo\GobusgoBundle\Entity\Cargo")
      */
     protected $cargoId;
@@ -42,20 +43,20 @@ class Order
 
     /**
      * @var float
-     *
+     * @Assert\NotBlank()
      * @ORM\Column(name="quantity_of_cargo", type="float")
      */
     protected $quantityOfCargo;
 
     /**
      * @ORM\ManyToOne(targetEntity="Gobusgo\GobusgoBundle\Entity\Address")
-     *
+     * @Assert\NotBlank()
      */
     protected $shippingAddress;
 
     /**
      * @ORM\ManyToOne(targetEntity="Gobusgo\GobusgoBundle\Entity\Address")
-     *
+     * @Assert\NotBlank()
      */
     protected $deliveryAddress;
 

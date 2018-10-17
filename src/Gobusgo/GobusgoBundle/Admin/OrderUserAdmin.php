@@ -119,12 +119,13 @@ class OrderUserAdmin extends AbstractAdmin
                 'class'=>Cargo::class,
                 'label' => 'Шаблон груза',
                 'btn_delete' => false,
+                'required'=>true
             ],array(
                 'admin_code' => 'admin.user.cargo',
 
             ))
 
-            ->add('quantityOfCargo', null, array('label' => 'Количество груза'))
+
             ->add('shippingAddress', ModelListType::class, [
                 'class'=>Address::class,
                 'label' => 'Адрес отправки',
@@ -148,7 +149,8 @@ class OrderUserAdmin extends AbstractAdmin
             ], array(
                 'admin_code' => 'admin.user.address'
             ))
-            ->add('price',null,array('label'=>'Цена', 'attr'=> array('readonly'=>'readonly')))
+            ->add('quantityOfCargo', null, array('label' => 'Количество груза, КГ'))
+            ->add('price',null,array('label'=>'Цена, BYN', 'attr'=> array('readonly'=>'readonly')))
             ->add('notice', TextareaType::class, array('label' => 'Примечание', 'required' => false))
             ->end()
             ->with('Пользователь', ['class' => 'col-md-6'])

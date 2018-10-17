@@ -202,7 +202,7 @@ class Address
     public function __toString()
     {
 //        return ($ this-> title === null)? '-': $ this-> title;
-        return (string)$this->getStreet();
+        return (string)$this->getCity().', '.$this->getStreet();
 //        return 'Шаблон адреса';
     }
 }

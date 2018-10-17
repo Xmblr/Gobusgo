@@ -40,27 +40,6 @@ class PageController extends Controller
         ));
     }
 
-    public function catalogAction()
-    {
-        $seo = $this->SetSeo('catalog');
-
-        return $this->render('@GobusgoGobusgo/Page/catalog.html.twig', array(
-            'seo' => $seo,
-        ));
-    }
-
-    public function autoparkAction(Request $request)
-    {
-        $seo = $this->SetSeo('autopark');
-
-        $callform = $this->Call($request);
-
-        return $this->render('@GobusgoGobusgo/Page/autopark.html.twig', array(
-            'callform' =>$callform->createView(),
-            'seo' => $seo,
-        ));
-    }
-
     public function aboutAction(Request $request)
     {
         $seo = $this->SetSeo('about');
@@ -74,18 +53,6 @@ class PageController extends Controller
             'callform' =>$callform->createView(),
             'seo' => $seo,
             'blogs'=>$blogs
-        ));
-    }
-
-    public function feedbackAction(Request $request)
-    {
-        $seo = $this->SetSeo('feedback');
-
-        $callform = $this->Call($request);
-
-        return $this->render('@GobusgoGobusgo/Page/feedback.html.twig', array(
-            'callform' =>$callform->createView(),
-            'seo' => $seo,
         ));
     }
 

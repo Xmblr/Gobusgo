@@ -33,7 +33,7 @@ file that was distributed with this source code.
 
     {% block stylesheets %}
         {% for stylesheet in sonata_admin.adminPool.getOption('stylesheets', []) %}
-        <link rel="stylesheet" href="{{ asset(stylesheet) }}">
+            <link rel="stylesheet" href="{{ asset(stylesheet) }}">
         {% endfor %}
         <link type="text/css" rel="stylesheet" href="{{ asset('css/admin.css') }}">
         <link type="text/css" rel="stylesheet" href="{{ asset('css/admin-skin.css') }}">
@@ -164,7 +164,7 @@ file that was distributed with this source code.
                     <div class="inline-block admin-header" style="float: right; margin-right: 5px;">
                         {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
                             <a class="btn-2"
-                               href="{{ path('sonata_admin_dashboard') }}"> {{ app.user.organization|slice(0,10) }} {% if app.user.organization|length > 10  %}...{% endif %} </a>
+                               href="{{ path('sonata_admin_dashboard') }}"> {{ app.user.organization|slice(0,10) }} {% if app.user.organization|length > 10 %}...{% endif %} </a>
                             <a class="btn-3" href="{{ path('fos_user_security_logout') }}">
                                 {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
                             </a>
@@ -271,12 +271,12 @@ file that was distributed with this source code.
                         {#{% endblock sonata_sidebar_search %}#}
 
                         {% block side_bar_before_nav %} {% endblock %}
-                    {% block side_bar_nav %}
-                        {{ knp_menu_render('sonata_admin_sidebar', {template: sonata_admin.adminPool.getTemplate('knp_menu_template')}) }}
-                    {% endblock side_bar_nav %}
-                    {% if is_granted('VIEW') %}
-                        <p>Hello there!</p>
-                    {% endif %}
+                        {% block side_bar_nav %}
+                            {{ knp_menu_render('sonata_admin_sidebar', {template: sonata_admin.adminPool.getTemplate('knp_menu_template')}) }}
+                        {% endblock side_bar_nav %}
+                        {% if is_granted('VIEW') %}
+                            <p>Hello there!</p>
+                        {% endif %}
                         <ul class="sidebar-menu" data-widget="tree">
                             <li>
                                 <a href="{{ path('gobusgo_gobusgo_homepage') }}"><i style="vertical-align: middle;"
@@ -347,7 +347,7 @@ file that was distributed with this source code.
                         {% block side_bar_after_nav %}
                             <p class="text-center small" style="border-top: 1px solid #444444; padding-top: 10px">
                             {% block side_bar_after_nav_content %}
-                            {#<a href="http://new-line.by" rel="noreferrer" target="_blank">sonata project</a>#}
+                                {#<a href="http://new-line.by" rel="noreferrer" target="_blank">sonata project</a>#}
                                 <p class="footer-caption" style="text-align: center;">
                                     Разработка:
                                     <a href="http://new-line.by">New-line.by</a>
@@ -489,54 +489,53 @@ file that was distributed with this source code.
 {% endif %}
 
 <script type="text/javascript">
-    window.onload= function () {
-        if(window.addEventListener) {
+    window.onload = function () {
+        if (window.addEventListener) {
             document.getElementById('s4288865066_quantityOfCargo').addEventListener('change', changePrice, false);
-        } else if (window.attachEvent){
+        } else if (window.attachEvent) {
             document.getElementById('s4288865066_quantityOfCargo').attachEvent("onchange", changePrice);
         }
+
         //s4288865066_price
-        function changePrice(){
+        function changePrice() {
             var quantity = document.getElementById('s4288865066_quantityOfCargo').value;
-            if (quantity <=1 )
-            {
-                document.getElementById('s4288865066_price').value = 25;
+            var shippingCity = document.getElementById('field_widget_s4288865066_shippingAddress').firstElementChild.firstElementChild.innerHTML;
+            var deliveryCity = document.getElementById('field_widget_s4288865066_deliveryAddress').firstElementChild.firstElementChild.innerHTML;
+            var price = document.getElementById('s4288865066_price');
+            if (shippingCity.includes('По Минску') || deliveryCity.includes('По Минску')) {
+                document.getElementById('s4288865066_price').value = 8;
             }
-            else if (quantity >= 2 && quantity <= 10)
-            {
-                document.getElementById('s4288865066_price').value = 35;
-            }
-            else if (quantity >= 11 && quantity <= 20)
-            {
-                document.getElementById('s4288865066_price').value = 42;
-            }
-            else if (quantity >= 21 && quantity <= 40)
-            {
-                document.getElementById('s4288865066_price').value = 51;
-            }
-            else if (quantity >= 41 && quantity <= 60)
-            {
-                document.getElementById('s4288865066_price').value = 60;
-            }
-            else if (quantity >= 61 && quantity <= 80)
-            {
-                document.getElementById('s4288865066_price').value = 68;
-            }
-            else if (quantity >= 81 && quantity <= 100)
-            {
-                document.getElementById('s4288865066_price').value = 85;
-            }
-            else if (quantity >= 101 && quantity <= 150)
-            {
-                document.getElementById('s4288865066_price').value = 110;
-            }
-            else if (quantity >= 151 && quantity <= 200)
-            {
-                document.getElementById('s4288865066_price').value = 150;
-            }
-            else
-            {
-                document.getElementById('s4288865066_price').value = 200;
+            else {
+                if (quantity <= 1) {
+                    price.value = 25;
+                }
+                else if (quantity >= 2 && quantity <= 10) {
+                    price.value = 35;
+                }
+                else if (quantity >= 11 && quantity <= 20) {
+                    price.value = 42;
+                }
+                else if (quantity >= 21 && quantity <= 40) {
+                    price.value = 51;
+                }
+                else if (quantity >= 41 && quantity <= 60) {
+                    price.value = 60;
+                }
+                else if (quantity >= 61 && quantity <= 80) {
+                    price.value = 68;
+                }
+                else if (quantity >= 81 && quantity <= 100) {
+                    price.value = 85;
+                }
+                else if (quantity >= 101 && quantity <= 150) {
+                    price.value = 110;
+                }
+                else if (quantity >= 151 && quantity <= 200) {
+                    price.value = 150;
+                }
+                else {
+                    price.value = 200;
+                }
             }
         }
     }
