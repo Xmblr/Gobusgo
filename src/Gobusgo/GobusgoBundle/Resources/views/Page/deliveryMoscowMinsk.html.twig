@@ -1,85 +1,65 @@
 {% extends '@GobusgoGobusgo/layout.html.twig' %}
 
 {% block body %}
-    <h1></h1>
-    <div class="container">
+    <div class="container offset-top-22 offset-md-top-40">
         <div class="row">
             <div class="col-md-10 col-md-push-1">
                 <h1>{{ seo.h1|raw }}</h1>
-                {#<p class="text-center" style="font-size: 20px; line-height: 24px;">У вас возникла необходимость в#}
-                {#доставке товара из Москвы в Минск? Компания GObusGO знает, как решить вопрос! Для экономии времени и#}
-                {#средств мы предложим индивидуальное логистическое решение по доставке вашего груза согласно личным#}
-                {#предпочтениям и четко поставленным целям.</p>#}
                 {% if seo.intro is not empty %} {{ seo.intro|raw }} {% endif %}
             </div>
         </div>
     </div>
-
-
     <div class="container road-loptop">
         <div class="row" style="text-align: center;">
-            <h2>Расчет стоимости грузоперевозки:</h2>
-            <img src="{{ asset('images/road2.png') }}" style="width: 100%;">
-            <div class="col-md-3">
-
-                <h4 style="text-align: center;">Клиент</h4>
-                <label>
-                    Физическое лицо
-                    <input type="radio" class="option-input radio" name="example" id="individual" onchange="sum()"/>
-                </label>
-                <label>
-
-                    Юридическое лицо
-                    <input type="radio" class="option-input radio" name="example" id="legal" onchange="sum()" checked/>
-
-                </label>
-
+            <div class="col-md-12">
+                <h2>Расчет стоимости грузоперевозки:</h2>
             </div>
-            <div class="col-md-3">
+            <div class="offset-top-22 offset-md-top-40 section-bottom-60 range col-md-12">
 
-                <h4 style="text-align: center;">Габариты</h4>
-                <div class="Input">
 
-                    <input class="input-log" type="text" id="weight" name="_username" value="" required="required"
-                           placeholder="Вес, кг">
+                <img src="{{ asset('images/road2.png') }}" style="width: 100%; height: 100%;">
+                <div class="col-md-3">
+
+                    <h4 style="text-align: center;">Клиент</h4>
+                    <label>
+                        <span style="font-size: 18px; line-height: 1.57143; color: #313132; font-weight: normal;">Физическое лицо</span>
+                        <input type="radio" class="option-input radio" name="example" id="individual" onchange="sum()"/>
+                    </label>
+                    <label>
+                        <span style="font-size: 18px; line-height: 1.57143; color: #313132; font-weight: normal;">Юридическое лицо</span>
+                        <input type="radio" class="option-input radio" name="example" id="legal" onchange="sum()"
+                               checked/>
+
+                    </label>
+
                 </div>
+                <div class="col-md-3">
 
-
-            </div>
-            <div class="col-md-3">
-                <h4 style="text-align: center;">Направление</h4>
-                <div class="inline-block" style="width: 80%;">
-                    <div class="Input" style="margin-top: 0px;">
-                        <div id="city1area">
-
-                            <input class="input-log select2-hidden-accessible" onchange="city()" id="one"
-                                   value="Москва" contenteditable="false"/>
-
-                        </div>
-                    </div>
+                    <h4 style="text-align: center;">Габариты</h4>
                     <div class="Input">
-                        <div id="city2area">
-                            <input class="input-log" onchange="city()" id="two" value="Минск" contenteditable="false"/>
 
-                        </div>
+                        <input class="input-log" type="text" id="weight" name="_username" value="" required="required"
+                               placeholder="Вес, кг">
                     </div>
-                </div>
-                <div class="inline-block">
-                    <img class="reload-img-tablet" style="height: 50px;" src="{{ asset('images/reload-double.png') }}"
-                         onclick="reload();">
-                </div>
 
-            </div>
-            <div class="col-md-3">
-                <h4 style="text-align: center;">Сумма</h4>
-                <div class="Input">
 
-                    <input id="sum" class="input-log" placeholder="Сумма">
                 </div>
-                <div class="text-center">
-                    <a style="padding: 10px 20px; font-size: 18px;" class="button-log" href="#legal-form"
-                       onclick="openform()">Оформление
-                        заявки</a>
+                <div class="col-md-3">
+                    <h4 style="text-align: center;">Сумма</h4>
+                    <div class="Input">
+
+                        <input id="sum" class="input-log" placeholder="Сумма">
+                    </div>
+
+                </div>
+                <div class="col-md-3">
+                    <h4 style="text-align: center;">Оформление</h4>
+                    <div class="text-center">
+                        <a style="padding: 10px 20px; font-size: 18px; margin-top: 10px;" class="button-log"
+                           href="#legal-form"
+                           onclick="openform()">Оформление
+                            заявки</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -91,7 +71,7 @@
 
             <div style="" id="individual_form">
                 {{ form_start(individualCallform) }}
-                <h2 style="margin-bottom: 30px;">Заявка для физического лица</h2>
+                <h4 style="margin-bottom: 30px; text-align: center;">Заявка для физического лица</h4>
 
                 <div class="Input" style="display: none;">
                     {{ form_errors(individualCallform.weight) }}
@@ -121,7 +101,7 @@
                 </div>
                 <div class="Input">
                     {{ form_errors(individualCallform.notice) }}
-                    {{ form_widget(individualCallform.notice, {'attr':{'class':'input-log', 'position': 'absolute','placeholder':'Примечания'}}) }}
+                    {{ form_widget(individualCallform.notice, {'attr':{'class':'input-textarea', 'position': 'absolute','placeholder':'Примечания'}}) }}
                 </div>
 
                 <div style="display:none">
@@ -367,7 +347,7 @@
             </div>
         </div>
     </div>
-    <div class="container-fluid" style="background-color: #8598ff; padding: 40px 0px;">
+    <div class="container-fluid section-60" style="background-color: #8598ff;">
         <div class="row">
             <div class="col-md-8 col-md-push-2 text-center">
 
@@ -375,7 +355,7 @@
                 <p style="color: white; text-align: center; font-size: 20px;">Заполните быструю заявку и наши
                     специалисты свяжутся с Вами в ближайшее время для обсуждения заказа.</p>
 
-                <a href="#win3" class="button-log">Оформить</a>
+                <a href="#win3" style="border: 3px solid #fff;" class="button-log">Оформить</a>
             </div>
         </div>
 
@@ -385,50 +365,6 @@
     <div class="container">
         <div class="row">
             <div class="col-md-10 col-md-push-1">
-                {#<p style="text-align: justify;">Для своевременной транспортировки и сохранности грузов по маршруту#}
-                {#Москва-Минск GObusGO предлагает:</p>#}
-                {#<ul class="list-marked">#}
-                {#<li>доставку любых грузов до 2 т;</li>#}
-                {#<li>предоставление полной информации по направлению Москва-Минск;</li>#}
-                {#<li>согласованный перечень работ и услуг профессиональных водителей, грузчиков, специалистов;</li>#}
-                {#<li>полное сопровождение груза;</li>#}
-                {#<li>точное соблюдение договорных сроков;</li>#}
-                {#<li>грамотную организацию процесса перевозки.</li>#}
-                {#</ul>#}
-                {#<p style="text-align: justify;">Предоставляем услуги по доставке из Москвы в Минск — от писем до#}
-                {#крупногабаритных грузов. Работаем как физическими, так и юридическими лицами. Цена перевозки и#}
-                {#доставки по данному направлению зависит от многих факторов и складывается из отдельных составляющих.#}
-                {#На конечную стоимость доставки по маршруту Минск-Москва напрямую влияют удаленность, вес груза и#}
-                {#габариты.#}
-                {#Виды доставки грузов Москва-Минск, предоставляемые компанией GObusGO</p>#}
-                {#<ul class="list-marked">#}
-                {#<li>курьерская доставка из Москвы в Минск;</li>#}
-                {#<li>срочная доставка по маршруту «Москва-Минск»;</li>#}
-                {#<li>экспресс-доставка Москва-Минск.</li>#}
-                {#</ul>#}
-                {#<p style="text-align: justify;">Воспользовавшись курьерской доставкой из Москвы в Минск, решается вопрос#}
-                {#с оперативной транспортировкой в Минск купленного товара в Москве, груза, посылки либо пакета#}
-                {#документов. Гарантируем индивидуальный подход, конфиденциальность, передачу ценных бумаг лично в#}
-                {#руки.</br>#}
-                {#Срочная доставка «Москва-Минск» осуществляется в течение суток, что крайне удобно для ведения#}
-                {#совместного российско-белорусского бизнеса. В зависимости от специфики товаров срок доставки может#}
-                {#варьироваться. Мы прислушиваемся к каждому клиенту, предварительно обговаривается каждый нюанс,#}
-                {#заключается договор.</br>#}
-                {#В комплекс предоставляемых нами услуг входит экспресс-доставка из Москвы в Минск. Современную услугу#}
-                {#по достоинству оценят клиенты, целью которых является бережная и оперативная доставка грузов и#}
-                {#корреспонденции. Экспресс-доставка выполняется в самый короткий промежуток времени, с точным#}
-                {#соблюдением установленных заказчиком сроков.</br>#}
-                {#Воспользуйтесь сервисом на сайте, чтобы самостоятельно произвести расчет стоимости грузоперевозки.#}
-                {#Благодаря такому удобному функционалу, оформить онлайн-заявку на грузоперевозку не составит труда.#}
-                {#Для уточнения деталей менеджеры компании GObusGO свяжутся без промедления, как только ваша заявка#}
-                {#поступит на обработку.</br>#}
-                {#Обратите внимание на дополнительные услуги по доставке и получению посылки по определенному адресу в#}
-                {#Минске, Беларуси, Москве (в пределах МКАД), в любом месте Московской области.</br>#}
-                {#Доставка и перевозка грузов из Москвы в Минск — ключевое направление нашей компании. Мы несем полную#}
-                {#ответственность за безопасную доставку товаров, обеспечиваем полную информационную поддержку на всех#}
-                {#этапах сотрудничества.#}
-
-                {#</p>#}
                 {{ seo.text|raw }}
             </div>
         </div>
@@ -438,55 +374,61 @@
 
     <div class="container">
         <div class="row">
-            <h2>Дополнительные услуги:</h2>
-            <div class="col-md-4">
-
-                <h4 style="text-align: center;">Вес посылки</h4>
-                <div class="Input">
-                    <div id="city1area">
-
-                        <select class="input-log" id="Sum_weight">
-                            <option>0-2 кг</option>
-                            <option>3-9 кг</option>
-                            <option>10-29 кг</option>
-                            <option>30-49 кг</option>
-                            <option>30-49 кг</option>
-                            <option>50-100 кг</option>
-                            <option>100-200 кг</option>
-                            <option>200-500 кг</option>
-                            <div class="selectize-dropdown single">
-                                <div class="selectize-dropdown-content"></div>
-                            </div>
-                        </select>
-                    </div>
-                </div>
+            <div class="col-md-12">
+                <h2>Дополнительные услуги:</h2>
             </div>
-            <div class="col-md-4">
+            <div class="offset-top-22 offset-md-top-40 col-md-12">
 
-                <h4 style="text-align: center;">Доставка</h4>
-                <div class="Input">
-                    <div id="city1area">
+                <div class="col-md-4">
 
-                        <select class="input-log" id="Sum_city" onchange="sumWeight()">
-                            <option>По Минску</option>
-                            <option>По Беларуси</option>
-
-                            <div class="selectize-dropdown single">
-                                <div class="selectize-dropdown-content"></div>
-                            </div>
-                        </select>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-
-                <h4 style="text-align: center;">Сумма</h4>
-                <div class="Input">
+                    <h4 style="text-align: center;">Вес посылки</h4>
                     <div class="Input">
+                        <div id="city1area">
 
-                        <input id="Sum_sum" class="input-log" placeholder="Сумма" value="8">
+                            <select class="input-log" id="Sum_weight">
+                                <option>0-2 кг</option>
+                                <option>3-9 кг</option>
+                                <option>10-29 кг</option>
+                                <option>30-49 кг</option>
+                                <option>30-49 кг</option>
+                                <option>50-100 кг</option>
+                                <option>100-200 кг</option>
+                                <option>200-500 кг</option>
+                                <div class="selectize-dropdown single">
+                                    <div class="selectize-dropdown-content"></div>
+                                </div>
+                            </select>
+                        </div>
                     </div>
                 </div>
+                <div class="col-md-4">
+
+                    <h4 style="text-align: center;">Доставка</h4>
+                    <div class="Input">
+                        <div id="city1area">
+
+                            <select class="input-log" id="Sum_city" onchange="sumWeight()">
+                                <option>По Минску</option>
+                                <option>По Беларуси</option>
+
+                                <div class="selectize-dropdown single">
+                                    <div class="selectize-dropdown-content"></div>
+                                </div>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+
+                    <h4 style="text-align: center;">Сумма</h4>
+                    <div class="Input">
+                        <div class="Input">
+
+                            <input id="Sum_sum" class="input-log" placeholder="Сумма" value="8">
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>
@@ -495,51 +437,61 @@
     <div class="divider-home"></div>
     <div class="container">
         <div class="row">
-            <h2>Зоны обслуживания:</h2>
-            <div class="col-md-6">
-
-                <div class="text-title-map"><i class="fa fa-map-marker" aria-hidden="true"></i> Наш адрес в Минске:
-                </div>
-
-                <div class="col-md-6">
-                    <div class="text-map">Склад: Пр. Дзержинского</br>Офис: Пр. Дзержинского</div>
-                </div>
-                <div class="col-md-6">
-                    <div class="text-map">Время работы: 9.00 - 21.00</br>Телефон: +375(17)333-33-33</div>
-                </div>
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d150474.39557313913!2d27.40249134812782!3d53.89331684651622!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46dbcfd35b1e6ad3%3A0xb61b853ddb570d9!2z0JzQuNC90YHQug!5e0!3m2!1sru!2sby!4v1523641166856"
-                        width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+            <div class="col-md-12">
+                <h2>Зоны обслуживания:</h2>
             </div>
-            <div class="col-md-6">
-                <div class="text-title-map"><i class="fa fa-map-marker" aria-hidden="true"></i> Наш адрес в Москве:
-                </div>
+            <div class="offset-top-22 offset-md-top-40 col-md-12">
+                <div class="col-md-6 section-bottom-40">
 
-                <div class="col-md-6">
-                    <div class="text-map">Склад: Пр. Победителей</br>Офис: Пр. Подбедителей</div>
+                    <div class="text-title-map"><i class="fa fa-map-marker" aria-hidden="true"></i> Наш адрес в Минске:
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="text-map">
+                            <b>Склад:</b> г. Минск, ул. Харьковская 90, этаж 2,</br><b>Офис:</b> г. Минск, ул.
+                            Харьковская
+                            90, этаж 2,
+                            кабинет 8</br>
+                            <b>Время работы:</b></br> Пн-Пт: 9.00 - 21.00,</br>Сб-Вс: 9.00 - 16.00
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="text-map"><b>Контакты для связи:</b></br>
+                            <a href="tel:+375298381288"><span>+375(29)838-12-88</span></a></br>
+                            <a href="tel:+375296121188"><span>+375(29)612-11-88</span></a></br>
+                            <a href="mailto:info@gobusgo.by"><span>info@gobusgo.by</span></a>
+                        </div>
+                    </div>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d150474.39557313913!2d27.40249134812782!3d53.89331684651622!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46dbcfd35b1e6ad3%3A0xb61b853ddb570d9!2z0JzQuNC90YHQug!5e0!3m2!1sru!2sby!4v1523641166856"
+                            width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
                 </div>
                 <div class="col-md-6">
-                    <div class="text-map">Время работы: 9.00 - 21.00</br>Телефон: +7(495)333-33-33</div>
+                    <div class="text-title-map"><i class="fa fa-map-marker" aria-hidden="true"></i> Наш адрес в Москве:
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="text-map"><b>Склад:</b> г. Минск, ул. Харьковская 90, этаж 2,</br><b>Офис:</b> г.
+                            Минск,
+                            ул. Харьковская 90, этаж 2,</br>
+                            <b>Время работы:</b></br>Пн-Пт: 9.00 - 21.00,</br>Сб-Вс: 9.00 - 16.00
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="text-map"><b>Контакты для связи:</b></br>
+                            <a href="tel:+79032230250"><span>+7(903)223-02-50</span></a></br>
+                            <a href="mailto:info@gobusgo.ru"><span>info@gobusgo.ru</span></a>
+                        </div>
+                    </div>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d287423.6776157171!2d37.35231573882835!3d55.74985979694972!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46b54afc73d4b0c9%3A0x3d44d6cc5757cf4c!2z0JzQvtGB0LrQstCwLCDQoNC-0YHRgdC40Y8!5e0!3m2!1sru!2sby!4v1523641073490"
+                            width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+
                 </div>
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d287423.6776157171!2d37.35231573882835!3d55.74985979694972!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46b54afc73d4b0c9%3A0x3d44d6cc5757cf4c!2z0JzQvtGB0LrQstCwLCDQoNC-0YHRgdC40Y8!5e0!3m2!1sru!2sby!4v1523641073490"
-                        width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
             </div>
+
         </div>
     </div>
 
     <script language="JavaScript">
-        function reload() {
-            var one = document.getElementById("one");
-            var two = document.getElementById("two");
-            if (one.value === 'Москва') {
-                one.value = 'Минск';
-                two.value = 'Москва';
-            }
-            else {
-                one.value = 'Москва';
-                two.value = 'Минск';
-            }
-        }
-
         function sum() {
             var type, form, form2;
             if (document.getElementById('legal').checked) {

@@ -3,10 +3,6 @@
 * @subsection   RD Navbar
 */
 
-.page-head {
-    min-height: 56px;
-}
-
 @-webkit-keyframes rd-navbar-slide-down {
     0% {
         -webkit-transform: translateY(-100%);

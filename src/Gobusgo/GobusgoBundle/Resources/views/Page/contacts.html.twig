@@ -1,94 +1,101 @@
 {% extends '@GobusgoGobusgo/layout.html.twig' %}
 
 {% block body %}
-    <div class="container">
+    <section>
+    <div class="container offset-top-22 offset-md-top-22">
         <div class="row">
-            <h1 style="text-align:left;">{{ seo.h1|raw }}</h1>
-            {% if seo.intro is not empty %} {{ seo.intro|raw }} {% endif %}
-        <div class="col-md-8 col-xs-12" style="padding-left: 0px;">
+            <div class="col-md-12">
+                <h1 style="text-align:left;" class="section-bottom-40">{{ seo.h1|raw }}</h1>
 
-            <h4 style="border-bottom: 1px solid #ccc; display: inline-block;">Юридические данные:</h4>
-                <p class="text-contacts">
-                    ИП Иванов И.И.</br>
-                    г. Минск, пр. Независимости 110, офис 10</br>
-                    УНП 123456789</br>
-                    Свидетельство о государственной регистрации выдано Минским горисполкомом</br>
-                    ЗАО Мтбанк</br>
-                    Р/с 1234567890</br>
-                    Код 133
-                </p>
+                {% if seo.intro is not empty %} {{ seo.intro|raw }} {% endif %}
+                <div class="col-md-7 col-xs-12" style="padding-left: 0px;">
+
+                    <h4 style="border-bottom: 1px solid #ccc; display: inline-block;">Юридические данные:</h4>
+                    <p class="text-contacts">
+                        ИП Стась В.Н.</br>
+                        г. Минск, ул. Харьковская 90 каб. 8</br>
+                        УНП 192759747</br>
+                        Свидетельство о государственной регистрации выдано Минским горисполкомом
+                    </p>
 
 
-            <div class="col-md-12 col-xs-12" style="padding: 0px; margin-bottom: 20px;">
+                    <div class="col-md-12 col-xs-12" style="padding: 0px; margin-bottom: 20px;">
 
-                <h4 style="margin-top: 30px; border-bottom: 1px solid #ccc; display: inline-block;">Форма обратной
-                    связи:</h4>
-                <form name="enquiry" method="post" action="/contact">
-                    <div style="background-color: #cfd9ff; border-radius: 12px; padding: 10px 0px;">
-                    <div class="row">
-                        <div class="col-md-6 col-xs-12" style="padding-right: 0px;">
-                            <div class="Input">
-                                <input id="enquiry_name" name="enquiry[name]" required="required" class="input-log"
-                                       placeholder="Имя" type="text">
+                        <h4 style="margin-top: 30px; border-bottom: 1px solid #ccc; display: inline-block;">Форма
+                            обратной
+                            связи:</h4>
+                        <form name="enquiry" method="post" action="/contact">
+                            <div style="border-radius: 12px; padding: 10px 0px;">
+                                <div class="row">
+                                    <div class="col-md-6 col-xs-12">
+
+                                        <input id="enquiry_name" name="enquiry[name]" required="required"
+                                               class="input-log"
+                                               placeholder="Имя" style="margin: 10px 0px;" type="text">
+
+                                    </div>
+                                    <div class="col-md-6 col-xs-12">
+
+                                        <input id="enquiry_email" name="enquiry[email]" required="required"
+                                               class="input-log"
+                                               placeholder="Ваш Email" style="margin: 10px 0px;" type="email">
+
+                                    </div>
+                                    <div class="col-md-12 col-xs-12">
+
+                                        <input id="enquiry_subject" name="enquiry[subject]" required="required"
+                                               class="input-log" placeholder="Тема" style="margin: 10px 0px;"
+                                               type="text">
+
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12 col-xs-12">
+
+                                <textarea id="enquiry_body" name="enquiry[body]" required="required"
+                                          class="input-textarea"
+                                          placeholder="Сообщение...." style="margin: 10px 0px;" rows="5"></textarea>
+
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-md-6 col-xs-12" style="padding-left: 0px;">
-                            <div class="Input">
-                                <input id="enquiry_email" name="enquiry[email]" required="required" class="input-log"
-                                       placeholder="Ваш Email" type="email">
+                            <div class="row">
+                                <div class="col-sm-12 text-right">
+                                    <input id="enquiry_phone" name="enquiry[phone]" type="text" hidden="">
+                                    <input class="button-log" value="Отправить сообщение" style="font-size: 16px;"
+                                           type="submit">
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-md-12 col-xs-12">
-                            <div class="Input">
-                                <input id="enquiry_subject" name="enquiry[subject]" required="required"
-                                       class="input-log" placeholder="Тема" type="text">
-                            </div>
-                        </div>
+                        </form>
                     </div>
-                    <div class="row">
-                        <div class="col-md-12 col-xs-12">
-                            <div class="Input">
-                                <textarea id="enquiry_body" name="enquiry[body]" required="required" class="input-log"
-                                          placeholder="Сообщение...." rows="5"
-                                          style="height: 150px; max-width: 100%;"></textarea>
-                            </div>
-                        </div>
+                </div>
+                <div class="col-md-4 col-xs-12">
+
+                    <h4 style="border-bottom: 1px solid #ccc; display: inline-block;">Адрес в Минске:</h4>
+                    <p class="text-contacts">г. Минск, ул. Харьковская 90 каб. 8</p>
+                    <h4 style="margin-top: 30px; border-bottom: 1px solid #ccc; display: inline-block;">Адрес в Москве:</h4>
+                    <p class="text-contacts">г. Минск, ул. Харьковская 90 каб. 8</p>
+                    <h4 style="margin-top: 30px; border-bottom: 1px solid #ccc;">Контактные данные:</h4>
+                    <a href="tel:+375298381288" class="text-contacts">
+                        <span>+375(29)838-12-88</span></a>
+                    <a href="tel:+375296121188" class="text-contacts"><span>+375(29)612-11-88</span></a>
+                    <a href="tel:+79032230250" class="text-contacts"><span>+7(903)223-02-50</span></a>
+                    <a class="text-contacts" href="mailto:info@gobusgo.by">info@gobusgo.by</a>
+
+                    <div class="footer-icons">
+                        <img src="{{ asset('images/insta.png') }}" style="height:35px; margin-right: 5px;"/>
+                        <img src="{{ asset('images/telegram.png') }}" style="height:35px; margin-right: 5px;"/>
                     </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-12 text-right">
-                            <input id="enquiry_phone" name="enquiry[phone]" type="text" hidden="">
-                            <input class="button-log" value="Отправить сообщение" style="font-size: 16px;"
-                                   type="submit">
-                        </div>
-                    </div>
-                </form>
+
+                    <h4 style="margin-top: 30px; border-bottom: 1px solid #ccc; display: inline-block;">Время
+                        работы:</h4>
+                    <p>Пн-Пт - с 9.00 до 18.00</br>Сб-Вс - с 9.00 до
+                        16.00</p>
+                    {#<p class="text-contacts">Склад: Пр. Дзержинского</br>Офис: Пр. Дзержинского</p>#}
+
+                </div>
             </div>
         </div>
-        <div class="col-md-4 col-xs-12">
-
-            <h4 style="border-bottom: 1px solid #ccc; display: inline-block;">Контактные данные:</h4>
-            <p class="text-contacts">
-                +375 29 333-33-33</p>
-            <p class="text-contacts">+375 33 333-33-33</p>
-            <p class="text-contacts">+375 25 333-33-33</p>
-            <p class="text-contacts"> +375 17 333-33-33</p>
-            <div class="footer-icons">
-                <img src="images/whatsup.png" style="height:35px; margin-right: 5px;">
-                <img src="images/telegram.png" style="height:35px; margin-right: 5px;">
-                <img src="images/viber.png" style="height:35px; margin-right: 5px;">
-                <img src="images/skype.png" style="height:35px; margin-right: 5px;">
-            </div>
-
-            <h4 style="margin-top: 30px; border-bottom: 1px solid #ccc; display: inline-block;">Время работы:</h4>
-            <p>Пн-Пт - с 9.00 до 18.00</br>Сб-Вс - с 9.00 до
-                16.00</p>
-            {#<p class="text-contacts">Склад: Пр. Дзержинского</br>Офис: Пр. Дзержинского</p>#}
-
-            <h4 style="margin-top: 30px; border-bottom: 1px solid #ccc; display: inline-block;">Email:</h4>
-            <p class="text-contacts">info@gobusgo.by</p>
-        </div>
-    </div>
     </div>
     <div class="container-fluid" style="padding: 0px;">
         <div class="row"></div>
@@ -96,5 +103,6 @@
                 width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
     </div>
     </div>
+    </section>
 
 {% endblock %}

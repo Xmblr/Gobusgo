@@ -3,7 +3,7 @@
         <div class="col-md-12 col-sm-12">
             <h2>Последние новости</h2>
         </div>
-
+        <div class="offset-top-22 offset-md-top-40 col-md-12">
         {% for blog in blogs %}
 
             <div class="col-sm-4" style="display: flex; flex-wrap: wrap;">
@@ -38,8 +38,10 @@
             </div>
 
         {% else %}
+
             <p>Нет последних новостей</p>
         {% endfor %}
+        </div>
 
     </div>
 </div>
