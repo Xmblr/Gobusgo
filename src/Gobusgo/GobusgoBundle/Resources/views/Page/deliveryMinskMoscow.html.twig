@@ -25,12 +25,12 @@
                 <h4 style="text-align: center;">Клиент</h4>
                 <label>
                     Физическое лицо
-                    <input type="radio" class="option-input radio" name="example" id="individual" onchange="sum()"/>
+                    <input type="radio" class="option-input radio" name="loptop" id="individual" onchange="sum()" checked="checked"/>
                 </label>
                 <label>
 
                     Юридическое лицо
-                    <input type="radio" class="option-input radio" name="example" id="legal" onchange="sum()" checked/>
+                    <input type="radio" class="option-input radio" name="loptop" id="legal" onchange="sum()" />
 
                 </label>
 
@@ -41,7 +41,7 @@
                 <div class="Input">
 
                     <input class="input-log" type="text" id="weight" name="_username" value="" required="required"
-                           placeholder="Вес, кг">
+                           placeholder="Вес, кг" onchange="sum()">
                 </div>
 
 
@@ -257,15 +257,14 @@
 
                         <label style="display: block; font-size: 18px; line-height: 20px;">
                             <input type="radio" class="option-input radio"
-                                   style="margin-top: 5px;     margin-right: 10px;" name="example"/>
+                                   style="margin-top: 5px;     margin-right: 10px;" name="tablet" id="individual" onchange="sum()" checked="checked"/>
                             Физическое лицо
 
                         </label>
 
                         <label style="display: block; font-size: 18px; line-height: 20px;">
-                            <input type="radio" class="option-input radio" name="example"
-                                   style="margin-top: 5px;     margin-right: 10px;"
-                                   checked/>
+                            <input type="radio" class="option-input radio" name="tablet"
+                                   style="margin-top: 5px;     margin-right: 10px;" id="legal" onchange="sum()" />
                             Юридическое лицо
 
 
@@ -275,7 +274,7 @@
                 </div>
                 <div style="height: 123px; padding-top: 10px;">
                     <input class="input-log" type="text" id="weight" name="weight"
-                           required="required" style="width: auto; padding: 5px 44px;" placeholder="Вес, кг"/>
+                           required="required" style="width: auto; padding: 5px 44px;" placeholder="Вес, кг" onchange="sum()"/>
                 </div>
 
                 <div style="height: 123px; padding-top: 10px; display: inline-block;">
@@ -317,13 +316,12 @@
                     <div class="radio-cargo-mobile">
 
                         <label style="display: block; font-size: 14px;">
-                            <input type="radio" style="margin-top: 0px;" class="option-input radio" name="example"/>
+                            <input type="radio" style="margin-top: 0px;" class="option-input radio" name="mobile" onchange="sum()" checked="checked"/>
                             Физическое лицо
                         </label>
 
                         <label style="display: block; font-size: 14px; margin-bottom: 0px;">
-                            <input type="radio" style="margin-top: 0px;" class="option-input radio" name="example"
-                                   checked/>
+                            <input type="radio" style="margin-top: 0px;" class="option-input radio" name="mobile" onchange="sum()"/>
                             Юридическое лицо
                         </label>
 
@@ -333,7 +331,7 @@
                     <h3 class="road-mobile-title" style="margin-bottom: 5px;">Габариты</h3>
                     <input class="input-log" style="height: auto; padding: 5px 44px;" type="text" id="weight"
                            name="weight"
-                           required="required" placeholder="Вес, кг"/>
+                           required="required" placeholder="Вес, кг" onchange="sum()"/>
                 </div>
 
                 <div style="height: 124px; width: 80%; display: inline-block;">

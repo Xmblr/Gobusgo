@@ -21,7 +21,8 @@ class Builder implements ContainerAwareInterface
         $menu = $factory->createItem('Главная', array('route' => 'gobusgo_gobusgo_homepage'));
         $menu->addChild('О нас', array('route' => 'gobusgo_gobusgo_about'));
         $menu->addChild('Грузоперевозки по Беларуси', array('route' => 'gobusgo_gobusgo_deliveryRB'));
-        $menu->addChild('Грезоперевозки Москва-Минск', array('route' => 'gobusgo_gobusgo_deliveryMoscowMinsk'));
+        $menu->addChild('Грузоперевозки Москва-Минск', array('route' => 'gobusgo_gobusgo_deliveryMoscowMinsk'));
+        $menu->addChild('Грузоперевозки Минск-Москва', array('route' => 'gobusgo_gobusgo_deliveryMinskMoscow'));
         $menu->addChild('Грузоперевозки по Минску', array('route' => 'gobusgo_gobusgo_deliveryMinsk'));
         $menu->addChild('Контакты', array('route' => 'gobusgo_gobusgo_contacts'));
 //        // access services from the container!

@@ -28,26 +28,26 @@ class Cargo
      */
     private $name;
 
-    /**
-     * @var float
-     *
-     * @ORM\Column(name="width", type="float", length=255)
-     */
-    private $width;
-
-    /**
-     * @var float
-     *
-     * @ORM\Column(name="height", type="float", length=255)
-     */
-    private $height;
-
-    /**
-     * @var float
-     *
-     * @ORM\Column(name="lenght", type="float", length=255)
-     */
-    private $lenght;
+//    /**
+//     * @var float
+//     *
+//     * @ORM\Column(name="width", type="float", length=255)
+//     */
+//    private $width;
+//
+//    /**
+//     * @var float
+//     *
+//     * @ORM\Column(name="height", type="float", length=255)
+//     */
+//    private $height;
+//
+//    /**
+//     * @var float
+//     *
+//     * @ORM\Column(name="lenght", type="float", length=255)
+//     */
+//    private $lenght;
 
     /**
      * @var float
@@ -114,77 +114,77 @@ class Cargo
         return $this->name;
     }
 
-    /**
-     * Set width.
-     *
-     * @param float $width
-     *
-     * @return Cargo
-     */
-    public function setWidth($width)
-    {
-        $this->width = $width;
-
-        return $this;
-    }
-
-    /**
-     * Get width.
-     *
-     * @return float
-     */
-    public function getWidth()
-    {
-        return $this->width;
-    }
-
-    /**
-     * Set height.
-     *
-     * @param float $height
-     *
-     * @return Cargo
-     */
-    public function setHeight($height)
-    {
-        $this->height = $height;
-
-        return $this;
-    }
-
-    /**
-     * Get height.
-     *
-     * @return float
-     */
-    public function getHeight()
-    {
-        return $this->height;
-    }
-
-    /**
-     * Set lenght.
-     *
-     * @param float $lenght
-     *
-     * @return Cargo
-     */
-    public function setLenght($lenght)
-    {
-        $this->lenght = $lenght;
-
-        return $this;
-    }
-
-    /**
-     * Get lenght.
-     *
-     * @return float
-     */
-    public function getLenght()
-    {
-        return $this->lenght;
-    }
+//    /**
+//     * Set width.
+//     *
+//     * @param float $width
+//     *
+//     * @return Cargo
+//     */
+//    public function setWidth($width)
+//    {
+//        $this->width = $width;
+//
+//        return $this;
+//    }
+//
+//    /**
+//     * Get width.
+//     *
+//     * @return float
+//     */
+//    public function getWidth()
+//    {
+//        return $this->width;
+//    }
+//
+//    /**
+//     * Set height.
+//     *
+//     * @param float $height
+//     *
+//     * @return Cargo
+//     */
+//    public function setHeight($height)
+//    {
+//        $this->height = $height;
+//
+//        return $this;
+//    }
+//
+//    /**
+//     * Get height.
+//     *
+//     * @return float
+//     */
+//    public function getHeight()
+//    {
+//        return $this->height;
+//    }
+//
+//    /**
+//     * Set lenght.
+//     *
+//     * @param float $lenght
+//     *
+//     * @return Cargo
+//     */
+//    public function setLenght($lenght)
+//    {
+//        $this->lenght = $lenght;
+//
+//        return $this;
+//    }
+//
+//    /**
+//     * Get lenght.
+//     *
+//     * @return float
+//     */
+//    public function getLenght()
+//    {
+//        return $this->lenght;
+//    }
 
     /**
      * Set weight.
