@@ -1306,7 +1306,7 @@
 }
 
 .rd-navbar-static.rd-navbar-corporate .rd-navbar-middle-panel, .rd-navbar-static.rd-navbar-center .rd-navbar-middle-panel {
-    padding: 5px 0px 10px 0px;
+    padding: 5px 0px 0px 0px;
 }
 
 .rd-navbar-static.rd-navbar-corporate .rd-navbar-nav-wrap .rd-navbar-nav > li, .rd-navbar-static.rd-navbar-center .rd-navbar-nav-wrap .rd-navbar-nav > li {
@@ -5986,6 +5986,8 @@ html.tablet .ui-to-top {
 
 .contact-info a {
     color: #8598ff;
+    line-height: 25px;
+    vertical-align: middle;
 }
 
 .contact-info a:hover {

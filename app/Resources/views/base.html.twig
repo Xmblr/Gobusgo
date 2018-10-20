@@ -25,10 +25,7 @@
         <link type="text/css" rel="stylesheet" href="{{ asset('css/zero-5.css') }}">
         <link type="text/css" rel="stylesheet" href="{{ asset('css/phone-call.css') }}">
         <link type="text/css" rel="stylesheet" href="{{ asset('css/hamburgers.css') }}">
-        {#<link type="text/css" rel="stylesheet" href="{{ asset('css/select2-bootstrap.css') }}">#}
-        {#<link type="text/css" rel="stylesheet" href="{{ asset('css/select2.css') }}">#}
     {% endblock %}
-    {#<link rel="icon" type="image/x-icon" href="{{ asset('images/favicon.ico') }}"/>#}
     <link rel="shortcut icon" href="{{ asset('images/logo-1.png') }}"/>
 </head>
 <body>
@@ -76,13 +73,25 @@
                                             </div>
                                             <div class="unit-body inline-block vertical-middle">
                                                 <address class="contact-info"><a
-                                                            href="tel:+375298381288"><span>+375(29)838-12-88</span></a><img
-                                                            class="icons-phone" style="margin-left: 5px;"
-                                                            src="{{ asset('images/whatsup.png') }}"/>
-                                                    <img class="icons-phone"
-                                                         src="{{ asset('images/telegram.png') }}"/><br><a
                                                             href="tel:+375296121188"><span>+375(29)612-11-88</span></a>
-                                                    <br><a href="tel:+79032230250"><span>+7(903)223-02-50</span></a>
+                                                    <a target="_blank" href="viber://add?number=375296121188">
+                                                        <img
+                                                                class="icons-phone" style="margin-left: 5px;"
+                                                                src="{{ asset('images/viber.png') }}"/>
+                                                    </a>
+                                                    <img class="icons-phone"
+                                                         src="{{ asset('images/telegram.png') }}"/>
+                                                    <br>
+                                                    <a
+                                                            href="tel:+375298381288"><span>+375(29)838-12-88</span></a>
+                                                    <br>
+                                                    <a href="tel:+79032230250"><span>+7(903)223-02-50</span></a>
+                                                    <a target="_blank" href="https://api.whatsapp.com/send?phone=79032230250"><img
+                                                                class="icons-phone" style="margin-left: 5px;"
+                                                                src="{{ asset('images/whatsup.png') }}"/></a>
+                                                    <img class="icons-phone"
+                                                         src="{{ asset('images/telegram.png') }}"/>
+
                                                 </address>
                                             </div>
                                         </div>
@@ -95,7 +104,7 @@
                                             <div class="unit-body inline-block vertical-middle">
                                                 <address class="contact-info"
                                                          style="margin-bottom: 5px;">
-                                                    <span>Пн-пт: c 9.00 до 18.00</span><br><span>Сб-Вс: c 9.00 до 16.00</span>
+                                                    <span>С 9.00 до 21.00</span><br><span>Без выходных</span>
                                                 </address>
                                             </div>
                                         </div>
@@ -129,11 +138,11 @@
                                     <a href="{{ path('gobusgo_gobusgo_homepage') }}">Главная</a>
                                 </li>
                                 <li><a href="{{ path('gobusgo_gobusgo_about') }}">О нас</a></li>
-                                <li><a href="{{ path('gobusgo_gobusgo_deliveryMoscowMinsk') }}">Москва - Минск</a></li>
-                                <li><a href="{{ path('gobusgo_gobusgo_deliveryMoscowMinsk') }}">Минск - Москва</a></li>
-                                <li class="inline-block">
-                                    <a href="{{ path('gobusgo_gobusgo_deliveryMinsk') }}">По Минску</a>
-                                </li>
+                                <li><a href="{{ path('gobusgo_gobusgo_deliveryMoscowMinsk') }}">Москва <i class="fa fa-long-arrow-right" aria-hidden="true"></i> Минск</a></li>
+                                <li><a href="{{ path('gobusgo_gobusgo_deliveryMoscowMinsk') }}">Минск <i class="fa fa-long-arrow-right" aria-hidden="true"></i> Москва</a></li>
+                                {#<li class="inline-block">#}
+                                    {#<a href="{{ path('gobusgo_gobusgo_deliveryMinsk') }}">По Минску</a>#}
+                                {#</li>#}
 
                                 {#<li class="inline-block">#}
                                 {#<a href="{{ path('gobusgo_gobusgo_deliveryRB') }}">Доставка по Беларуси</a>#}
@@ -144,17 +153,31 @@
                                 </li>
 
                             </ul>
+
                             <address class="contact-info"><a
                                         href="tel:+375296121188"><span>+375(29)612-11-88</span></a>
-                                <br><a href="tel:+79032230250"><span>+7(903)223-02-50</span></a>
+                                <a target="_blank" href="viber://add?number=375296121188">
+                                    <img
+                                            class="icons-phone" style="margin-left: 5px;"
+                                            src="{{ asset('images/viber.png') }}"/>
+                                </a>
+                                <img class="icons-phone"
+                                     src="{{ asset('images/telegram.png') }}"/>
+                                <br>
+                                <a href="tel:+79032230250"><span>+7(903)223-02-50</span></a>
+                                <a target="_blank" href="https://api.whatsapp.com/send?phone=79032230250"><img
+                                            class="icons-phone" style="margin-left: 5px;"
+                                            src="{{ asset('images/whatsup.png') }}"/></a>
+                                <img class="icons-phone"
+                                     src="{{ asset('images/telegram.png') }}"/>
+
                             </address>
                         </div>
                         <div class="rd-navbar-top-panel">
                             <div class="rd-navbar-inner-header">
                             <div class="col-md-3 hide-xs-up" style="padding-right: 0px; padding-left: 0px; margin: 10px 0px;">
                                 <div class="icons-top-bar" style=" margin-right: 20px;">
-                                    <img src="{{ asset('images/insta.png') }}" style="height:35px; margin-right: 5px;"/>
-                                    <img src="{{ asset('images/telegram.png') }}" style="height:35px; margin-right: 5px;"/>
+                                    <a target="_blank" href="https://www.instagram.com/gobusgo.by/"><img src="{{ asset('images/insta.png') }}" style="height:35px; margin-right: 5px;"/></a>
                                 </div>
                             </div>
                             <div class="col-md-5 hide-xs-up" style="padding-right: 0px; padding-left: 0px; text-align: center;">
@@ -231,20 +254,30 @@
                     <li class="title-footer-border">
                         <p class="title-footer">Контакты:</p>
                     </li>
-                    <address class="contact-info"><a href="tel:+375298381288"><span>+375(29)838-12-88</span></a>
-                        <a href="tel:+375298381288">
-                        <img class="icons-phone" style="margin-left: 5px;"
-                                src="{{ asset('images/whatsup.png') }}"/></a>
-                        <a href="tel:+375298381288">
-                        <img class="icons-phone"
-                             src="{{ asset('images/telegram.png') }}"/></a><br><a
+                    <address class="contact-info"><a
                                 href="tel:+375296121188"><span>+375(29)612-11-88</span></a>
-                        <br><a href="tel:+79032230250"><span>+7(903)223-02-50</span></a>
+                        <a target="_blank" href="viber://add?number=375296121188">
+                            <img
+                                    class="icons-phone" style="margin-left: 5px;"
+                                    src="{{ asset('images/viber.png') }}"/>
+                        </a>
+                        <img class="icons-phone"
+                             src="{{ asset('images/telegram.png') }}"/>
+                        <br>
+                        <a
+                                href="tel:+375298381288"><span>+375(29)838-12-88</span></a>
+                        <br>
+                        <a href="tel:+79032230250"><span>+7(903)223-02-50</span></a>
+                        <a target="_blank" href="https://api.whatsapp.com/send?phone=79032230250"><img
+                                    class="icons-phone" style="margin-left: 5px;"
+                                    src="{{ asset('images/whatsup.png') }}"/></a>
+                        <img class="icons-phone"
+                             src="{{ asset('images/telegram.png') }}"/>
+
                     </address>
-                    <p class="big-letter-footer">info@gobusgo.by</p>
+                    <p class="big-letter-footer"><a style="color: #8598ff;" href="mailto:info@gobusgo.by">info@gobusgo.by</a></p>
                     <div class="footer-icons">
-                        <img src="{{ asset('images/insta.png') }}" style="height:35px; margin-right: 5px;"/>
-                        <img src="{{ asset('images/telegram.png') }}" style="height:35px; margin-right: 5px;"/>
+                        <a target="_blank" href="https://www.instagram.com/gobusgo.by/"><img src="{{ asset('images/insta.png') }}" style="height:35px; margin-right: 5px;"/></a>
                         <img src="{{ asset('images/russian.png') }}" style="height:28px;"/>
                     </div>
                 </div>
@@ -262,7 +295,7 @@
 
             </div>
         </div>
-        <div class="container-fluid m-t-10">
+        <div class="container">
             <div class="row">
 
                 <div class="col-md-6 col-sm-6 col-xs-6">
@@ -282,13 +315,13 @@
 {% endblock %}
 
 {% block javascripts %}
-
+    <script type="text/javascript" src="{{ asset('js/core.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/scripts.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/popper.min.js') }}"></script>
     {#{% javascripts '@jquery' '@bootstrap_js' %}#}
     {#<script type="text/javascript" src="{{ asset_url }}"></script>#}
     {#{% endjavascripts %}#}
-    <script type="text/javascript" src="{{ asset('js/core.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('js/scripts.js') }}"></script>
+
 
 
 {% endblock %}

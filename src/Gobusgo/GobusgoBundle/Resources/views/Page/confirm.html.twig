@@ -21,9 +21,9 @@
 
 {% block body %}
     {#<h1>{{ seoH1 }}</h1>#}
-    <div class="row" style="padding-bottom: 3%;">
-        <div class="container-fluid" style="margin-top: 3%;">
 
+        <div class="container-fluid" style="margin-top: 3%;">
+            <div class="row" style="padding-bottom: 3%;">
             {% for type, messages in app.session.flashBag.all %}
                 {% for message in messages %}
                     <span class="{{ type }}">
@@ -482,12 +482,12 @@
                                     </div>
 
 
-                                     <div class="col-md-12 text-center" style="margin-top: 30px;">
+                                     <div class="col-md-12 text-center" style="margin-top: 20px;">
                                             <h4 class="inline-block">Сумма к оплате:</h4>
                                             <span style="font-size: 24px; font-family: Trebuchet MS; text-decoration: underline; display: inline-block; color: #566fe0;"> {{ message.sum }}</span>
                                     </div>
                                     <div class="col-md-12 text-center"
-                                         style="margin-bottom: 20px; font-size: 16px; font-family: mywebfont; color: #333;">
+                                         style="margin-bottom: 10px; margin-top: 10px; font-size: 16px; font-family: mywebfont; color: #333;">
                                        <a href="{{ path('gobusgo_gobusgo_homepage') }}">
                                            <i class="fa fa-home" aria-hidden="true"></i>
                                            <span style="margin-left: 15px;">На главную</span>

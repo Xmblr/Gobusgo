@@ -54,11 +54,12 @@
     top: 5%;
     overflow: auto;
     z-index:1000;
-    max-width: 500px;
+    max-width: 600px;
     text-align: center;
     background: white;
     box-shadow: 0 0 7.6px 0.4px rgba(0, 0, 0, 0.2);
 }
+
 /* формируем кнопку закрытия */
 .close {
     top: 10px;

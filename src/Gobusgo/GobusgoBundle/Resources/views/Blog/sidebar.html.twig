@@ -1,5 +1,5 @@
 {% block sidebar %}
-    <div class="col-md-4">
+    <div class="col-md-4 offset-top-22 offset-md-top-40 section-bottom-40">
         <div class="sidebar-user">
             {#<section class="section">#}
             {#<header>#}
@@ -33,7 +33,7 @@
 
             <section class="section-sidebar">
                 <header>
-                    <h4>Последние комментарии</h4>
+                    <h4 style="margin-bottom: 10px;">Последние комментарии</h4>
                 </header>
                 {% for comment in latestComments %}
                     <article class="comment">

@@ -25,9 +25,9 @@
             <a class="close" title="Закрыть" href="#close"></a>
         </div>
     {% endblock %}
-
+<div class="page">
     <header class="main-menu-area height-vh">
-        <div class="header-desktop container-fluid p-0">
+        <div class="header-desktop container-fluid">
             <div class="row">
                 <div class="col-md-12 col-lg-12 col-xl-12" style="padding: 0px;">
                     <div class="logo">
@@ -53,13 +53,15 @@
                             <li class="start-li">
                                 {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
                                     <a style="margin-left: 15px;" class="btn-2"
-                                       href="{{ path('sonata_admin_dashboard') }}"> {{ app.user.organization|slice(0,10) }} {% if app.user.organization|length > 10  %}...{% endif %}</a><a
-                                        class="btn-3" href="{{ path('fos_user_security_logout') }}">
-                                    {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
-                                </a>
+                                       href="{{ path('sonata_admin_dashboard') }}"> {{ app.user.organization|slice(0,10) }} {% if app.user.organization|length > 10 %}...{% endif %}</a>
+                                    <a
+                                            class="btn-3" href="{{ path('fos_user_security_logout') }}">
+                                        {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
+                                    </a>
                                 {% else %}
                                     <a class="btn-2"
-                                       href="{{ path('fos_user_registration_register') }}">{{ 'layout.register'|trans({}, 'FOSUserBundle') }}</a><a class="btn-3"
+                                       href="{{ path('fos_user_registration_register') }}">{{ 'layout.register'|trans({}, 'FOSUserBundle') }}</a>
+                                    <a class="btn-3"
                                        href="{{ path('sonata_admin_dashboard') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
                                 {% endif %}
 
@@ -76,17 +78,17 @@
                             <li class="out-link">
                                 <a href="{{ path('gobusgo_gobusgo_about') }}">О нас</a></li>
                             <li class="link out-link">
-
                                 <a href="{{ path('gobusgo_gobusgo_deliveryMoscowMinsk') }}">Москва - Минск</a>
-
-
                             </li>
                             <li class="link out-link">
-                                <a href="{{ path('gobusgo_gobusgo_deliveryMinsk') }}">По Минску</a>
+                                <a href="{{ path('gobusgo_gobusgo_deliveryMinskMoscow') }}">Минск - Москва</a>
                             </li>
-                            <li class="link out-link">
-                                <a href="{{ path('gobusgo_gobusgo_deliveryRB') }}">По Беларуси</a>
-                            </li>
+                            {#<li class="link out-link">#}
+                            {#<a href="{{ path('gobusgo_gobusgo_deliveryMinsk') }}">По Минску</a>#}
+                            {#</li>#}
+                            {#<li class="link out-link">#}
+                            {#<a href="{{ path('gobusgo_gobusgo_deliveryRB') }}">По Беларуси</a>#}
+                            {#</li>#}
                             <li class="link out-link">
                                 <a class="" href="{{ path('gobusgo_gobusgo_blog') }}">Новости</a>
                             </li>
@@ -98,22 +100,35 @@
                                 <a href="{{ path('gobusgo_gobusgo_contacts') }}">Контакты</a>
                             </li>
 
-
                             <div class="menu-bottom">
                                 <div class="rd-navbar-aside-content" style="margin-bottom: 10px;">
                                     <ul class="block-wrap-list" style="padding-left: 10px;">
                                         <li class="block-wrap inline-block">
                                             <div class="unit unit-sm-horizontal unit-align-center unit-middle unit-spacing-xxs">
                                                 <div class="unit-left inline-block vertical-middle">
-                                                    <img src="{{ asset('images/phone.png') }}" width="30px;"/>
+                                                    <img src="{{ asset('images/phone.png') }}" width="20px;"/>
                                                 </div>
                                                 <div class="unit-body inline-block vertical-middle">
                                                     <address class="contact-info"><a
-                                                                href="tel:+375(33)333-33-33"><span>+375(33)333-33-33</span></a><img class="icons-phone" style="margin-left: 5px;"
-                                                                                                                                    src="{{ asset('images/whatsup.png') }}"/>
+                                                                href="tel:+375296121188"><span>+375(29)612-11-88</span></a>
+                                                        <a target="_blank" href="viber://add?number=375296121188">
+                                                        <img
+                                                                class="icons-phone" style="margin-left: 5px;"
+                                                                src="{{ asset('images/viber.png') }}"/>
+                                                        </a>
                                                         <img class="icons-phone"
-                                                             src="{{ asset('images/telegram.png') }}"/><br><a
-                                                                href="tel:+375(25)333-33-33"><span>+375(25)333-33-33</span></a>
+                                                             src="{{ asset('images/telegram.png') }}"/>
+                                                        <br>
+                                                        <a
+                                                                href="tel:+375298381288"><span>+375(29)838-12-88</span></a>
+                                                        <br>
+                                                        <a href="tel:+79032230250"><span>+7(903)223-02-50</span></a>
+                                                        <a target="_blank" href="https://api.whatsapp.com/send?phone=79032230250"><img
+                                                                class="icons-phone" style="margin-left: 5px;"
+                                                                src="{{ asset('images/whatsup.png') }}"/></a>
+                                                        <img class="icons-phone"
+                                                             src="{{ asset('images/telegram.png') }}"/>
+
                                                     </address>
                                                 </div>
                                             </div>
@@ -128,30 +143,26 @@
                                                 <div class="unit-left inline-block vertical-middle"><img
                                                             src="{{ asset('images/time.png') }}" width="30px;"/></div>
                                                 <div class="unit-body inline-block vertical-middle">
-                                                    <address class="contact-info" style="margin-bottom: 5px;"><span>Пн-пт: c 9.00 до 18.00</span><br><span>Сб-Вс: c 9.00 до 16.00</span>
+                                                    <address class="contact-info" style="margin-bottom: 5px;"><span>С 9.00 до 21.00</span><br><span>Без выходных</span>
                                                     </address>
                                                 </div>
                                             </div>
                                         </li>
                                     </ul>
                                 </div>
-                                <p class="big-letter"><img src="{{ asset('images/letter.png') }}" width="30px;"
-                                                           style="margin-right: 10px;"/>info@gobusgo.by</p>
+                                <p class="big-letter"><a style="color: #8598ff;" href="mailto:info@gobusgo.by"><img src="{{ asset('images/letter.png') }}" width="30px;"
+                                                                                                                    style="margin-right: 10px;"/>info@gobusgo.by</a></p>
                                 <div class="callback-header">
                                     <a class="button-log" href="#win3" style="margin-left: 10px;"><i class="fa fa-phone"
                                                                                                      aria-hidden="true"></i>
                                         Заказать звонок</a>
                                 </div>
                                 <div class="header-icons">
-                                    <img class="icons-top" src="{{ asset('images/whatsup.png') }}"
-                                         style="height:35px; margin-right: 5px;"/>
-                                    <img src="{{ asset('images/telegram.png') }}"
-                                         style="height:35px; margin-right: 5px;"/>
-                                    <img src="{{ asset('images/viber.png') }}" style="height:35px; margin-right: 5px;"/>
-                                    <img src="{{ asset('images/skype.png') }}" style="height:35px; margin-right: 5px;"/>
+                                    <a target="_blank" href="https://www.instagram.com/gobusgo.by/"><img
+                                                src="{{ asset('images/insta.png') }}"
+                                                style="height:35px; margin-right: 5px;"/></a>
                                     <img src="{{ asset('images/russian.png') }}" style="height:28px;"/>
                                 </div>
-
                             </div>
                         </ul>
                         <!--Mobile Menu end-->
@@ -165,50 +176,59 @@
         </div>
         <div class="section page-header hide-sm-up">
             <!-- RD Navbar-->
-            <div class="rd-navbar-wrap" style="height: 0px;">
-                <nav class="rd-navbar rd-navbar-minimal rd-navbar-original rd-navbar-fixed"
+            <div class="rd-navbar-wrap" style="height: 260px;">
+                <nav class="rd-navbar rd-navbar-corporate rd-navbar-dark rd-navbar-original rd-navbar-static"
                      data-layout="rd-navbar-fixed" data-sm-layout="rd-navbar-fixed"
-                     data-md-layout="rd-navbar-fixed" data-md-device-layout="rd-navbar-fixed"
-                     data-lg-layout="rd-navbar-static" data-lg-device-layout="rd-navbar-fixed"
-                     data-xl-layout="rd-navbar-static" data-xl-device-layout="rd-navbar-fixed"
-                     data-lg-stick-up-offset="46px" data-xl-stick-up-offset="46px"
-                     data-xxl-stick-up-offset="46px" data-lg-stick-up="true" data-xl-stick-up="true"
-                     data-xxl-stick-up="true">
-
+                     data-md-device-layout="rd-navbar-fixed"
+                     data-md-layout="rd-navbar-static" data-lg-layout="rd-navbar-static"
+                     data-lg-device-layout="rd-navbar-static" data-stick-up-clone="false"
+                     data-md-stick-up-offset="199px"
+                     data-lg-stick-up-offset="199px" data-stick-up="true" data-sm-stick-up="true"
+                     data-md-stick-up="true"
+                     data-lg-stick-up="true">
                     <div class="rd-navbar-inner">
-                        <div class="rd-navbar-main">
-                            <!-- RD Navbar Panel-->
-                            <div class="rd-navbar-panel">
-                                <!-- RD Navbar Toggle-->
-
-
-                                <div class="rd-navbar-aside toggle-original-elements">
-                                    <a href="{{ path('gobusgo_gobusgo_homepage') }}"
-                                       class="rd-navbar-brand"><img
-                                                src="{{ asset('images/logo-1.png') }}" alt="" width="161"
-                                                height="39"></a>
+                        <div class="rd-navbar-inner-header">
+                            <div class="rd-navbar-middle-panel">
+                                <!-- RD Navbar Panel-->
+                                <div class="rd-navbar-panel">
+                                    <!-- RD Navbar Toggle-->
                                     <button class="rd-navbar-toggle toggle-original"
-                                            data-rd-navbar-toggle="#rd-navbar-nav-wrap-1"><span></span></button>
+                                            data-rd-navbar-toggle=".rd-navbar-outer-panel"><span></span></button>
+                                    <!-- RD Navbar Brand--><a class="rd-navbar-brand"
+                                                              href="{{ path('gobusgo_gobusgo_homepage') }}">
+                                        <div class="rd-navbar-fixed--hidden"><img class="logo-header"
+                                                                                  src="{{ asset('images/logo-1.png') }}"
+                                                                                  alt=""
+                                                                                  width="161" height="39">
+                                        </div>
+                                        <div class="rd-navbar-fixed--visible"><img
+                                                    src="{{ asset('images/logo-1.png') }}" alt=""
+                                                    width="161" height="39">
+                                        </div>
 
+
+                                    </a>
+                                </div>
+                                <div class="rd-navbar-aside toggle-original-elements">
                                     <div class="rd-navbar-aside-toggle toggle-original"
                                          data-rd-navbar-toggle=".rd-navbar-aside"><span class="fa fa-phone"
-                                                                                        aria-hidden="true"></span>
-                                    </div>
+                                                                                        aria-hidden="true"></span></div>
                                     <div class="rd-navbar-aside-content">
                                         <ul class="block-wrap-list">
                                             <li class="block-wrap">
                                                 <div class="unit unit-sm-horizontal unit-align-center unit-middle unit-spacing-xxs">
                                                     <div class="unit-left inline-block vertical-middle">
-                                                        {#<span class="fa fa-phone"></span>#}
                                                         <img src="{{ asset('images/phone.png') }}" width="20px;"/>
                                                     </div>
                                                     <div class="unit-body inline-block vertical-middle">
                                                         <address class="contact-info"><a
-                                                                    href="tel:+375(33)333-33-33"><span>+375(33)333-33-33</span></a><img class="icons-phone" style="margin-left: 5px;"
-                                                                                                                                        src="{{ asset('images/whatsup.png') }}"/>
+                                                                    href="tel:+375298381288"><span>+375(29)838-12-88</span></a><img
+                                                                    class="icons-phone" style="margin-left: 5px;"
+                                                                    src="{{ asset('images/whatsup.png') }}"/>
                                                             <img class="icons-phone"
                                                                  src="{{ asset('images/telegram.png') }}"/><br><a
-                                                                    href="tel:+375(25)333-33-33"><span>+375(25)333-33-33</span></a>
+                                                                    href="tel:+375296121188"><span>+375(29)612-11-88</span></a>
+                                                            <br><a href="tel:+79032230250"><span>+7(903)223-02-50</span></a>
                                                         </address>
                                                     </div>
                                                 </div>
@@ -220,99 +240,103 @@
                                                     </div>
                                                     <div class="unit-body inline-block vertical-middle">
                                                         <address class="contact-info"
-                                                                 style="margin-bottom: 5px;"><span>Пн-пт: c 9.00 до 18.00</span><br><span>Сб-Вс: c 9.00 до 16.00</span>
+                                                                 style="margin-bottom: 5px;">
+                                                            <span>Пн-пт: c 9.00 до 18.00</span><br><span>Сб-Вс: c 9.00 до 16.00</span>
                                                         </address>
                                                     </div>
                                                 </div>
                                             </li>
-                                            <p class="big-letter" style="margin-bottom: 10px;"><img
-                                                        src="{{ asset('images/letter.png') }}" width="30px;"
-                                                        style="margin-right: 10px;"/>info@gobusgo.by</p>
-                                            <div class="header-icons">
-                                                <img class="icons-top" src="{{ asset('images/whatsup.png') }}"
-                                                />
-                                                <img src="{{ asset('images/telegram.png') }}"
-                                                />
-                                                <img src="{{ asset('images/viber.png') }}"/>
-                                                <img src="{{ asset('images/skype.png') }}"/>
-                                            </div>
+                                            <li class="block-wrap inline-block">
+                                                <div class="unit unit-sm-horizontal unit-align-center unit-middle unit-spacing-xxs"
+                                                     style="border: 2px solid #8598ff; border-radius: 50px; padding: 2px 20px;">
+                                                    <div class="unit-left inline-block vertical-middle"><p>7</p></div>
+                                                    <div class="unit-body inline-block vertical-middle"
+                                                         style="margin-left: 0px;">
+                                                        <address class="contact-info">
+                                                            <a href="#free"><span>-ая доставка</span><br><span>БЕСПЛАТНО</span></a>
+                                                        </address>
+                                                    </div>
+                                                </div>
+                                            </li>
                                         </ul>
                                     </div>
                                 </div>
                             </div>
-                            <div class="rd-navbar-main-element">
-                                <div class="rd-navbar-nav-wrap toggle-original-elements"
-                                     id="rd-navbar-nav-wrap-1">
-                                    <!-- RD Navbar Nav-->
-                                    <ul class="rd-navbar-nav">
+                        </div>
+                        <div class="rd-navbar-outer-panel toggle-original-elements">
+                            <div class="rd-navbar-nav-wrap rd-navbar-inner-header">
+                                <!-- RD Navbar Nav-->
+                                <img class="logo-stuck" src="{{ asset('images/logo-1.png') }}" alt=""
+                                     width="161" height="39">
+                                <ul class="rd-navbar-nav header-menu">
+                                    <!-- RD Navbar Dropdown-->
 
+                                    <li>
+                                        <a href="{{ path('gobusgo_gobusgo_homepage') }}">Главная</a>
+                                    </li>
+                                    <li><a href="{{ path('gobusgo_gobusgo_about') }}">О нас</a></li>
+                                    <li><a href="{{ path('gobusgo_gobusgo_deliveryMoscowMinsk') }}">Москва - Минск</a>
+                                    </li>
+                                    <li><a href="{{ path('gobusgo_gobusgo_deliveryMoscowMinsk') }}">Минск - Москва</a>
+                                    </li>
+                                    <li class="inline-block">
+                                        <a href="{{ path('gobusgo_gobusgo_deliveryMinsk') }}">По Минску</a>
+                                    </li>
 
-                                        <li class="rd-nav-item"><a class="rd-nav-link"
-                                                                   href="">Главная</a>
-                                        </li>
-                                        <li class="rd-nav-item rd-navbar--has-megamenu rd-navbar-submenu rd-nav-link">
-                                            Грузоперевозки<span class="rd-navbar-submenu-toggle"></span>
-                                            <!-- RD Navbar Megamenu-->
-                                            <ul class="rd-menu rd-navbar-megamenu rd-navbar-open-right p-l-10">
-                                                <li class="rd-megamenu-item">
-                                                    <ul class="rd-megamenu-list">
-                                                        <li class="rd-megamenu-list-item"><a
-                                                                    class="rd-megamenu-list-link"
-                                                                    href="{{ path('gobusgo_gobusgo_deliveryMoscowMinsk') }}">Минск
-                                                                <span class="fa fa-arrows-h"
-                                                                      aria-hidden="true"></span> Москва</a></li>
-                                                        <li class="divider-menu"></li>
-                                                        <li class="rd-megamenu-list-item"><a
-                                                                    class="rd-megamenu-list-link"
-                                                                    href="{{ path('gobusgo_gobusgo_deliveryMinsk') }}">По
-                                                                Минску</a></li>
-                                                        <li class="divider-menu"></li>
-                                                        <li class="rd-megamenu-list-item"><a
-                                                                    class="rd-megamenu-list-link"
-                                                                    href="{{ path('gobusgo_gobusgo_deliveryRB') }}">По
-                                                                Беларуси</a></li>
-                                                    </ul>
-                                                </li>
+                                    {#<li class="inline-block">#}
+                                    {#<a href="{{ path('gobusgo_gobusgo_deliveryRB') }}">Доставка по Беларуси</a>#}
+                                    {#</li>#}
 
-                                            </ul>
-                                        </li>
+                                    <li class="inline-block"><a href="{{ path('gobusgo_gobusgo_blog') }}">Новости</a>
+                                    </li>
+                                    <li class="inline-block"><a
+                                                href="{{ path('gobusgo_gobusgo_contacts') }}">Контакты</a>
+                                    </li>
 
-                                        <li class="rd-nav-item"><a class="rd-nav-link"
-                                                                   href="{{ path('gobusgo_gobusgo_about') }}">О
-                                                нас</a>
-                                        </li>
-
-                                        <li class="rd-nav-item"><a class="rd-nav-link"
-                                                                   href="{{ path('gobusgo_gobusgo_blog') }}">Новости</a>
-                                        </li>
-
-                                        <li class="rd-nav-item"><a class="rd-nav-link"
-                                                                   href="{{ path('gobusgo_gobusgo_contacts') }}">Контакты</a>
-                                        </li>
-
-                                        <li class="menu-li" style="padding-bottom: 5px;">
-
+                                </ul>
+                                <address class="contact-info"><a
+                                            href="tel:+375296121188"><span>+375(29)612-11-88</span></a>
+                                    <br><a href="tel:+79032230250"><span>+7(903)223-02-50</span></a>
+                                </address>
+                            </div>
+                            <div class="rd-navbar-top-panel">
+                                <div class="rd-navbar-inner-header">
+                                    <div class="col-md-3 hide-xs-up"
+                                         style="padding-right: 0px; padding-left: 0px; margin: 10px 0px;">
+                                        <div class="icons-top-bar" style=" margin-right: 20px;">
+                                            <a target="_blank" href="https://www.instagram.com/gobusgo.by/"><img
+                                                        src="{{ asset('images/insta.png') }}"
+                                                        style="height:35px; margin-right: 5px;"/></a>
+                                            <img src="{{ asset('images/telegram.png') }}"
+                                                 style="height:35px; margin-right: 5px;"/>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-5 hide-xs-up"
+                                         style="padding-right: 0px; padding-left: 0px; text-align: center;">
+                                        <h4 style="font-size: 1vw; margin: 10px 0px;">Добро пожаловать на сайт
+                                            грузоперевозок - GoBusGo.by</h4>
+                                    </div>
+                                    <div class="col-md-4" style="padding-right: 0px;">
+                                        <div class="top-bar">
                                             {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
                                                 <a style="margin-left: 15px;" class="btn-2"
-                                                   href="{{ path('sonata_admin_dashboard') }}"> {{ app.user.organization|slice(0,10) }} {% if app.user.organization|length > 10  %}...{% endif %} </a><a class="btn-3" href="{{ path('fos_user_security_logout') }}">
+                                                   href="{{ path('sonata_admin_dashboard') }}"> {{ app.user.organization|slice(0,10) }} {% if app.user.organization|length > 10 %}...{% endif %} </a>
+                                                <a
+                                                        class="btn-3" href="{{ path('fos_user_security_logout') }}">
                                                     {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
                                                 </a>
                                             {% else %}
                                                 <a class="btn-2"
-                                                   href="{{ path('fos_user_registration_register') }}">{{ 'layout.register'|trans({}, 'FOSUserBundle') }}</a><a class="btn-3"
+                                                   href="{{ path('fos_user_registration_register') }}">{{ 'layout.register'|trans({}, 'FOSUserBundle') }}</a>
+                                                <a class="btn-3"
                                                    href="{{ path('sonata_admin_dashboard') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
 
-
                                             {% endif %}
-
-                                        </li>
-                                        <li class="menu-li" style="padding-top: 5px;">
-                                            <img src="{{ asset('images/russian.png') }}" style="height:28px;"/><span
-                                                    class="country"> - GoBusGo в России</span>
-                                        </li>
-                                    </ul>
+                                            <img class="flag hide-xs-up" src="{{ asset('images/russian.png') }}"
+                                                 style="height:32px; padding-bottom: 5px;"/>
+                                        </div>
+                                    </div>
                                 </div>
-
                             </div>
                         </div>
                     </div>
@@ -320,36 +344,38 @@
             </div>
         </div>
         {#<div class="sale-top" style="margin-top: 20px;">#}
-            {#<div class="gradient">Добро пожаловать на сайт GoBusGo.by</div>#}
+        {#<div class="gradient">Добро пожаловать на сайт GoBusGo.by</div>#}
         {#</div>#}
         {#<div class="unit unit-sm-horizontal unit-align-center unit-middle unit-spacing-xxs" style="border: 2px solid #8598ff; border-radius: 50px; padding: 2px 20px;">#}
-            {#<div class="unit-left inline-block vertical-middle"><p>7</p></div>#}
-            {#<div class="unit-body inline-block vertical-middle" style="margin-left: 0px;">#}
-                {#<address class="contact-info">#}
-                    {#<span>-ая доставка</span><br><span>БЕСПЛАТНО</span>#}
-                {#</address>#}
-            {#</div>#}
+        {#<div class="unit-left inline-block vertical-middle"><p>7</p></div>#}
+        {#<div class="unit-body inline-block vertical-middle" style="margin-left: 0px;">#}
+        {#<address class="contact-info">#}
+        {#<span>-ая доставка</span><br><span>БЕСПЛАТНО</span>#}
+        {#</address>#}
+        {#</div>#}
         {#</div>#}
         <div class="container p-0">
             <div class="row">
                 <h1 class="margin-home">Куда везем груз?</h1>
-                <div class="col-md-4 m-b-20">
+                <div class="col-md-5 col-md-push-1 m-b-20">
                     <div class="background-round">
                         <h3 class="reload" OnClick="a('{{ path('gobusgo_gobusgo_deliveryMoscowMinsk') }}');">
                             Москва</br>Минск</h3>
                     </div>
                 </div>
-                <div class="col-md-4 m-b-20">
+                <div class="col-md-5 col-md-push-1 m-b-20">
                     <div class="background-round">
-                        <h3 class="align-home" OnClick="a('{{ path('gobusgo_gobusgo_deliveryMinsk') }}');">По
-                            Минску</h3>
+                        <h3 class="align-home" OnClick="a('{{ path('gobusgo_gobusgo_deliveryMinskMoscow') }}');">
+                            Минск</br>Москва</h3>
                     </div>
                 </div>
-                <div class="col-md-4 m-b-20">
-                    <div class="background-round">
-                        <h3 class="align-home" OnClick="a('{{ path('gobusgo_gobusgo_deliveryRB') }}');">По Беларуси</h3>
-                    </div>
-                </div>
+                {#<div class="col-md-4 m-b-20">#}
+                {#<div class="background-round">#}
+                {#<h3 class="align-home" OnClick="a('{{ path('gobusgo_gobusgo_deliveryMinsk') }}');">По#}
+                {#Минску</h3>#}
+                {#</div>#}
+                {#</div>#}
+
                 <script language="JavaScript">
                     function sleep(ms) {
                         return new Promise(resolve => setTimeout(resolve, ms));
@@ -424,61 +450,58 @@
     </header>
 
 
-{% endblock %}
-{% block breadcrumb %}
+    {% endblock %}
+    {% block breadcrumb %}
 
-{% endblock %}
+    {% endblock %}
 
-{% block body %}
+    {% block body %}
     <div class="divider-home display-none-mobile"></div>
     <div class="container">
         <div class="row">
-            <h2>Почему выбирают именно нас?</h2>
-            <div class="col-md-3 m-b-20">
-                <div class="advantage-icons">
-                    <img src="{{ asset('images/advantage-1.png') }}" style="width:230px;">
-                </div>
-                <div class="advantage-title" style="margin: 10px;">Доставка любых грузов до 2-х тонн</div>
+            <div class="col-md-12">
+                <h2>Почему выбирают именно нас?</h2>
             </div>
-            <div class="col-md-3 m-b-20">
-                <div class="advantage-icons">
-                    <img src="{{ asset('images/advantage-2.png') }}" style="width:230px;">
+
+            <div class="offset-top-22 offset-md-top-40 section-bottom-60 col-md-12">
+                <div class="col-md-3 m-b-20">
+                    <div class="advantage-icons">
+                        <img src="{{ asset('images/advantage-1.png') }}" style="width:230px;">
+                    </div>
+                    <div class="advantage-title" style="margin: 10px;">Доставка любых грузов до 2-х тонн</div>
                 </div>
-                <div class="advantage-title" style="margin: 10px;">Доставка от письма до крупногабаритного груза</div>
-            </div>
-            <div class="col-md-3 m-b-20">
-                <div class="advantage-icons">
-                    <img src="{{ asset('images/advantage-3.png') }}" style="width:230px;">
+                <div class="col-md-3 m-b-20">
+                    <div class="advantage-icons">
+                        <img src="{{ asset('images/advantage-2.png') }}" style="width:230px;">
+                    </div>
+                    <div class="advantage-title" style="margin: 10px;">Доставка от письма до крупногабаритного груза
+                    </div>
                 </div>
-                <div class="advantage-title" style="margin: 10px;">Доставка в течении суток</div>
-            </div>
-            <div class="col-md-3" style="margin-bottom:20px;">
-                <div class="advantage-icons">
-                    <img src="{{ asset('images/advantage-4.png') }}" style="width:230px;">
+                <div class="col-md-3 m-b-20">
+                    <div class="advantage-icons">
+                        <img src="{{ asset('images/advantage-3.png') }}" style="width:230px;">
+                    </div>
+                    <div class="advantage-title" style="margin: 10px;">Доставка в течении суток</div>
                 </div>
-                <div class="advantage-title" style="margin: 10px;">Каждая 7-ая доставка бесплатно *</div>
+                <div class="col-md-3" style="margin-bottom:20px;">
+                    <div class="advantage-icons">
+                        <img src="{{ asset('images/advantage-4.png') }}" style="width:230px;">
+                    </div>
+                    <div class="advantage-title" style="margin: 10px;">Каждая 7-ая доставка бесплатно *</div>
+                </div>
             </div>
         </div>
     </div>
+
     <div class="divider-home"></div>
 
     <div class="container">
         <div class="row">
-            <div class="col-md-10 col-md-push-1">
+            <div class="col-md-12">
                 <h1>{{ seo.h1|raw }}</h1>
-                {#<p class="text-center" style="font-size: 20px; line-height: 24px;">В связи с растущим спросом покупок#}
-                    {#товаров посредством Сети интернет, потребители стали чаще обращаться к компаниям, у которых налажена#}
-                    {#работа службы доставки.</br>#}
-                    {#Развитие предприятия характеризуется многими показателями. Не последнюю очередь занимает именно#}
-                    {#организованная работа доставки. Высокий уровень подачи и эффективная работа по доставке грузов и#}
-                    {#товаров отражает стабильность, внушает доверие и безопасность во время перевозки имущества.#}
-                    {#Предлагаем экспресс-доставку товаров и грузов, которая осуществляется под строгим контролем,#}
-                    {#оперативно и в срок.</br>#}
-                    {#Наша недорогая цена доставки обусловлена гибким планированием маршрутов, опытом и высоким уровнем#}
-                    {#профессионализма сотрудников компании.#}
-                {#</p>#}
+            </div>
+            <div class="offset-top-22 offset-md-top-40 col-md-12">
                 {% if seo.intro is not empty %} {{ seo.intro|raw }} {% endif %}
-                {#{{ seo.text }}#}
             </div>
         </div>
     </div>
@@ -486,8 +509,11 @@
 
     <div class="container">
         <div class="row">
-            <h2>Наш автопарк</h2>
-            <div class="col-md-10 col-md-push-1 mobile-slide" style="border: 1px solid #ffe775; ">
+            <div class="col-md-12">
+                <h2>Наш автопарк</h2>
+            </div>
+            <div class="offset-top-22 offset-md-top-40 range col-md-10 col-md-push-1 mobile-slide"
+                 style="border: 1px solid #ffe775; ">
 
                 <!-- Slider main container -->
                 <div class="swiper-container">
@@ -576,6 +602,5 @@
     {% include 'GobusgoGobusgoBundle:Blog:blogLatest.html.twig' %}
 
 
-
-
+</div>
 {% endblock %}
