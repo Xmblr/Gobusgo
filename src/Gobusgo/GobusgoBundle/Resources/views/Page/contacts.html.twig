@@ -76,21 +76,36 @@
                     <h4 style="margin-top: 30px; border-bottom: 1px solid #ccc; display: inline-block;">Адрес в Москве:</h4>
                     <p class="text-contacts">г. Минск, ул. Харьковская 90 каб. 8</p>
                     <h4 style="margin-top: 30px; border-bottom: 1px solid #ccc;">Контактные данные:</h4>
-                    <a href="tel:+375298381288" class="text-contacts">
-                        <span>+375(29)838-12-88</span></a>
-                    <a href="tel:+375296121188" class="text-contacts"><span>+375(29)612-11-88</span></a>
-                    <a href="tel:+79032230250" class="text-contacts"><span>+7(903)223-02-50</span></a>
-                    <a class="text-contacts" href="mailto:info@gobusgo.by">info@gobusgo.by</a>
+                    <p>
+                    <a class="text-contacts"
+                            href="tel:+375296121188"><span>+375(29)612-11-88</span></a>
+                    <a target="_blank" href="viber://add?number=375296121188">
+                        <img
+                                class="icons-phone" style="margin-left: 5px;"
+                                src="{{ asset('images/viber.png') }}"/>
+                    </a>
+                    <a href="tg://resolve?domain=Gobusgo2" target="_blank">
+                        <img class="icons-phone"
+                             src="{{ asset('images/telegram.png') }}"/>
+                    </a>
+                    </p>
 
+                    <a class="text-contacts" href="tel:+375298381288"><span>+375(29)838-12-88</span></a>
+                    <br>
+                    <a class="text-contacts" style="margin-top: 5px;" href="tel:+79032230250"><span>+7(903)223-02-50</span></a>
+                    <a target="_blank" href="https://api.whatsapp.com/send?phone=79032230250"><img
+                                class="icons-phone" style="margin-left: 5px;"
+                                src="{{ asset('images/whatsup.png') }}"/></a>
+                    <a href="tg://resolve?domain=Gobusgo" target="_blank">
+                        <img class="icons-phone"
+                             src="{{ asset('images/telegram.png') }}"/></a>
                     <div class="footer-icons">
                         <img src="{{ asset('images/insta.png') }}" style="height:35px; margin-right: 5px;"/>
-                        <img src="{{ asset('images/telegram.png') }}" style="height:35px; margin-right: 5px;"/>
                     </div>
 
-                    <h4 style="margin-top: 30px; border-bottom: 1px solid #ccc; display: inline-block;">Время
+                    <h4 style="margin-top: 30px; border-bottom: 1px solid #ccc;">Время
                         работы:</h4>
-                    <p>Пн-Пт - с 9.00 до 18.00</br>Сб-Вс - с 9.00 до
-                        16.00</p>
+                    <p class="text-contacts">Пн-Вс: с 9.00 до 21.00</br>Без выходных</p>
                     {#<p class="text-contacts">Склад: Пр. Дзержинского</br>Офис: Пр. Дзержинского</p>#}
 
                 </div>
