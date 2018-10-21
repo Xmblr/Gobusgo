@@ -4508,6 +4508,25 @@ p + .button-log {
     }
 }
 
+@media (min-width: 768px) and (max-width: 969px) {
+    .height-mobile h4 {
+        display: none;
+    }
+    .height-mobile span {
+        font-size: 18px;
+        color: #313132;
+    }
+    .height-mobile {
+        text-align: left;
+    }
+    .height-mobile p {
+        margin-top: 0px;
+    }
+    .button-mobile .button-log {
+        margin-top: 0px;
+    }
+}
+
 .road-number {
     display: inline-block;
     background: #8598ff;
@@ -4528,6 +4547,12 @@ p + .button-log {
     .height-mobile {
         height: 123px;
     }
+    .height-mobile .Input {
+        margin: 5px 0px;
+    }
+    .button-mobile {
+        text-align: left;
+    }
 }
 
 .height-mobile .h4 {
@@ -4535,7 +4560,7 @@ p + .button-log {
 }
 
 @media (min-width: 970px) {
-    .height-mobile .h4 {
+    .height-mobile h4 {
         text-align: center;
     }
     .height-mobile span {
@@ -4545,12 +4570,14 @@ p + .button-log {
     }
 }
 
-@media (max-width: 969px) {
+@media (max-width: 767px) {
     .height-mobile .input-log {
         height: auto;
         padding: 5px 44px;
     }
-
+    .height-mobile .option-input {
+        margin-left: 0px;
+    }
     .height-mobile span {
         font-size: 15px;
     }
@@ -4566,6 +4593,10 @@ p + .button-log {
     .height-mobile {
         text-align: left;
     }
+}
+
+.height-mobile h4 {
+    margin-bottom: 10px;
 }
 
 .link-menu {
