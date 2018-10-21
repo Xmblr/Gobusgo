@@ -137,9 +137,7 @@ class PageController extends Controller
             'action' => $this->generateUrl('gobusgo_gobusgo_deliveryMinsk'),
             'method' => 'POST'
         ));
-        $legalCallform->get('height')->setData('Не задано');
-        $legalCallform->get('lenght')->setData('Не задано');
-        $legalCallform->get('width')->setData('Не задано');
+        $legalCallform->get('cities')->setData('Минск-Москва');
 
         if ($request->isMethod('POST')) {
             $legalCallform->handleRequest($request);
@@ -161,9 +159,7 @@ class PageController extends Controller
             'action' => $this->generateUrl('gobusgo_gobusgo_deliveryMinsk'),
             'method' => 'POST'
         ));
-        $individualCallform->get('height')->setData('Не задано');
-        $individualCallform->get('lenght')->setData('Не задано');
-        $individualCallform->get('width')->setData('Не задано');
+        $individualCallform->get('cities')->setData('Москва-Минск');
 
 
         if ($request->isMethod('POST')) {
@@ -207,9 +203,8 @@ class PageController extends Controller
             'action' => $this->generateUrl('gobusgo_gobusgo_deliveryMoscowMinsk'),
             'method' => 'POST'
         ));
-        $legalCallform->get('height')->setData('Не задано');
-        $legalCallform->get('lenght')->setData('Не задано');
-        $legalCallform->get('width')->setData('Не задано');
+
+        $legalCallform->get('cities')->setData('Москва-Минск');
 
         if ($request->isMethod('POST')) {
             $legalCallform->handleRequest($request);
@@ -231,9 +226,9 @@ class PageController extends Controller
             'action' => $this->generateUrl('gobusgo_gobusgo_deliveryMoscowMinsk'),
             'method' => 'POST'
         ));
-        $individualCallform->get('height')->setData('Не задано');
-        $individualCallform->get('lenght')->setData('Не задано');
-        $individualCallform->get('width')->setData('Не задано');
+        $individualCallform->get('cities')->setData('Москва-Минск');
+//        $individualCallform->get('lenght')->setData('Не задано');
+//        $individualCallform->get('width')->setData('Не задано');
 
 
         if ($request->isMethod('POST')) {
@@ -277,9 +272,7 @@ class PageController extends Controller
             'action' => $this->generateUrl('gobusgo_gobusgo_deliveryMoscowMinsk'),
             'method' => 'POST'
         ));
-        $legalCallform->get('height')->setData('Не задано');
-        $legalCallform->get('lenght')->setData('Не задано');
-        $legalCallform->get('width')->setData('Не задано');
+        $legalCallform->get('cities')->setData('Минск-Москва');
 
         if ($request->isMethod('POST')) {
             $legalCallform->handleRequest($request);
@@ -301,9 +294,7 @@ class PageController extends Controller
             'action' => $this->generateUrl('gobusgo_gobusgo_deliveryMinskMoscow'),
             'method' => 'POST'
         ));
-        $individualCallform->get('height')->setData('Не задано');
-        $individualCallform->get('lenght')->setData('Не задано');
-        $individualCallform->get('width')->setData('Не задано');
+        $individualCallform->get('cities')->setData('Минск-Москва');
 
 
         if ($request->isMethod('POST')) {
@@ -359,14 +350,16 @@ class PageController extends Controller
         $blogs = $em->getRepository('GobusgoGobusgoBundle:Blog')
             ->getLatestBlogs();
 
+        $callform = $this->Call($request);
 
         return $this->render('GobusgoGobusgoBundle:Blog:index.html.twig', array(
+            'callform' =>$callform->createView(),
             'blogs' => $blogs,
             'seoH1' => $seoH1,
         ));
     }
 
-    public function blogShowAction($categoryUrl,$url)
+    public function blogShowAction(Request $request,$categoryUrl,$url)
     {
         $em = $this->getDoctrine()
             ->getManager();
@@ -390,7 +383,10 @@ class PageController extends Controller
         $comments = $em->getRepository('GobusgoGobusgoBundle:Comment')
             ->getCommentsForBlog($blog->getId());
 
+        $callform = $this->Call($request);
+
         return $this->render('GobusgoGobusgoBundle:Blog:show.html.twig', array(
+            'callform' =>$callform->createView(),
             'blog'      => $blog,
             'seoH1' => $seoH1,
             'category'=>$category,
@@ -481,8 +477,8 @@ class PageController extends Controller
         $mailer = $this->Transport();
 
         // Create a message
-        $message = Swift_Message::newInstance('Форма обратной связи')
-            ->setFrom(array('seo-newline@mail.ru' => 'Обратный звонок'))
+        $message = Swift_Message::newInstance('Новое действие на сайте')
+            ->setFrom(array('seo-newline@mail.ru' => 'Gobusgo.by'))
             ->setTo($this->container->getParameter('gobusgo.emails.contact_email'))
             ->setBody($this->renderView('@GobusgoGobusgo/Page/callEmail.txt.twig', array('mail' => $mail)));
         ;

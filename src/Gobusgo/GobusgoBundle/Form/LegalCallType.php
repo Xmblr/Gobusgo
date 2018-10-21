@@ -3,6 +3,7 @@
 namespace Gobusgo\GobusgoBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -26,20 +27,12 @@ class LegalCallType extends AbstractType
             ->add('fullName')
             ->add('phone')
             ->add('weight')
-            ->add('height')
-            ->add('lenght')
-            ->add('width')
-            ->add('cities')
             ->add('sum')
+            ->add('cities')
             ->add('notice', TextareaType::class, array(
                 'required' => false,
                 'empty_data' => 'Не задано',
             ))
-//            ->add('name', TextType::class, array('attr' => array('placeholder' => 'Your name'),
-//                'constraints' => array(
-//                    new NotBlank(array("message" => "Please provide your name")),
-//                )
-//            ))
 //            ->add('subject', TextType::class, array('attr' => array('placeholder' => 'Subject'),
 //                'constraints' => array(
 //                    new NotBlank(array("message" => "Please give a Subject")),

@@ -27,9 +27,6 @@ class IndividualCallType extends AbstractType
             ->add('weight')
             ->add('sum')
             ->add('cities')
-            ->add('height')
-            ->add('lenght')
-            ->add('width')
             ->add('notice', TextareaType::class, array(
                 'required' => false,
                 'empty_data' => 'Не задано',
