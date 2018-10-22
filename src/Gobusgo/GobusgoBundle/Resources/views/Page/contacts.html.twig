@@ -1,8 +1,8 @@
 {% extends '@GobusgoGobusgo/layout.html.twig' %}
 
 {% block body %}
-    <section>
-    <div class="container offset-top-22 offset-md-top-22">
+    <section class="section section-40">
+    <div class="container">
         <div class="row">
             <div class="col-md-12">
                 <h1 style="text-align:left;" class="section-bottom-40">{{ seo.h1|raw }}</h1>
@@ -10,7 +10,7 @@
                 {% if seo.intro is not empty %} {{ seo.intro|raw }} {% endif %}
                 <div class="col-md-7 col-xs-12" style="padding-left: 0px;">
 
-                    <h4 style="border-bottom: 1px solid #ccc; display: inline-block;">Юридические данные:</h4>
+                    <h4 class="text-title-map" style="border-bottom: 1px solid #ccc; display: inline-block;">Юридические данные:</h4>
                     <p class="text-contacts">
                         ИП Стась В.Н.</br>
                         г. Минск, ул. Харьковская 90 каб. 8</br>
@@ -21,7 +21,7 @@
 
                     <div class="col-md-12 col-xs-12" style="padding: 0px; margin-bottom: 20px;">
 
-                        <h4 style="margin-top: 30px; border-bottom: 1px solid #ccc; display: inline-block;">Форма
+                        <h4 class="text-title-map" style="margin-top: 30px; border-bottom: 1px solid #ccc; display: inline-block;">Форма
                             обратной
                             связи:</h4>
                         <form name="enquiry" method="post" action="/contact">
@@ -71,11 +71,8 @@
                 </div>
                 <div class="col-md-4 col-xs-12">
 
-                    <h4 style="border-bottom: 1px solid #ccc; display: inline-block;">Адрес в Минске:</h4>
-                    <p class="text-contacts">г. Минск, ул. Харьковская 90 каб. 8</p>
-                    <h4 style="margin-top: 30px; border-bottom: 1px solid #ccc; display: inline-block;">Адрес в Москве:</h4>
-                    <p class="text-contacts">г. Минск, ул. Харьковская 90 каб. 8</p>
-                    <h4 style="margin-top: 30px; border-bottom: 1px solid #ccc;">Контактные данные:</h4>
+
+                    <h4 class="text-title-map" style="border-bottom: 1px solid #ccc; display: inline-block;">Контактные данные:</h4>
                     <p>
                     <a class="text-contacts"
                             href="tel:+375296121188"><span>+375(29)612-11-88</span></a>
@@ -102,22 +99,49 @@
                     <div class="footer-icons">
                         <img src="{{ asset('images/insta.png') }}" style="height:35px; margin-right: 5px;"/>
                     </div>
+                    <h4 class="text-title-map" style="margin-top: 30px; border-bottom: 1px solid #ccc; display: inline-block;">E-mail:</h4>
+                    <p class="text-contacts"><a href="mailto:info@gobusgo.by">info@gobusgo.by</a></p>
 
-                    <h4 style="margin-top: 30px; border-bottom: 1px solid #ccc;">Время
+                    <h4 class="text-title-map" style="margin-top: 30px; border-bottom: 1px solid #ccc; display: inline-block;">Время
                         работы:</h4>
                     <p class="text-contacts">Пн-Вс: с 9.00 до 21.00</br>Без выходных</p>
                     {#<p class="text-contacts">Склад: Пр. Дзержинского</br>Офис: Пр. Дзержинского</p>#}
 
                 </div>
             </div>
+            <div class="offset-top-22 offset-md-top-40 col-md-6">
+
+                <h4 class="text-title-map"><i class="fa fa-map-marker" aria-hidden="true"></i> Наш адрес в Минске:
+                </h4>
+
+                <div class="col-md-12">
+                    <div class="text-map">
+                        <b>Склад:</b> г. Минск, ул. Харьковская 90, этаж 2,</br><b>Офис:</b> г. Минск, ул.
+                        Харьковская
+                        90, этаж 2,
+                        кабинет 8
+                    </div>
+                </div>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d104111.24204511433!2d27.464534885919846!3d53.897461316799394!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46dbdaaca271ed37%3A0x67d7afd2c4446992!2z0YPQuy4g0KXQsNGA0YzQutC-0LLRgdC60LDRjyA5MCwg0JzQuNC90YHQug!5e0!3m2!1sru!2sby!4v1540163503883" width="100%" height="350" frameborder="0" style="border:0" allowfullscreen></iframe>
+            </div>
+            <div class="offset-top-22 offset-md-top-40 col-md-6">
+                <h4 class="text-title-map"><i class="fa fa-map-marker" aria-hidden="true"></i> Наш адрес в Москве:
+                </h4>
+
+                <div class="col-md-12">
+                    <div class="text-map"><b>Склад:</b> г. Москва, улица Старообрядческая, 46АС46,</br><b>Офис:</b>
+                        г. Москва, улица Старообрядческая, 46АС46,</br>
+
+                    </div>
+                </div>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d245430.34775045599!2d37.55918317291384!3d55.714736262261916!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46b54ab60fce7399%3A0x5075ee50f21de53c!2z0YPQuy4g0KHRgtCw0YDQvtC-0LHRgNGP0LTRh9C10YHQutCw0Y8sIDQ2LCDQnNC-0YHQutCy0LAsINCg0L7RgdGB0LjRjywgMTA5MDUy!5e0!3m2!1sru!2sby!4v1540163409056" width="100%" height="350" frameborder="0" style="border:0" allowfullscreen></iframe>
+
+            </div>
         </div>
     </div>
-    <div class="container-fluid" style="padding: 0px;">
-        <div class="row"></div>
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d150474.39557313913!2d27.40249134812782!3d53.89331684651622!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46dbcfd35b1e6ad3%3A0xb61b853ddb570d9!2z0JzQuNC90YHQug!5e0!3m2!1sru!2sby!4v1523641166856"
-                width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
-    </div>
-    </div>
+
+
+
     </section>
 
 {% endblock %}

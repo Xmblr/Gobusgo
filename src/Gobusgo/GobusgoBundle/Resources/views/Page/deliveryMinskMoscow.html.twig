@@ -7,7 +7,7 @@
             {% if seo.intro is not empty %} {{ seo.intro|raw }} {% endif %}
         </div>
     </div>
-    <div class="container">
+    <div class="container" id="raschet">
         <div class="row" style="text-align: center;">
             <div class="col-md-12">
                 <h2>Расчет стоимости грузоперевозки:</h2>
@@ -23,7 +23,7 @@
                         <h3 class="road-tablet-title">Габариты</h3>
                     </div>
                     <div style="height: 123px;">
-                        <h3 class="road-tablet-title">Город</h3>
+                        <h3 class="road-tablet-title">Направление</h3>
                     </div>
                     <div style="height: 123px;">
                         <h3 class="road-tablet-title">ИТОГО</h3>
@@ -40,48 +40,48 @@
                 </div>
                 <div class="col-md-12 col-sm-7 col-xs-9">
                     <div class="col-md-3 height-mobile">
-                        <h4 style="text-align: center;">Клиент</h4>
+                        <h4>Клиент</h4>
                         <label style="display: block;">
                             <span>Физическое лицо</span>
-                            <input type="radio" class="option-input radio" name="radio" id="individualRadio" onchange="sum()" checked/>
+                            <input type="radio" class="option-input radio" name="radio" id="individualRadio"
+                                   onchange="sum()" checked/>
                         </label>
                         <label style="display: block;">
                             <span>Юридическое лицо</span>
-                            <input type="radio" class="option-input radio" name="radio" id="legalRadio" onchange="sum()"/>
+                            <input type="radio" class="option-input radio" name="radio" id="legalRadio"
+                                   onchange="sum()"/>
 
                         </label>
 
                     </div>
                     <div class="col-md-3 height-mobile">
 
-                        <h4 style="text-align: center;">Вес (кг.)</h4>
+                        <h4>Габариты</h4>
                         <div class="Input">
-                            <input class="input-log" type="text" id="weight" required="required" placeholder="Вес, кг" oninput="sum()">
+                            <input class="input-log" type="text" id="weight" required="required" placeholder="Вес, кг"
+                                   oninput="sum()">
                         </div>
                     </div>
                     <div class="col-md-3 height-mobile">
-                        <h4 style="text-align: center;">Направление</h4>
+                        <h4>Направление</h4>
                         <p class="big">Минск <i class="fa fa-long-arrow-right" aria-hidden="true"></i> Москва</p>
                     </div>
 
                     <div class="col-md-3">
                         <div class="height-mobile">
-                            <h4 style="text-align: center;">ИТОГ</h4>
+                            <h4>ИТОГ</h4>
 
                             <div class="Input">
                                 <input id="sum" class="input-log" placeholder="Сумма">
                             </div>
                         </div>
-                        <div class="text-center">
-                            <a style="padding: 10px 20px; font-size: 18px; margin-top: 10px;" class="button-log"
-                               href="#orderForm"
-                               onclick="openform()">Оформление
-                                заявки</a>
+                        <div class="button-mobile">
+                            <a class="button-log" href="#orderForm" onclick="openform()">Оформление
+                            </a>
                         </div>
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
 
@@ -120,7 +120,6 @@
                 <div style="display:none">
 
                     {{ form_widget(individualCallform.cities) }}
-
                     {{ form_rest(individualCallform) }}
                 </div>
 
@@ -295,65 +294,69 @@
         </div>
     </div>
 
-    <div class="divider-home"></div>
+    <div class="container-fluid section-60" style="background-color: #8598ff;">
+        <div class="row">
+            <div class="col-md-8 col-md-push-2 text-center">
 
-    <div class="container">
+                <h2 style="color: white; margin-top: 0px;">Каждая 7-ая доставка бесплатно!</h2>
+                <p style="color: white; text-align: center; font-size: 20px;">Каждая 7-ая передача до 100кг от склада до склада совершенно бесплатно!</p>
+                <a href="#raschet" style="border: 3px solid #fff;" class="button-log">Оформить доставку</a>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="container section-60">
         <div class="row">
             <div class="col-md-12">
                 <h2>Зоны обслуживания:</h2>
             </div>
-            <div class="offset-top-22 offset-md-top-40 col-md-12">
-                <div class="col-md-6 section-bottom-40">
+            <div class="offset-top-22 offset-md-top-40 col-md-6">
+                <h4 class="text-title-map"><i class="fa fa-map-marker" aria-hidden="true"></i> Наш адрес в Москве:
+                </h4>
 
-                    <div class="text-title-map"><i class="fa fa-map-marker" aria-hidden="true"></i> Наш адрес в Минске:
+                <div class="col-md-6">
+                    <div class="text-map"><b>Склад:</b> г. Москва, улица Старообрядческая, 46АС46,</br><b>Офис:</b>
+                        г. Москва, улица Старообрядческая, 46АС46,</br>
+                        <b>Время работы:</b></br>9.00 - 21.00,</br>Без выходных
                     </div>
-
-                    <div class="col-md-6">
-                        <div class="text-map">
-                            <b>Склад:</b> г. Минск, ул. Харьковская 90, этаж 2,</br><b>Офис:</b> г. Минск, ул.
-                            Харьковская
-                            90, этаж 2,
-                            кабинет 8</br>
-                            <b>Время работы:</b></br>9.00 - 21.00,</br>Без выходных
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="text-map"><b>Контакты для связи:</b></br>
-                            <a href="tel:+375298381288"><span>+375(29)838-12-88</span></a></br>
-                            <a href="tel:+375296121188"><span>+375(29)612-11-88</span></a></br>
-                            <a href="mailto:info@gobusgo.by"><span>info@gobusgo.by</span></a>
-                        </div>
-                    </div>
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d150474.39557313913!2d27.40249134812782!3d53.89331684651622!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46dbcfd35b1e6ad3%3A0xb61b853ddb570d9!2z0JzQuNC90YHQug!5e0!3m2!1sru!2sby!4v1523641166856"
-                            width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
                 </div>
                 <div class="col-md-6">
-                    <div class="text-title-map"><i class="fa fa-map-marker" aria-hidden="true"></i> Наш адрес в Москве:
+                    <div class="text-map"><b>Контакты для связи:</b></br>
+                        <a href="tel:+79032230250"><span>+7(903)223-02-50</span></a></br>
+                        <a href="mailto:info@gobusgo.ru"><span>info@gobusgo.ru</span></a>
                     </div>
-
-                    <div class="col-md-6">
-                        <div class="text-map"><b>Склад:</b> г. Москва, улица Старообрядческая, 46АС46,</br><b>Офис:</b>
-                            г. Москва, улица Старообрядческая, 46АС46,</br>
-                            <b>Время работы:</b></br>9.00 - 21.00,</br>Без выходных
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="text-map"><b>Контакты для связи:</b></br>
-                            <a href="tel:+79032230250"><span>+7(903)223-02-50</span></a></br>
-                            <a href="mailto:info@gobusgo.ru"><span>info@gobusgo.ru</span></a>
-                        </div>
-                    </div>
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d287423.6776157171!2d37.35231573882835!3d55.74985979694972!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46b54afc73d4b0c9%3A0x3d44d6cc5757cf4c!2z0JzQvtGB0LrQstCwLCDQoNC-0YHRgdC40Y8!5e0!3m2!1sru!2sby!4v1523641073490"
-                            width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
-
                 </div>
-            </div>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d245430.34775045599!2d37.55918317291384!3d55.714736262261916!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46b54ab60fce7399%3A0x5075ee50f21de53c!2z0YPQuy4g0KHRgtCw0YDQvtC-0LHRgNGP0LTRh9C10YHQutCw0Y8sIDQ2LCDQnNC-0YHQutCy0LAsINCg0L7RgdGB0LjRjywgMTA5MDUy!5e0!3m2!1sru!2sby!4v1540163409056" width="100%" height="350" frameborder="0" style="border:0" allowfullscreen></iframe>
 
+            </div>
+            <div class="offset-top-22 offset-md-top-40 col-md-6">
+
+                <h4 class="text-title-map"><i class="fa fa-map-marker" aria-hidden="true"></i> Наш адрес в Минске:
+                </h4>
+
+                <div class="col-md-6">
+                    <div class="text-map">
+                        <b>Склад:</b> г. Минск, ул. Харьковская 90, этаж 2,</br><b>Офис:</b> г. Минск, ул.
+                        Харьковская
+                        90, этаж 2,
+                        кабинет 8</br>
+                        <b>Время работы:</b></br>9.00 - 21.00,</br>Без выходных
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="text-map"><b>Контакты для связи:</b></br>
+                        <a href="tel:+375298381288"><span>+375(29)838-12-88</span></a></br>
+                        <a href="tel:+375296121188"><span>+375(29)612-11-88</span></a></br>
+                        <a href="mailto:info@gobusgo.by"><span>info@gobusgo.by</span></a>
+                    </div>
+                </div>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d104111.24204511433!2d27.464534885919846!3d53.897461316799394!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46dbdaaca271ed37%3A0x67d7afd2c4446992!2z0YPQuy4g0KXQsNGA0YzQutC-0LLRgdC60LDRjyA5MCwg0JzQuNC90YHQug!5e0!3m2!1sru!2sby!4v1540163503883" width="100%" height="350" frameborder="0" style="border:0" allowfullscreen></iframe>
+            </div>
         </div>
     </div>
 
-    <iframe src="https://yandex.by/map-widget/v1/-/CBBk7UT6~D" width="100%" height="400" frameborder="1"
-            allowfullscreen="true"></iframe>
+
 
     <script language="JavaScript">
         function sum() {
@@ -415,7 +418,7 @@
         }
 
     </script>
-
+    <div class="divider-home"></div>
     {% include 'GobusgoGobusgoBundle:Blog:blogLatest.html.twig' %}
 
 {% endblock %}

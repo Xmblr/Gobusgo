@@ -47,22 +47,22 @@
 
 @media (max-width: 768px) {
     .Phone {
-        width: 0.8em;
-        height: 0.8em;
-        right: 8vw;
-        bottom: 8vw;
+        width: 0.6em;
+        height: 0.6em;
+        right: 6vw;
+        bottom: 6vw;
     }
 
     .Phone::before {
-        width: 0.8em;
-        height: 0.8em;
+        width: 0.6em;
+        height: 0.6em;
     }
 
     .Phone::after {
-        top: 0.2em;
-        left: 0.2em;
-        width: 0.4em;
-        height: 0.4em;
+        top: 0.15em;
+        left: 0.15em;
+        width: 0.3em;
+        height: 0.3em;
     }
 }
 

@@ -13,17 +13,17 @@
         {#{% stylesheets '@bootstrap_css' %}#}
         {#<link rel="stylesheet" type="text/css" media="screen" href="{{ asset_url }}"/>#}
         {#{% endstylesheets %}#}
-        <link type="text/css" rel="stylesheet" href="{{ asset('css/bootstrap-1.css') }}">
-        <link type="text/css" rel="stylesheet" href="{{ asset('css/style.css') }}">
-        <link type="text/css" rel="stylesheet" href="{{ asset('css/style-1.css') }}">
+        <link type="text/css" rel="stylesheet" href="{{ asset('css/bootstrap-1.css') }}?v=1.0">
+        <link type="text/css" rel="stylesheet" href="{{ asset('css/style.css') }}?v=1.0">
+        <link type="text/css" rel="stylesheet" href="{{ asset('css/style-1.css') }}?v=1.0">
         <link type="text/css" rel="stylesheet" href="{{ asset('css/font-awesome/css/font-awesome.css') }}">
-        <link type="text/css" rel="stylesheet" href="{{ asset('css/header.css') }}">
-        <link type="text/css" rel="stylesheet" href="{{ asset('css/responsive.css') }}">
-        <link type="text/css" rel="stylesheet" href="{{ asset('css/swiper.min.css') }}">
-        <link type="text/css" rel="stylesheet" href="{{ asset('css/header-second.css') }}">
-        <link type="text/css" rel="stylesheet" href="{{ asset('css/popup.css') }}">
+        <link type="text/css" rel="stylesheet" href="{{ asset('css/header.css') }}?v=1.0">
+        <link type="text/css" rel="stylesheet" href="{{ asset('css/responsive.css') }}?v=1.0">
+        <link type="text/css" rel="stylesheet" href="{{ asset('css/swiper.min.css') }}?v=1.0">
+        <link type="text/css" rel="stylesheet" href="{{ asset('css/header-second.css') }}?v=1.0">
+        <link type="text/css" rel="stylesheet" href="{{ asset('css/popup.css') }}?v=1.0">
         <link type="text/css" rel="stylesheet" href="{{ asset('css/zero-5.css') }}">
-        <link type="text/css" rel="stylesheet" href="{{ asset('css/phone-call.css') }}">
+        <link type="text/css" rel="stylesheet" href="{{ asset('css/phone-call.css') }}?v=1.0">
         <link type="text/css" rel="stylesheet" href="{{ asset('css/hamburgers.css') }}">
     {% endblock %}
     <link rel="shortcut icon" href="{{ asset('images/logo-1.png') }}"/>
@@ -141,7 +141,7 @@
                                 </li>
                                 <li><a href="{{ path('gobusgo_gobusgo_about') }}">О нас</a></li>
                                 <li><a href="{{ path('gobusgo_gobusgo_deliveryMoscowMinsk') }}">Москва <i class="fa fa-long-arrow-right" aria-hidden="true"></i> Минск</a></li>
-                                <li><a href="{{ path('gobusgo_gobusgo_deliveryMoscowMinsk') }}">Минск <i class="fa fa-long-arrow-right" aria-hidden="true"></i> Москва</a></li>
+                                <li><a href="{{ path('gobusgo_gobusgo_deliveryMinskMoscow') }}">Минск <i class="fa fa-long-arrow-right" aria-hidden="true"></i> Москва</a></li>
                                 {#<li class="inline-block">#}
                                     {#<a href="{{ path('gobusgo_gobusgo_deliveryMinsk') }}">По Минску</a>#}
                                 {#</li>#}
@@ -156,23 +156,25 @@
 
                             </ul>
 
-                            <address class="contact-info"><a
-                                        href="tel:+375296121188"><span>+375(29)612-11-88</span></a>
+                            <address class="contact-info"><a class="text-contacts"
+                                                             href="tel:+375296121188"><span>+375(29)612-11-88</span></a>
                                 <a target="_blank" href="viber://add?number=375296121188">
                                     <img
                                             class="icons-phone" style="margin-left: 5px;"
                                             src="{{ asset('images/viber.png') }}"/>
                                 </a>
-                                <img class="icons-phone"
-                                     src="{{ asset('images/telegram.png') }}"/>
+                                <a href="tg://resolve?domain=Gobusgo2" target="_blank">
+                                    <img class="icons-phone"
+                                         src="{{ asset('images/telegram.png') }}"/>
+                                </a>
                                 <br>
-                                <a href="tel:+79032230250"><span>+7(903)223-02-50</span></a>
+                                <a class="text-contacts" style="margin-top: 5px;" href="tel:+79032230250"><span>+7(903)223-02-50</span></a>
                                 <a target="_blank" href="https://api.whatsapp.com/send?phone=79032230250"><img
                                             class="icons-phone" style="margin-left: 5px;"
                                             src="{{ asset('images/whatsup.png') }}"/></a>
-                                <img class="icons-phone"
-                                     src="{{ asset('images/telegram.png') }}"/>
-
+                                <a href="tg://resolve?domain=Gobusgo" target="_blank">
+                                    <img class="icons-phone"
+                                         src="{{ asset('images/telegram.png') }}"/></a>
                             </address>
                         </div>
                         <div class="rd-navbar-top-panel">
@@ -247,10 +249,6 @@
                         <a class="link-text-footer" href="{{ path('gobusgo_gobusgo_deliveryMoscowMinsk') }}">Минск
                             <i class="fa fa-long-arrow-right" aria-hidden="true"></i> Москва</a>
                     </li>
-                    <li class="link-footer">
-                        <a class="link-text-footer" href="{{ path('gobusgo_gobusgo_deliveryMinsk') }}">по Минску</a>
-                    </li>
-
                 </div>
                 <div class="col-md-3 footer-table">
                     <li class="title-footer-border">
@@ -303,7 +301,7 @@
             <div class="row">
 
                 <div class="col-md-6 col-sm-6 col-xs-6">
-                    <p class="footer-caption" style="float:left;">&copy;Gobusgo.by 2018</p>
+                    <p class="footer-caption" style="float:left;">&copy; Gobusgo.by 2018</p>
                 </div>
                 <div class="col-md-6 col-sm-6 col-xs-6">
                     <p class="footer-caption" style="float:right;">Разработка: <a
@@ -319,9 +317,9 @@
 {% endblock %}
 
 {% block javascripts %}
-    <script type="text/javascript" src="{{ asset('js/core.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('js/scripts.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('js/popper.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/core.min.js') }}?v=1.0"></script>
+    <script type="text/javascript" src="{{ asset('js/scripts.js') }}?v=1.0"></script>
+    <script type="text/javascript" src="{{ asset('js/popper.min.js') }}?v=1.0"></script>
     {#{% javascripts '@jquery' '@bootstrap_js' %}#}
     {#<script type="text/javascript" src="{{ asset_url }}"></script>#}
     {#{% endjavascripts %}#}

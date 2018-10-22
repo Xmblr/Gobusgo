@@ -1,10 +1,10 @@
 {% trans_default_domain 'FOSUserBundle' %}
-<div class="container">
+
     <div class="row text-center">
         <a href="{{ path('gobusgo_gobusgo_homepage') }}">
             <img src="{{ asset('images/logo-1.png') }}" class="m-b-20" alt="" width="120px;">
         </a>
-        <h1 style="margin-top: 20px;">Добро пожаловать</h1>
+        <h1>Добро пожаловать</h1>
         <p class="login-text">Уже зарегистрированы? <a style="color: #566fe0;"
                                                        href="{{ path('fos_user_security_login') }}">Авторизуйтесь!</a>
         </p>
@@ -101,4 +101,3 @@
             {{ form_end(form) }}
         </div>
     </div>
-</div>

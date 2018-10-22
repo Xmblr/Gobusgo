@@ -43,6 +43,7 @@ h1 {
 
 html.rd-navbar-fixed-linked .page {
     padding-top: 56px;
+    overflow: hidden;
 }
 
 .page .section-40 {
@@ -3760,7 +3761,7 @@ p + .button-log {
     -o-appearance: none;
     appearance: none;
     position: relative;
-    top: 13px;
+    top: 11px;
     margin-left: 10px;
     background: #ffe775;
     bottom: 0;
@@ -3982,7 +3983,7 @@ p + .button-log {
     font-family: MyWebFont;
     font-size: 22px;
     line-height: 24px;
-    color: #8598ff;
+    color: #566fe0;
     font-weight: 400;
 }
 
@@ -4631,7 +4632,6 @@ p + .button-log {
 
 .text-contacts {
     font-size: 18px;
-    display: inline-block;
     line-height: 1.3;
 }
 
@@ -4878,8 +4878,13 @@ p + .button-log {
 
 .exit-img {
     height: 30px;
-    float: right;
-    margin: 20px 30px 0px 0px;
+    margin: 20px 0px 0px 30px;
+}
+
+@media (max-width: 768px) {
+    .exit-img {
+        margin: 20px 0px 0px 15px;
+    }
 }
 
 .confirm {
@@ -5137,8 +5142,6 @@ address span {
     .blog-wrap {
         display: flex;
         flex-wrap: wrap;
-        float: left;
-        width: 100%;
     }
 }
 

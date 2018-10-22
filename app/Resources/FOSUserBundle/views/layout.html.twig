@@ -3,11 +3,12 @@
 
 {% block header %}
     <div class="container-fluid">
-        <div class="row" style="text-align: right;">
-            <a href="{{ path('gobusgo_gobusgo_homepage') }}"><i class="fa fa-home fa-2x home-img"
-                                                                aria-hidden="true"></i></a>
-    <a onclick="javascript:history.back(); return false;"> <img class="exit-img" src="{{ asset('/images/exit.png') }}">
-    </a>
+        <div class="row" style="text-align: left;">
+            <a href="{{ path('gobusgo_gobusgo_homepage') }}"><img class="exit-img"
+                                                                  src="{{ asset('/images/home.png') }}"></a>
+            <a onclick="javascript:history.back(); return false;"> <img class="exit-img"
+                                                                        src="{{ asset('/images/return.png') }}">
+            </a>
 
 
         </div>
@@ -17,37 +18,40 @@
 
 {% block body %}
 
-    <body>
+        <body>
+        <div class="page">
 
-
-
-    {#<div>#}
-            {#{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}#}
-                {#{{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} |#}
-                {#<a href="{{ path('fos_user_security_logout') }}">#}
-                    {#{{ 'layout.logout'|trans({}, 'FOSUserBundle') }}#}
-                {#</a>#}
-            {#{% else %}#}
-                {#<a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>#}
-            {#{% endif %}#}
+        {#<div>#}
+        {#{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}#}
+        {#{{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} |#}
+        {#<a href="{{ path('fos_user_security_logout') }}">#}
+        {#{{ 'layout.logout'|trans({}, 'FOSUserBundle') }}#}
+        {#</a>#}
+        {#{% else %}#}
+        {#<a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>#}
+        {#{% endif %}#}
         {#</div>#}
-    <div class="container-fluid">
-        <div class="row">
-        {% if app.request.hasPreviousSession %}
-            {% for type, messages in app.session.flashbag.all() %}
-                {% for message in messages %}
-                    <h4 class="flash-{{ type }}" style="text-align: center;">
-                        {{ message }}
-                    </h4>
-                {% endfor %}
-            {% endfor %}
-        {% endif %}
+        <div class="container">
+            <div class="row">
+                {% if app.request.hasPreviousSession %}
+                    {% for type, messages in app.session.flashbag.all() %}
+                        {% for message in messages %}
+                            <h4 class="flash-{{ type }}" style="text-align: center;">
+                                {{ message }}
+                            </h4>
+                        {% endfor %}
+                    {% endfor %}
+                {% endif %}
 
-        <div>
-            {% block fos_user_content %}
-            {% endblock fos_user_content %}
+                <div class="container">
+                    {% block fos_user_content %}
+                    {% endblock fos_user_content %}
+                </div>
+            </div>
         </div>
-    </body>
+        </div>
+        </body>
+
 {% endblock %}
 
 {% block footer %}

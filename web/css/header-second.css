@@ -93,18 +93,7 @@
 .header-menu {
     display: flex;
     justify-content: space-between;
-    padding: 4px 0px;
-}
-
-.header-menu li {
-    /*list-style-type: none;*/
-    /*padding: 0px 10px;*/
-    /*text-align: center;*/
-    /*height: 120px;*/
-    /*vertical-align:middle;*/
-    /*display:table-cell;*/
-    /*list-style-type: none;*/
-    /*text-align: center;*/
+    padding: 2px 0px;
 }
 
 .inline-block {
