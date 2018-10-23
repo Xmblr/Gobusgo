@@ -5,7 +5,7 @@
     <div class="container">
 
         <div class="col-md-12 offset-top-22 offset-md-top-40">
-            <h1 class="text-left">{{ blog.title }}</h1>
+            <h1 class="text-left" style="margin-bottom: 10px;">{{ blog.title }}</h1>
             <div style="margin-bottom: 10px;">
                 <span style="font-style: italic; color: #b1b1b1;"><i class="fa fa-clock-o" aria-hidden="true"
                                                                      style="color: #8598ff;"></i> {{ blog.created|date('d/m/Y') }}</span>
@@ -73,7 +73,6 @@
                 {{ render(controller('GobusgoGobusgoBundle:Page:sidebar' )) }}
             {% endblock %}
         </div>
-    </div>
     </div>
 
     {#{{ parent() }}#}

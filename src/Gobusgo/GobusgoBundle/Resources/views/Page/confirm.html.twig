@@ -3,30 +3,91 @@
 <html>
 <head>
     <meta charset="UTF-8"/>
+    {{ sonata_seo_title() }}
+    {{ sonata_seo_metadatas() }}
+    {% block stylesheets %}
 
-    <link type="text/css" rel="stylesheet" href="{{ asset('css/bootstrap-1.css') }}">
-    <link type="text/css" rel="stylesheet" href="{{ asset('css/style.css') }}">
-    <link type="text/css" rel="stylesheet" href="{{ asset('css/style-1.css') }}">
-    <link type="text/css" rel="stylesheet" href="{{ asset('css/font-awesome/css/font-awesome.css') }}">
-    <link type="text/css" rel="stylesheet" href="{{ asset('css/header.css') }}">
-    <link type="text/css" rel="stylesheet" href="{{ asset('css/responsive.css') }}">
-    <link type="text/css" rel="stylesheet" href="{{ asset('css/swiper.min.css') }}">
-    <link type="text/css" rel="stylesheet" href="{{ asset('css/header-second.css') }}">
-    <link type="text/css" rel="stylesheet" href="{{ asset('css/popup.css') }}">
-    <link type="text/css" rel="stylesheet" href="{{ asset('css/zero-5.css') }}">
-    <link type="text/css" rel="stylesheet" href="{{ asset('css/phone-call.css') }}">
-    <link type="text/css" rel="stylesheet" href="{{ asset('css/hamburgers.css') }}">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="yandex-verification" content="8f5ba78bb738e89b"/>
+        <meta name="google-site-verification" content="zmWm9HOSWqJPWxkda8Uk2eKiB0cwAAFK1KhqaFYu6N4"/>
+
+        {#{% stylesheets '@bootstrap_css' %}#}
+        {#<link rel="stylesheet" type="text/css" media="screen" href="{{ asset_url }}"/>#}
+        {#{% endstylesheets %}#}
+        <link type="text/css" rel="stylesheet" href="{{ asset('css/bootstrap-1.css') }}?v=1.1">
+        <link type="text/css" rel="stylesheet" href="{{ asset('css/style.css') }}?v=1.1">
+        <link type="text/css" rel="stylesheet" href="{{ asset('css/style-1.css') }}?v=1.1">
+        <link type="text/css" rel="stylesheet" href="{{ asset('css/font-awesome/css/font-awesome.css') }}">
+        <link type="text/css" rel="stylesheet" href="{{ asset('css/header.css') }}?v=1.1">
+        <link type="text/css" rel="stylesheet" href="{{ asset('css/responsive.css') }}?v=1.1">
+        <link type="text/css" rel="stylesheet" href="{{ asset('css/swiper.min.css') }}?v=1.0">
+        <link type="text/css" rel="stylesheet" href="{{ asset('css/header-second.css') }}?v=1.1">
+        <link type="text/css" rel="stylesheet" href="{{ asset('css/popup.css') }}?v=1.0">
+        <link type="text/css" rel="stylesheet" href="{{ asset('css/zero-5.css') }}">
+        <link type="text/css" rel="stylesheet" href="{{ asset('css/phone-call.css') }}?v=1.0">
+        <link type="text/css" rel="stylesheet" href="{{ asset('css/hamburgers.css') }}">
+    {% endblock %}
+    <link rel="shortcut icon" href="{{ asset('images/logo-1.png') }}"/>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-125138958-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-125138958-1');
+    </script>
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript" >
+        (function (d, w, c) {
+            (w[c] = w[c] || []).push(function() {
+                try {
+                    w.yaCounter50215792 = new Ya.Metrika2({
+                        id:50215792,
+                        clickmap:true,
+                        trackLinks:true,
+                        accurateTrackBounce:true,
+                        webvisor:true
+                    });
+                } catch(e) { }
+            });
+
+            var n = d.getElementsByTagName("script")[0],
+                s = d.createElement("script"),
+                f = function () { n.parentNode.insertBefore(s, n); };
+            s.type = "text/javascript";
+            s.async = true;
+            s.src = "https://mc.yandex.ru/metrika/tag.js";
+
+            if (w.opera == "[object Opera]") {
+                d.addEventListener("DOMContentLoaded", f, false);
+            } else { f(); }
+        })(document, window, "yandex_metrika_callbacks2");
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/50215792" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
 </head>
 <body>
 
 {% block body %}
     {#<h1>{{ seoH1 }}</h1>#}
+    <div class="container-fluid">
+        <div class="row" style="text-align: left;">
+            <a href="{{ path('gobusgo_gobusgo_homepage') }}"><img class="exit-img"
+                                                                  src="{{ asset('/images/home.png') }}"></a>
+            <a onclick="javascript:history.back(); return false;"> <img class="exit-img"
+                                                                        src="{{ asset('/images/return.png') }}">
+            </a>
+
+
+        </div>
+    </div>
 
         <div class="container-fluid" style="margin-top: 3%;">
             <div class="row" style="padding-bottom: 3%;">
             {% for type, messages in app.session.flashBag.all %}
                 {% for message in messages %}
-                    <span class="{{ type }}">
+                    <div class="{{ type }} col-md-12- col-xs-12">
                         {% if message.organization is defined %}
                             <div id="legal_build" class="col-md-push-2 col-md-8 check">
                                 <div class="check-border col-md-12">
@@ -525,15 +586,15 @@
 
                             </script>
                         {% endif %}
+                    </div>
 
-
-                    </span>
+                    </div>
                 {% endfor %}
             {% endfor %}
 
 
         </div>
-    </div>
+
 
 {% endblock %}
 

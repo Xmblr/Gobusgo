@@ -3085,7 +3085,6 @@ a:hover {
     background-color: #e5e5e5;
     width: 50%;
     margin-left: 25%;
-    margin-top: 2%;
 }
 
 p {
@@ -3161,7 +3160,7 @@ p {
 
 footer {
     border-top: 4px solid #ffe775;
-    padding: 50px 0px 0px 5px;
+    padding: 50px 0px 20px 5px;
 }
 
 .big-letter {
@@ -4815,7 +4814,7 @@ p + .button-log {
 
 @media (max-width: 1250px) {
     .margin-home {
-        margin-top: 40px;
+
     }
 }
 
@@ -4835,7 +4834,7 @@ p + .button-log {
 /* Footer */
 
 .logo-footer {
-    width: 150px;
+    width: 120px;
 }
 
 .logo-top {
@@ -5030,6 +5029,8 @@ p + .button-log {
 
 address span {
     font-size: 18px;
+    line-height: 25px;
+    vertical-align: middle;
 }
 
 .divider-top {
@@ -5104,10 +5105,6 @@ address span {
         font-size: 22px;
     }
 
-    address span, .big-letter, .button-log {
-        font-size: 1.1vw;
-    }
-
     #car {
         margin-left: 449px;
     }
@@ -5157,3 +5154,10 @@ address span {
     padding-bottom: 60px;
 }
 
+.bg-gradient-denim {
+    background: #F9F9F9;
+}
+
+.sonata-ba-content h4 {
+    margin-bottom: 20px;
+}

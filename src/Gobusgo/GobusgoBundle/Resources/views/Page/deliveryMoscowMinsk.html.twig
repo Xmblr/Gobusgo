@@ -4,7 +4,9 @@
     <div class="container offset-top-22 offset-md-top-40">
         <div class="row">
             <h1>{{ seo.h1|raw }}</h1>
+            <div class="col-md-push-1 col-md-10">
             {% if seo.intro is not empty %} {{ seo.intro|raw }} {% endif %}
+            </div>
         </div>
     </div>
     <div class="container" id="raschet">
@@ -12,7 +14,7 @@
             <div class="col-md-12">
                 <h2>Расчет стоимости грузоперевозки:</h2>
             </div>
-            <div class="offset-top-22 offset-md-top-40 section-bottom-60 range col-md-12">
+            <div class="offset-top-22 offset-md-top-40 section-bottom-60 range col-md-12 col-xs-12">
                 <img class="road-laptop" src="{{ asset('images/road2.png') }}" style="width: 100%; height: 100%;">
                 <div class="col-md-3 col-sm-3 col-xs-3 road-tablet">
                     <div style="height: 123px;">
@@ -93,7 +95,7 @@
 
             <div style="display: block;" id="individual_form">
                 {{ form_start(individualCallform) }}
-                <h4 style="margin-bottom: 30px; text-align: center;">Заявка для физического лица</h4>
+                <h4 style="margin: 10px 20px 20px 20px; text-align: center;">Заявка для физического лица</h4>
 
                 <div class="Input">
                     {{ form_errors(individualCallform.weight) }}
@@ -134,7 +136,7 @@
             <div style="display: none;" id="legal_form">
 
                 {{ form_start(legalCallform) }}
-                <h4 style="margin-bottom: 30px; text-align: center;">Заявка для юридического лица</h4>
+                <h4 style="margin: 10px 20px 20px 20px; text-align: center;">Заявка для юридического лица</h4>
                 <div class="row">
                     <div class="col-md-6">
                         <div class="Input">
@@ -147,7 +149,7 @@
                         </div>
                         <div class="Input">
                             {{ form_errors(legalCallform.organization) }}
-                            {{ form_widget(legalCallform.organization, {'attr':{'class':'input-log', 'position': 'absolute','placeholder':'Название организации?'}}) }}
+                            {{ form_widget(legalCallform.organization, {'attr':{'class':'input-log', 'position': 'absolute','placeholder':'Название организации'}}) }}
                         </div>
                         <div class="Input">
                             {{ form_errors(legalCallform.fullName) }}
@@ -234,7 +236,7 @@
                     </div>
                 </div>
             </div>
-            <div class="section-top-40 section-bottom-40 section-sm-bottom-40">
+            <div class="section-top-40">
                 <div class="shell-wide shell-mod-1">
                     <div class="range">
                         <!-- Slick Carousel-->
@@ -245,38 +247,68 @@
                              data-sm-center-mode="false" data-center-padding="30px" data-sm-center-padding="0.5">
                             <div class="item height-fill">
                                 <div class="product"><img
-                                            src="{{ asset('images/product-1.png') }}" alt=""/>
-                                </div>
-                            </div>
-                            <div class="item height-fill">
-                                <div class="product"><img
                                             src="{{ asset('images/product-2.png') }}" alt=""/>
-                                </div>
-                            </div>
-                            <div class="item height-fill">
-                                <div class="product"><img
-                                            src="{{ asset('images/product-3.png') }}" alt=""/>
-                                </div>
-                            </div>
-                            <div class="item height-fill">
-                                <div class="product"><img
-                                            src="{{ asset('images/product-4.png') }}" alt=""/>
-
-                                </div>
-                            </div>
-                            <div class="item height-fill">
-                                <div class="product"><img
-                                            src="{{ asset('images/product-5.png') }}" alt=""/>
+                                    <div class="product-caption">
+                                        <div class="divider divider-sm divider-primary"></div>
+                                        <div class="product-title">
+                                            <h3 style="font-size: 18px;">Посылки</h3>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="item height-fill">
                                 <div class="product"><img
                                             src="{{ asset('images/product-6.png') }}" alt=""/>
+                                    <div class="product-caption">
+                                        <div class="divider divider-sm divider-primary"></div>
+                                        <div class="product-title">
+                                            <h3 style="font-size: 18px;">Мебель</h3>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="item height-fill">
                                 <div class="product"><img
                                             src="{{ asset('images/product-7.png') }}" alt=""/>
+                                    <div class="product-caption">
+                                        <div class="divider divider-sm divider-primary"></div>
+                                        <div class="product-title">
+                                            <h3 style="font-size: 18px;">Различные товары</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item height-fill">
+                                <div class="product"><img
+                                            src="{{ asset('images/product-8.png') }}" alt=""/>
+                                    <div class="product-caption">
+                                        <div class="divider divider-sm divider-primary"></div>
+                                        <div class="product-title">
+                                            <h3 style="font-size: 18px;">Корреспонденция</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item height-fill">
+                                <div class="product"><img
+                                            src="{{ asset('images/product-9.png') }}" alt=""/>
+                                    <div class="product-caption">
+                                        <div class="divider divider-sm divider-primary"></div>
+                                        <div class="product-title">
+                                            <h3 style="font-size: 18px;">Мелкие пакеты</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item height-fill">
+                                <div class="product"><img
+                                            src="{{ asset('images/product-10.png') }}" alt=""/>
+                                    <div class="product-caption">
+                                        <div class="divider divider-sm divider-primary"></div>
+                                        <div class="product-title">
+                                            <h3 style="font-size: 18px;">Документы</h3>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -286,8 +318,8 @@
         </div>
 
     </section>
-    <div class="divider-home"></div>
 
+    <section class="section-40">
     <div class="container">
         <div class="row">
             <div class="col-md-10 col-md-push-1">
@@ -295,6 +327,7 @@
             </div>
         </div>
     </div>
+    </section>
     <div class="container-fluid section-60" style="background-color: #8598ff;">
         <div class="row">
             <div class="col-md-8 col-md-push-2 text-center">

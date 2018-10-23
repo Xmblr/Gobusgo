@@ -1,7 +1,8 @@
 {% extends '@GobusgoGobusgo/layout.html.twig' %}
 
 {% block breadcrumb %}
-    <div class="col-md-12" style="background-color: #f5f5f5;">
+    <div class="container-fluid" style="background-color: #f5f5f5;">
+<div class="row">
         <ol class="breadcrumb rd-navbar-inner-header" style="margin-bottom: 0px;">
             <li typeof="v:Breadcrumb">
                 <a href="{{ path('gobusgo_gobusgo_homepage') }}" rel="v:url" property="v:title">Главная</a>
@@ -24,6 +25,7 @@
                 <li class="active">{{ blog.h1 }}</li>
             {% endif %}
         </ol>
+    </div>
     </div>
 {% endblock %}
 

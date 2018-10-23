@@ -31,6 +31,7 @@
         {#<a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>#}
         {#{% endif %}#}
         {#</div>#}
+            <section class="section-40">
         <div class="container">
             <div class="row">
                 {% if app.request.hasPreviousSession %}
@@ -43,12 +44,13 @@
                     {% endfor %}
                 {% endif %}
 
-                <div class="container">
+                <div class="col-md-12">
                     {% block fos_user_content %}
                     {% endblock fos_user_content %}
                 </div>
             </div>
         </div>
+            </section>
         </div>
         </body>
 

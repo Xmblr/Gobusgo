@@ -2172,14 +2172,6 @@
     color: #313132;
 }
 
-.rd-navbar-fixed .rd-navbar-aside-content a:hover {
-    color: #42a4ff;
-}
-
-.rd-navbar-fixed .rd-navbar-aside-content .icon-white {
-    color: #084884;
-}
-
 @media (min-width: 768px) {
     .rd-navbar-fixed .rd-navbar-aside-content {
         padding: 20px 15px 40px;
@@ -2973,7 +2965,7 @@ ol ol {
     text-align: center;
     box-shadow: rgba(19, 108, 191, 0.31) 0px 2px 10px 0px;
     position: fixed;
-    right: 15px;
+    left: 15px;
     bottom: 15px;
     z-index: 20;
     transform: translateY(100px);
@@ -3353,9 +3345,6 @@ html.tablet .ui-to-top {
         height: 40px;
         font-size: 30px;
     }
-    address span {
-        font-size: 15px;
-    }
 }
 
 .unit-body {
@@ -3458,6 +3447,12 @@ html.tablet .ui-to-top {
     margin-right: auto;
     padding-left: 15px;
     padding-right: 15px;
+}
+
+@media (min-width: 1800px) {
+    .rd-navbar-inner-header {
+        max-width: 1470px;
+    }
 }
 
 .logo-stuck {

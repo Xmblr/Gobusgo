@@ -13,20 +13,58 @@
         {#{% stylesheets '@bootstrap_css' %}#}
         {#<link rel="stylesheet" type="text/css" media="screen" href="{{ asset_url }}"/>#}
         {#{% endstylesheets %}#}
-        <link type="text/css" rel="stylesheet" href="{{ asset('css/bootstrap-1.css') }}?v=1.0">
-        <link type="text/css" rel="stylesheet" href="{{ asset('css/style.css') }}?v=1.0">
-        <link type="text/css" rel="stylesheet" href="{{ asset('css/style-1.css') }}?v=1.0">
+        <link type="text/css" rel="stylesheet" href="{{ asset('css/bootstrap-1.css') }}?v=1.1">
+        <link type="text/css" rel="stylesheet" href="{{ asset('css/style.css') }}?v=1.1">
+        <link type="text/css" rel="stylesheet" href="{{ asset('css/style-1.css') }}?v=1.2">
         <link type="text/css" rel="stylesheet" href="{{ asset('css/font-awesome/css/font-awesome.css') }}">
-        <link type="text/css" rel="stylesheet" href="{{ asset('css/header.css') }}?v=1.0">
-        <link type="text/css" rel="stylesheet" href="{{ asset('css/responsive.css') }}?v=1.0">
+        <link type="text/css" rel="stylesheet" href="{{ asset('css/header.css') }}?v=1.1">
+        <link type="text/css" rel="stylesheet" href="{{ asset('css/responsive.css') }}?v=1.1">
         <link type="text/css" rel="stylesheet" href="{{ asset('css/swiper.min.css') }}?v=1.0">
-        <link type="text/css" rel="stylesheet" href="{{ asset('css/header-second.css') }}?v=1.0">
+        <link type="text/css" rel="stylesheet" href="{{ asset('css/header-second.css') }}?v=1.1">
         <link type="text/css" rel="stylesheet" href="{{ asset('css/popup.css') }}?v=1.0">
         <link type="text/css" rel="stylesheet" href="{{ asset('css/zero-5.css') }}">
         <link type="text/css" rel="stylesheet" href="{{ asset('css/phone-call.css') }}?v=1.0">
         <link type="text/css" rel="stylesheet" href="{{ asset('css/hamburgers.css') }}">
     {% endblock %}
     <link rel="shortcut icon" href="{{ asset('images/logo-1.png') }}"/>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-125138958-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-125138958-1');
+    </script>
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript" >
+        (function (d, w, c) {
+            (w[c] = w[c] || []).push(function() {
+                try {
+                    w.yaCounter50215792 = new Ya.Metrika2({
+                        id:50215792,
+                        clickmap:true,
+                        trackLinks:true,
+                        accurateTrackBounce:true,
+                        webvisor:true
+                    });
+                } catch(e) { }
+            });
+
+            var n = d.getElementsByTagName("script")[0],
+                s = d.createElement("script"),
+                f = function () { n.parentNode.insertBefore(s, n); };
+            s.type = "text/javascript";
+            s.async = true;
+            s.src = "https://mc.yandex.ru/metrika/tag.js";
+
+            if (w.opera == "[object Opera]") {
+                d.addEventListener("DOMContentLoaded", f, false);
+            } else { f(); }
+        })(document, window, "yandex_metrika_callbacks2");
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/50215792" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
 </head>
 <body>
 
@@ -185,7 +223,7 @@
                                 </div>
                             </div>
                             <div class="col-md-5 hide-xs-up" style="padding-right: 0px; padding-left: 0px; text-align: center;">
-                                <h4 style="font-size: 1vw; margin: 10px 0px;">Добро пожаловать на сайт грузоперевозок - GoBusGo.by</h4>
+                                <h4 style="margin: 10px 0px; font-size: 15px; line-height: 35px;">Добро пожаловать на сайт грузоперевозок - GoBusGo.by</h4>
                             </div>
                             <div class="col-md-4" style="padding-right: 0px;">
                                 <div class="top-bar">
@@ -297,7 +335,7 @@
 
             </div>
         </div>
-        <div class="container">
+        <div class="container offset-top-22">
             <div class="row">
 
                 <div class="col-md-6 col-sm-6 col-xs-6">

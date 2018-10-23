@@ -51,13 +51,15 @@
                             <li class="start-li">
                                 {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
                                     <a style="margin-left: 15px;" class="btn-2"
-                                       href="{{ path('sonata_admin_dashboard') }}"> {{ app.user.organization|slice(0,10) }} {% if app.user.organization|length > 10 %}...{% endif %}</a><a
+                                       href="{{ path('sonata_admin_dashboard') }}"> {{ app.user.organization|slice(0,10) }} {% if app.user.organization|length > 10 %}...{% endif %}</a>
+                                    <a
                                             class="btn-3" href="{{ path('fos_user_security_logout') }}">
                                         {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
                                     </a>
                                 {% else %}
                                     <a class="btn-2"
-                                       href="{{ path('fos_user_registration_register') }}">{{ 'layout.register'|trans({}, 'FOSUserBundle') }}</a><a class="btn-3"
+                                       href="{{ path('fos_user_registration_register') }}">{{ 'layout.register'|trans({}, 'FOSUserBundle') }}</a>
+                                    <a class="btn-3"
                                        href="{{ path('sonata_admin_dashboard') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
                                 {% endif %}
 
@@ -118,7 +120,8 @@
                                                                 href="tel:+375298381288"><span>+375(29)838-12-88</span></a>
                                                         <br>
                                                         <a href="tel:+79032230250"><span>+7(903)223-02-50</span></a>
-                                                        <a target="_blank" href="https://api.whatsapp.com/send?phone=79032230250"><img
+                                                        <a target="_blank"
+                                                           href="https://api.whatsapp.com/send?phone=79032230250"><img
                                                                     class="icons-phone" style="margin-left: 5px;"
                                                                     src="{{ asset('images/whatsup.png') }}"/></a>
                                                         <a href="tg://resolve?domain=Gobusgo" target="_blank">
@@ -145,8 +148,9 @@
                                         </li>
                                     </ul>
                                 </div>
-                                <p class="big-letter"><a style="color: #8598ff;" href="mailto:info@gobusgo.by"><img src="{{ asset('images/letter.png') }}" width="30px;"
-                                                                                                                    style="margin-right: 10px;"/>info@gobusgo.by</a></p>
+                                <p class="big-letter"><a style="color: #8598ff;" href="mailto:info@gobusgo.by"><img
+                                                src="{{ asset('images/letter.png') }}" width="30px;"
+                                                style="margin-right: 10px;"/>info@gobusgo.by</a></p>
                                 <div class="callback-header">
                                     <a class="button-log" href="#win3" style="margin-left: 10px;"><i class="fa fa-phone"
                                                                                                      aria-hidden="true"></i>
@@ -169,7 +173,7 @@
 
             </div>
         </div>
-        <div class="section page-header hide-sm-up">
+        <div class="section hide-sm-up">
             <!-- RD Navbar-->
             <div class="rd-navbar-wrap" style="height: 260px;">
                 <nav class="rd-navbar rd-navbar-corporate rd-navbar-dark rd-navbar-original rd-navbar-static"
@@ -233,7 +237,8 @@
                                                                     href="tel:+375298381288"><span>+375(29)838-12-88</span></a>
                                                             <br>
                                                             <a href="tel:+79032230250"><span>+7(903)223-02-50</span></a>
-                                                            <a target="_blank" href="https://api.whatsapp.com/send?phone=79032230250"><img
+                                                            <a target="_blank"
+                                                               href="https://api.whatsapp.com/send?phone=79032230250"><img
                                                                         class="icons-phone" style="margin-left: 5px;"
                                                                         src="{{ asset('images/whatsup.png') }}"/></a>
                                                             <a href="tg://resolve?domain=Gobusgo" target="_blank">
@@ -330,13 +335,15 @@
                                         <div class="top-bar">
                                             {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
                                                 <a style="margin-left: 15px;" class="btn-2"
-                                                   href="{{ path('sonata_admin_dashboard') }}"> {{ app.user.organization|slice(0,10) }} {% if app.user.organization|length > 10 %}...{% endif %} </a><a
+                                                   href="{{ path('sonata_admin_dashboard') }}"> {{ app.user.organization|slice(0,10) }} {% if app.user.organization|length > 10 %}...{% endif %} </a>
+                                                <a
                                                         class="btn-3" href="{{ path('fos_user_security_logout') }}">
                                                     {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
                                                 </a>
                                             {% else %}
                                                 <a class="btn-2"
-                                                   href="{{ path('fos_user_registration_register') }}">{{ 'layout.register'|trans({}, 'FOSUserBundle') }}</a><a class="btn-3"
+                                                   href="{{ path('fos_user_registration_register') }}">{{ 'layout.register'|trans({}, 'FOSUserBundle') }}</a>
+                                                <a class="btn-3"
                                                    href="{{ path('sonata_admin_dashboard') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
 
                                             {% endif %}
@@ -353,17 +360,19 @@
         </div>
         <div class="container p-0">
             <div class="row">
-                <h1 class="margin-home">Куда везем груз?</h1>
-                <div class="col-md-5 col-md-push-1 m-b-20">
-                    <div class="background-round">
-                        <h3 class="reload" OnClick="a('{{ path('gobusgo_gobusgo_deliveryMoscowMinsk') }}');">
-                            Москва</br>Минск</h3>
+                <h1 class="offset-top-22">Куда везем груз?</h1>
+                <div class="col-md-12 offset-top-22 offset-md-top-40">
+                    <div class="col-md-5 col-md-push-1 m-b-20">
+                        <div class="background-round">
+                            <h3 class="reload" OnClick="a('{{ path('gobusgo_gobusgo_deliveryMoscowMinsk') }}');">
+                                Москва</br>Минск</h3>
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-5 col-md-push-1 m-b-20">
-                    <div class="background-round">
-                        <h3 class="align-home" OnClick="a('{{ path('gobusgo_gobusgo_deliveryMinskMoscow') }}');">
-                            Минск</br>Москва</h3>
+                    <div class="col-md-5 col-md-push-1 m-b-20">
+                        <div class="background-round">
+                            <h3 class="align-home" OnClick="a('{{ path('gobusgo_gobusgo_deliveryMinskMoscow') }}');">
+                                Минск</br>Москва</h3>
+                        </div>
                     </div>
                 </div>
                 {#<div class="col-md-4 m-b-20">#}
@@ -454,150 +463,165 @@
 
     {% block body %}
     <div class="divider-home display-none-mobile"></div>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <h2>Почему выбирают именно нас?</h2>
-            </div>
+    <section class="section-40">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2>Почему выбирают именно нас?</h2>
+                </div>
 
-            <div class="offset-top-22 offset-md-top-40 section-bottom-60 col-md-12">
-                <div class="col-md-3 m-b-20">
-                    <div class="advantage-icons">
-                        <img src="{{ asset('images/advantage-1.png') }}" style="width:230px;">
+                <div class="offset-top-22 offset-md-top-40 col-md-12">
+                    <div class="col-md-3 m-b-20">
+                        <div class="advantage-icons">
+                            <img src="{{ asset('images/advantage-1.png') }}" style="width:230px;">
+                        </div>
+                        <div class="advantage-title" style="margin: 10px;">Доставка любых грузов до 2-х тонн</div>
                     </div>
-                    <div class="advantage-title" style="margin: 10px;">Доставка любых грузов до 2-х тонн</div>
-                </div>
-                <div class="col-md-3 m-b-20">
-                    <div class="advantage-icons">
-                        <img src="{{ asset('images/advantage-2.png') }}" style="width:230px;">
+                    <div class="col-md-3 m-b-20">
+                        <div class="advantage-icons">
+                            <img src="{{ asset('images/advantage-2.png') }}" style="width:230px;">
+                        </div>
+                        <div class="advantage-title" style="margin: 10px;">Доставка от письма до крупногабаритного груза
+                        </div>
                     </div>
-                    <div class="advantage-title" style="margin: 10px;">Доставка от письма до крупногабаритного груза
+                    <div class="col-md-3 m-b-20">
+                        <div class="advantage-icons">
+                            <img src="{{ asset('images/advantage-3.png') }}" style="width:230px;">
+                        </div>
+                        <div class="advantage-title" style="margin: 10px;">Доставка в течении суток</div>
                     </div>
-                </div>
-                <div class="col-md-3 m-b-20">
-                    <div class="advantage-icons">
-                        <img src="{{ asset('images/advantage-3.png') }}" style="width:230px;">
+                    <div class="col-md-3" style="margin-bottom:20px;">
+                        <div class="advantage-icons">
+                            <img src="{{ asset('images/advantage-4.png') }}" style="width:230px;">
+                        </div>
+                        <div class="advantage-title" style="margin: 10px;">Каждая 7-ая доставка бесплатно *</div>
                     </div>
-                    <div class="advantage-title" style="margin: 10px;">Доставка в течении суток</div>
-                </div>
-                <div class="col-md-3" style="margin-bottom:20px;">
-                    <div class="advantage-icons">
-                        <img src="{{ asset('images/advantage-4.png') }}" style="width:230px;">
-                    </div>
-                    <div class="advantage-title" style="margin: 10px;">Каждая 7-ая доставка бесплатно *</div>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 
     <div class="divider-home"></div>
-
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <h1>{{ seo.h1|raw }}</h1>
-            </div>
-            <div class="offset-top-22 offset-md-top-40 col-md-12">
-                {% if seo.intro is not empty %} {{ seo.intro|raw }} {% endif %}
-            </div>
-        </div>
-    </div>
-    <div class="divider-home"></div>
-
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <h2>Наш автопарк</h2>
-            </div>
-            <div class="offset-top-22 offset-md-top-40 range col-md-10 col-md-push-1 mobile-slide"
-                 style="border: 1px solid #ffe775; ">
-
-                <!-- Slider main container -->
-                <div class="swiper-container">
-                    <!-- Additional required wrapper -->
-                    <div class="swiper-wrapper">
-                        <!-- Slides -->
-                        <div class="swiper-slide">
-                            <div class="col-md-6" style="display: table; margin: 0 auto;">
-                                <div style="display: table-cell; vertical-align: middle; text-align: center; height: 280px; width: 60%;">
-                                    <img src="{{ asset('images/fiatdukato.png') }}" style="width: 60%;">
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-
-                                <div class="auto-title">Fiat Ducato</div>
-                                <p class="text-center text-auto">
-                                    Предназначены для грузоперевозок</br>
-                                    малого объема и веса</br>
-                                    (продуктов, мебели, оборудования, оргтехники</br>
-                                    и товаров народного потребления)</br>
-                                    Грузовая нагрузка: 1-3,5 тонн.</br>
-                                    Оббьем: 4-17 метров куб.</p>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="col-md-6" style="display: table; margin: 0 auto;">
-                                <div style="display: table-cell; vertical-align: middle; text-align: center; height: 280px; width: 60%;">
-                                    <img src="{{ asset('images/fiatdukato.png') }}" style="width: 60%;">
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-
-                                <div class="auto-title">Volkswagen</div>
-                                <p class="text-center text-auto">
-                                    Предназначены для грузоперевозок</br>
-                                    малого объема и веса</br>
-                                    (продуктов, мебели, оборудования, оргтехники</br>
-                                    и товаров народного потребления)</br>
-                                    Грузовая нагрузка: 1-3,5 тонн.</br>
-                                    Оббьем: 4-17 метров куб.</p>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="col-md-6" style="display: table; margin: 0 auto;">
-                                <div style="display: table-cell; vertical-align: middle; text-align: center; height: 280px; width: 60%;">
-                                    <img src="{{ asset('images/fiatdukato.png') }}" style="width: 60%;">
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-
-                                <div class="auto-title">Renault</div>
-                                <p class="text-center text-auto">
-                                    Предназначены для грузоперевозок</br>
-                                    малого объема и веса</br>
-                                    (продуктов, мебели, оборудования, оргтехники</br>
-                                    и товаров народного потребления)</br>
-                                    Грузовая нагрузка: 1-3,5 тонн.</br>
-                                    Оббьем: 4-17 метров куб.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- If we need pagination -->
-                    <!-- If we need navigation buttons -->
-                    <div class="swiper-button-prev"></div>
-                    <div class="swiper-button-next"></div>
-
-
+    <section class="section-40">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>{{ seo.h1|raw }}</h1>
+                </div>
+                <div class="offset-top-22 offset-md-top-40 col-md-12">
+                    {% if seo.intro is not empty %} {{ seo.intro|raw }} {% endif %}
                 </div>
             </div>
-            <!-- Swiper JS -->
-            <script type="text/javascript" src="{{ asset('js/swiper.min.js') }}"></script>
-            <!-- Initialize Swiper -->
-            <script>
-                var swiper = new Swiper('.swiper-container', {
-                    navigation: {
-                        nextEl: '.swiper-button-next',
-                        prevEl: '.swiper-button-prev',
-                    },
-                });
-            </script>
-
         </div>
-    </div>
+    </section>
+    <div class="container-fluid section-80" style="background-color: #8598ff;">
+        <div class="row">
+            <div class="col-md-8 col-md-push-2 text-center">
 
+                <h2 style="color: white; margin-top: 0px;">Каждая 7-ая доставка бесплатно!</h2>
+                <p style="color: white; text-align: center; font-size: 20px;">Каждая 7-ая передача до 100кг от склада до
+                    склада совершенно бесплатно!</p>
+
+            </div>
+        </div>
+
+    </div>
+    <section class="section-60">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2>Наш автопарк</h2>
+                </div>
+                <div class="offset-top-22 offset-md-top-40 range col-md-10 col-md-push-1 mobile-slide"
+                     style="border: 1px solid #ffe775; ">
+
+                    <!-- Slider main container -->
+                    <div class="swiper-container">
+                        <!-- Additional required wrapper -->
+                        <div class="swiper-wrapper">
+                            <!-- Slides -->
+                            <div class="swiper-slide">
+                                <div class="col-md-6" style="display: table; margin: 0 auto;">
+                                    <div style="display: table-cell; vertical-align: middle; text-align: center; height: 280px; width: 60%;">
+                                        <img src="{{ asset('images/fiatdukato.png') }}" style="width: 60%;">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+
+                                    <div class="auto-title">Fiat Ducato</div>
+                                    <p class="text-center text-auto">
+                                        Предназначены для грузоперевозок</br>
+                                        малого объема и веса</br>
+                                        (продуктов, мебели, оборудования, оргтехники</br>
+                                        и товаров народного потребления)</br>
+                                        Грузовая нагрузка: до 3,5 тонн.</br>
+                                        Объем: до 17 метров куб.</p>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="col-md-6" style="display: table; margin: 0 auto;">
+                                    <div style="display: table-cell; vertical-align: middle; text-align: center; height: 280px; width: 60%;">
+                                        <img src="{{ asset('images/vwcrafter.png') }}" style="width: 60%;">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+
+                                    <div class="auto-title">Volkswagen Crafter</div>
+                                    <p class="text-center text-auto">
+                                        Предназначены для грузоперевозок</br>
+                                        малого объема и веса</br>
+                                        (продуктов, мебели, оборудования, оргтехники</br>
+                                        и товаров народного потребления)</br>
+                                        Грузовая нагрузка: до 2 тонн.</br>
+                                        Оббьем: до 14 метров куб.</p>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="col-md-6" style="display: table; margin: 0 auto;">
+                                    <div style="display: table-cell; vertical-align: middle; text-align: center; height: 280px; width: 60%;">
+                                        <img src="{{ asset('images/m-sprinter.png') }}" style="width: 60%;">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+
+                                    <div class="auto-title">Mercedes Sprinter</div>
+                                    <p class="text-center text-auto">
+                                        Предназначены для грузоперевозок</br>
+                                        малого объема и веса</br>
+                                        (продуктов, мебели, оборудования, оргтехники</br>
+                                        и товаров народного потребления)</br>
+                                        Грузовая нагрузка: до 3 тонн.</br>
+                                        Оббьем: до 16 метров куб.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- If we need pagination -->
+                        <!-- If we need navigation buttons -->
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-button-next"></div>
+
+
+                    </div>
+                </div>
+                <!-- Swiper JS -->
+                <script type="text/javascript" src="{{ asset('js/swiper.min.js') }}"></script>
+                <!-- Initialize Swiper -->
+                <script>
+                    var swiper = new Swiper('.swiper-container', {
+                        navigation: {
+                            nextEl: '.swiper-button-next',
+                            prevEl: '.swiper-button-prev',
+                        },
+                    });
+                </script>
+
+            </div>
+        </div>
+    </section>
+    <div class="divider-home"></div>
 
     {% include 'GobusgoGobusgoBundle:Blog:blogLatest.html.twig' %}
 
 
-</div>
+
 {% endblock %}

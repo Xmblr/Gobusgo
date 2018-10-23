@@ -5238,3 +5238,7 @@ body {
 * {
     outline: -webkit-focus-ring-color auto 0px;
 }
+
+.form-actions.stuck {
+    position: relative;
+}
