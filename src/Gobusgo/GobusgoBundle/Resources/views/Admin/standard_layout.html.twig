@@ -477,52 +477,49 @@ file that was distributed with this source code.
 <script type="text/javascript">
     window.onload = function () {
         if (window.addEventListener) {
-            document.getElementById('s4288865066_quantityOfCargo').addEventListener('change', changePrice, false);
+            document.getElementById('sc3a2b9d3da_quantityOfCargo').addEventListener('input', changePrice, false);
         } else if (window.attachEvent) {
-            document.getElementById('s4288865066_quantityOfCargo').attachEvent("onchange", changePrice);
+            document.getElementById('sc3a2b9d3da_quantityOfCargo').attachEvent("oninput", changePrice);
         }
 
         //s4288865066_price
         function changePrice() {
-            var quantity = document.getElementById('s4288865066_quantityOfCargo').value;
-            var shippingCity = document.getElementById('field_widget_s4288865066_shippingAddress').firstElementChild.firstElementChild.innerHTML;
-            var deliveryCity = document.getElementById('field_widget_s4288865066_deliveryAddress').firstElementChild.firstElementChild.innerHTML;
-            var price = document.getElementById('s4288865066_price');
-            if (shippingCity.includes('По Минску') || deliveryCity.includes('По Минску')) {
-                document.getElementById('s4288865066_price').value = 8;
+            var quantity = document.getElementById('sc3a2b9d3da_quantityOfCargo').value;
+            var shippingCity = document.getElementById('field_widget_sc3a2b9d3da_cargoId').firstElementChild.firstElementChild.innerHTML;
+            var weight = Number(shippingCity.replace(/\D+/g,""));
+            // var deliveryCity = document.getElementById('field_widget_s4288865066_deliveryAddress').firstElementChild.firstElementChild.innerHTML;
+            var price = document.getElementById('sc3a2b9d3da_price');
+            if (weight <= 1) {
+                price.value = quantity * 25;
+            }
+            else if (weight >= 2 && weight <= 10) {
+                price.value = quantity * 35;
+            }
+            else if (weight >= 11 && weight <= 20) {
+                price.value = quantity * 42;
+            }
+            else if (weight >= 21 && weight <= 40) {
+                price.value = quantity * 51;
+            }
+            else if (weight >= 41 && weight <= 60) {
+                price.value = quantity * 60;
+            }
+            else if (weight >= 61 && weight <= 80) {
+                price.value = quantity * 68;
+            }
+            else if (weight >= 81 && weight <= 100) {
+                price.value = quantity * 85;
+            }
+            else if (weight >= 101 && weight <= 150) {
+                price.value = quantity * 110;
+            }
+            else if (weight >= 151 && weight <= 200) {
+                price.value = quantity * 150;
             }
             else {
-                if (quantity <= 1) {
-                    price.value = 25;
-                }
-                else if (quantity >= 2 && quantity <= 10) {
-                    price.value = 35;
-                }
-                else if (quantity >= 11 && quantity <= 20) {
-                    price.value = 42;
-                }
-                else if (quantity >= 21 && quantity <= 40) {
-                    price.value = 51;
-                }
-                else if (quantity >= 41 && quantity <= 60) {
-                    price.value = 60;
-                }
-                else if (quantity >= 61 && quantity <= 80) {
-                    price.value = 68;
-                }
-                else if (quantity >= 81 && quantity <= 100) {
-                    price.value = 85;
-                }
-                else if (quantity >= 101 && quantity <= 150) {
-                    price.value = 110;
-                }
-                else if (quantity >= 151 && quantity <= 200) {
-                    price.value = 150;
-                }
-                else {
-                    price.value = 200;
-                }
+                price.value = quantity * 200;
             }
+
         }
     }
 </script>

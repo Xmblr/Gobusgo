@@ -149,7 +149,7 @@ class OrderUserAdmin extends AbstractAdmin
             ], array(
                 'admin_code' => 'admin.user.address'
             ))
-            ->add('quantityOfCargo', null, array('label' => 'Количество груза, КГ'))
+            ->add('quantityOfCargo', null, array('label' => 'Количество груза'))
             ->add('price',null,array('label'=>'Цена, BYN', 'attr'=> array('readonly'=>'readonly')))
             ->add('notice', TextareaType::class, array('label' => 'Примечание', 'required' => false))
             ->end()
