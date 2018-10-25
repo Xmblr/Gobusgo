@@ -21,7 +21,7 @@ class CallType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('name', TextType::class);
-        $builder->add('phone', NumberType::class);
+        $builder->add('name');
+        $builder->add('phone');
     }
 }

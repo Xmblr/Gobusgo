@@ -61,6 +61,7 @@
                         <div class="Input">
                             <input class="input-log" type="text" id="weight" required="required" placeholder="Вес, кг"
                                    oninput="sum()">
+                            <p id="errorMessage"></p>
                         </div>
                     </div>
                     <div class="col-md-3 height-mobile">
@@ -75,8 +76,7 @@
                             </div>
                         </div>
                         <div class="button-mobile">
-                            <a class="button-log" href="#orderForm" onclick="openform()">Оформление
-                            </a>
+                            <a class="button-log"  onclick="openform()">Оформление</a>
                         </div>
                     </div>
                 </div>
@@ -91,12 +91,10 @@
                 {{ form_start(individualCallform) }}
                 <h4 style="margin: 10px 20px 20px 20px; text-align: center;">Заявка для физического лица</h4>
                 <div class="Input">
-                    {{ form_errors(individualCallform.weight) }}
-                    {{ form_widget(individualCallform.weight, {'attr':{'class':'input-log', 'position': 'absolute','placeholder':'Вес\, кг','readonly':''}}) }}
+                    <p id="individualCallWeight" class="big"></p>
                 </div>
                 <div class="Input">
-                    {{ form_errors(individualCallform.sum) }}
-                    {{ form_widget(individualCallform.sum, {'attr':{'class':'input-log', 'position': 'absolute','placeholder':'Сумма','readonly':''}}) }}
+                    <p id="individualCallSum" class="big"></p>
                 </div>
                 <div class="Input">
                     {{ form_errors(individualCallform.name) }}
@@ -112,6 +110,8 @@
                 </div>
                 <div style="display:none">
                     {{ form_widget(individualCallform.cities) }}
+                    {{ form_widget(individualCallform.weight, {'attr':{'class':'input-log', 'position': 'absolute','placeholder':'Вес\, кг','readonly':''}}) }}
+                    {{ form_widget(individualCallform.sum, {'attr':{'class':'input-log', 'position': 'absolute','placeholder':'Сумма','readonly':''}}) }}
                     {{ form_rest(individualCallform) }}
                 </div>
                 <div class="text-center" style="margin-bottom: 30px;">
@@ -125,12 +125,10 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="Input">
-                            {{ form_errors(legalCallform.weight) }}
-                            {{ form_widget(legalCallform.weight, {'attr':{'class':'input-log', 'position': 'absolute','placeholder':'Вес\, кг','readonly':''}}) }}
+                            <p id="legalCallWeight" class="big"></p>
                         </div>
                         <div class="Input" >
-                            {{ form_errors(legalCallform.sum) }}
-                            {{ form_widget(legalCallform.sum, {'attr':{'class':'input-log', 'position': 'absolute','placeholder':'Сумма','readonly':''}}) }}
+                            <p id="legalCallSum" class="big"></p>
                         </div>
                         <div class="Input">
                             {{ form_errors(legalCallform.organization) }}
@@ -179,6 +177,8 @@
 
                         <div style="display:none">
                             {{ form_widget(individualCallform.cities) }}
+                            {{ form_widget(legalCallform.weight, {'attr':{'class':'input-log', 'position': 'absolute','placeholder':'Вес\, кг','readonly':''}}) }}
+                            {{ form_widget(legalCallform.sum, {'attr':{'class':'input-log', 'position': 'absolute','placeholder':'Сумма','readonly':''}}) }}
                             {{ form_rest(legalCallform) }}
                         </div>
                     </div>
@@ -416,11 +416,27 @@
             }
         }
         function openform() {
-            document.getElementById('legal_call_weight').value = document.getElementById('weight').value;
-            document.getElementById('legal_call_sum').value = document.getElementById('sum').value;
+            var weight = document.getElementById('weight').value;
+            var sum = document.getElementById('sum').value;
+            if(!weight){
+                document.getElementById('errorMessage').innerHTML = 'Заполните это поле';
 
-            document.getElementById('individual_call_weight').value = document.getElementById('weight').value;
-            document.getElementById('individual_call_sum').value = document.getElementById('sum').value;
+            }
+            else {
+                window.location.hash = 'orderForm';
+                document.getElementById('errorMessage').innerHTML = '';
+
+                document.getElementById('legalCallWeight').innerHTML = weight;
+                document.getElementById('legalCallSum').innerHTML = sum;
+                document.getElementById('legal_call_weight').value = weight;
+                document.getElementById('legal_call_sum').value = sum;
+
+                document.getElementById('individualCallWeight').innerHTML = weight;
+                document.getElementById('individualCallSum').innerHTML = sum;
+                document.getElementById('individual_call_weight').value = weight;
+                document.getElementById('individual_call_sum').value = sum;
+            }
+
         }
     </script>
     <div class="divider-home"></div>

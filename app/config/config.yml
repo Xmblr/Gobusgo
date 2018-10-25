@@ -165,13 +165,14 @@ sonata_admin:
             app.admin.group.moderator:
                 label: Новости
                 roles: [ ROLE_ADMIN, ROLE_MODERATOR ]
-#                items:
+                items:
 #                    - sonata.classification.admin.category
 #                    - sonata.classification.admin.tag
 #                    - sonata.classification.admin.collection
 #                    - sonata.classification.admin.context
 #                    - admin.news
 #                    - admin.comment
+
 
 
 

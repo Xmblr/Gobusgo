@@ -478,7 +478,7 @@ class PageController extends Controller
 
         // Create a message
         $message = Swift_Message::newInstance('Новое действие на сайте')
-            ->setFrom(array('seo-newline@mail.ru' => 'Gobusgo.by'))
+            ->setFrom(array('info@gobusgo.by' => 'Gobusgo.by'))
             ->setTo($this->container->getParameter('gobusgo.emails.contact_email'))
             ->setBody($this->renderView('@GobusgoGobusgo/Page/callEmail.txt.twig', array('mail' => $mail)));
         ;
@@ -493,7 +493,7 @@ class PageController extends Controller
 
         // Create a message
         $message = Swift_Message::newInstance('Форма обратного звонка')
-            ->setFrom(array('seo-newline@mail.ru' => 'Обратный звонок'))
+            ->setFrom(array('info@gobusgo.by' => 'Обратный звонок'))
             ->setTo($this->container->getParameter('gobusgo.emails.contact_email'))
             ->setBody($this->renderView('@GobusgoGobusgo/Page/callEmail.txt.twig', array('call' => $call)));
         ;

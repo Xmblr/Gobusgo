@@ -31,7 +31,11 @@ security:
           - ROLE_ADMIN_CITY_ALL
           - ROLE_ADMIN_ORDER_ALL
         ROLE_MODERATOR:
-          - ROLE_USER
+#          - ROLE_USER
+          - ROLE_ADMIN_SEO_ALL
+          - ROLE_ADMIN_BLOG_ALL
+          - ROLE_ADMIN_COMMENTS_ALL
+          - ROLE_ADMIN_CATEGORY_ALL
           - ROLE_ADMIN_NEWS_ALL
           - ROLE_SONATA_NEWS_ADMIN_POST_ALL
           - ROLE_ADMIN_COMMENT_ALL
