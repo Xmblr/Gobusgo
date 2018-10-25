@@ -1,14 +1,16 @@
 {% extends '@GobusgoGobusgo/layout.html.twig' %}
 
 {% block body %}
-    <div class="container offset-top-22 offset-md-top-40">
+    <section class="section-60">
+    <div class="container">
         <div class="row">
             <h1>{{ seo.h1|raw }}</h1>
-            <div class="col-md-push-1 col-md-10">
+            <div class="col-md-push-1 col-md-10 offset-top-22 offset-md-top-40">
             {% if seo.intro is not empty %} {{ seo.intro|raw }} {% endif %}
             </div>
         </div>
     </div>
+    </section>
     <div class="container" id="raschet">
         <div class="row" style="text-align: center;">
             <div class="col-md-12">
@@ -58,7 +60,7 @@
                     </div>
                     <div class="col-md-3 height-mobile">
 
-                        <h4>Габариты</h4>
+                        <h4>Габариты (кг)</h4>
                         <div class="Input">
                             <input class="input-log" type="text" id="weight" required="required" placeholder="Вес, кг"
                                    oninput="sum()">
@@ -209,7 +211,6 @@
 
         <a class="close" title="Закрыть" href="#close"></a>
     </div>
-
     <div class="container-fluid section-60" style="background-color: #8598ff;">
         <div class="row">
             <div class="col-md-8 col-md-push-2 text-center">
@@ -221,7 +222,6 @@
                 <a href="#win3" style="border: 3px solid #fff;" class="button-log">Оформить</a>
             </div>
         </div>
-
     </div>
     <section>
         <div class="section-60 bg-gradient-denim">
@@ -319,7 +319,7 @@
 
     </section>
 
-    <section class="section-40">
+    <section class="section-60">
     <div class="container">
         <div class="row">
             <div class="col-md-10 col-md-push-1">
@@ -347,6 +347,25 @@
                 <h2>Зоны обслуживания:</h2>
             </div>
             <div class="offset-top-22 offset-md-top-40 col-md-6">
+                <h4 class="text-title-map"><i class="fa fa-map-marker" aria-hidden="true"></i> Наш адрес в Москве:
+                </h4>
+
+                <div class="col-md-6">
+                    <div class="text-map"><b>Склад:</b> г. Москва, улица Перерва 11, стр 27</br><b>Офис:</b>
+                        г. Москва, улица Перерва 11, стр 27</br>
+                        <b>Время работы:</b></br>9.00 - 21.00,</br>Без выходных
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="text-map"><b>Контакты для связи:</b></br>
+                        <a href="tel:+79032230250"><span>+7(903)223-02-50</span></a></br>
+                        <a href="mailto:info@gobusgo.ru"><span>info@gobusgo.ru</span></a>
+                    </div>
+                </div>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d241691.04197232757!2d37.517485994432384!3d55.75236978111817!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x414ab475348def13%3A0x70dca6aad8191ece!2z0YPQuy4g0J_QtdGA0LXRgNCy0LAsIDExLCDQnNC-0YHQutCy0LAsINCg0L7RgdGB0LjRjywgMTA5NjUx!5e0!3m2!1sru!2sby!4v1540385920117" width="100%" height="350" frameborder="0" style="border:0" allowfullscreen></iframe>
+
+            </div>
+            <div class="offset-top-22 offset-md-top-40 col-md-6">
 
                 <h4 class="text-title-map"><i class="fa fa-map-marker" aria-hidden="true"></i> Наш адрес в Минске:
                 </h4>
@@ -367,31 +386,8 @@
                         <a href="mailto:info@gobusgo.by"><span>info@gobusgo.by</span></a>
                     </div>
                 </div>
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d104111.24204511433!2d27.464534885919846!3d53.897461316799394!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46dbdaaca271ed37%3A0x67d7afd2c4446992!2z0YPQuy4g0KXQsNGA0YzQutC-0LLRgdC60LDRjyA5MCwg0JzQuNC90YHQug!5e0!3m2!1sru!2sby!4v1540163503883"
-                        width="100%" height="350" frameborder="0" style="border:0" allowfullscreen></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d104111.24204511433!2d27.464534885919846!3d53.897461316799394!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46dbdaaca271ed37%3A0x67d7afd2c4446992!2z0YPQuy4g0KXQsNGA0YzQutC-0LLRgdC60LDRjyA5MCwg0JzQuNC90YHQug!5e0!3m2!1sru!2sby!4v1540163503883" width="100%" height="350" frameborder="0" style="border:0" allowfullscreen></iframe>
             </div>
-            <div class="offset-top-22 offset-md-top-40 col-md-6">
-                <h4 class="text-title-map"><i class="fa fa-map-marker" aria-hidden="true"></i> Наш адрес в Москве:
-                </h4>
-
-                <div class="col-md-6">
-                    <div class="text-map"><b>Склад:</b> г. Москва, улица Старообрядческая, 46АС46,</br><b>Офис:</b>
-                        г. Москва, улица Старообрядческая, 46АС46,</br>
-                        <b>Время работы:</b></br>9.00 - 21.00,</br>Без выходных
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="text-map"><b>Контакты для связи:</b></br>
-                        <a href="tel:+79032230250"><span>+7(903)223-02-50</span></a></br>
-                        <a href="mailto:info@gobusgo.ru"><span>info@gobusgo.ru</span></a>
-                    </div>
-                </div>
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d245430.34775045599!2d37.55918317291384!3d55.714736262261916!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46b54ab60fce7399%3A0x5075ee50f21de53c!2z0YPQuy4g0KHRgtCw0YDQvtC-0LHRgNGP0LTRh9C10YHQutCw0Y8sIDQ2LCDQnNC-0YHQutCy0LAsINCg0L7RgdGB0LjRjywgMTA5MDUy!5e0!3m2!1sru!2sby!4v1540163409056"
-                        width="100%" height="350" frameborder="0" style="border:0" allowfullscreen></iframe>
-
-            </div>
-
-
         </div>
     </div>
 

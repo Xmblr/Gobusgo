@@ -1,27 +1,120 @@
 {% extends '@GobusgoGobusgo/layout.html.twig' %}
 
 {% block body %}
+    <section class="section-60">
     <div class="container">
         <div class="row">
-            <div class="col-md-10 col-md-push-1">
-                <h1>{{ seo.h1|raw }}</h1>
+            <h1>{{ seo.h1|raw }}</h1>
+            <div class="col-md-push-1 col-md-10 offset-top-22 offset-md-top-40">
                 {% if seo.intro is not empty %} {{ seo.intro|raw }} {% endif %}
-                {#<p class="text-center" style="font-size: 20px; line-height: 24px;">В наше время различная деятельность#}
-                    {#разных компаний#}
-                    {#не обходится без очень тесного сотрудничества с компаниями, которые занимаются грузоперевозками#}
-                    {#(транспортно-экспедиционная компания). Для многих компаний качественная, быстрая, своевременная#}
-                    {#доставка#}
-                    {#различного груза является одним из важнейших факторов, которые влияют на развитие и стабильность#}
-                    {#данной#}
-                    {#компании. Для частных компаний высокий уровень оказания транспортных услуг является не менее важным,#}
-                    {#потому#}
-                    {#что это залог уверенности и полного спокойствия во время перевозки имущества. Вследствие этого с#}
-                    {#каждым#}
-                    {#годом интерес и спрос на различные грузоперевозки растёт и растёт.</p>#}
             </div>
         </div>
     </div>
+    </section>
+    <section>
+        <div class="section-60 bg-gradient-denim">
+            <div class="bg-diamond-element"></div>
+            <div class="shell text-center">
+                <div class="range">
+                    <div class="cell-xs-12">
+                        <h2>Какие грузы мы доставляем?</h2>
+                        <p class="big col-md-10 col-md-push-1">Мы осуществляем доставку грузов любых размеров массой до
+                            2 тонн, от конверта до
+                            крупногабаритного груза.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="section-top-40">
+                <div class="shell-wide shell-mod-1">
+                    <div class="range">
+                        <!-- Slick Carousel-->
+                        <div class="slick-slider slick-slider-style-1" data-arrows="true" data-loop="true"
+                             data-dots="false"
+                             data-swipe="true" data-items="1" data-sm-items="3" data-md-items="3" data-lg-items="4"
+                             data-xl-items="6" data-slide-to-scroll="1" data-mobile-center-mode="true"
+                             data-sm-center-mode="false" data-center-padding="30px" data-sm-center-padding="0.5">
+                            <div class="item height-fill">
+                                <div class="product"><img
+                                            src="{{ asset('images/product-2.png') }}" alt=""/>
+                                    <div class="product-caption">
+                                        <div class="divider divider-sm divider-primary"></div>
+                                        <div class="product-title">
+                                            <h3 style="font-size: 18px;">Посылки</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item height-fill">
+                                <div class="product"><img
+                                            src="{{ asset('images/product-6.png') }}" alt=""/>
+                                    <div class="product-caption">
+                                        <div class="divider divider-sm divider-primary"></div>
+                                        <div class="product-title">
+                                            <h3 style="font-size: 18px;">Мебель</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item height-fill">
+                                <div class="product"><img
+                                            src="{{ asset('images/product-7.png') }}" alt=""/>
+                                    <div class="product-caption">
+                                        <div class="divider divider-sm divider-primary"></div>
+                                        <div class="product-title">
+                                            <h3 style="font-size: 18px;">Различные товары</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item height-fill">
+                                <div class="product"><img
+                                            src="{{ asset('images/product-8.png') }}" alt=""/>
+                                    <div class="product-caption">
+                                        <div class="divider divider-sm divider-primary"></div>
+                                        <div class="product-title">
+                                            <h3 style="font-size: 18px;">Корреспонденция</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item height-fill">
+                                <div class="product"><img
+                                            src="{{ asset('images/product-9.png') }}" alt=""/>
+                                    <div class="product-caption">
+                                        <div class="divider divider-sm divider-primary"></div>
+                                        <div class="product-title">
+                                            <h3 style="font-size: 18px;">Мелкие пакеты</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item height-fill">
+                                <div class="product"><img
+                                            src="{{ asset('images/product-10.png') }}" alt=""/>
+                                    <div class="product-caption">
+                                        <div class="divider divider-sm divider-primary"></div>
+                                        <div class="product-title">
+                                            <h3 style="font-size: 18px;">Документы</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
+    </section>
+    <section class="section-40">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 col-md-push-1">
+                    {% if seo.text is not empty %} {{ seo.text|raw }} {% endif %}
+                </div>
+            </div>
+        </div>
+    </section>
     {% include 'GobusgoGobusgoBundle:Blog:blogLatest.html.twig' %}
 
 {% endblock %}

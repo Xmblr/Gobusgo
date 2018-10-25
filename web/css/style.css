@@ -36,6 +36,10 @@ h1 {
     line-height: 44px;
 }
 
+p + p {
+    margin-bottom: 10px;
+}
+
 .row {
     margin-left: -15px;
     margin-right: -15px;
@@ -2918,7 +2922,7 @@ html .page .offset-top-88 {
     flex-grow: 1;
     -webkit-align-self: stretch;
     -ms-flex-item-align: stretch;
-    align-self: stretch;
+    align-self: center;
 }
 
 @media (min-width: 768px) {
@@ -3206,13 +3210,43 @@ footer {
 @media (min-width: 768px) {
     .big {
         font-size: 20px;
-        line-height: 1.2;
+        line-height: 1.3;
     }
 }
 
 
 * + .big {
     margin-top: 20px;
+}
+
+.text-extra-big {
+    font-size: 120px;
+    font-weight: 700;
+    line-height: 1;
+    color: #566fe0;
+}
+
+@media (min-width: 768px) {
+    .text-extra-big {
+        font-size: 180px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .text-extra-big {
+        font-size: 150px;
+    }
+}
+
+@media (min-width: 1200px) and (min-height: 768px) {
+    .text-extra-big {
+        font-size: 218px;
+    }
+}
+
+
+* + .text-extra-big {
+    margin-top: 25px;
 }
 
 p + .button-log {
@@ -4474,6 +4508,16 @@ p + .button-log {
     margin-bottom: 10px;
 }
 
+#raschet .col-xs-9 {
+    padding: 0px;
+}
+
+@media (min-width: 500px) and (max-width: 768px) {
+    #raschet .col-xs-9 .input-log {
+        width: auto;
+    }
+}
+
 @media (max-width: 767px) {
     .road-laptop {
         display: none;
@@ -5128,6 +5172,7 @@ address span {
 .list-marked {
     list-style: none;
     -webkit-padding-start: 0px;
+    padding-left: 0px;
 }
 
 .select2-selection__rendered

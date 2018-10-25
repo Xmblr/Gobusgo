@@ -153,9 +153,9 @@ class OrderUserAdmin extends AbstractAdmin
             ->add('price',null,array('label'=>'Цена, BYN', 'attr'=> array('readonly'=>'readonly')))
             ->add('notice', TextareaType::class, array('label' => 'Примечание', 'required' => false))
             ->end()
-            ->with('Пользователь', ['class' => 'col-md-6'])
+            ->with('Склад в Минске', ['class' => 'col-md-6'])
             ->end()
-            ->with('Карта', ['class' => 'col-md-6'])
+            ->with('Склад в Москве', ['class' => 'col-md-6'])
             ->end()
 
         ;

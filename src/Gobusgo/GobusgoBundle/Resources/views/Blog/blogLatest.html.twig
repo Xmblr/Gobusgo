@@ -1,48 +1,50 @@
 <section class="section-60">
-<div class="container">
-    <div class="row blog-wrap">
-        <div class="col-md-12 col-sm-12">
-            <h2>Последние новости</h2>
-        </div>
-        {% for blog in blogs %}
-
-            <div class="col-sm-4 offset-top-22 offset-md-top-40 " style="display: flex; flex-wrap: wrap;">
-                <article class="blog">
-
-                    <div class="sonata-blog-post-information" style="font-style: italic; color: #b1b1b1;">
-                        <div class="text-center">
-                            {% media blog.image, 'big' with {'style' : 'max-height: 300px; width: auto'} %}
-                        </div>
-                        <h4 class="sonata-blog-post-title text-left">
-                            <a style="color: #8598ff;font-style: normal;"
-                               href="{{ path('gobusgo_gobusgo_blog_show', { 'url': blog.url, 'categoryUrl' : blog.category.url }) }}">{{ blog.title }}</a>
-                        </h4>
-                        <i class="fa fa-clock-o" aria-hidden="true" style="color: #8598ff;"></i>
-                        {{ blog.created|date('d/m/Y') }}
-
-                        <i class="fa fa-comment-o" aria-hidden="true" style="margin-left: 10px; color: #8598ff;"></i>
-                        <span class="sonata-blog-post-comments-count">{{ blog.comments|length }}</span>
-
-                        {#<span class="sonata-blog-post-tags" style="margin-left: 10px;">#}
-                        {#<i class="fa fa-tags" style="color: #8598ff;" aria-hidden="true"></i>#}
-                        {#{{ blog.tags }}#}
-                        {#</span>#}
-                    </div>
-                    <div class="sonata-blog-post-abtract" style="margin: 10px 0px;">
-                        {{ blog.blog(150)|striptags }}
-                    </div>
-                    <div class="sonata-blog-post-author" style="font-style: Italic;">{{ blog.author }}</div>
-                    <a href="{{ path('gobusgo_gobusgo_blog_show', {'url': blog.url, 'categoryUrl' : blog.category.url }) }}"
-                       class="button-log">Подробнее</a>
-                </article>
+    <div class="container">
+        <div class="row blog-wrap">
+            <div class="col-md-12 col-sm-12">
+                <h2>Последние новости</h2>
             </div>
+            {% for blog in blogs %}
 
-        {% else %}
+                <div class="col-sm-4 offset-top-22 offset-md-top-40" style="display: flex; flex-wrap: wrap;">
+                    <article class="blog">
 
-            <p>Нет последних новостей</p>
-        {% endfor %}
+                        <div class="sonata-blog-post-information" style="font-style: italic; color: #b1b1b1;">
+                            <div class="text-center">
+                                {% media blog.image, 'big' with {'style' : 'max-height: 300px; width: auto'} %}
+                            </div>
+                            <h4 class="sonata-blog-post-title text-left">
+                                <a style="color: #8598ff;font-style: normal;"
+                                   href="{{ path('gobusgo_gobusgo_blog_show', { 'url': blog.url, 'categoryUrl' : blog.category.url }) }}">{{ blog.title }}</a>
+                            </h4>
+                            <i class="fa fa-clock-o" aria-hidden="true" style="color: #8598ff;"></i>
+                            {{ blog.created|date('d/m/Y') }}
+
+                            <i class="fa fa-comment-o" aria-hidden="true"
+                               style="margin-left: 10px; color: #8598ff;"></i>
+                            <span class="sonata-blog-post-comments-count">{{ blog.comments|length }}</span>
+
+                            {#<span class="sonata-blog-post-tags" style="margin-left: 10px;">#}
+                            {#<i class="fa fa-tags" style="color: #8598ff;" aria-hidden="true"></i>#}
+                            {#{{ blog.tags }}#}
+                            {#</span>#}
+                        </div>
+                        <div class="sonata-blog-post-abtract" style="margin: 10px 0px;">
+                            {{ blog.blog(150)|striptags }}
+                        </div>
+                        <div class="sonata-blog-post-author" style="font-style: Italic;">{{ blog.author }}</div>
+                        <a href="{{ path('gobusgo_gobusgo_blog_show', {'url': blog.url, 'categoryUrl' : blog.category.url }) }}"
+                           class="button-log">Подробнее</a>
+                    </article>
+                </div>
+
+            {% else %}
+                <div class="col-md-12 offset-top-22 offset-md-top-40">
+                    <p class="big">Нет последних новостей</p>
+                </div>
+            {% endfor %}
 
 
+        </div>
     </div>
-</div>
 </section>

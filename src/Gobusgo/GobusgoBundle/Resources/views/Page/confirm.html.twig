@@ -82,9 +82,9 @@
 
         </div>
     </div>
-
-        <div class="container-fluid" style="margin-top: 3%;">
-            <div class="row" style="padding-bottom: 3%;">
+<section class="section-60"><
+        <div class="container-fluid">
+            <div class="row">
             {% for type, messages in app.session.flashBag.all %}
                 {% for message in messages %}
                     <div class="{{ type }} col-md-12- col-xs-12">
@@ -369,12 +369,6 @@
                                 </div>
                             </div>
                             {% elseif message.weight is defined %}
-
-
-
-
-
-
                             <div id="individual_build" class="col-md-push-4 col-md-4 check">
                                 <div class="check-border col-md-12">
                                     <div class="col-md-12"
@@ -582,7 +576,7 @@
                             <script>
 
                                 var oldURL = document.referrer;
-                                setTimeout('location=oldURL;', 5000);
+                                setTimeout('location=oldURL;', 8000);
 
                             </script>
                         {% endif %}
@@ -594,7 +588,7 @@
 
 
         </div>
-
+    </section>
 
 {% endblock %}
 
