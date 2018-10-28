@@ -7,7 +7,7 @@
     <div class="row">
         <h4 class="confirm col-md-6 col-md-push-3">{{ 'registration.confirmed'|trans({'%username%': user.username}) }}</h4>
         <div class="col-md-12 text-center">
-            <a class="button-log" href="{{ path('fos_user_profile_show') }}">Перейти в личный кабинет</a>
+            <a class="button-log" href="{{ path('sonata_admin_dashboard') }}">Перейти в личный кабинет</a>
         </div>
         {% if targetUrl %}
             {#<a class="button-log" href="{{ targetUrl }}">Перейти в личный кабинет</a>#}

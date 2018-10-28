@@ -2327,9 +2327,3 @@ btns[0].onclick = function() {
 btns[1].onclick = function() {
     par[0].classList.remove("main--main-bg");
 }
-
-$("#rd-toggle rd-navbar-aside-toggle").click(function(e) {
-    e.preventDefault();
-    $("#rd-toggle").removeClass('active');
-    $(this).addClass('active');
-})

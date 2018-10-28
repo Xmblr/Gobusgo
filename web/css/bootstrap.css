@@ -183,6 +183,12 @@ td,
 th {
     padding: 0;
 }
+
+.row {
+    margin-left: -15px;
+    margin-right: -15px;
+}
+
 /*! Source: https://github.com/h5bp/html5-boilerplate/blob/master/src/css/main.css */
 @media print {
     *,

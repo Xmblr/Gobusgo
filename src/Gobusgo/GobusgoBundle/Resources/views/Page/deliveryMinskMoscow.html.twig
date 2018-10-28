@@ -2,14 +2,14 @@
 
 {% block body %}
     <section class="section-60">
-    <div class="container">
-        <div class="row">
-            <h1>{{ seo.h1|raw }}</h1>
-            <div class="col-md-push-1 col-md-10 offset-top-22 offset-md-top-40">
-            {% if seo.intro is not empty %} {{ seo.intro|raw }} {% endif %}
+        <div class="container">
+            <div class="row">
+                <h1>{{ seo.h1|raw }}</h1>
+                <div class="col-md-push-1 col-md-10 offset-top-22 offset-md-top-40">
+                    {% if seo.intro is not empty %} {{ seo.intro|raw }} {% endif %}
+                </div>
             </div>
         </div>
-    </div>
     </section>
     <div class="container" id="raschet">
         <div class="row" style="text-align: center;">
@@ -91,10 +91,14 @@
                 {{ form_start(individualCallform) }}
                 <h4 style="margin: 10px 20px 20px 20px; text-align: center;">Заявка для физического лица</h4>
                 <div class="col-md-12 text-center">
-                    <img class="img-call" src="{{ asset('images/truck.png') }}"><p id="individualCallWeight" class="big"></p>
+                    <img class="img-call" src="{{ asset('images/truck.png') }}">
+                    <p style="display: inline-block; margin-left: 10px;">Габариты:</p>
+                    <p id="individualCallWeight" class="big"></p>
                 </div>
                 <div class="col-md-12 text-center" style="margin-bottom: 15px;">
-                    <img class="img-call" src="{{ asset('images/coins.png') }}"><p id="individualCallSum" class="big"></p>
+                    <img class="img-call" src="{{ asset('images/coins.png') }}">
+                    <p style="display: inline-block; margin-left: 10px;">Стоимость:</p>
+                    <p id="individualCallSum" class="big"></p>
                 </div>
                 <div class="Input">
                     {{ form_errors(individualCallform.name) }}
@@ -125,10 +129,14 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="col-md-12 text-center">
-                            <img class="img-call" src="{{ asset('images/truck.png') }}"><p id="legalCallWeight" class="big"></p>
+                            <img class="img-call" src="{{ asset('images/truck.png') }}">
+                            <p style="display: inline-block; margin-left: 10px;">Габариты:</p>
+                            <p id="legalCallWeight" class="big"></p>
                         </div>
                         <div class="col-md-12 text-center" style="margin-bottom: 15px;">
-                            <img class="img-call" src="{{ asset('images/coins.png') }}"><p id="legalCallSum" class="big"></p>
+                            <img class="img-call" src="{{ asset('images/coins.png') }}">
+                            <p style="display: inline-block; margin-left: 10px;">Стоимость:</p>
+                            <p id="legalCallSum" class="big"></p>
                         </div>
                         <div class="Input">
                             {{ form_errors(legalCallform.organization) }}
@@ -298,13 +306,13 @@
         </div>
     </section>
     <section class="section-60">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-10 col-md-push-1">
-                {{ seo.text|raw }}
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 col-md-push-1">
+                    {{ seo.text|raw }}
+                </div>
             </div>
         </div>
-    </div>
     </section>
     <div class="container-fluid section-60" style="background-color: #8598ff;">
         <div class="row">
@@ -426,15 +434,15 @@
                 window.location.hash = 'orderForm';
                 document.getElementById('errorMessage').innerHTML = '';
 
-                document.getElementById('legalCallWeight').innerHTML = 'Габариты: ' + weight + ' КГ';
-                document.getElementById('legalCallSum').innerHTML = 'Стоимость: ' + sum;
-                document.getElementById('legal_call_weight').value = 'Габариты: ' + weight + ' КГ';
-                document.getElementById('legal_call_sum').value = 'Стоимость: ' + sum;
+                document.getElementById('legalCallWeight').innerHTML = weight + ' КГ';
+                document.getElementById('legalCallSum').innerHTML = sum;
+                document.getElementById('legal_call_weight').value = weight + ' КГ';
+                document.getElementById('legal_call_sum').value = sum;
 
-                document.getElementById('individualCallWeight').innerHTML = 'Габариты: ' + weight + ' КГ';
-                document.getElementById('individualCallSum').innerHTML = 'Стоимость: ' + sum;
-                document.getElementById('individual_call_weight').value = 'Габариты: ' + weight + ' КГ';
-                document.getElementById('individual_call_sum').value = 'Стоимость: ' + sum;
+                document.getElementById('individualCallWeight').innerHTML = weight + ' КГ';
+                document.getElementById('individualCallSum').innerHTML = sum;
+                document.getElementById('individual_call_weight').value = weight + ' КГ';
+                document.getElementById('individual_call_sum').value = sum;
             }
         }
     </script>

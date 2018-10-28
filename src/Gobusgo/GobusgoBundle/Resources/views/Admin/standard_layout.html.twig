@@ -35,15 +35,13 @@ file that was distributed with this source code.
         {% for stylesheet in sonata_admin.adminPool.getOption('stylesheets', []) %}
             <link rel="stylesheet" href="{{ asset(stylesheet) }}">
         {% endfor %}
-        <link type="text/css" rel="stylesheet" href="{{ asset('css/admin.css') }}">
-        <link type="text/css" rel="stylesheet" href="{{ asset('css/admin-skin.css') }}">
-        <link type="text/css" rel="stylesheet" href="{{ asset('css/style.css') }}">
+        <link type="text/css" rel="stylesheet" href="{{ asset('css/bootstrap.css') }}?v=1.1">
+        <link type="text/css" rel="stylesheet" href="{{ asset('css/style.css') }}?v=1.2">
         <link type="text/css" rel="stylesheet" href="{{ asset('css/font-awesome/css/font-awesome.css') }}">
-        <link type="text/css" rel="stylesheet" href="{{ asset('css/header.css') }}">
-        <link type="text/css" rel="stylesheet" href="{{ asset('css/responsive.css') }}">
-        <link type="text/css" rel="stylesheet" href="{{ asset('css/swiper.min.css') }}">
-        <link type="text/css" rel="stylesheet" href="{{ asset('css/header-second.css') }}">
-
+        <link type="text/css" rel="stylesheet" href="{{ asset('css/responsive.css') }}?v=1.2">
+        <link type="text/css" rel="stylesheet" href="{{ asset('css/swiper.min.css') }}?v=1.0">
+        <link type="text/css" rel="stylesheet" href="{{ asset('css/popup.css') }}?v=1.0">
+        <link type="text/css" rel="stylesheet" href="{{ asset('css/hamburgers.css') }}">
     {% endblock %}
 
     {% block javascripts %}

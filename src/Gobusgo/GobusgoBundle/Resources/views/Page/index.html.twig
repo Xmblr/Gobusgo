@@ -35,7 +35,7 @@
         <div class="loader"></div>
         </div>
     </div>
-<div class="page">
+<div class="page page-home">
     <header class="main-menu-area height-vh">
         <div class="header-desktop container-fluid">
             <div class="row">
@@ -46,9 +46,7 @@
                             <img src="{{ asset('images/logo.png') }}" alt="" width="150px;">
                         </a>
                     </div>
-                    {#<div class="sale-top" style="margin-top: 20px;"><div class="gradient">Добро пожаловать на сайт GoBusGo.by</div></div>#}
                     <div class="accordion-wrapper">
-                        {#<a href="#" class="mobile-open"><i class="fa fa-bars" style="font-size: 34px;"></i></a>#}
                         <a href="#" class="mobile-open">
                             <div class="hamburger hamburger--spin class-2">
                                 <div class="hamburger-box">
@@ -70,9 +68,6 @@
                                        href="{{ path('fos_user_registration_register') }}">{{ 'layout.register'|trans({}, 'FOSUserBundle') }}</a><a class="btn-3"
                                        href="{{ path('sonata_admin_dashboard') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
                                 {% endif %}
-
-                                {#<a class="closeme" href="#" style="display: inline-block;"><i#}
-                                {#class="fa fa-times"></i></a>#}
                                 <a class="closeme" href="#" style="display: inline-block;">
                                     <div class="hamburger hamburger--spin class-1 is-active">
                                         <div class="hamburger-box">
@@ -89,12 +84,6 @@
                             <li class="link out-link">
                                 <a href="{{ path('gobusgo_gobusgo_deliveryMinskMoscow') }}">Минск - Москва</a>
                             </li>
-                            {#<li class="link out-link">#}
-                            {#<a href="{{ path('gobusgo_gobusgo_deliveryMinsk') }}">По Минску</a>#}
-                            {#</li>#}
-                            {#<li class="link out-link">#}
-                            {#<a href="{{ path('gobusgo_gobusgo_deliveryRB') }}">По Беларуси</a>#}
-                            {#</li>#}
                             <li class="link out-link">
                                 <a class="" href="{{ path('gobusgo_gobusgo_blog') }}">Новости</a>
                             </li>
@@ -168,7 +157,7 @@
                                     <a target="_blank" href="https://www.instagram.com/gobusgo.by/"><img
                                                 src="{{ asset('images/insta.png') }}"
                                                 style="height:35px; margin-right: 5px;"/></a>
-                                    <img src="{{ asset('images/russian.png') }}" style="height:28px;"/>
+                                    <a target="_blank" href="http://gobusgo.ru"><img src="{{ asset('images/russian.png') }}" style="height:28px;"/></a>
                                 </div>
                             </div>
                         </ul>
@@ -264,7 +253,7 @@
                                                     <div class="unit-body inline-block vertical-middle">
                                                         <address class="contact-info"
                                                                  style="margin-bottom: 5px;">
-                                                            <span>Пн-пт: c 9.00 до 18.00</span><br><span>Сб-Вс: c 9.00 до 16.00</span>
+                                                            <span>С 9.00 до 21.00</span><br><span>Без выходных</span>
                                                         </address>
                                                     </div>
                                                 </div>
@@ -339,24 +328,25 @@
                                         <h4 style="font-size: 1vw; margin: 10px 0px;">Добро пожаловать на сайт
                                             грузоперевозок - GoBusGo.by</h4>
                                     </div>
-                                    <div class="col-md-4" style="padding-right: 0px;">
-                                        <div class="top-bar">
-                                            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-                                                <a style="margin-left: 15px;" class="btn-2"
-                                                   href="{{ path('sonata_admin_dashboard') }}"> {{ app.user.organization|slice(0,10) }} {% if app.user.organization|length > 10 %}...{% endif %} </a><a
-                                                        class="btn-3" href="{{ path('fos_user_security_logout') }}">
-                                                    {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
-                                                </a>
-                                            {% else %}
-                                                <a class="btn-2"
-                                                   href="{{ path('fos_user_registration_register') }}">{{ 'layout.register'|trans({}, 'FOSUserBundle') }}</a><a class="btn-3"
-                                                   href="{{ path('sonata_admin_dashboard') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
+                            <div class="col-md-4 top-bar-container">
+                                <div class="top-bar">
+                                    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                                        <a style="margin-left: 15px;" class="btn-2"
+                                           href="{{ path('sonata_admin_dashboard') }}"> {{ app.user.organization|slice(0,10) }} {% if app.user.organization|length > 10 %}...{% endif %} </a><a
+                                                class="btn-3" href="{{ path('fos_user_security_logout') }}">
+                                            {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
+                                        </a>
+                                    {% else %}
+                                        <a class="btn-2"
+                                           href="{{ path('fos_user_registration_register') }}">{{ 'layout.register'|trans({}, 'FOSUserBundle') }}</a><a class="btn-3"
+                                           href="{{ path('sonata_admin_dashboard') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
 
-                                            {% endif %}
-                                            <img class="flag hide-xs-up" src="{{ asset('images/russian.png') }}"
-                                                 style="height:32px; padding-bottom: 5px;"/>
-                                        </div>
-                                    </div>
+                                    {% endif %}
+
+                                </div>
+                                <a target="_blank" class="flag-container" href="http://gobusgo.ru"><img class="flag" src="{{ asset('images/russian.png') }}"
+                                                                 style="height:32px; padding-bottom: 5px;"/></a>
+                            </div>
                                 </div>
                             </div>
                         </div>
@@ -460,30 +450,34 @@
                     <h2>Почему выбирают именно нас?</h2>
                 </div>
                 <div class="offset-top-22 offset-md-top-40 col-md-12">
-                    <div class="col-md-3 m-b-20">
+                <div class="row">
+                    <div class="col-md-3 col-sm-6 m-b-20">
                         <div class="advantage-icons">
                             <img src="{{ asset('images/advantage-1.png') }}" style="width:230px;">
                         </div>
                         <div class="advantage-title" style="margin: 10px;">Доставка любых грузов до 2-х тонн</div>
                     </div>
-                    <div class="col-md-3 m-b-20">
+                      <div class="col-md-3 col-sm-6 m-b-20">
                         <div class="advantage-icons">
                             <img src="{{ asset('images/advantage-2.png') }}" style="width:230px;">
                         </div>
                         <div class="advantage-title" style="margin: 10px;">Доставка от письма до крупногабаритного груза
                         </div>
                     </div>
-                    <div class="col-md-3 m-b-20">
+                    <div class="clearfix visible-sm-block"></div>
+                    <div class="col-md-3 col-sm-6 m-b-20">
                         <div class="advantage-icons">
                             <img src="{{ asset('images/advantage-3.png') }}" style="width:230px;">
                         </div>
-                        <div class="advantage-title" style="margin: 10px;">Доставка в течении суток</div>
+                        <div class="advantage-title" style="margin: 10px;">Доставка в течение суток</div>
                     </div>
-                    <div class="col-md-3" style="margin-bottom:20px;">
+
+                    <div class="col-md-3 col-sm-6 m-b-20">
                         <div class="advantage-icons">
                             <img src="{{ asset('images/advantage-4.png') }}" style="width:230px;">
                         </div>
-                        <div class="advantage-title" style="margin: 10px;">Каждая 7-ая доставка бесплатно *</div>
+                        <div class="advantage-title" style="margin: 10px;">Каждая 7-ая доставка бесплатно</div>
+                    </div>
                     </div>
                 </div>
             </div>
