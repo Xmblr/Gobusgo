@@ -77,10 +77,7 @@ class User extends BaseUser
      */
     protected $fullName;
 
-    /**
-     * @ORM\Column(type="string")
-     */
-    protected $contractNumber;
+
 
     public static function getGenderList()
     {
@@ -186,21 +183,6 @@ class User extends BaseUser
         $this->code = $code;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getContractNumber()
-    {
-        return $this->contractNumber;
-    }
-
-    /**
-     * @param mixed $contractNumber
-     */
-    public function setContractNumber($contractNumber)
-    {
-        $this->contractNumber = $contractNumber;
-    }
 
     /**
      * @return mixed

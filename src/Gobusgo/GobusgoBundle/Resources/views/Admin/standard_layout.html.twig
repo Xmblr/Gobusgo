@@ -35,13 +35,13 @@ file that was distributed with this source code.
         {% for stylesheet in sonata_admin.adminPool.getOption('stylesheets', []) %}
             <link rel="stylesheet" href="{{ asset(stylesheet) }}">
         {% endfor %}
-        <link type="text/css" rel="stylesheet" href="{{ asset('css/bootstrap.css') }}?v=1.1">
-        <link type="text/css" rel="stylesheet" href="{{ asset('css/style.css') }}?v=1.2">
-        <link type="text/css" rel="stylesheet" href="{{ asset('css/font-awesome/css/font-awesome.css') }}">
-        <link type="text/css" rel="stylesheet" href="{{ asset('css/responsive.css') }}?v=1.2">
-        <link type="text/css" rel="stylesheet" href="{{ asset('css/swiper.min.css') }}?v=1.0">
-        <link type="text/css" rel="stylesheet" href="{{ asset('css/popup.css') }}?v=1.0">
-        <link type="text/css" rel="stylesheet" href="{{ asset('css/hamburgers.css') }}">
+        {#<link type="text/css" rel="stylesheet" href="{{ asset('css/bootstrap.css') }}?v=1.1">#}
+        {#<link type="text/css" rel="stylesheet" href="{{ asset('css/style.css') }}?v=1.2">#}
+        {#<link type="text/css" rel="stylesheet" href="{{ asset('css/font-awesome/css/font-awesome.css') }}">#}
+        {#<link type="text/css" rel="stylesheet" href="{{ asset('css/responsive.css') }}?v=1.2">#}
+        {#<link type="text/css" rel="stylesheet" href="{{ asset('css/swiper.min.css') }}?v=1.0">#}
+        {#<link type="text/css" rel="stylesheet" href="{{ asset('css/popup.css') }}?v=1.0">#}
+        {#<link type="text/css" rel="stylesheet" href="{{ asset('css/hamburgers.css') }}">#}
     {% endblock %}
 
     {% block javascripts %}
@@ -474,50 +474,133 @@ file that was distributed with this source code.
 
 <script type="text/javascript">
     window.onload = function () {
-        if (window.addEventListener) {
-            document.getElementById('sc3a2b9d3da_quantityOfCargo').addEventListener('input', changePrice, false);
-        } else if (window.attachEvent) {
-            document.getElementById('sc3a2b9d3da_quantityOfCargo').attachEvent("oninput", changePrice);
+        var strId = document.getElementsByClassName(' form-control')[0].id;
+        var lenght = strId.indexOf('_');
+        var code = strId.substring(0,lenght);
+        var hash = code + '_quantityOfCargo';
+        var quantity = document.getElementById(hash).value;
+        var price = document.getElementById(code+'_price');
+        var shippingAddress = document.getElementById('field_widget_'+code+'_shippingAddress').firstElementChild.firstElementChild;
+        var deliveryAddress = document.getElementById('field_widget_'+code+'_deliveryAddress').firstElementChild.firstElementChild;
+        document.getElementById('sonata-ba-field-container-'+code+'_quantityOfCargo').innerHTML += '<input type="button" id="calculatePriceButton" onclick="changePrice()" class="button-log" value="Рассчитать стоимость"/>';
+
+
+        if(window.location.href.includes('create') ) {
+            var element = document.getElementsByClassName('navbar navbar-default');
+            element[0].style.display = 'none';
         }
+
+        if (window.addEventListener) {
+            // document.getElementById(hash).addEventListener("change", changePrice, false);
+            document.getElementById('calculatePriceButton').addEventListener("click", changePrice, false);
+
+        } else if (window.attachEvent) {
+            // document.getElementById(hash).attachEvent("change", changePrice);
+            document.getElementById('calculatePriceButton').attachEvent("click", changePrice);
+        }
+
 
         //s4288865066_price
         function changePrice() {
-            var quantity = document.getElementById('sc3a2b9d3da_quantityOfCargo').value;
-            var shippingCity = document.getElementById('field_widget_sc3a2b9d3da_cargoId').firstElementChild.firstElementChild.innerHTML;
-            var weight = Number(shippingCity.replace(/\D+/g,""));
-            // var deliveryCity = document.getElementById('field_widget_s4288865066_deliveryAddress').firstElementChild.firstElementChild.innerHTML;
-            var price = document.getElementById('sc3a2b9d3da_price');
-            if (weight <= 1) {
-                price.value = quantity * 25;
+            quantity = document.getElementById(hash).value;
+            price = document.getElementById(code+'_price');
+            shippingAddress = document.getElementById('field_widget_'+code+'_shippingAddress').firstElementChild.firstElementChild;
+            deliveryAddress = document.getElementById('field_widget_'+code+'_deliveryAddress').firstElementChild.firstElementChild;
+            // alert(shippingAddress);
+            if (quantity == 1) {
+                price.value = 25;
             }
-            else if (weight >= 2 && weight <= 10) {
-                price.value = quantity * 35;
+            else if (quantity >= 2 && quantity <= 10) {
+                price.value = 35;
             }
-            else if (weight >= 11 && weight <= 20) {
-                price.value = quantity * 42;
+            else if (quantity >= 11 && quantity <= 20) {
+                price.value = 42;
             }
-            else if (weight >= 21 && weight <= 40) {
-                price.value = quantity * 51;
+            else if (quantity >= 21 && quantity <= 40) {
+                price.value = 51;
             }
-            else if (weight >= 41 && weight <= 60) {
-                price.value = quantity * 60;
+            else if (quantity >= 41 && quantity <= 60) {
+                price.value = 60;
             }
-            else if (weight >= 61 && weight <= 80) {
-                price.value = quantity * 68;
+            else if (quantity >= 61 && quantity <= 80) {
+                price.value = 68;
             }
-            else if (weight >= 81 && weight <= 100) {
-                price.value = quantity * 85;
+            else if (quantity >= 81 && quantity <= 100) {
+                price.value = 85;
             }
-            else if (weight >= 101 && weight <= 150) {
-                price.value = quantity * 110;
+            else if (quantity >= 101 && quantity <= 150) {
+                price.value = 110;
             }
-            else if (weight >= 151 && weight <= 200) {
-                price.value = quantity * 150;
+            else if (quantity >= 151 && quantity <= 200) {
+                price.value = 150;
             }
-            else {
-                price.value = quantity * 200;
+            else if(quantity >= 201) {
+                price.value = 200;
             }
 
+            if (shippingAddress !== null && shippingAddress.innerHTML.includes('Минск')){
+                deliveryMinsk();
+            }
+            if (deliveryAddress !== null && deliveryAddress.innerHTML.includes('Минск')){
+                deliveryMinsk();
+            }
+            if (shippingAddress !== null && shippingAddress.innerHTML.includes('Москва')){
+                deliveryMoscow();
+            }
+            if (deliveryAddress !== null && deliveryAddress.innerHTML.includes('Мосвка')){
+                deliveryMoscow();
+            }
+            if (shippingAddress !== null && shippingAddress.innerHTML.includes('Московская обл.')){
+                deliveryMoscowObl();
+            }
+            if (deliveryAddress !== null && deliveryAddress.innerHTML.includes('Московская обл.')){
+                deliveryMoscowObl();
+            }
+        }
+
+        function deliveryMinsk() {
+            if (quantity <= 5) {
+                price.value = parseInt(price.value) + 5 ;
+            }
+            else if (quantity >= 6 && quantity <= 50) {
+                price.value = parseInt(price.value) + 10;
+            }
+            else if (quantity >= 51 && quantity <= 400) {
+                price.value = parseInt(price.value) + 15;
+            }
+            else if (quantity >= 401 && quantity <= 2000) {
+                price.value = parseInt(price.value) + 25;
+            }
+        }
+
+        function deliveryMoscow() {
+            if (quantity <= 5) {
+                price.value = parseInt(price.value) + 15;
+            }
+            else if (quantity >= 6 && quantity <= 50) {
+                price.value = parseInt(price.value) + 25;
+            }
+            else if (quantity >= 51 && quantity <= 400) {
+                price.value = parseInt(price.value) + 40;
+            }
+            else if (quantity >= 401 && quantity <= 2000) {
+                price.value = parseInt(price.value) + 60;
+            }
+        }
+
+        function deliveryMoscowObl() {
+            if (quantity <= 5) {
+                price.value = parseInt(price.value) + 35;
+            }
+            else if (quantity >= 6 && quantity <= 50) {
+                price.value = parseInt(price.value) + 45;
+            }
+            else if (quantity >= 51 && quantity <= 400) {
+                price.value = parseInt(price.value) + 60;
+            }
+            else if (quantity >= 401 && quantity <= 2000) {
+                price.value = parseInt(price.value) + 80;
+            }
         }
     }
 </script>

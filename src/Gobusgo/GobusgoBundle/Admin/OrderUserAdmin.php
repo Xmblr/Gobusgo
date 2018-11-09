@@ -2,8 +2,10 @@
 
 namespace Gobusgo\GobusgoBundle\Admin;
 
+use Doctrine\DBAL\Types\FloatType;
 use Gobusgo\GobusgoBundle\Entity\Address;
 use Gobusgo\GobusgoBundle\Entity\Cargo;
+use Gobusgo\GobusgoBundle\Entity\City;
 use Gobusgo\GobusgoBundle\Entity\Order;
 use Sonata\AdminBundle\Admin\AbstractAdmin;
 use Sonata\AdminBundle\Datagrid\ListMapper;
@@ -12,6 +14,10 @@ use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Form\Type\ModelListType;
 use Sonata\AdminBundle\Route\RouteCollection;
 use Sonata\AdminBundle\Show\ShowMapper;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
+use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
@@ -125,32 +131,45 @@ class OrderUserAdmin extends AbstractAdmin
 
             ))
 
+            ->add('shippingCity', ChoiceType::class, [
+                'choices'=>[
+                    'Минск' => 'Минск',
+                    'Москва' => 'Москва'
+                ],
+                'label' => 'Откуда'
+                ])
+
+            ->add('deliveryCity', ChoiceType::class, [
+                'choices'=>[
+                    'Москва' => 'Москва',
+                    'Минск' => 'Минск'
+                ],
+                'label' => 'Куда'
+            ])
+//            ->add('city', EntityType::class, [
+//                'class' => City::class,
+//                'choice_label' => 'name',
+//                'label' => 'Куда'])
 
             ->add('shippingAddress', ModelListType::class, [
                 'class'=>Address::class,
-                'label' => 'Адрес отправки',
-                'btn_delete' => false,
+                'label' => 'Адрес вывоза груза',
+//                'btn_delete' => false,
             ],array(
                 'admin_code' => 'admin.user.address',
-
+                'required' => false
             ))
             ->add('deliveryAddress', ModelListType::class, [
                 'class'=>Address::class,
-                'label' => 'Адрес доставки',
-                'btn_delete' => false,
+                'label' => 'Адрес доставки груза',
+//                'btn_delete' => false,
             ],array(
-                'admin_code' => 'admin.user.address'
-            ))
-            ->add('additionalAddress', ModelListType::class, [
-                'class' => Address::class,
-                'label' => 'Дополнительный адрес',
-                'btn_delete' => false,
+                'admin_code' => 'admin.user.address',
                 'required' => false
-            ], array(
-                'admin_code' => 'admin.user.address'
             ))
-            ->add('quantityOfCargo', null, array('label' => 'Количество груза'))
-            ->add('price',null,array('label'=>'Цена, BYN', 'attr'=> array('readonly'=>'readonly')))
+
+            ->add('quantityOfCargo', IntegerType::class, array('label' => 'Количество груза, КГ'))
+            ->add('price',IntegerType::class,array('label'=>'Цена, BYN', 'attr'=> array('readonly'=>'readonly')))
             ->add('notice', TextareaType::class, array('label' => 'Примечание', 'required' => false))
             ->end()
             ->with('Склад в Минске', ['class' => 'col-md-6'])

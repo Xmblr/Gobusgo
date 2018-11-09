@@ -49,27 +49,30 @@ class Order
     protected $quantityOfCargo;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Gobusgo\GobusgoBundle\Entity\Address")
+     * @ORM\Column(type="string")
      * @Assert\NotBlank()
+     */
+    protected $shippingCity;
+
+    /**
+     * @ORM\Column(type="string")
+     * @Assert\NotBlank()
+     */
+    protected $deliveryCity;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Gobusgo\GobusgoBundle\Entity\Address")
+     * @ORM\Column(nullable=true)
      */
     protected $shippingAddress;
 
     /**
      * @ORM\ManyToOne(targetEntity="Gobusgo\GobusgoBundle\Entity\Address")
-     * @Assert\NotBlank()
+     * @ORM\Column(nullable=true)
      */
     protected $deliveryAddress;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Gobusgo\GobusgoBundle\Entity\Address")
-     *
-     */
-    protected $additionalAddress;
-
-
-    /**
-     *
-     *
      * @ORM\Column(type="datetime")
      */
     protected $dateOfOrder;
@@ -214,22 +217,6 @@ class Order
         $this->deliveryAddress = $deliveryAddress;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getAdditionalAddress()
-    {
-        return $this->additionalAddress;
-    }
-
-    /**
-     * @param mixed $additionalAddress
-     */
-    public function setAdditionalAddress($additionalAddress)
-    {
-        $this->additionalAddress = $additionalAddress;
-    }
-
 
     /**
      * @return mixed
@@ -261,6 +248,38 @@ class Order
     public function setStatus($status)
     {
         $this->status = $status;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getShippingCity()
+    {
+        return $this->shippingCity;
+    }
+
+    /**
+     * @param mixed $shippingCity
+     */
+    public function setShippingCity($shippingCity)
+    {
+        $this->shippingCity = $shippingCity;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDeliveryCity()
+    {
+        return $this->deliveryCity;
+    }
+
+    /**
+     * @param mixed $deliveryCity
+     */
+    public function setDeliveryCity($deliveryCity)
+    {
+        $this->deliveryCity = $deliveryCity;
     }
 
 
