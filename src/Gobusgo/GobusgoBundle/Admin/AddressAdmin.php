@@ -9,6 +9,7 @@ use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Gobusgo\GobusgoBundle\Controller\CRUDController;
 use Sonata\CoreBundle\Twig\Extension\FlashMessageExtension;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class AddressAdmin extends AbstractAdmin

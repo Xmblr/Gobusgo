@@ -11,12 +11,14 @@
             </div>
         </div>
     </section>
+    <div class="divider-home"></div>
+    <section class="section-60">
     <div class="container" id="raschet">
         <div class="row" style="text-align: center;">
             <div class="col-md-12">
-                <h2>Расчет стоимости грузоперевозки:</h2>
+                <h2>Расчет стоимости грузоперевозки:</br>(От склада до склада)</h2>
             </div>
-            <div class="offset-top-22 offset-md-top-40 section-bottom-60 range col-md-12 col-xs-12">
+            <div class="offset-top-22 offset-md-top-40 section-bottom-40 range col-md-12 col-xs-12">
                 <img class="road-laptop" src="{{ asset('images/road2.png') }}" style="width: 100%; height: 100%;">
                 <div class="col-md-3 col-sm-3 col-xs-3 road-tablet">
                     <div style="height: 123px;">
@@ -81,8 +83,40 @@
                     </div>
                 </div>
             </div>
+
+        </div>
+        <div class="col-md-12">
+
+            <div class="col-md-3 col-sm-3 m-b-20 text-center">
+                <img style="width: 40px;" src="{{ asset('images/attention.png') }}">
+                <p style="font-family: MyWebFont; margin-top: 10px;">
+                    Цена указана за грузоперевозку <b>от
+                        склада города Минска, до склада города Москвы.</b>
+                </p>
+            </div>
+            <div class="col-md-3 col-sm-3 m-b-20 text-center">
+                <img style="width: 40px;" src="{{ asset('images/attention.png') }}">
+                <p style="font-family: MyWebFont; margin-top: 10px;">При заказе грузоперевозки массой <b>более
+                        300 кг действует специальная цена</b>.
+                </p>
+            </div>
+            <div class="col-md-3 col-sm-3 m-b-20 text-center">
+                <img style="width: 40px;" src="{{ asset('images/attention.png') }}">
+                <p style="font-family: MyWebFont; margin-top: 10px;">
+                    Расчет стоимости грузоперевозки также
+                    зависит от объема груза. <b>Стоимость 1 куб м. = 90 руб</b>. Расчет
+                    производится от большего показателя.
+                </p>
+            </div>
+            <div class="col-md-3 col-sm-3 m-b-20 text-center">
+                <img style="width: 40px;" src="{{ asset('images/attention.png') }}">
+                <p style="font-family: MyWebFont; margin-top: 10px;">Gobusgo оказывает дополнительные
+                    услуги по доставке грузов <b>по Минску, Москве, и Московской области</b>.
+                </p>
+            </div>
         </div>
     </div>
+    </section>
     <a href="#x" class="overlay" id="orderForm">
     </a>
     <div class="popup">
@@ -305,6 +339,58 @@
             </div>
         </div>
     </section>
+    <section id="services" class="section-60">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2>Дополнительные услуги</h2>
+                    <p class="big text-center">Дополнительные услуги по доставке или забору груза</p>
+                </div>
+                <div class="col-md-8 col-md-push-2 offset-top-30">
+                    <div class="table-mobile">
+                        <table class="table table-bordered table-striped" style="overflow:scroll;">
+                            <thead>
+                            <tr>
+                                <th></th>
+                                <th>По Минску</th>
+                                <th>По Москве</th>
+                                <th>По Московской обл.</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>до 5 кг</td>
+                                <td>5 BYN</td>
+                                <td>15 BYN</td>
+                                <td>35 BYN</td>
+                            </tr>
+                            <tr>
+                                <td>до 50 кг</td>
+                                <td>10 BYN</td>
+                                <td>25 BYN</td>
+                                <td>45 BYN</td>
+                            </tr>
+                            <tr>
+                                <td>до 400 кг</td>
+                                <td>15 BYN</td>
+                                <td>40 BYN</td>
+                                <td>60 BYN</td>
+                            </tr>
+                            <tr>
+                                <td>до 2000 кг</td>
+                                <td>25 BYN</td>
+                                <td>60 BYN</td>
+                                <td>80 BYN</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <div class="divider-home"></div>
     <section class="section-60">
         <div class="container">
             <div class="row">
@@ -392,7 +478,7 @@
             if (weight <= 1) {
                 sum.value = 25 + ' BYN';
             }
-            else if (weight >= 2 && weight <= 10) {
+            else if (weight >= 1.01 && weight <= 10) {
                 sum.value = 35 + ' BYN';
             }
             else if (weight >= 11 && weight <= 20) {
@@ -418,6 +504,9 @@
             }
             else if (weight >= 200 && weight <= 300) {
                 sum.value = 200 + ' BYN';
+            }
+            else if (weight >= 300) {
+                sum.value = 'Спец. цена';
             }
             else {
                 sum.value = 0 + ' BYN';
