@@ -11,12 +11,14 @@
             </div>
         </div>
     </section>
+    <div class="divider-home"></div>
+    <section class="section-60">
     <div class="container" id="raschet">
         <div class="row" style="text-align: center;">
             <div class="col-md-12">
-                <h2>Расчет стоимости грузоперевозки:</h2>
+                <h2>Расчет стоимости грузоперевозки</br>(От склада до склада)</h2>
             </div>
-            <div class="offset-top-22 offset-md-top-40 section-bottom-60 range col-md-12 col-xs-12">
+            <div class="offset-top-22 offset-md-top-40 section-bottom-40 range col-md-12 col-xs-12">
                 <img class="road-laptop" src="{{ asset('images/road2.png') }}" style="width: 100%; height: 100%;">
                 <div class="col-md-3 col-sm-3 col-xs-3 road-tablet">
                     <div style="height: 123px;">
@@ -60,7 +62,8 @@
                     <div class="col-md-3 height-mobile">
                         <h4>Габариты (кг)</h4>
                         <div class="Input">
-                            <input class="input-log" type="number" min="0,001" max="300" id="weight" required="required" placeholder="Вес, кг"
+                            <input class="input-log" type="number" min="0,001" max="300" id="weight" required="required"
+                                   placeholder="Вес, кг"
                                    oninput="sum()">
                             <p id="errorMessage"></p>
                         </div>
@@ -79,16 +82,45 @@
                             </div>
                         </div>
                         <div class="button-mobile">
-                            <a class="button-log"  onclick="openform()">Оформление
+                            <a class="button-log" onclick="openform()">Оформление
                             </a>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="col-md-12">
 
+            <div class="col-md-3 col-sm-3 m-b-20 text-center">
+                <img style="width: 40px;" src="{{ asset('images/attention.png') }}">
+                <p style="font-family: MyWebFont; margin-top: 10px;">
+                    Цена указана за грузоперевозку <b>от
+                        склада города Москвы, до склада города Минска.</b>
+                </p>
+            </div>
+            <div class="col-md-3 col-sm-3 m-b-20 text-center">
+                <img style="width: 40px;" src="{{ asset('images/attention.png') }}">
+                <p style="font-family: MyWebFont; margin-top: 10px;">При заказе грузоперевозки массой <b>более
+                        300 кг действует специальная цена</b>.
+                </p>
+            </div>
+            <div class="col-md-3 col-sm-3 m-b-20 text-center">
+                <img style="width: 40px;" src="{{ asset('images/attention.png') }}">
+                <p style="font-family: MyWebFont; margin-top: 10px;">
+                    Расчет стоимости грузоперевозки также
+                    зависит от объема груза. <b>Стоимость 1 куб м. = 90 руб</b>. Расчет
+                    производится от большего показателя.
+                </p>
+            </div>
+            <div class="col-md-3 col-sm-3 m-b-20 text-center">
+                <img style="width: 40px;" src="{{ asset('images/attention.png') }}">
+                <p style="font-family: MyWebFont; margin-top: 10px;">Gobusgo оказывает дополнительные
+                    услуги по доставке грузов <b>по Минску, Москве, и Московской области</b>.
+                </p>
+            </div>
         </div>
     </div>
-
+    </section>
     <a href="#x" class="overlay" id="orderForm">
     </a>
     <div class="popup">
@@ -310,9 +342,59 @@
                 </div>
             </div>
         </div>
-
     </section>
+    <section id="services" class="section-60">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2>Дополнительные услуги</h2>
+                    <p class="big text-center">Дополнительные услуги по доставке или забору груза</p>
+                </div>
+                <div class="col-md-8 col-md-push-2 offset-top-30">
+                    <div class="table-mobile">
+                        <table class="table table-bordered table-striped" style="overflow:scroll;">
+                            <thead>
+                            <tr>
+                                <th></th>
+                                <th>По Минску</th>
+                                <th>По Москве</th>
+                                <th>По Московской обл.</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>до 5 кг</td>
+                                <td>5 BYN</td>
+                                <td>15 BYN</td>
+                                <td>35 BYN</td>
+                            </tr>
+                            <tr>
+                                <td>до 50 кг</td>
+                                <td>10 BYN</td>
+                                <td>25 BYN</td>
+                                <td>45 BYN</td>
+                            </tr>
+                            <tr>
+                                <td>до 400 кг</td>
+                                <td>15 BYN</td>
+                                <td>40 BYN</td>
+                                <td>60 BYN</td>
+                            </tr>
+                            <tr>
+                                <td>до 2000 кг</td>
+                                <td>25 BYN</td>
+                                <td>60 BYN</td>
+                                <td>80 BYN</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
 
+            </div>
+        </div>
+    </section>
+    <div class="divider-home"></div>
     <section class="section-60">
         <div class="container">
             <div class="row">
@@ -356,7 +438,8 @@
                         <a href="mailto:info@gobusgo.ru"><span>info@gobusgo.ru</span></a>
                     </div>
                 </div>
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d241691.04197232757!2d37.517485994432384!3d55.75236978111817!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x414ab475348def13%3A0x70dca6aad8191ece!2z0YPQuy4g0J_QtdGA0LXRgNCy0LAsIDExLCDQnNC-0YHQutCy0LAsINCg0L7RgdGB0LjRjywgMTA5NjUx!5e0!3m2!1sru!2sby!4v1540385920117" width="100%" height="350" frameborder="0" style="border:0" allowfullscreen></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d241691.04197232757!2d37.517485994432384!3d55.75236978111817!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x414ab475348def13%3A0x70dca6aad8191ece!2z0YPQuy4g0J_QtdGA0LXRgNCy0LAsIDExLCDQnNC-0YHQutCy0LAsINCg0L7RgdGB0LjRjywgMTA5NjUx!5e0!3m2!1sru!2sby!4v1540385920117"
+                        width="100%" height="350" frameborder="0" style="border:0" allowfullscreen></iframe>
 
             </div>
             <div class="offset-top-22 offset-md-top-40 col-md-6">
@@ -380,7 +463,8 @@
                         <a href="mailto:info@gobusgo.by"><span>info@gobusgo.by</span></a>
                     </div>
                 </div>
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d104111.24204511433!2d27.464534885919846!3d53.897461316799394!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46dbdaaca271ed37%3A0x67d7afd2c4446992!2z0YPQuy4g0KXQsNGA0YzQutC-0LLRgdC60LDRjyA5MCwg0JzQuNC90YHQug!5e0!3m2!1sru!2sby!4v1540163503883" width="100%" height="350" frameborder="0" style="border:0" allowfullscreen></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d104111.24204511433!2d27.464534885919846!3d53.897461316799394!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46dbdaaca271ed37%3A0x67d7afd2c4446992!2z0YPQuy4g0KXQsNGA0YzQutC-0LLRgdC60LDRjyA5MCwg0JzQuNC90YHQug!5e0!3m2!1sru!2sby!4v1540163503883"
+                        width="100%" height="350" frameborder="0" style="border:0" allowfullscreen></iframe>
             </div>
         </div>
     </div>
@@ -403,7 +487,7 @@
             if (weight <= 1) {
                 sum.value = 25 + ' BYN';
             }
-            else if (weight >= 2 && weight <= 10) {
+            else if (weight >= 1.01 && weight <= 10) {
                 sum.value = 35 + ' BYN';
             }
             else if (weight >= 11 && weight <= 20) {
@@ -430,6 +514,9 @@
             else if (weight >= 200 && weight <= 300) {
                 sum.value = 200 + ' BYN';
             }
+            else if (weight >= 300) {
+                sum.value = 'Спец. цена';
+            }
             else {
                 sum.value = 0 + ' BYN';
             }
@@ -439,7 +526,7 @@
         function openform() {
             var weight = document.getElementById('weight').value;
             var sum = document.getElementById('sum').value;
-            if(!weight){
+            if (!weight) {
                 document.getElementById('errorMessage').innerHTML = '* Заполните это поле';
 
             }

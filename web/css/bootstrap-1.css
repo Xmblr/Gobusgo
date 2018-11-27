@@ -183,12 +183,6 @@ td,
 th {
     padding: 0;
 }
-
-.row {
-    margin-left: -15px;
-    margin-right: -15px;
-}
-
 /*! Source: https://github.com/h5bp/html5-boilerplate/blob/master/src/css/main.css */
 @media print {
     *,
@@ -2221,8 +2215,6 @@ th {
     width: 100%;
     max-width: 100%;
     margin-bottom: 20px;
-    overflow: scroll;
-    text-align: center;
 }
 .table > thead > tr > th,
 .table > tbody > tr > th,
@@ -2234,7 +2226,6 @@ th {
     line-height: 1.42857143;
     vertical-align: top;
     border-top: 1px solid #ddd;
-    text-align: center;
 }
 .table > thead > tr > th {
     vertical-align: bottom;

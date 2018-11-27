@@ -146,11 +146,12 @@ class OrderUserAdmin extends AbstractAdmin
                 ],
                 'label' => 'Куда'
             ])
+            ->end()
 //            ->add('city', EntityType::class, [
 //                'class' => City::class,
 //                'choice_label' => 'name',
 //                'label' => 'Куда'])
-
+            ->with('Дополнительные услуги', ['class' => 'col-md-12'])
             ->add('shippingAddress', ModelListType::class, [
                 'class'=>Address::class,
                 'label' => 'Адрес вывоза груза',
@@ -167,6 +168,7 @@ class OrderUserAdmin extends AbstractAdmin
                 'admin_code' => 'admin.user.address',
                 'required' => false
             ))
+            ->end()
 
             ->add('quantityOfCargo', IntegerType::class, array('label' => 'Количество груза, КГ'))
             ->add('price',IntegerType::class,array('label'=>'Цена, BYN', 'attr'=> array('readonly'=>'readonly')))
@@ -189,9 +191,9 @@ class OrderUserAdmin extends AbstractAdmin
             ->add('cargoId.name', null, array('label' => 'Груз'))
             ->add('quantityOfCargo', null, array('label' => 'Кол-во груза'))
             ->add('price', null, array('label' => 'Оценочная стоимость'))
-            ->add('shippingAddress.name', null, array('label' => 'Адрес отправки'))
-            ->add('deliveryAddress.name', null, array('label' => 'Адрес доставки'))
-            ->add('additionalAddress.name', null, array('label' => 'Дополнительный адрес'))
+//            ->add('shippingAddress.name', null, array('label' => 'Адрес отправки'))
+//            ->add('deliveryAddress.name', null, array('label' => 'Адрес доставки'))
+//            ->add('additionalAddress.name', null, array('label' => 'Дополнительный адрес'))
         ;
     }
 
@@ -206,9 +208,8 @@ class OrderUserAdmin extends AbstractAdmin
             ->add('cargoId.name', null, array('label' => 'Груз'))
             ->add('quantityOfCargo', null, array('label' => 'Кол-во груза'))
             ->add('price', null, array('label' => 'Оценочная стоимость'))
-            ->add('shippingAddress.name', null, array('label' => 'Адрес отправки'))
-            ->add('deliveryAddress.name', null, array('label' => 'Адрес доставки'))
-            ->add('additionalAddress.name', null, array('label' => 'Дополнительный адрес'))
+//            ->add('shippingAddress', null, array('label' => 'Адрес отправки'))
+//            ->add('deliveryAddress', null, array('label' => 'Адрес доставки'))
             ->add('_action', null, [
                 'actions' => [
                     'cancel' => ['template' => '@GobusgoGobusgo/Admin/CRUD/list__action_cancel.html.twig'],

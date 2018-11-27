@@ -11,7 +11,10 @@ use Sonata\AdminBundle\Admin\AbstractAdmin;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
+use Sonata\AdminBundle\Form\Type\Filter\ChoiceType;
+use Sonata\AdminBundle\Form\Type\ModelListType;
 use Sonata\AdminBundle\Form\Type\ModelType;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Sonata\AdminBundle\Show\ShowMapper;
 
@@ -31,50 +34,64 @@ class OrderAdmin extends AbstractAdmin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('userId', ModelType::class, [
-                'class' => User::class,
-                'label' => 'Пользователь',
-                'property' => 'fullName',
+            ->with('Создание заявки', ['class' => 'col-md-12'])
+            ->add('cargoId', ModelListType::class, [
+                'class'=>Cargo::class,
+                'label' => 'Шаблон груза',
+                'btn_delete' => false,
+                'required'=>true
+            ],array(
+                'admin_code' => 'admin.user.cargo',
+
+            ))
+
+            ->add('shippingCity', ChoiceType::class, [
+                'choices'=>[
+                    'Минск' => 'Минск',
+                    'Москва' => 'Москва'
+                ],
+                'label' => 'Откуда'
             ])
-            ->add('cargoId', ModelType::class, [
-                'class' => Cargo::class,
-                'label' => 'Груз',
-                'property' => 'name'
-            ], array(
-                'admin_code' => 'admin.cargo'
-            ))
-            ->add('quantityOfCargo', null, array('label' => 'Кол-во груза'))
-            ->add('price', null, array('label' => 'Цена'))
-            ->add('shippingAddress', ModelType::class, [
-                'class' => Address::class,
-                'label' => 'Адрес отправки',
-                'property' => 'city.name'
-            ], array(
-                'admin_code' => 'admin.address'
-            ))
-            ->add('deliveryAddress', ModelType::class, [
-                'class' => Address::class,
-                'label' => 'Адрес доставки',
-                'property' => 'city.name'
-            ], array(
-                'admin_code' => 'admin.address'
-            ))
-            ->add('additionalAddress', ModelType::class, [
-                'class' => Address::class,
-                'label' => 'Дополнительный адрес',
-                'property' => 'name'
-            ], array(
-                'admin_code' => 'admin.address'
-            ))
-            ->add('dateOfOrder', DateTimeType::DATETIME, array('label' => 'Дата заявки'))
-            ->add('status', 'choice', array(
-                'choices' => array(
-                    'Завершено' => 1,
-                    'Отменено'=>2,
-                    'В обработке'=>0
-                )
-            ), array('label' => 'Статус'))
-            ->add('notice', TextareaType::class, array('label' => 'Примечания', 'required' => false));
+
+            ->add('deliveryCity', ChoiceType::class, [
+                'choices'=>[
+                    'Москва' => 'Москва',
+                    'Минск' => 'Минск'
+                ],
+                'label' => 'Куда'
+            ])
+            ->end()
+//            ->add('city', EntityType::class, [
+//                'class' => City::class,
+//                'choice_label' => 'name',
+//                'label' => 'Куда'])
+            ->with('Дополнительные услуги', ['class' => 'col-md-12'])
+//            ->add('shippingAddress', ModelListType::class, [
+//                'class'=>Address::class,
+//                'label' => 'Адрес вывоза груза',
+////                'btn_delete' => false,
+//            ],array(
+//                'admin_code' => 'admin.user.address',
+//                'required' => false
+//            ))
+//            ->add('deliveryAddress', ModelListType::class, [
+//                'class'=>Address::class,
+//                'label' => 'Адрес доставки груза',
+////                'btn_delete' => false,
+//            ],array(
+//                'admin_code' => 'admin.user.address',
+//                'required' => false
+//            ))
+            ->end()
+
+            ->add('quantityOfCargo', IntegerType::class, array('label' => 'Количество груза, КГ'))
+            ->add('price',IntegerType::class,array('label'=>'Цена, BYN', 'attr'=> array('readonly'=>'readonly')))
+            ->add('notice', TextareaType::class, array('label' => 'Примечание', 'required' => false))
+            ->end()
+            ->with('Склад в Минске', ['class' => 'col-md-6'])
+            ->end()
+            ->with('Склад в Москве', ['class' => 'col-md-6'])
+            ->end();
     }
 
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
@@ -105,9 +122,9 @@ class OrderAdmin extends AbstractAdmin
             ->add('cargoId.name', null, array('label' => 'Груз'))
             ->add('quantityOfCargo', null, array('label' => 'Кол-во груза'))
             ->add('price', null, array('label' => 'Оценочная стоимость'))
-            ->add('shippingAddress.city.name', null, array('label' => 'Адрес отправки'))
-            ->add('deliveryAddress.city.name', null, array('label' => 'Адрес доставки'))
-            ->add('additionalAddress.city.name', null, array('label' => 'Доп. адрес'))
+//            ->add('shippingAddress.city.name', null, array('label' => 'Адрес отправки'))
+//            ->add('deliveryAddress.city.name', null, array('label' => 'Адрес доставки'))
+//            ->add('additionalAddress.city.name', null, array('label' => 'Доп. адрес'))
             ->add('_action', null, [
                 'label' => 'Действия',
                 'actions' => [
