@@ -149,6 +149,39 @@
                                 {#</div>#}
                                 {#</div>#}
                                 {#</div>#}
+                            {% elseif form_group.label == 'Дополнительная информация' %}
+                                <div class="col-md-12">
+
+                                    <div class="col-md-6 col-sm-6 m-b-20 text-center">
+                                        <img style="width: 40px;" src="{{ asset('images/attention.png') }}">
+                                        <p style="font-family: MyWebFont; margin-top: 10px;">
+                                            Цена указана за грузоперевозку <b>от
+                                                склада города Москвы, до склада города Минска.</b>
+                                        </p>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6 m-b-20 text-center">
+                                        <img style="width: 40px;" src="{{ asset('images/attention.png') }}">
+                                        <p style="font-family: MyWebFont; margin-top: 10px;">При заказе грузоперевозки массой <b>более
+                                                300 кг действует специальная цена</b>.
+                                        </p>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6 m-b-20 text-center">
+                                        <img style="width: 40px;" src="{{ asset('images/attention.png') }}">
+                                        <p style="font-family: MyWebFont; margin-top: 10px;">
+                                            Расчет стоимости грузоперевозки также
+                                            зависит от объема груза. <b>Стоимость 1 куб м. = 90 руб</b>. Расчет
+                                            производится от большего показателя.
+                                        </p>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6 m-b-20 text-center">
+                                        <img style="width: 40px;" src="{{ asset('images/attention.png') }}">
+                                        <p style="font-family: MyWebFont; margin-top: 10px;">Gobusgo оказывает дополнительные
+                                            услуги по доставке грузов <b>по Минску, Москве, и Московской области</b>.
+                                        </p>
+                                    </div>
+                                </div>
+
+
                             {% elseif form_group.label == 'Склад в Москве' %}
 
 

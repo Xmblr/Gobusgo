@@ -6,7 +6,7 @@ services:
     gobusgo_gobusgo.admin.order:
         class: Gobusgo\GobusgoBundle\Admin\OrderUserAdmin
         tags:
-            - { name: sonata.admin, manager_type: orm, group: admin.user.order, label: TEST }
+            - { name: sonata.admin, manager_type: orm, group: admin.user.order, label: Расчет стоимости }
         arguments:
             - null
             - Gobusgo\GobusgoBundle\Entity\Order

@@ -120,7 +120,7 @@ class OrderUserAdmin extends AbstractAdmin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->with('Создание заявки', ['class' => 'col-md-12'])
+            ->with('Создание заявки', ['class' => 'col-md-6'])
             ->add('cargoId', ModelListType::class, [
                 'class'=>Cargo::class,
                 'label' => 'Шаблон груза',
@@ -151,7 +151,7 @@ class OrderUserAdmin extends AbstractAdmin
 //                'class' => City::class,
 //                'choice_label' => 'name',
 //                'label' => 'Куда'])
-            ->with('Дополнительные услуги', ['class' => 'col-md-12'])
+            ->with('Дополнительные услуги', ['class' => 'col-md-6'])
             ->add('shippingAddress', ModelListType::class, [
                 'class'=>Address::class,
                 'label' => 'Адрес вывоза груза',
@@ -169,8 +169,9 @@ class OrderUserAdmin extends AbstractAdmin
                 'required' => false
             ))
             ->end()
-
-            ->add('quantityOfCargo', IntegerType::class, array('label' => 'Количество груза, КГ'))
+            ->with('Дополнительная информация', ['class' => 'col-md-6'])
+            ->end()
+            ->add('quantityOfCargo', IntegerType::class, array('label' => 'Количество груза'))
             ->add('price',IntegerType::class,array('label'=>'Цена, BYN', 'attr'=> array('readonly'=>'readonly')))
             ->add('notice', TextareaType::class, array('label' => 'Примечание', 'required' => false))
             ->end()
