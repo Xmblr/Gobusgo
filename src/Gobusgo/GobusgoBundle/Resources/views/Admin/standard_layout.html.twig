@@ -483,6 +483,7 @@ file that was distributed with this source code.
         var price = document.getElementById(code+'_price');
         var shippingAddress = document.getElementById('field_widget_'+code+'_shippingAddress').firstElementChild.firstElementChild;
         var deliveryAddress = document.getElementById('field_widget_'+code+'_deliveryAddress').firstElementChild.firstElementChild;
+        var cargoId = document.getElementById('field_widget_'+code+'_cargoId').firstElementChild.firstElementChild;
         document.getElementById('sonata-ba-field-container-'+code+'_quantityOfCargo').innerHTML += '<input type="button" id="calculatePriceButton" onclick="changePrice()" class="button-log" value="Рассчитать стоимость"/>';
 
 
@@ -504,58 +505,64 @@ file that was distributed with this source code.
         //s4288865066_price
         function changePrice() {
             quantity = document.getElementById(hash).value;
-            price = document.getElementById(code+'_price');
-            shippingAddress = document.getElementById('field_widget_'+code+'_shippingAddress').firstElementChild.firstElementChild;
-            deliveryAddress = document.getElementById('field_widget_'+code+'_deliveryAddress').firstElementChild.firstElementChild;
-            // alert(shippingAddress);
-            if (quantity == 1) {
-                price.value = 25;
-            }
-            else if (quantity >= 2 && quantity <= 10) {
-                price.value = 35;
-            }
-            else if (quantity >= 11 && quantity <= 20) {
-                price.value = 42;
-            }
-            else if (quantity >= 21 && quantity <= 40) {
-                price.value = 51;
-            }
-            else if (quantity >= 41 && quantity <= 60) {
-                price.value = 60;
-            }
-            else if (quantity >= 61 && quantity <= 80) {
-                price.value = 68;
-            }
-            else if (quantity >= 81 && quantity <= 100) {
-                price.value = 85;
-            }
-            else if (quantity >= 101 && quantity <= 150) {
-                price.value = 110;
-            }
-            else if (quantity >= 151 && quantity <= 200) {
-                price.value = 150;
-            }
-            else if(quantity >= 201) {
-                price.value = 200;
-            }
+            price = document.getElementById(code + '_price');
+            shippingAddress = document.getElementById('field_widget_' + code + '_shippingAddress').firstElementChild.firstElementChild;
+            deliveryAddress = document.getElementById('field_widget_' + code + '_deliveryAddress').firstElementChild.firstElementChild;
+            cargoId = document.getElementById('field_widget_' + code + '_cargoId').firstElementChild.firstElementChild;
+            if (cargoId != null) {
 
-            if (shippingAddress !== null && shippingAddress.innerHTML.includes('Минск')){
-                deliveryMinsk();
+                if (quantity == 1) {
+                    price.value = 25;
+                }
+                else if (quantity >= 2 && quantity <= 10) {
+                    price.value = 35;
+                }
+                else if (quantity >= 11 && quantity <= 20) {
+                    price.value = 42;
+                }
+                else if (quantity >= 21 && quantity <= 40) {
+                    price.value = 51;
+                }
+                else if (quantity >= 41 && quantity <= 60) {
+                    price.value = 60;
+                }
+                else if (quantity >= 61 && quantity <= 80) {
+                    price.value = 68;
+                }
+                else if (quantity >= 81 && quantity <= 100) {
+                    price.value = 85;
+                }
+                else if (quantity >= 101 && quantity <= 150) {
+                    price.value = 110;
+                }
+                else if (quantity >= 151 && quantity <= 200) {
+                    price.value = 150;
+                }
+                else if (quantity >= 201) {
+                    price.value = 200;
+                }
+
+                if (shippingAddress !== null && shippingAddress.innerHTML.includes('Минск')) {
+                    deliveryMinsk();
+                }
+                if (deliveryAddress !== null && deliveryAddress.innerHTML.includes('Минск')) {
+                    deliveryMinsk();
+                }
+                if (shippingAddress !== null && shippingAddress.innerHTML.includes('Москва')) {
+                    deliveryMoscow();
+                }
+                if (deliveryAddress !== null && deliveryAddress.innerHTML.includes('Мосвка')) {
+                    deliveryMoscow();
+                }
+                if (shippingAddress !== null && shippingAddress.innerHTML.includes('Московская обл.')) {
+                    deliveryMoscowObl();
+                }
+                if (deliveryAddress !== null && deliveryAddress.innerHTML.includes('Московская обл.')) {
+                    deliveryMoscowObl();
+                }
             }
-            if (deliveryAddress !== null && deliveryAddress.innerHTML.includes('Минск')){
-                deliveryMinsk();
-            }
-            if (shippingAddress !== null && shippingAddress.innerHTML.includes('Москва')){
-                deliveryMoscow();
-            }
-            if (deliveryAddress !== null && deliveryAddress.innerHTML.includes('Мосвка')){
-                deliveryMoscow();
-            }
-            if (shippingAddress !== null && shippingAddress.innerHTML.includes('Московская обл.')){
-                deliveryMoscowObl();
-            }
-            if (deliveryAddress !== null && deliveryAddress.innerHTML.includes('Московская обл.')){
-                deliveryMoscowObl();
+            else {
+                alert("Зполните Шаблон Груза");
             }
         }
 

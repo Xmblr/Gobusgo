@@ -133,16 +133,16 @@ class OrderUserAdmin extends AbstractAdmin
 
             ->add('shippingCity', ChoiceType::class, [
                 'choices'=>[
-                    'Минск' => 'Минск',
-                    'Москва' => 'Москва'
+                    'Минск (склад)' => 'Минск (склад)',
+                    'Москва (склад)' => 'Москва (склад)'
                 ],
                 'label' => 'Откуда'
                 ])
 
             ->add('deliveryCity', ChoiceType::class, [
                 'choices'=>[
-                    'Москва' => 'Москва',
-                    'Минск' => 'Минск'
+                    'Москва (склад)' => 'Москва (склад)',
+                    'Минск (склад)' => 'Минск (склад)'
                 ],
                 'label' => 'Куда'
             ])
@@ -155,18 +155,20 @@ class OrderUserAdmin extends AbstractAdmin
             ->add('shippingAddress', ModelListType::class, [
                 'class'=>Address::class,
                 'label' => 'Адрес вывоза груза',
+                'required' => false
 //                'btn_delete' => false,
             ],array(
                 'admin_code' => 'admin.user.address',
-                'required' => false
+
             ))
             ->add('deliveryAddress', ModelListType::class, [
                 'class'=>Address::class,
                 'label' => 'Адрес доставки груза',
+                'required' => false
 //                'btn_delete' => false,
             ],array(
                 'admin_code' => 'admin.user.address',
-                'required' => false
+
             ))
             ->end()
             ->with('Дополнительная информация', ['class' => 'col-md-6'])
