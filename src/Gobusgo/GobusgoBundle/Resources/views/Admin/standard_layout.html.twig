@@ -484,7 +484,9 @@ file that was distributed with this source code.
         var shippingAddress = document.getElementById('field_widget_'+code+'_shippingAddress').firstElementChild.firstElementChild;
         var deliveryAddress = document.getElementById('field_widget_'+code+'_deliveryAddress').firstElementChild.firstElementChild;
         var cargoId = document.getElementById('field_widget_'+code+'_cargoId').firstElementChild.firstElementChild;
-        document.getElementById('sonata-ba-field-container-'+code+'_quantityOfCargo').innerHTML += '<input type="button" id="calculatePriceButton" onclick="changePrice()" class="button-log" value="Рассчитать стоимость"/>';
+        document.getElementById('sonata-ba-field-container-'+code+'_deliveryAddress').parentElement.innerHTML += '<input type="button" id="calculatePriceButton1" onclick="changePrice()" class="button-log" value="Пересчитать стоимость" />';
+        document.getElementById('sonata-ba-field-container-'+code+'_quantityOfCargo').innerHTML += '<input type="button" id="calculatePriceButton2" onclick="changePrice()" class="button-log" value="Рассчитать стоимость"/>';
+
 
 
         if(window.location.href.includes('create') ) {
@@ -494,11 +496,13 @@ file that was distributed with this source code.
 
         if (window.addEventListener) {
             // document.getElementById(hash).addEventListener("change", changePrice, false);
-            document.getElementById('calculatePriceButton').addEventListener("click", changePrice, false);
+            document.getElementById('calculatePriceButton1').addEventListener("click", changePrice, false);
+            document.getElementById('calculatePriceButton2').addEventListener("click", changePrice, false);
 
         } else if (window.attachEvent) {
             // document.getElementById(hash).attachEvent("change", changePrice);
-            document.getElementById('calculatePriceButton').attachEvent("click", changePrice);
+            document.getElementById('calculatePriceButton1').attachEvent("click", changePrice);
+            document.getElementById('calculatePriceButton2').attachEvent("click", changePrice);
         }
 
 
@@ -510,7 +514,7 @@ file that was distributed with this source code.
             deliveryAddress = document.getElementById('field_widget_' + code + '_deliveryAddress').firstElementChild.firstElementChild;
             cargoId = document.getElementById('field_widget_' + code + '_cargoId').firstElementChild.firstElementChild;
             if (cargoId != null) {
-
+                // alert(cargoId.substring((cargoId.lastIndexOf(",")),(cargoId.lastIndexOf("кг"))));
                 if (quantity == 1) {
                     price.value = 25;
                 }
