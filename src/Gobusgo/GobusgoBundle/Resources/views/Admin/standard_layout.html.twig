@@ -484,9 +484,9 @@ file that was distributed with this source code.
         var shippingAddress = document.getElementById('field_widget_'+code+'_shippingAddress').firstElementChild.firstElementChild;
         var deliveryAddress = document.getElementById('field_widget_'+code+'_deliveryAddress').firstElementChild.firstElementChild;
         var cargoId = document.getElementById('field_widget_'+code+'_cargoId').firstElementChild.firstElementChild;
-        document.getElementById('sonata-ba-field-container-'+code+'_deliveryAddress').parentElement.innerHTML += '<input type="button" id="calculatePriceButton1" onclick="changePrice()" class="button-log" value="Пересчитать стоимость" />';
-        document.getElementById('sonata-ba-field-container-'+code+'_quantityOfCargo').innerHTML += '<input type="button" id="calculatePriceButton2" onclick="changePrice()" class="button-log" value="Рассчитать стоимость"/>';
-
+        document.getElementById('sonata-ba-field-container-'+code+'_price').parentElement.innerHTML += '<input type="button" id="calculatePriceButton" onclick="changePrice()" class="button-log" value="Рассчитать стоимость" />';
+        // document.getElementById('sonata-ba-field-container-'+code+'_quantityOfCargo').innerHTML += '<input type="button" id="calculatePriceButton2" onclick="changePrice()" class="button-log" value="Рассчитать стоимость"/> <div><h4 style="display: inline-block">Цена, BYN: </h4> <h4 style="display: inline-block" id="firstPrice"></h4></div>';
+        var shippingValue, deliveryValue, coefficient, priceValue = 0;
 
 
         if(window.location.href.includes('create') ) {
@@ -496,13 +496,11 @@ file that was distributed with this source code.
 
         if (window.addEventListener) {
             // document.getElementById(hash).addEventListener("change", changePrice, false);
-            document.getElementById('calculatePriceButton1').addEventListener("click", changePrice, false);
-            document.getElementById('calculatePriceButton2').addEventListener("click", changePrice, false);
+            document.getElementById('calculatePriceButton').addEventListener("click", changePrice, false);
 
         } else if (window.attachEvent) {
             // document.getElementById(hash).attachEvent("change", changePrice);
-            document.getElementById('calculatePriceButton1').attachEvent("click", changePrice);
-            document.getElementById('calculatePriceButton2').attachEvent("click", changePrice);
+            document.getElementById('calculatePriceButton').attachEvent("click", changePrice);
         }
 
 
@@ -513,105 +511,119 @@ file that was distributed with this source code.
             shippingAddress = document.getElementById('field_widget_' + code + '_shippingAddress').firstElementChild.firstElementChild;
             deliveryAddress = document.getElementById('field_widget_' + code + '_deliveryAddress').firstElementChild.firstElementChild;
             cargoId = document.getElementById('field_widget_' + code + '_cargoId').firstElementChild.firstElementChild;
+            var weight = cargoId.text.substring(cargoId.text.lastIndexOf(',')+2,cargoId.text.lastIndexOf('кг')-1);
+
             if (cargoId != null) {
-                // alert(cargoId.substring((cargoId.lastIndexOf(",")),(cargoId.lastIndexOf("кг"))));
-                if (quantity == 1) {
-                    price.value = 25;
-                }
-                else if (quantity >= 2 && quantity <= 10) {
-                    price.value = 35;
-                }
-                else if (quantity >= 11 && quantity <= 20) {
-                    price.value = 42;
-                }
-                else if (quantity >= 21 && quantity <= 40) {
-                    price.value = 51;
-                }
-                else if (quantity >= 41 && quantity <= 60) {
-                    price.value = 60;
-                }
-                else if (quantity >= 61 && quantity <= 80) {
-                    price.value = 68;
-                }
-                else if (quantity >= 81 && quantity <= 100) {
-                    price.value = 85;
-                }
-                else if (quantity >= 101 && quantity <= 150) {
-                    price.value = 110;
-                }
-                else if (quantity >= 151 && quantity <= 200) {
-                    price.value = 150;
-                }
-                else if (quantity >= 201) {
-                    price.value = 200;
-                }
+
+                coefficient = weight * quantity;
 
                 if (shippingAddress !== null && shippingAddress.innerHTML.includes('Минск')) {
-                    deliveryMinsk();
+                    shippingValue = deliveryMinsk();
                 }
+                else if (shippingAddress !== null && shippingAddress.innerHTML.includes('Москва')) {
+                    shippingValue = deliveryMoscow();
+                }
+                else if (shippingAddress !== null && shippingAddress.innerHTML.includes('Московская обл.')) {
+                    shippingValue = deliveryMoscowObl();
+                }
+                else {
+                    shippingValue = 0;
+                }
+
                 if (deliveryAddress !== null && deliveryAddress.innerHTML.includes('Минск')) {
-                    deliveryMinsk();
+                    deliveryValue = deliveryMinsk();
                 }
-                if (shippingAddress !== null && shippingAddress.innerHTML.includes('Москва')) {
-                    deliveryMoscow();
+                else if (deliveryAddress !== null && deliveryAddress.innerHTML.includes('Москва')) {
+                    deliveryValue = deliveryMoscow();
                 }
-                if (deliveryAddress !== null && deliveryAddress.innerHTML.includes('Мосвка')) {
-                    deliveryMoscow();
+                else if (deliveryAddress !== null && deliveryAddress.innerHTML.includes('Московская обл.')) {
+                    deliveryValue = deliveryMoscowObl();
                 }
-                if (shippingAddress !== null && shippingAddress.innerHTML.includes('Московская обл.')) {
-                    deliveryMoscowObl();
+                else {
+                    deliveryValue = 0;
                 }
-                if (deliveryAddress !== null && deliveryAddress.innerHTML.includes('Московская обл.')) {
-                    deliveryMoscowObl();
+
+                if (coefficient == 1) {
+                    priceValue = 25;
                 }
+                else if (coefficient >= 2 && coefficient <= 10) {
+                    priceValue = 35;
+                }
+                else if (coefficient >= 11 && coefficient <= 20) {
+                    priceValue = 42;
+                }
+                else if (coefficient >= 21 && coefficient <= 40) {
+                    priceValue = 51;
+                }
+                else if (coefficient >= 41 && coefficient <= 60) {
+                    priceValue = 60;
+                }
+                else if (coefficient >= 61 && coefficient <= 80) {
+                    priceValue = 68;
+                }
+                else if (coefficient >= 81 && coefficient <= 100) {
+                    priceValue = 85;
+                }
+                else if (coefficient >= 101 && coefficient <= 150) {
+                    priceValue = 110;
+                }
+                else if (coefficient >= 151 && coefficient <= 200) {
+                    priceValue = 150;
+                }
+                else if (coefficient >= 201) {
+                    priceValue = 200;
+                }
+
+                price.value = priceValue + shippingValue + deliveryValue;
+
             }
             else {
-                alert("Зполните Шаблон Груза");
+                alert("Заполните Шаблон Груза");
             }
         }
 
         function deliveryMinsk() {
-            if (quantity <= 5) {
-                price.value = parseInt(price.value) + 5 ;
+            if (coefficient <= 5) {
+                return 15 ;
             }
-            else if (quantity >= 6 && quantity <= 50) {
-                price.value = parseInt(price.value) + 10;
+            else if (coefficient >= 6 && coefficient <= 50) {
+                return 20;
             }
-            else if (quantity >= 51 && quantity <= 400) {
-                price.value = parseInt(price.value) + 15;
+            else if (coefficient >= 51 && coefficient <= 400) {
+                return 25;
             }
-            else if (quantity >= 401 && quantity <= 2000) {
-                price.value = parseInt(price.value) + 25;
+            else if (coefficient >= 401 && coefficient <= 2000) {
+                return 30;
             }
         }
 
         function deliveryMoscow() {
-            if (quantity <= 5) {
-                price.value = parseInt(price.value) + 15;
+            if (coefficient <= 5) {
+                return 25;
             }
-            else if (quantity >= 6 && quantity <= 50) {
-                price.value = parseInt(price.value) + 25;
+            else if (coefficient >= 6 && coefficient <= 50) {
+                return 30;
             }
-            else if (quantity >= 51 && quantity <= 400) {
-                price.value = parseInt(price.value) + 40;
+            else if (coefficient >= 51 && coefficient <= 400) {
+                return 40;
             }
-            else if (quantity >= 401 && quantity <= 2000) {
-                price.value = parseInt(price.value) + 60;
+            else if (coefficient >= 401 && coefficient <= 2000) {
+                return 60;
             }
         }
 
         function deliveryMoscowObl() {
-            if (quantity <= 5) {
-                price.value = parseInt(price.value) + 35;
+            if (coefficient <= 5) {
+                return 40;
             }
-            else if (quantity >= 6 && quantity <= 50) {
-                price.value = parseInt(price.value) + 45;
+            else if (coefficient >= 6 && coefficient <= 50) {
+                return 50;
             }
-            else if (quantity >= 51 && quantity <= 400) {
-                price.value = parseInt(price.value) + 60;
+            else if (coefficient >= 51 && coefficient <= 400) {
+                return 60;
             }
-            else if (quantity >= 401 && quantity <= 2000) {
-                price.value = parseInt(price.value) + 80;
+            else if (coefficient >= 401 && coefficient <= 2000) {
+                return 80;
             }
         }
     }
