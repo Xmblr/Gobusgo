@@ -479,14 +479,10 @@ file that was distributed with this source code.
         var lenght = strId.indexOf('_');
         var code = strId.substring(0,lenght);
         var hash = code + '_quantityOfCargo';
-        var quantity = document.getElementById(hash).value;
-        var price = document.getElementById(code+'_price');
-        var shippingAddress = document.getElementById('field_widget_'+code+'_shippingAddress').firstElementChild.firstElementChild;
-        var deliveryAddress = document.getElementById('field_widget_'+code+'_deliveryAddress').firstElementChild.firstElementChild;
-        var cargoId = document.getElementById('field_widget_'+code+'_cargoId').firstElementChild.firstElementChild;
+        var quantity, price, shippingAddress, deliveryAddress, cargoId;
         document.getElementById('sonata-ba-field-container-'+code+'_price').parentElement.innerHTML += '<input type="button" id="calculatePriceButton" onclick="changePrice()" class="button-log" value="Рассчитать стоимость" />';
         // document.getElementById('sonata-ba-field-container-'+code+'_quantityOfCargo').innerHTML += '<input type="button" id="calculatePriceButton2" onclick="changePrice()" class="button-log" value="Рассчитать стоимость"/> <div><h4 style="display: inline-block">Цена, BYN: </h4> <h4 style="display: inline-block" id="firstPrice"></h4></div>';
-        var shippingValue, deliveryValue, coefficient, priceValue = 0;
+        var shippingValue, deliveryValue, coefficient, priceValue, weight = 0;
 
 
         if(window.location.href.includes('create') ) {
@@ -508,10 +504,10 @@ file that was distributed with this source code.
         function changePrice() {
             quantity = document.getElementById(hash).value;
             price = document.getElementById(code + '_price');
-            shippingAddress = document.getElementById('field_widget_' + code + '_shippingAddress').firstElementChild.firstElementChild;
-            deliveryAddress = document.getElementById('field_widget_' + code + '_deliveryAddress').firstElementChild.firstElementChild;
+            shippingAddress = document.getElementById('field_widget_' + code + '_shippingAddressId').firstElementChild.firstElementChild;
+            deliveryAddress = document.getElementById('field_widget_' + code + '_deliveryAddressId').firstElementChild.firstElementChild;
             cargoId = document.getElementById('field_widget_' + code + '_cargoId').firstElementChild.firstElementChild;
-            var weight = cargoId.text.substring(cargoId.text.lastIndexOf(',')+2,cargoId.text.lastIndexOf('кг')-1);
+            weight = cargoId.text.substring(cargoId.text.lastIndexOf(',')+2,cargoId.text.lastIndexOf('кг')-1);
 
             if (cargoId != null) {
 
