@@ -250,7 +250,7 @@ file that was distributed with this source code.
                         {% set filterActive = ((filter.isActive() or filter.options['show_filter']) and not admin.isDefaultFilter(filter.formName)) %}
                         <li>
                             <a href="#" class="sonata-toggle-filter sonata-ba-action" filter-target="filter-{{ admin.uniqid }}-{{ filter.name }}" filter-container="filter-container-{{ admin.uniqid() }}">
-                                <i style="vertical-align: middle; font-size: 18px;" class="fa {{ (filter.isActive() or filter.options['show_filter']) ? 'option-filter' : 'option-filter-noactive' }}"></i><span style="font-size: 16px; vertical-align: middle;">{{ filter.label|trans({}, filter.translationDomain ?: admin.translationDomain) }}</span>
+                                <i style="vertical-align: middle; font-size: 18px;" class="fa {{ (filter.isActive() or filter.options['show_filter']) ? 'option-filter' : 'option-filter-noactive fa-square-o' }}"></i><span style="font-size: 16px; vertical-align: middle;">{{ filter.label|trans({}, filter.translationDomain ?: admin.translationDomain) }}</span>
                             </a>
                         </li>
                     {% endfor %}

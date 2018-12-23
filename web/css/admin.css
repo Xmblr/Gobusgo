@@ -6024,13 +6024,9 @@ table.text-center th {
     -o-appearance: none;
     appearance: none;
     position: relative;
-    background: white;
     bottom: 0;
     left: 0;
-    height: 20px;
-    width: 20px;
     transition: all 0.15s ease-out 0s;
-    border: 1px solid #ffe775;
     color: #8598ff;
     cursor: pointer;
     display: inline-block;
@@ -6247,4 +6243,32 @@ body {
 .sonata-ba-form .row .col-md-12 .row {
     display: flex;
     flex-wrap: wrap;
+}
+
+.modal-header .close {
+    font-size: 20px;
+    margin-top: 5px;
+    margin-right: 10px;
+}
+
+.modal-header .close:before {
+    content:"";
+}
+
+@media (max-width: 768px) {
+    .modal-dialog.modal-lg {
+        width: auto !important;
+    }
+    .modal-dialog .container-fluid {
+        padding-right: 0px;
+        padding-left: 0px;
+    }
+}
+
+.navbar-default .navbar-collapse, .navbar-default .navbar-form {
+     border: none;
+}
+
+.navbar-nav {
+    margin: 7.5px 0px;
 }
