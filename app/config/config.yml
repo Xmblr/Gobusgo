@@ -224,6 +224,13 @@ sonata_admin:
         button_list:                    "@GobusgoGobusgo/Admin/Button/list_button.html.twig"
         button_show:                    "@GobusgoGobusgo/Admin/Button/show_button.html.twig"
 
+
+sonata_doctrine_orm_admin:
+    templates:
+        types:
+            list:
+                datetime:   "@GobusgoGobusgo/Admin/CRUD/list_datetime.html.twig"
+
 sonata_seo:
     encoding:         UTF-8
     page:

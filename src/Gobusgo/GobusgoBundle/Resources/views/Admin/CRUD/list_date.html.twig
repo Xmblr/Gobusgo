@@ -15,8 +15,8 @@ file that was distributed with this source code.
     {%- if value is empty -%}
         &nbsp;
     {%- elseif field_description.options.format is defined -%}
-        {{ value|date(field_description.options.format) }}
+        {{ value|date('d.m.y, H:m') }}{#{{ value|date(field_description.options.format) }}#}
     {%- else -%}
-        {{ value|date('F j, Y') }}
+        {{ value|date('d.m.y, H:m') }}{#{{ value|date('F j, Y') }}#}
     {%- endif -%}
 {% endblock %}
